@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import * as THREE from 'three';
+import { GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader";
 
 @Component({
   selector: 'app-root',
@@ -10,6 +11,7 @@ export class AppComponent implements OnInit {
   renderer: THREE.WebGLRenderer;
   scene: THREE.Scene;
   camera: THREE.PerspectiveCamera;
+  loader: GLTFLoader;
   man: THREE.Mesh;
   ngOnInit() {
     this.initThree();
@@ -23,6 +25,7 @@ export class AppComponent implements OnInit {
     this.camera.position.z = 5;
     this.renderer = new THREE.WebGLRenderer();
     this.renderer.setSize(window.innerWidth, window.innerHeight);
+    this.loader = new GLTFLoader();
     document.body.appendChild(this.renderer.domElement);
   }
 
