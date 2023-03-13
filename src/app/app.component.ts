@@ -36,6 +36,9 @@ export class AppComponent implements OnInit {
     assetsLoader.load('assets/models/me.glb', (gltf) => {
       const model = gltf.scene;
       scene.add(model);
+
+      const ambientLight = new THREE.AmbientLight(0xFFFFFF);
+      scene.add(ambientLight);
     }, undefined, (error) => console.log(error));
 
     function animate() {
