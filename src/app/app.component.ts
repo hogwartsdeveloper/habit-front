@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import * as THREE from 'three';
 import { GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader";
 import {OrbitControls} from "three/examples/jsm/controls/OrbitControls";
@@ -9,24 +9,28 @@ import {OrbitControls} from "three/examples/jsm/controls/OrbitControls";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+  renderer = new THREE.WebGLRenderer();
+  camera = new THREE.PerspectiveCamera(
+      50,
+      window.innerWidth / window.innerHeight,
+      0.1,
+      1000
+  );
+  @HostListener('window:resize')
+  resize() {
+    this.camera.aspect = window.innerWidth / window.innerHeight;
+    this.camera.updateProjectionMatrix();
+    this.renderer.setSize(window.innerWidth, window.innerHeight);
+  }
   ngOnInit() {
-    const renderer = new THREE.WebGLRenderer();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    document.body.appendChild(renderer.domElement);
+    this.renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(this.renderer.domElement);
 
     const scene = new THREE.Scene();
+    this.renderer.setClearColor(0xA3A3A3);
 
-    const camera = new THREE.PerspectiveCamera(
-        45,
-        window.innerWidth / window.innerHeight,
-        0.1,
-        1000
-    );
-
-    renderer.setClearColor(0xA3A3A3);
-
-    const orbit = new OrbitControls(camera, renderer.domElement);
-    camera.position.set(10, 10, 10);
+    const orbit = new OrbitControls(this.camera, this.renderer.domElement);
+    this.camera.position.set(0, 1.5, -6);
     orbit.update();
 
     const grid = new THREE.GridHelper(30, 30);
@@ -39,17 +43,15 @@ export class AppComponent implements OnInit {
 
       const ambientLight = new THREE.AmbientLight(0xFFFFFF);
       scene.add(ambientLight);
+
+      const directionLight = new THREE.DirectionalLight(0xFFFFFF, 0.8);
+      scene.add(directionLight);
+      directionLight.position.set(-30, 35, -30);
+
     }, undefined, (error) => console.log(error));
-
-    function animate() {
-      renderer.render(scene, camera);
+    const animate = () => {
+      this.renderer.render(scene, this.camera);
     }
-    renderer.setAnimationLoop(animate);
-
-    window.addEventListener('resize', function () {
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
-    })
+    this.renderer.setAnimationLoop(animate);
   }
 }
