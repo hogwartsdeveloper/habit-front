@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import * as THREE from 'three';
 import { GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader";
+import {OrbitControls} from "three/examples/jsm/controls/OrbitControls";
 
 @Component({
   selector: 'app-root',
@@ -8,49 +9,44 @@ import { GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  renderer: THREE.WebGLRenderer;
-  scene: THREE.Scene;
-  camera: THREE.PerspectiveCamera;
-  loader: GLTFLoader;
-  man: THREE.Mesh;
   ngOnInit() {
-    this.initThree();
-    this.createMan();
-    this.animateMan();
-  }
+    const renderer = new THREE.WebGLRenderer();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
 
-  initThree() {
-    this.scene = new THREE.Scene();
-    this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    this.camera.position.z = 5;
-    this.renderer = new THREE.WebGLRenderer();
-    this.renderer.setSize(window.innerWidth, window.innerHeight);
-    this.loader = new GLTFLoader();
-    document.body.appendChild(this.renderer.domElement);
-  }
+    const scene = new THREE.Scene();
 
-  createMan() {
-    const manGeometry = new THREE.BoxGeometry(1, 2, 0.5);
-    const manMaterial = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-    this.man = new THREE.Mesh(manGeometry, manMaterial);
-    this.man.position.set(0, -1, 0);
-    this.scene.add(this.man);
-  }
+    const camera = new THREE.PerspectiveCamera(
+        45,
+        window.innerWidth / window.innerHeight,
+        0.1,
+        1000
+    );
 
-  animateMan() {
-    const clock = new THREE.Clock();
-    const speed = 0.1;
-    const self = this;
+    renderer.setClearColor(0xA3A3A3);
+
+    const orbit = new OrbitControls(camera, renderer.domElement);
+    camera.position.set(10, 10, 10);
+    orbit.update();
+
+    const grid = new THREE.GridHelper(30, 30);
+    scene.add(grid);
+
+    const assetsLoader = new GLTFLoader();
+    assetsLoader.load('assets/models/me.glb', (gltf) => {
+      const model = gltf.scene;
+      scene.add(model);
+    }, undefined, (error) => console.log(error));
+
     function animate() {
-      requestAnimationFrame(animate);
-      const delta = clock.getDelta();
-      self.man.position.z -= delta * speed;
-
-      if (self.man.position.z < -10) {
-        self.man.position.z = 10;
-      }
-      self.renderer.render(self.scene, self.camera);
+      renderer.render(scene, camera);
     }
-    animate();
+    renderer.setAnimationLoop(animate);
+
+    window.addEventListener('resize', function () {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    })
   }
 }
