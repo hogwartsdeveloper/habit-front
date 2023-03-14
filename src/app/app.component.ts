@@ -18,6 +18,7 @@ export class AppComponent implements OnInit {
       1000
   );
   mixer: THREE.AnimationMixer;
+  model: THREE.Group;
   @HostListener('window:resize')
   resize() {
     this.camera.aspect = window.innerWidth / window.innerHeight;
@@ -48,17 +49,18 @@ export class AppComponent implements OnInit {
   addModel() {
     const fbxLoader = new FBXLoader();
     fbxLoader.load('assets/models/me.fbx', (object) => {
-      this.mixer = new THREE.AnimationMixer(object);
-      const animationClip = object.animations[0]; // get the first animation clip
+      this.model = object;
+      this.mixer = new THREE.AnimationMixer(this.model);
+      const animationClip = this.model.animations[0]; // get the first animation clip
       const action = this.mixer.clipAction(animationClip);
       action.play();
-      object.traverse((child) => {
+      this.model.traverse((child) => {
         if (child.isObject3D) {
           child.castShadow = true;
           child.receiveShadow = true;
         }
       });
-      this.scene.add(object);
+      this.scene.add(this.model);
     })
   }
 
@@ -72,8 +74,14 @@ export class AppComponent implements OnInit {
   }
 
   animated() {
-    const animate = (currentTime: number) => {
-      this.mixer?.update((currentTime / performance.now()) / 150)
+    const clock = new THREE.Clock();
+    const speed = 1;
+    const animate = () => {
+      const delta = clock.getDelta();
+      this.mixer?.update(delta);
+      if (this.model) {
+        this.model.position.z += delta * speed;
+      }
       this.renderer.render(this.scene, this.camera);
     }
     this.renderer.setAnimationLoop(animate);
