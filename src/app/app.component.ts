@@ -26,6 +26,7 @@ export class AppComponent implements OnInit {
   }
   ngOnInit() {
     this.theeInit();
+    this.addLight();
     this.addModel();
     this.animated();
   }
@@ -56,15 +57,18 @@ export class AppComponent implements OnInit {
           child.castShadow = true;
           child.receiveShadow = true;
         }
-      })
+      });
       this.scene.add(object);
-      const ambientLight = new THREE.AmbientLight(0xFFFFFF);
-      this.scene.add(ambientLight);
-
-      const directionLight = new THREE.DirectionalLight(0xFFFFFF, 0.8);
-      this.scene.add(directionLight);
-      directionLight.position.set(-30, 35, -30);
     })
+  }
+
+  addLight() {
+    const ambientLight = new THREE.AmbientLight(0xFFFFFF);
+    this.scene.add(ambientLight);
+
+    const directionLight = new THREE.DirectionalLight(0xFFFFFF, 0.8);
+    this.scene.add(directionLight);
+    directionLight.position.set(-30, 35, -30);
   }
 
   animated() {
