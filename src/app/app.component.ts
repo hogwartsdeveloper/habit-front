@@ -19,6 +19,7 @@ export class AppComponent implements OnInit {
   );
   mixer: THREE.AnimationMixer;
   model: THREE.Group;
+  plane: THREE.Mesh;
   @HostListener('window:resize')
   resize() {
     this.camera.aspect = window.innerWidth / window.innerHeight;
@@ -27,6 +28,7 @@ export class AppComponent implements OnInit {
   }
   ngOnInit() {
     this.theeInit();
+    this.createLand();
     this.addLight();
     this.addModel();
     this.animated();
@@ -41,9 +43,18 @@ export class AppComponent implements OnInit {
     const orbit = new OrbitControls(this.camera, this.renderer.domElement);
     this.camera.position.set(0, 1.5, -6);
     orbit.update();
+  }
 
-    const grid = new THREE.GridHelper(30, 30);
-    this.scene.add(grid);
+  createLand() {
+    const geometry = new THREE.PlaneGeometry(30, 30, 64, 64);
+    const material = new THREE.MeshStandardMaterial({
+      color: 'gray',
+    });
+    this.plane = new THREE.Mesh(geometry, material);
+
+    this.plane.rotation.x = -Math.PI / 2;
+
+    this.scene.add(this.plane);
   }
 
   addModel() {
@@ -79,8 +90,10 @@ export class AppComponent implements OnInit {
     const animate = () => {
       const delta = clock.getDelta();
       this.mixer?.update(delta);
-      if (this.model) {
+      if (this.model && this.plane) {
         this.model.position.z += delta * speed;
+        this.plane.position.z += delta * speed;
+
       }
       this.renderer.render(this.scene, this.camera);
     }
