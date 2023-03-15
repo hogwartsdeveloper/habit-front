@@ -42,7 +42,6 @@ export class AppComponent implements OnInit {
 
     const orbit = new OrbitControls(this.camera, this.renderer.domElement);
     this.camera.position.set(0, 1.5, -6);
-    // this.camera.position.set( 0, 0, 250 );
 
     this.scene.background = new THREE.Color().setHSL(0.6, 0, 1);
     this.scene.fog = new THREE.Fog(this.scene.background, 1, 5000);
@@ -56,7 +55,6 @@ export class AppComponent implements OnInit {
     });
     material.color.setHSL(0.095, 1, 0.75);
     this.plane = new THREE.Mesh(geometry, material);
-    this.plane.position.y = -33;
     this.plane.rotation.x = -Math.PI / 2;
     this.plane.receiveShadow = true;
 
@@ -98,14 +96,14 @@ export class AppComponent implements OnInit {
     this.dirLight.shadow.mapSize.width = 2048;
     this.dirLight.shadow.mapSize.height = 2048;
 
-    const d = 20;
+    this.dirLight.shadow.camera.near = 0.1;
+    this.dirLight.shadow.camera.far = 50;
+    this.dirLight.shadow.camera.top = 1.75;
+    this.dirLight.shadow.camera.bottom = -1.75;
+    this.dirLight.shadow.camera.left = -1.75;
+    this.dirLight.shadow.camera.right = 1.75;
 
-    this.dirLight.shadow.camera.left = - d;
-    this.dirLight.shadow.camera.right = d;
-    this.dirLight.shadow.camera.top = d;
-    this.dirLight.shadow.camera.bottom = - d;
-
-    this.dirLight.shadow.camera.far = 3500;
+    this.dirLight.shadow.camera.far = 100;
     this.dirLight.shadow.bias = - 0.0001;
 
     const dirLightHelper = new THREE.DirectionalLightHelper( this.dirLight, 10 );
@@ -119,11 +117,11 @@ export class AppComponent implements OnInit {
       const delta = clock.getDelta();
       this.mixer?.update(delta);
       if (this.model && this.plane && this.camera) {
-        this.model.position.z += delta * speed;
-        this.plane.position.z += delta * speed;
-        this.camera.position.z += delta * speed;
-        this.hemiLight.position.z += delta * speed;
-        this.dirLight.position.z += delta * speed;
+        // this.model.position.z += delta * speed;
+        // this.plane.position.z += delta * speed;
+        // this.camera.position.z += delta * speed;
+        // this.hemiLight.position.z += delta * speed;
+        // this.dirLight.position.z += delta * speed;
       }
       this.renderer.render(this.scene, this.camera);
     }
