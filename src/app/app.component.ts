@@ -11,12 +11,10 @@ import {OrbitControls} from "three/examples/jsm/controls/OrbitControls";
 export class AppComponent implements OnInit {
   renderer = new THREE.WebGLRenderer();
   scene = new THREE.Scene();
-  camera = new THREE.PerspectiveCamera(
-      50,
-      window.innerWidth / window.innerHeight,
-      0.1,
-      1000
+  camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 5000
   );
+  hemiLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 0.6);
+  dirLight = new THREE.DirectionalLight(0xffffff, 1);
   mixer: THREE.AnimationMixer;
   model: THREE.Group;
   plane: THREE.Mesh;
@@ -35,13 +33,16 @@ export class AppComponent implements OnInit {
   }
 
   theeInit() {
+    this.renderer.setPixelRatio(window.devicePixelRatio);
     this.renderer.setSize(window.innerWidth, window.innerHeight);
+    this.renderer.shadowMap.enabled = true;
     document.body.appendChild(this.renderer.domElement);
 
     this.renderer.setClearColor(0xA3A3A3);
 
     const orbit = new OrbitControls(this.camera, this.renderer.domElement);
     this.camera.position.set(0, 1.5, -6);
+    // this.camera.position.set( 0, 0, 250 );
 
     this.scene.background = new THREE.Color().setHSL(0.6, 0, 1);
     this.scene.fog = new THREE.Fog(this.scene.background, 1, 5000);
@@ -71,22 +72,44 @@ export class AppComponent implements OnInit {
       const action = this.mixer.clipAction(animationClip);
       action.play();
       this.model.traverse((child) => {
-        if (child.isObject3D) {
-          child.castShadow = true;
-          child.receiveShadow = true;
-        }
+        child.castShadow = true;
+        child.receiveShadow = true;
       });
       this.scene.add(this.model);
     })
   }
 
   addLight() {
-    const ambientLight = new THREE.AmbientLight(0xFFFFFF);
-    this.scene.add(ambientLight);
+    this.hemiLight.color.setHSL(0.6, 1, 0.6);
+    this.hemiLight.groundColor.setHSL(0.095, 1, 0.75);
+    this.hemiLight.position.set(0, 20, 0);
+    this.scene.add(this.hemiLight);
 
-    const directionLight = new THREE.DirectionalLight(0xFFFFFF, 0.8);
-    this.scene.add(directionLight);
-    directionLight.position.set(-30, 35, -30);
+    const hemiHelper = new THREE.HemisphereLightHelper(this.hemiLight, 5);
+    this.scene.add(hemiHelper);
+
+    this.dirLight.color.setHSL(0.1, 1, 0.95);
+    this.dirLight.position.set( 0, 1.75, 1.5 );
+    this.dirLight.position.multiplyScalar( 30 );
+    this.scene.add(this.dirLight);
+
+    this.dirLight.castShadow = true;
+
+    this.dirLight.shadow.mapSize.width = 2048;
+    this.dirLight.shadow.mapSize.height = 2048;
+
+    const d = 20;
+
+    this.dirLight.shadow.camera.left = - d;
+    this.dirLight.shadow.camera.right = d;
+    this.dirLight.shadow.camera.top = d;
+    this.dirLight.shadow.camera.bottom = - d;
+
+    this.dirLight.shadow.camera.far = 3500;
+    this.dirLight.shadow.bias = - 0.0001;
+
+    const dirLightHelper = new THREE.DirectionalLightHelper( this.dirLight, 10 );
+    this.scene.add( dirLightHelper );
   }
 
   animated() {
@@ -99,6 +122,8 @@ export class AppComponent implements OnInit {
         this.model.position.z += delta * speed;
         this.plane.position.z += delta * speed;
         this.camera.position.z += delta * speed;
+        this.hemiLight.position.z += delta * speed;
+        this.dirLight.position.z += delta * speed;
       }
       this.renderer.render(this.scene, this.camera);
     }
