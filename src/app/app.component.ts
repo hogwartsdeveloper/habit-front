@@ -1,6 +1,6 @@
 import {Component, HostListener, OnInit} from '@angular/core';
 import * as THREE from 'three';
-import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader";
+import {FBXLoader} from "three/examples/jsm/loaders/FBXLoader";
 import {OrbitControls} from "three/examples/jsm/controls/OrbitControls";
 
 @Component({
@@ -28,8 +28,8 @@ export class AppComponent implements OnInit {
   }
   ngOnInit() {
     this.theeInit();
-    this.createLand();
     this.addLight();
+    this.createLand();
     this.addModel();
     this.animated();
   }
@@ -42,17 +42,22 @@ export class AppComponent implements OnInit {
 
     const orbit = new OrbitControls(this.camera, this.renderer.domElement);
     this.camera.position.set(0, 1.5, -6);
+
+    this.scene.background = new THREE.Color().setHSL(0.6, 0, 1);
+    this.scene.fog = new THREE.Fog(this.scene.background, 1, 5000);
     orbit.update();
   }
 
   createLand() {
-    const geometry = new THREE.PlaneGeometry(30, 30, 64, 64);
+    const geometry = new THREE.PlaneGeometry(10000, 10000);
     const material = new THREE.MeshStandardMaterial({
-      color: 'gray',
+      color: 0xffffff,
     });
+    material.color.setHSL(0.095, 1, 0.75);
     this.plane = new THREE.Mesh(geometry, material);
-
+    this.plane.position.y = -33;
     this.plane.rotation.x = -Math.PI / 2;
+    this.plane.receiveShadow = true;
 
     this.scene.add(this.plane);
   }
@@ -90,10 +95,10 @@ export class AppComponent implements OnInit {
     const animate = () => {
       const delta = clock.getDelta();
       this.mixer?.update(delta);
-      if (this.model && this.plane) {
+      if (this.model && this.plane && this.camera) {
         this.model.position.z += delta * speed;
         this.plane.position.z += delta * speed;
-
+        this.camera.position.z += delta * speed;
       }
       this.renderer.render(this.scene, this.camera);
     }
