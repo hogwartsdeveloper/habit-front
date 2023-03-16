@@ -144,9 +144,6 @@ export class AppComponent implements OnInit {
 
     this.dirLight.shadow.camera.far = 100;
     this.dirLight.shadow.bias = - 0.0001;
-
-    const dirLightHelper = new THREE.DirectionalLightHelper( this.dirLight, 10 );
-    this.scene.add( dirLightHelper );
   }
 
   animated() {
