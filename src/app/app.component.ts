@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
   scene = new THREE.Scene();
   camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 5000
   );
-  hemiLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 0.6);
+  hemiLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 1);
   dirLight = new THREE.DirectionalLight(0xffffff, 1);
   mixer: THREE.AnimationMixer;
   model: THREE.Group;
@@ -125,11 +125,8 @@ export class AppComponent implements OnInit {
     this.hemiLight.position.set(0, 20, 0);
     this.scene.add(this.hemiLight);
 
-    const hemiHelper = new THREE.HemisphereLightHelper(this.hemiLight, 5);
-    this.scene.add(hemiHelper);
-
     this.dirLight.color.setHSL(0.1, 1, 0.95);
-    this.dirLight.position.set( 0, 1.75, 1.5 );
+    this.dirLight.position.set( -2, 0.8, 0 );
     this.dirLight.position.multiplyScalar( 30 );
     this.scene.add(this.dirLight);
 
@@ -154,17 +151,9 @@ export class AppComponent implements OnInit {
 
   animated() {
     const clock = new THREE.Clock();
-    const speed = 1;
     const animate = () => {
       const delta = clock.getDelta();
       this.mixer?.update(delta);
-      if (this.model && this.plane && this.camera) {
-        // this.model.position.z += delta * speed;
-        // this.plane.position.z += delta * speed;
-        // this.camera.position.z += delta * speed;
-        // this.hemiLight.position.z += delta * speed;
-        // this.dirLight.position.z += delta * speed;
-      }
       this.renderer.render(this.scene, this.camera);
     }
     this.renderer.setAnimationLoop(animate);
