@@ -173,39 +173,12 @@ export class ThreeSupportService {
     const vertex = new THREE.Vector3();
     const quaternion0 = new THREE.Quaternion();
     const quaternion1 = new THREE.Quaternion();
-    let x, y, z, w, angle, sinAngle, rotationAxis;
+    let x, y, z;
 
-    angle = 0.5;
-    sinAngle = Math.sin(angle / 2.0);
-    rotationAxis = new THREE.Vector3(0, 1, 0);
-    x = rotationAxis.x * sinAngle;
-    y = rotationAxis.y * sinAngle;
-    z = rotationAxis.z * sinAngle;
-    w = Math.cos(angle / 2.0);
-    quaternion0.set(x, y, z, w);
-
-    //Rotate around X
-    angle = 0.3;
-    sinAngle = Math.sin(angle / 2.0);
-    rotationAxis.set(1, 0, 0);
-    x = rotationAxis.x * sinAngle;
-    y = rotationAxis.y * sinAngle;
-    z = rotationAxis.z * sinAngle;
-    w = Math.cos(angle / 2.0);
-    quaternion1.set(x, y, z, w);
-
+    quaternion0.set(...this.getQuaternion(0.5, new THREE.Vector3(0, 1, 0)));
+    quaternion1.set(...this.getQuaternion(0.3, new THREE.Vector3(1, 0, 0)));
     quaternion0.multiply(quaternion1);
-
-    // Rotate around Z
-    angle = 0.1;
-    sinAngle = Math.sin(angle / 2.0);
-    rotationAxis.set(0, 0, 1);
-    x = rotationAxis.x * sinAngle;
-    y = rotationAxis.y * sinAngle;
-    z = rotationAxis.z * sinAngle;
-    w = Math.cos(angle / 2.0);
-    quaternion1.set(x, y, z, w);
-
+    quaternion1.set(...this.getQuaternion(0.1, new THREE.Vector3(0, 0, 1)));
     quaternion0.multiply(quaternion1);
 
     const quaternion2 = new THREE.Quaternion();
@@ -355,6 +328,19 @@ export class ThreeSupportService {
     }
 
     draw();
+  }
+
+  getQuaternion(
+    angle: number,
+    rotationAxis: THREE.Vector3
+  ): [number, number, number, number] {
+    const sinAngle = Math.sin(angle / 2.0);
+    const x = rotationAxis.x * sinAngle;
+    const y = rotationAxis.y * sinAngle;
+    const z = rotationAxis.z * sinAngle;
+    const w = Math.cos(angle / 2.0);
+
+    return [x, y, z, w];
   }
 
   addModel() {
