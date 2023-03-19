@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 import { PromoComponent } from './promo/promo.component';
 import {PromoRoutingModule} from "./promo-routing.module";
 import {ThreeSupportService} from "./services/three-support.service";
+import { LearnComponent } from './learn/learn.component';
 
 
 
 @NgModule({
   declarations: [
-    PromoComponent
+    PromoComponent,
+    LearnComponent
   ],
   imports: [
     CommonModule,

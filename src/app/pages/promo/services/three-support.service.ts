@@ -5,7 +5,7 @@ import {FBXLoader} from "three/examples/jsm/loaders/FBXLoader";
 
 @Injectable()
 export class ThreeSupportService {
-  private renderer = new THREE.WebGLRenderer();
+  private renderer;
   private scene = new THREE.Scene();
   private camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 5000);
   private hemiLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 1);
@@ -17,10 +17,11 @@ export class ThreeSupportService {
   resize() {
     this.camera.aspect = window.innerWidth / window.innerHeight;
     this.camera.updateProjectionMatrix();
-    this.renderer.setSize(window.innerWidth, window.innerHeight);
+    this.renderer?.setSize(window.innerWidth, window.innerHeight);
   }
 
-  init() {
+  init(canvas: HTMLCanvasElement) {
+    this.renderer = new THREE.WebGLRenderer({antialias: true, canvas});
     this.threeInit();
     this.addLight();
     this.createSky();
