@@ -82,8 +82,7 @@ export class ThreeSupportService {
   }
 
   createLand() {
-    const width = 100;
-    const height = 100;
+    const width = 500;
     const resolution = 64;
     const pos = new THREE.Vector2(0.01, 0.01);
     const bladeWidth = 0.12;
@@ -120,7 +119,7 @@ export class ThreeSupportService {
 
     const groundGeometry = new THREE.PlaneGeometry(
       width,
-      height,
+      width,
       resolution,
       resolution
     );
@@ -358,12 +357,11 @@ export class ThreeSupportService {
   }
 
   addLight() {
-    this.hemiLight.color.setHSL(0.6, 1, 0.6);
-    this.hemiLight.groundColor.setHSL(0.095, 1, 0.75);
+    this.hemiLight.color.set(0xffffff);
     this.hemiLight.position.set(0, 20, 0);
     this.scene.add(this.hemiLight);
 
-    this.dirLight.color.setHSL(0.1, 1, 0.95);
+    this.dirLight.color.set(0xffffff);
     this.dirLight.position.set(-2, 0.8, 0);
     this.dirLight.position.multiplyScalar(30);
     this.scene.add(this.dirLight);
