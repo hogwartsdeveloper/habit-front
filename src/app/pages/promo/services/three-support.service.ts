@@ -85,25 +85,10 @@ export class ThreeSupportService {
     const width = 500;
     const resolution = 64;
     const pos = new THREE.Vector2(0.01, 0.01);
-    const bladeWidth = 0.12;
-    const bladeHeight = 1;
-    const joints = 4;
-    const instances = 400000;
-    const elevation = 0.2;
-    const azimuth = 0.4;
-
-    const ambientStrength = 0.7;
-    const translucencyStrength = 1.5;
-    const specularStrength = 0.5;
-    const diffuseStrength = 1.5;
-    const shininess = 256;
-    const sunColour = new THREE.Vector3(1.0, 1.0, 1.0);
-    const specularColour = new THREE.Vector3(1.0, 1.0, 1.0);
-
     const loader = new THREE.TextureLoader();
+    const noiseTexture = loader.load('assets/textures/perlinFbm.jpeg');
     const grassTexture = loader.load('assets/textures/blade_diffuse.jpeg');
     const alphaMap = loader.load('assets/textures/blade_alpha.jpeg');
-    const noiseTexture = loader.load('assets/textures/perlinFbm.jpeg');
 
     const groundBaseGeometry = new THREE.PlaneGeometry(
       width,
@@ -156,8 +141,38 @@ export class ThreeSupportService {
     this.plane.receiveShadow = true;
     this.scene.add(this.plane);
 
-    // grass
+    this.createGrass(
+      width,
+      resolution,
+      pos,
+      noiseTexture,
+      alphaMap,
+      grassTexture
+    );
+  }
 
+  createGrass(
+    width: number,
+    resolution: number,
+    pos: THREE.Vector2,
+    noiseTexture: THREE.Texture,
+    alphaMap: THREE.Texture,
+    grassTexture: THREE.Texture
+  ) {
+    const bladeWidth = 0.12;
+    const bladeHeight = 1;
+    const joints = 4;
+    const instances = 400000;
+    const elevation = 0.2;
+    const azimuth = 0.4;
+
+    const ambientStrength = 0.7;
+    const translucencyStrength = 1.5;
+    const specularStrength = 0.5;
+    const diffuseStrength = 1.5;
+    const shininess = 256;
+    const sunColour = new THREE.Vector3(1.0, 1.0, 1.0);
+    const specularColour = new THREE.Vector3(1.0, 1.0, 1.0);
     const grassBaseGeometry = new THREE.PlaneGeometry(
       bladeWidth,
       bladeHeight,
