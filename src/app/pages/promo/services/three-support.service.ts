@@ -88,7 +88,7 @@ export class ThreeSupportService {
     const bladeWidth = 0.12;
     const bladeHeight = 1;
     const joints = 4;
-    const instances = 40000;
+    const instances = 400000;
     const elevation = 0.2;
     const azimuth = 0.4;
 
