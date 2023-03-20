@@ -86,7 +86,6 @@ export class ThreeSupportService {
     const height = 100;
     const resolution = 64;
     const pos = new THREE.Vector2(0.01, 0.01);
-    const radius = 240;
     const bladeWidth = 0.12;
     const bladeHeight = 1;
     const joints = 4;
@@ -140,7 +139,6 @@ export class ThreeSupportService {
       shader.uniforms['delta'] = { value: width / resolution };
       shader.uniforms['posX'] = { value: pos.x };
       shader.uniforms['posZ'] = { value: pos.y };
-      shader.uniforms['radius'] = { value: radius };
       shader.uniforms['width'] = { value: width };
       shader.uniforms['noiseTexture'] = { value: noiseTexture };
       shader.vertexShader = groundVertex + shader.vertexShader;
@@ -276,7 +274,6 @@ export class ThreeSupportService {
       delta: { type: 'float', value: width / resolution },
       posX: { type: 'float', value: pos.x },
       posZ: { type: 'float', value: pos.y },
-      radius: { type: 'float', value: radius },
       width: { type: 'float', value: width },
       map: { value: grassTexture },
       alphaMap: { value: alphaMap },
