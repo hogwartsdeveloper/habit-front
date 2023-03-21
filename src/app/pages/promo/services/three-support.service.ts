@@ -319,6 +319,7 @@ export class ThreeSupportService {
     });
 
     const grass = new THREE.Mesh(instancedGeometry, grassMaterial);
+    grass.receiveShadow = true;
     this.scene.add(grass);
 
     let time = 0;
@@ -358,7 +359,7 @@ export class ThreeSupportService {
     const fbxLoader = new FBXLoader();
     fbxLoader.load('assets/models/me.fbx', (object) => {
       this.model = object;
-      this.model.scale.copy(new THREE.Vector3(8, 8, 8));
+      this.model.scale.copy(new THREE.Vector3(5, 5, 5));
       this.mixer = new THREE.AnimationMixer(this.model);
       const animationClip = this.model.animations[0]; // get the first animation clip
       const action = this.mixer.clipAction(animationClip);
@@ -377,7 +378,7 @@ export class ThreeSupportService {
     this.scene.add(this.hemiLight);
 
     this.dirLight.color.set(0xffffff);
-    this.dirLight.position.set(-2, 0.8, 0);
+    this.dirLight.position.set(-2, 1, 0);
     this.dirLight.position.multiplyScalar(30);
     this.scene.add(this.dirLight);
 
@@ -388,10 +389,10 @@ export class ThreeSupportService {
 
     this.dirLight.shadow.camera.near = 0.1;
     this.dirLight.shadow.camera.far = 50;
-    this.dirLight.shadow.camera.top = 1.75;
-    this.dirLight.shadow.camera.bottom = -1.75;
-    this.dirLight.shadow.camera.left = -1.75;
-    this.dirLight.shadow.camera.right = 1.75;
+    this.dirLight.shadow.camera.top = 10;
+    this.dirLight.shadow.camera.bottom = -10;
+    this.dirLight.shadow.camera.left = -10;
+    this.dirLight.shadow.camera.right = 10;
 
     this.dirLight.shadow.camera.far = 100;
     this.dirLight.shadow.bias = -0.0001;
