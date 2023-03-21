@@ -7,8 +7,8 @@ import {
   grassVertexSource,
   groundVertex,
   groundVertexShaderReplace,
-  skyFragmentShader,
-  skyVertexShader,
+  skyFragmentShader2,
+  skyVertexShader2,
 } from './another-code/promo';
 
 @Injectable()
@@ -37,7 +37,7 @@ export class ThreeSupportService {
     this.renderer = new THREE.WebGLRenderer({ antialias: true, canvas });
     this.threeInit();
     this.addLight();
-    this.createSky();
+    this.createSky(canvas);
     this.createLand();
     this.addModel();
     this.animated();
@@ -52,33 +52,45 @@ export class ThreeSupportService {
     this.renderer.setClearColor(0xa3a3a3);
 
     const orbit = new OrbitControls(this.camera, this.renderer.domElement);
-    this.camera.position.set(0, 10, -40);
+    this.camera.position.set(0, 5, -40);
 
     orbit.update();
   }
 
-  createSky() {
+  createSky(canvas: HTMLCanvasElement) {
+    const elevation = 0.2;
+    const azimuth = 0.4;
+    const fogFade = 0.009;
+    const FOV = 45;
     const uniforms = {
-      topColor: { value: new THREE.Color(0x0077ff) },
-      bottomColor: { value: new THREE.Color(0xffffff) },
-      offset: { value: 33 },
-      exponent: { value: 0.6 },
+      sunDirection: {
+        type: 'vec3',
+        value: new THREE.Vector3(
+          Math.sin(azimuth),
+          Math.sin(elevation),
+          Math.cos(azimuth)
+        ),
+      },
+      resolution: {
+        type: 'vec2',
+        value: new THREE.Vector2(canvas.width, canvas.height),
+      },
+      fogFade: {
+        type: 'float',
+        value: fogFade,
+      },
+      fov: { type: 'float', value: FOV },
     };
-
-    uniforms['topColor'].value.copy(this.hemiLight.color);
-    this.scene.background = new THREE.Color().setHSL(0.6, 0, 1);
-    this.scene.fog = new THREE.Fog(this.scene.background, 1, 5000);
-    this.scene.fog.color.copy(uniforms['bottomColor'].value);
-    const skyGeo = new THREE.SphereGeometry(4000, 32, 15);
-    const skyMat = new THREE.ShaderMaterial({
-      uniforms: uniforms,
-      vertexShader: skyVertexShader,
-      fragmentShader: skyFragmentShader,
-      side: THREE.BackSide,
+    const backgroundMaterial = new THREE.ShaderMaterial({
+      uniforms,
+      vertexShader: skyVertexShader2,
+      fragmentShader: skyFragmentShader2,
     });
 
-    const sky = new THREE.Mesh(skyGeo, skyMat);
-    this.scene.add(sky);
+    backgroundMaterial.depthWrite = false;
+    const geometry = new THREE.PlaneGeometry(2, 2, 1, 1);
+    const mesh = new THREE.Mesh(geometry, backgroundMaterial);
+    this.scene.add(mesh);
   }
 
   createLand() {
