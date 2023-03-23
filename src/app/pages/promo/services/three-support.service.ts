@@ -39,6 +39,7 @@ export class ThreeSupportService {
     this.addLight();
     this.createSky(canvas);
     this.createLand();
+    this.drawRoad();
     this.addModel();
     this.animated();
   }
@@ -352,6 +353,17 @@ export class ThreeSupportService {
     }
 
     draw();
+  }
+
+  drawRoad() {
+    const geometry = new THREE.PlaneGeometry(25, 500, 100, 100);
+    const loader = new THREE.TextureLoader();
+    const roadTexture = loader.load('assets/textures/road.jpeg');
+    roadTexture.repeat.set(1, 50);
+    const material = new THREE.MeshBasicMaterial({ map: roadTexture });
+    const road = new THREE.Mesh(geometry, material);
+    road.rotation.x = -Math.PI / 2;
+    this.scene.add(road);
   }
 
   getQuaternion(
