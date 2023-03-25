@@ -24,9 +24,8 @@ export class ThreeSupportService {
   private hemiLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 1);
   private dirLight = new THREE.DirectionalLight(0xffffff, 1);
   private mixer: THREE.AnimationMixer;
-  private model: THREE.Group;
-  private plane: any;
-  private sky: THREE.Mesh;
+  private plane: THREE.Mesh;
+  private grass: THREE.Mesh;
 
   resize() {
     this.camera.aspect = window.innerWidth / window.innerHeight;
@@ -89,9 +88,9 @@ export class ThreeSupportService {
 
     backgroundMaterial.depthWrite = false;
     const geometry = new THREE.PlaneGeometry(2, 2, 1, 1);
-    this.sky = new THREE.Mesh(geometry, backgroundMaterial);
+    const sky = new THREE.Mesh(geometry, backgroundMaterial);
 
-    this.scene.add(this.sky);
+    this.scene.add(sky);
   }
 
   createLand() {
@@ -331,14 +330,16 @@ export class ThreeSupportService {
       side: THREE.DoubleSide,
     });
 
-    const grass = new THREE.Mesh(instancedGeometry, grassMaterial);
-    grass.receiveShadow = true;
-    this.scene.add(grass);
+    this.grass = new THREE.Mesh(instancedGeometry, grassMaterial);
+    this.grass.receiveShadow = true;
+    this.scene.add(this.grass);
 
     let time = 0;
     let lastFrame = Date.now();
     let thisFrame;
     let dT = 0;
+    const clock = new THREE.Clock();
+    const speed = 0.8;
 
     function draw() {
       //Update time
@@ -348,6 +349,7 @@ export class ThreeSupportService {
       lastFrame = thisFrame;
 
       grassMaterial.uniforms['time'].value = time;
+      grassMaterial.uniforms['posZ'].value += speed * clock.getDelta();
 
       requestAnimationFrame(draw);
     }
@@ -371,17 +373,17 @@ export class ThreeSupportService {
   addModel() {
     const fbxLoader = new FBXLoader();
     fbxLoader.load('assets/models/me.fbx', (object) => {
-      this.model = object;
-      this.model.scale.copy(new THREE.Vector3(5, 5, 5));
-      this.mixer = new THREE.AnimationMixer(this.model);
-      const animationClip = this.model.animations[0]; // get the first animation clip
+      const model = object;
+      model.scale.copy(new THREE.Vector3(5, 5, 5));
+      this.mixer = new THREE.AnimationMixer(model);
+      const animationClip = model.animations[0]; // get the first animation clip
       const action = this.mixer.clipAction(animationClip);
       action.play();
-      this.model.traverse((child) => {
+      model.traverse((child) => {
         child.castShadow = true;
         child.receiveShadow = true;
       });
-      this.scene.add(this.model);
+      this.scene.add(model);
     });
   }
 
@@ -413,17 +415,11 @@ export class ThreeSupportService {
 
   animated() {
     const clock = new THREE.Clock();
-    const speed = 3.7;
     const animate = () => {
       const delta = clock.getDelta();
       this.mixer?.update(delta);
-      if (this.model && this.camera && this.sky) {
-        this.model.position.z += speed * delta;
-        this.camera.position.z += speed * delta;
-        this.sky.position.z += speed * delta;
-        this.camera.lookAt(this.model.position);
-
-        this.camera.updateMatrixWorld();
+      if (this.grass) {
+        // this.grass.position.z -= speed * delta;
       }
       this.renderer.render(this.scene, this.camera);
     };
