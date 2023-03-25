@@ -51,7 +51,7 @@ export class ThreeSupportService {
     this.renderer.setClearColor(0xa3a3a3);
 
     const orbit = new OrbitControls(this.camera, this.renderer.domElement);
-    this.camera.position.set(0, 5, -40);
+    this.camera.position.set(0, 5, -35);
 
     orbit.update();
   }
@@ -94,7 +94,7 @@ export class ThreeSupportService {
   }
 
   createLand() {
-    const width = 500;
+    const width = 450;
     const resolution = 64;
     const pos = new THREE.Vector2(0.01, 0.01);
     const loader = new THREE.TextureLoader();
@@ -372,7 +372,7 @@ export class ThreeSupportService {
 
   addModel() {
     const fbxLoader = new FBXLoader();
-    fbxLoader.load('assets/models/me.fbx', (object) => {
+    fbxLoader.load('assets/models/Happy Walk.fbx', (object) => {
       const model = object;
       model.scale.copy(new THREE.Vector3(5, 5, 5));
       this.mixer = new THREE.AnimationMixer(model);
