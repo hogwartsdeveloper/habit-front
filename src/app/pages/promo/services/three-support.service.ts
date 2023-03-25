@@ -26,6 +26,7 @@ export class ThreeSupportService {
   private mixer: THREE.AnimationMixer;
   private model: THREE.Group;
   private plane: any;
+  private sky: THREE.Mesh;
 
   resize() {
     this.camera.aspect = window.innerWidth / window.innerHeight;
@@ -88,8 +89,9 @@ export class ThreeSupportService {
 
     backgroundMaterial.depthWrite = false;
     const geometry = new THREE.PlaneGeometry(2, 2, 1, 1);
-    const mesh = new THREE.Mesh(geometry, backgroundMaterial);
-    this.scene.add(mesh);
+    this.sky = new THREE.Mesh(geometry, backgroundMaterial);
+
+    this.scene.add(this.sky);
   }
 
   createLand() {
@@ -411,9 +413,18 @@ export class ThreeSupportService {
 
   animated() {
     const clock = new THREE.Clock();
+    const speed = 3.7;
     const animate = () => {
       const delta = clock.getDelta();
       this.mixer?.update(delta);
+      if (this.model && this.camera && this.sky) {
+        this.model.position.z += speed * delta;
+        this.camera.position.z += speed * delta;
+        this.sky.position.z += speed * delta;
+        this.camera.lookAt(this.model.position);
+
+        this.camera.updateMatrixWorld();
+      }
       this.renderer.render(this.scene, this.camera);
     };
     this.renderer.setAnimationLoop(animate);
