@@ -25,6 +25,7 @@ export class ThreeSupportService {
   private dirLight = new THREE.DirectionalLight(0xffffff, 1);
   private mixer: THREE.AnimationMixer;
   private plane: THREE.Mesh;
+  private groundShader: THREE.Shader;
   private grass: THREE.Mesh;
 
   resize() {
@@ -130,7 +131,6 @@ export class ThreeSupportService {
     const groundMaterial = new THREE.MeshPhongMaterial();
     groundMaterial.color = new THREE.Color('rgb(10%, 25%, 2%)');
 
-    let groundShader;
     groundMaterial.onBeforeCompile = (shader) => {
       shader.uniforms['delta'] = { value: width / resolution };
       shader.uniforms['posX'] = { value: pos.x };
@@ -146,7 +146,7 @@ export class ThreeSupportService {
         '#include <begin_vertex>',
         `vec3 transformed = vec3(pos);`
       );
-      groundShader = shader;
+      this.groundShader = shader;
     };
 
     this.plane = new THREE.Mesh(groundGeometry, groundMaterial);
@@ -333,28 +333,6 @@ export class ThreeSupportService {
     this.grass = new THREE.Mesh(instancedGeometry, grassMaterial);
     this.grass.receiveShadow = true;
     this.scene.add(this.grass);
-
-    let time = 0;
-    let lastFrame = Date.now();
-    let thisFrame;
-    let dT = 0;
-    const clock = new THREE.Clock();
-    const speed = 0.8;
-
-    function draw() {
-      //Update time
-      thisFrame = Date.now();
-      dT = (thisFrame - lastFrame) / 200.0;
-      time += dT;
-      lastFrame = thisFrame;
-
-      grassMaterial.uniforms['time'].value = time;
-      grassMaterial.uniforms['posZ'].value += speed * clock.getDelta();
-
-      requestAnimationFrame(draw);
-    }
-
-    draw();
   }
 
   getQuaternion(
@@ -414,12 +392,25 @@ export class ThreeSupportService {
   }
 
   animated() {
+    const grassMaterial = this.grass.material as THREE.RawShaderMaterial;
     const clock = new THREE.Clock();
+    let time = 0;
+    let lastFrame = Date.now();
+    let thisFrame;
+    let dT = 0;
+    const speed = 0.8;
     const animate = () => {
       const delta = clock.getDelta();
       this.mixer?.update(delta);
-      if (this.grass) {
-        // this.grass.position.z -= speed * delta;
+      thisFrame = Date.now();
+      dT = (thisFrame - lastFrame) / 200.0;
+      time += dT;
+      lastFrame = thisFrame;
+
+      if (this.grass && this.groundShader) {
+        grassMaterial.uniforms['time'].value = time;
+        this.groundShader.uniforms['posZ'].value += speed * delta;
+        grassMaterial.uniforms['posZ'].value += speed * delta;
       }
       this.renderer.render(this.scene, this.camera);
     };
