@@ -1,7 +1,43 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$habit-primary: mat.define-palette(mat.$indigo-palette);
+$habit-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$habit-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$habit-theme: mat.define-light-theme((
+  color: (
+    primary: $habit-primary,
+    accent: $habit-accent,
+    warn: $habit-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($habit-theme);
+
 /* You can add global styles to this file, and also import other style files */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "assets/icons/custom-icons/icons.css";
 
 @font-face {
   font-family: 'Montserrat';
@@ -36,4 +72,33 @@
 body {
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
+  margin: 0
+}
+html, body { height: 100%; }
+
+.noBackground {
+  mat-dialog-container {
+    background: transparent;
+    box-shadow: none;
+    border-radius: 20px;
+    padding: 0;
+    position: relative;
+    border: 2px solid rgba(255, 255, 255, .5);
+    backdrop-filter: blur(20px);
+  }
+
+  &.w-100 {
+    mat-dialog-container {
+      display: flex;
+    }
+  }
+
+  .mat-mdc-dialog-surface {
+    background-color: transparent !important;
+    border-radius: 20px !important;
+  }
+}
+
+.icon {
+  font-size: 24px;
 }

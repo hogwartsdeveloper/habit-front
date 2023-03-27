@@ -1,0 +1,26 @@
+<div class="container text-white" [formGroup]="form">
+    <h1 class="text-2xl mb-6">Sign In</h1>
+
+    <div class="flex flex-col">
+        <span>Email</span>
+        <input class="rounded-md text-sm" type="email" placeholder="username@gmail.com" autocomplete="off" [formControlName]="'email'">
+    </div>
+
+    <div class="flex flex-col my-5">
+        <span>Password</span>
+        <input class="rounded-md" type="password" placeholder="Password" [formControlName]="'password'">
+        <span class="text-xs mt-2 cursor-pointer">Forgot Password?</span>
+    </div>
+
+    <button mat-button class="sign font-semibold">Sign In</button>
+
+    <span class="text-xs text-center my-5">or continue with</span>
+
+    <button mat-button class="insta mb-5">
+        <span class="icon icon-instagram text-white"></span>
+    </button>
+
+    <div class="text-xs">
+        Don’t have an account yet? <span class="cursor-pointer font-semibold">Register for free</span>
+    </div>
+</div>
