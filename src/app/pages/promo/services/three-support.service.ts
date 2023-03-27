@@ -61,7 +61,7 @@ export class ThreeSupportService {
     const elevation = 0.2;
     const azimuth = 0.4;
     const fogFade = 0.009;
-    const FOV = 45;
+    const FOV = 48;
     const uniforms = {
       sunDirection: {
         type: 'vec3',
@@ -371,7 +371,7 @@ export class ThreeSupportService {
     this.scene.add(this.hemiLight);
 
     this.dirLight.color.set(0xffffff);
-    this.dirLight.position.set(-2, 1, 0);
+    this.dirLight.position.set(2, 1, 1);
     this.dirLight.position.multiplyScalar(30);
     this.scene.add(this.dirLight);
 
