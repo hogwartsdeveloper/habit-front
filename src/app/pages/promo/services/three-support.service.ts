@@ -27,6 +27,7 @@ export class ThreeSupportService {
   private plane: THREE.Mesh;
   private groundShader: THREE.Shader;
   private grass: THREE.Mesh;
+  private fbxLoader = new FBXLoader();
 
   resize() {
     this.camera.aspect = window.innerWidth / window.innerHeight;
@@ -40,6 +41,7 @@ export class ThreeSupportService {
     this.addLight();
     this.createSky(canvas);
     this.createLand();
+    this.addMountain();
     this.addModel();
     this.animated();
   }
@@ -52,7 +54,7 @@ export class ThreeSupportService {
     this.renderer.setClearColor(0xa3a3a3);
 
     const orbit = new OrbitControls(this.camera, this.renderer.domElement);
-    this.camera.position.set(0, 5, -35);
+    this.camera.position.set(0, 4.5, -35);
 
     orbit.update();
   }
@@ -348,9 +350,15 @@ export class ThreeSupportService {
     return [x, y, z, w];
   }
 
+  addMountain() {
+    this.fbxLoader.load('assets/models/mountain.fbx', (object) => {
+      object.position.set(0, -2, 320);
+      this.scene.add(object);
+    });
+  }
+
   addModel() {
-    const fbxLoader = new FBXLoader();
-    fbxLoader.load('assets/models/Happy Walk.fbx', (object) => {
+    this.fbxLoader.load('assets/models/Happy Walk.fbx', (object) => {
       const model = object;
       model.scale.copy(new THREE.Vector3(5, 5, 5));
       this.mixer = new THREE.AnimationMixer(model);
