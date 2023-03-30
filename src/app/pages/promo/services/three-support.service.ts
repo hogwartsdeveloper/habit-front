@@ -21,6 +21,7 @@ export class ThreeSupportService {
     1,
     5000
   );
+  private orbitControl: OrbitControls;
   private hemiLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 1);
   private dirLight = new THREE.DirectionalLight(0xffffff, 1);
   private mixer: THREE.AnimationMixer;
@@ -37,6 +38,7 @@ export class ThreeSupportService {
 
   init(canvas: HTMLCanvasElement) {
     this.renderer = new THREE.WebGLRenderer({ antialias: true, canvas });
+    this.orbitControl = new OrbitControls(this.camera, canvas);
     this.threeInit();
     this.addLight();
     this.createSky(canvas);
@@ -53,10 +55,33 @@ export class ThreeSupportService {
 
     this.renderer.setClearColor(0xa3a3a3);
 
-    const orbit = new OrbitControls(this.camera, this.renderer.domElement);
     this.camera.position.set(0, 4.5, -35);
 
-    orbit.update();
+    this.orbitControl.update();
+  }
+
+  updateCameraPosition() {
+    const maxDistance = 60;
+    const minDistance = 25;
+    // const maxPan = new THREE.Vector3(0, 4.5, -35);
+    // const minPan = new THREE.Vector3(0, 0, 0);
+
+    const distance = this.camera.position.distanceTo(this.orbitControl.target);
+    if (distance > maxDistance) {
+      this.camera.position
+        .subVectors(this.camera.position, this.orbitControl.target)
+        .normalize()
+        .multiplyScalar(maxDistance)
+        .add(this.orbitControl.target);
+    } else if (distance < minDistance) {
+      this.camera.position
+        .subVectors(this.camera.position, this.orbitControl.target)
+        .normalize()
+        .multiplyScalar(minDistance)
+        .add(this.orbitControl.target);
+    }
+
+    // this.camera.position.clamp(minPan, maxPan);
   }
 
   createSky(canvas: HTMLCanvasElement) {
@@ -419,6 +444,10 @@ export class ThreeSupportService {
         grassMaterial.uniforms['time'].value = time;
         this.groundShader.uniforms['posZ'].value += speed * delta;
         grassMaterial.uniforms['posZ'].value += speed * delta;
+      }
+
+      if (this.orbitControl) {
+        this.updateCameraPosition();
       }
       this.renderer.render(this.scene, this.camera);
     };
