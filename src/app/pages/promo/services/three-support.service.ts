@@ -63,8 +63,8 @@ export class ThreeSupportService {
   updateCameraPosition() {
     const maxDistance = 60;
     const minDistance = 25;
-    // const maxPan = new THREE.Vector3(0, 4.5, -35);
-    // const minPan = new THREE.Vector3(0, 0, 0);
+    const maxPan = new THREE.Vector3(360, 365, 360);
+    const minPan = new THREE.Vector3(-360, 3, -360);
 
     const distance = this.camera.position.distanceTo(this.orbitControl.target);
     if (distance > maxDistance) {
@@ -81,7 +81,7 @@ export class ThreeSupportService {
         .add(this.orbitControl.target);
     }
 
-    // this.camera.position.clamp(minPan, maxPan);
+    this.camera.position.clamp(minPan, maxPan);
   }
 
   createSky(canvas: HTMLCanvasElement) {
