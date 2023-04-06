@@ -10,6 +10,7 @@ import {
   skyFragmentShader2,
   skyVertexShader2,
 } from './another-code/promo';
+import Stats from 'three/examples/jsm/libs/stats.module';
 
 @Injectable()
 export class ThreeSupportService {
@@ -29,6 +30,7 @@ export class ThreeSupportService {
   private groundShader: THREE.Shader;
   private grass: THREE.Mesh;
   private fbxLoader = new FBXLoader();
+  private stats = Stats();
 
   resize() {
     this.camera.aspect = window.innerWidth / window.innerHeight;
@@ -39,6 +41,7 @@ export class ThreeSupportService {
   init(canvas: HTMLCanvasElement) {
     this.renderer = new THREE.WebGLRenderer({ antialias: true, canvas });
     this.orbitControl = new OrbitControls(this.camera, canvas);
+    document.body.appendChild(this.stats.dom);
     this.threeInit();
     this.addLight();
     this.createSky(canvas);
@@ -433,6 +436,7 @@ export class ThreeSupportService {
     let dT = 0;
     const speed = 0.8;
     const animate = () => {
+      this.stats.update();
       const delta = clock.getDelta();
       this.mixer?.update(delta);
       thisFrame = Date.now();
