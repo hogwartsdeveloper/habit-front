@@ -3,6 +3,7 @@ import {
   Component,
   ElementRef,
   HostListener,
+  OnDestroy,
   ViewChild,
 } from '@angular/core';
 import * as THREE from 'three';
@@ -18,13 +19,15 @@ import {
   skyVertexShader2,
 } from '../services/another-code/promo';
 import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader';
+import { GUI } from 'dat.gui';
+import { Subject, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-promo',
   templateUrl: './promo.component.html',
   styleUrls: ['./promo.component.scss'],
 })
-export class PromoComponent implements AfterViewInit {
+export class PromoComponent implements AfterViewInit, OnDestroy {
   @ViewChild('main') canvas: ElementRef<HTMLCanvasElement>;
   renderer: THREE.WebGLRenderer;
   scene = new THREE.Scene();
@@ -43,6 +46,12 @@ export class PromoComponent implements AfterViewInit {
   grass: THREE.Mesh;
   fbxLoader = new FBXLoader();
   mixer: THREE.AnimationMixer;
+  mountain: THREE.Group;
+  model: THREE.Group;
+
+  allModelLoaded$ = new Subject<number>();
+  modelNumber = 1;
+  subscription: Subscription;
 
   @HostListener('window:resize')
   resize() {
@@ -61,6 +70,13 @@ export class PromoComponent implements AfterViewInit {
     this.addMountain();
     this.addModel();
     this.animated();
+    this.addStats();
+
+    this.subscription = this.allModelLoaded$.subscribe((res) => {
+      if (res === 2) {
+        this.addGui();
+      }
+    });
   }
 
   init() {
@@ -72,8 +88,6 @@ export class PromoComponent implements AfterViewInit {
       this.camera,
       this.canvas.nativeElement
     );
-
-    document.body.appendChild(this.stats.dom);
 
     this.renderer.setPixelRatio(window.devicePixelRatio);
     this.renderer.setSize(window.innerWidth, window.innerHeight);
@@ -394,25 +408,52 @@ export class PromoComponent implements AfterViewInit {
 
   addMountain() {
     this.fbxLoader.load('assets/models/mountain.fbx', (object) => {
-      object.position.set(0, -2, 320);
-      this.scene.add(object);
+      this.mountain = object;
+      this.mountain.position.set(0, -2, 320);
+      this.scene.add(this.mountain);
+      this.allModelLoaded$.next(this.modelNumber++);
     });
   }
 
   addModel() {
     this.fbxLoader.load('assets/models/Happy Walk.fbx', (object) => {
-      const model = object;
-      model.scale.copy(new THREE.Vector3(5, 5, 5));
-      this.mixer = new THREE.AnimationMixer(model);
-      const animationClip = model.animations[0]; // get the first animation clip
+      this.model = object;
+      this.model.scale.copy(new THREE.Vector3(5, 5, 5));
+      this.mixer = new THREE.AnimationMixer(this.model);
+      const animationClip = this.model.animations[0]; // get the first animation clip
       const action = this.mixer.clipAction(animationClip);
       action.play();
-      model.traverse((child) => {
+      this.model.traverse((child) => {
         child.castShadow = true;
         child.receiveShadow = true;
       });
-      this.scene.add(model);
+      this.scene.add(this.model);
+      this.allModelLoaded$.next(this.modelNumber++);
     });
+  }
+
+  addStats() {
+    document.body.appendChild(this.stats.dom);
+  }
+
+  addGui() {
+    const gui = new GUI();
+    const mountainFolder = gui.addFolder('Mountain');
+    const mountainPositionFolder = mountainFolder.addFolder('Position');
+    mountainPositionFolder.add(this.mountain.position, 'x', -100, 100, 2);
+    mountainPositionFolder.add(this.mountain.position, 'y', -100, 100, 2);
+    mountainPositionFolder.add(this.mountain.position, 'z', -10, 1000, 2);
+
+    const modelFolder = gui.addFolder('Model');
+    const modelPositionFolder = modelFolder.addFolder('Position');
+    modelPositionFolder.add(this.model.position, 'x', -100, 100, 2);
+    modelPositionFolder.add(this.model.position, 'y', -100, 100, 2);
+    modelPositionFolder.add(this.model.position, 'z', -10, 1000, 2);
+
+    mountainFolder.open();
+    mountainPositionFolder.open();
+    modelFolder.open();
+    modelPositionFolder.open();
   }
 
   updateCameraPosition() {
@@ -468,5 +509,9 @@ export class PromoComponent implements AfterViewInit {
       this.renderer.render(this.scene, this.camera);
     };
     this.renderer.setAnimationLoop(animate);
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }
