@@ -21,6 +21,7 @@ import {
 import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader';
 import { GUI } from 'dat.gui';
 import { Subject, Subscription } from 'rxjs';
+import { CharacterControls } from '../../../utils/characterControls';
 
 @Component({
   selector: 'app-promo',
@@ -52,7 +53,8 @@ export class PromoComponent implements AfterViewInit, OnDestroy {
   allModelLoaded$ = new Subject<number>();
   modelNumber = 1;
   subscription: Subscription;
-  keysPressed = {};
+  keysPressed: { [key: string]: boolean } = {};
+  characterControls: CharacterControls;
 
   @HostListener('window:resize')
   resize() {
@@ -63,10 +65,7 @@ export class PromoComponent implements AfterViewInit, OnDestroy {
 
   @HostListener('document:keydown', ['$event'])
   onKeyDown(event: KeyboardEvent) {
-    if (event.shiftKey) {
-    } else {
-      this.keysPressed[event.key.toLowerCase()] = true;
-    }
+    this.keysPressed[event.key.toLowerCase()] = true;
   }
 
   @HostListener('document:keyup', ['$event'])
@@ -443,6 +442,12 @@ export class PromoComponent implements AfterViewInit, OnDestroy {
       });
       this.scene.add(this.model);
       this.allModelLoaded$.next(this.modelNumber++);
+
+      this.characterControls = new CharacterControls(
+        this.model,
+        this.orbitControl,
+        this.camera
+      );
     });
   }
 
@@ -507,14 +512,22 @@ export class PromoComponent implements AfterViewInit, OnDestroy {
       const delta = clock.getDelta();
       this.mixer?.update(delta);
       thisFrame = Date.now();
-      dT = (thisFrame - lastFrame) / 200.0;
+      dT = (thisFrame - lastFrame) / 350;
       time += dT;
       lastFrame = thisFrame;
 
+      if (this.characterControls) {
+        this.characterControls.update(
+          delta,
+          this.keysPressed,
+          speed,
+          grassMaterial,
+          this.groundShader
+        );
+      }
+
       if (this.grass && this.groundShader) {
         grassMaterial.uniforms['time'].value = time;
-        this.groundShader.uniforms['posZ'].value += speed * delta;
-        grassMaterial.uniforms['posZ'].value += speed * delta;
       }
 
       if (this.orbitControl) {
