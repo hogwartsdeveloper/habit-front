@@ -52,12 +52,26 @@ export class PromoComponent implements AfterViewInit, OnDestroy {
   allModelLoaded$ = new Subject<number>();
   modelNumber = 1;
   subscription: Subscription;
+  keysPressed = {};
 
   @HostListener('window:resize')
   resize() {
     this.camera.aspect = window.innerWidth / window.innerHeight;
     this.camera.updateProjectionMatrix();
     this.renderer?.setSize(window.innerWidth, window.innerHeight);
+  }
+
+  @HostListener('document:keydown', ['$event'])
+  onKeyDown(event: KeyboardEvent) {
+    if (event.shiftKey) {
+    } else {
+      this.keysPressed[event.key.toLowerCase()] = true;
+    }
+  }
+
+  @HostListener('document:keyup', ['$event'])
+  onKeyUp(event: KeyboardEvent) {
+    this.keysPressed[event.key.toLowerCase()] = false;
   }
 
   constructor(private threeSupportService: ThreeSupportService) {}
