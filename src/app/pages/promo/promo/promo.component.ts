@@ -7,6 +7,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import * as THREE from 'three';
+import * as CANNON from 'cannon-es';
 import { ThreeSupportService } from '../services/three-support.service';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import Stats from 'three/examples/jsm/libs/stats.module';
@@ -22,6 +23,8 @@ import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader';
 import { GUI } from 'dat.gui';
 import { Subject, Subscription } from 'rxjs';
 import { CharacterControls } from '../../../utils/characterControls';
+import CannonDebugRenderer from '../../../utils/cannon-debug-renderer';
+import CannonUtils from '../../../utils/cannon-utils';
 
 @Component({
   selector: 'app-promo',
@@ -55,6 +58,10 @@ export class PromoComponent implements AfterViewInit, OnDestroy {
   subscription: Subscription;
   keysPressed: { [key: string]: boolean } = {};
   characterControls: CharacterControls;
+  world = new CANNON.World();
+  cannonDebugRenderer: CannonDebugRenderer;
+  modelShep: CANNON.ConvexPolyhedron;
+  modelBody: CANNON.Body;
 
   @HostListener('window:resize')
   resize() {
@@ -109,6 +116,10 @@ export class PromoComponent implements AfterViewInit, OnDestroy {
 
     this.camera.position.set(0, 4.5, -35);
     this.orbitControl.update();
+
+    this.world.gravity.set(0, -9.82, 0);
+
+    this.cannonDebugRenderer = new CannonDebugRenderer(this.scene, this.world);
   }
   createLight() {
     this.hemiLight.color.set(0xffffff);
@@ -230,6 +241,15 @@ export class PromoComponent implements AfterViewInit, OnDestroy {
     this.plane = new THREE.Mesh(groundGeometry, groundMaterial);
     this.plane.receiveShadow = true;
     this.scene.add(this.plane);
+
+    const planeShape = new CANNON.Plane();
+    const planeBody = new CANNON.Body({ mass: 0 });
+    planeBody.addShape(planeShape);
+    planeBody.quaternion.setFromAxisAngle(
+      new CANNON.Vec3(1, 0, 0),
+      -Math.PI / 2
+    );
+    this.world.addBody(planeBody);
 
     this.createGrass(
       width,
@@ -432,6 +452,16 @@ export class PromoComponent implements AfterViewInit, OnDestroy {
     this.fbxLoader.load('assets/models/Happy Walk.fbx', (object) => {
       this.model = object;
       this.model.scale.copy(new THREE.Vector3(5, 5, 5));
+
+      const modelShape = new CANNON.Cylinder(2, 2, 8, 8);
+
+      this.modelBody = new CANNON.Body({ mass: 1 });
+      this.modelBody.addShape(modelShape);
+      this.modelBody.position.x = this.model.position.x;
+      this.modelBody.position.y = this.model.position.y;
+      this.modelBody.position.z = this.model.position.z;
+      this.world.addBody(this.modelBody);
+
       this.mixer = new THREE.AnimationMixer(this.model);
       const animationClip = this.model.animations[0]; // get the first animation clip
       const action = this.mixer.clipAction(animationClip);
@@ -509,12 +539,29 @@ export class PromoComponent implements AfterViewInit, OnDestroy {
     const speed = 0.8;
     const animate = () => {
       this.stats.update();
-      const delta = clock.getDelta();
+      const delta = Math.min(clock.getDelta(), 0.1);
+      this.world.step(delta);
+      this.cannonDebugRenderer.update();
       this.mixer?.update(delta);
       thisFrame = Date.now();
       dT = (thisFrame - lastFrame) / 350;
       time += dT;
       lastFrame = thisFrame;
+
+      if (this.model) {
+        this.model.position.set(
+          this.modelBody.position.x,
+          this.modelBody.position.y,
+          this.modelBody.position.z
+        );
+
+        this.model.quaternion.set(
+          this.modelBody.quaternion.x,
+          this.modelBody.quaternion.y,
+          this.modelBody.quaternion.z,
+          this.modelBody.quaternion.w
+        );
+      }
 
       if (this.characterControls) {
         this.characterControls.update(
