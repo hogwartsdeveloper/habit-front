@@ -58,9 +58,8 @@ export class PromoComponent implements AfterViewInit, OnDestroy {
   subscription: Subscription;
   keysPressed: { [key: string]: boolean } = {};
   characterControls: CharacterControls;
-  world = new CANNON.World();
+  world = new CANNON.World({ gravity: new CANNON.Vec3(0, -9.82, 0) });
   cannonDebugRenderer: CannonDebugRenderer;
-  modelShep: CANNON.ConvexPolyhedron;
   modelBody: CANNON.Body;
 
   @HostListener('window:resize')
@@ -116,8 +115,6 @@ export class PromoComponent implements AfterViewInit, OnDestroy {
 
     this.camera.position.set(0, 4.5, -35);
     this.orbitControl.update();
-
-    this.world.gravity.set(0, -9.82, 0);
 
     this.cannonDebugRenderer = new CannonDebugRenderer(this.scene, this.world);
   }
@@ -452,14 +449,12 @@ export class PromoComponent implements AfterViewInit, OnDestroy {
     this.fbxLoader.load('assets/models/Happy Walk.fbx', (object) => {
       this.model = object;
       this.model.scale.copy(new THREE.Vector3(5, 5, 5));
+      this.model.position.set(0, 0, 0);
 
-      const modelShape = new CANNON.Cylinder(2, 2, 8, 8);
-
-      this.modelBody = new CANNON.Body({ mass: 1 });
-      this.modelBody.addShape(modelShape);
-      this.modelBody.position.x = this.model.position.x;
-      this.modelBody.position.y = this.model.position.y;
-      this.modelBody.position.z = this.model.position.z;
+      const modelShape = new CANNON.Sphere(5);
+      this.modelBody = new CANNON.Body({ mass: 1, allowSleep: false });
+      this.modelBody.addShape(modelShape, new CANNON.Vec3(0, 5, 0));
+      this.modelBody.position.set(0, 10, 0);
       this.world.addBody(this.modelBody);
 
       this.mixer = new THREE.AnimationMixer(this.model);
@@ -499,6 +494,12 @@ export class PromoComponent implements AfterViewInit, OnDestroy {
     modelPositionFolder.add(this.model.position, 'y', -100, 100, 2);
     modelPositionFolder.add(this.model.position, 'z', -10, 1000, 2);
 
+    const physicsFolder = gui.addFolder('Physics');
+    physicsFolder.add(this.world.gravity, 'x', -10.0, 10.0, 0.1);
+    physicsFolder.add(this.world.gravity, 'y', -10.0, 10.0, 0.1);
+    physicsFolder.add(this.world.gravity, 'z', -10.0, 10.0, 0.1);
+
+    physicsFolder.open();
     mountainFolder.open();
     mountainPositionFolder.open();
     modelFolder.open();
@@ -532,6 +533,7 @@ export class PromoComponent implements AfterViewInit, OnDestroy {
   animated() {
     const grassMaterial = this.grass.material as THREE.RawShaderMaterial;
     const clock = new THREE.Clock();
+    let delta;
     let time = 0;
     let lastFrame = Date.now();
     let thisFrame;
@@ -539,7 +541,7 @@ export class PromoComponent implements AfterViewInit, OnDestroy {
     const speed = 0.8;
     const animate = () => {
       this.stats.update();
-      const delta = Math.min(clock.getDelta(), 0.1);
+      delta = Math.min(clock.getDelta(), 0.1);
       this.world.step(delta);
       this.cannonDebugRenderer.update();
       this.mixer?.update(delta);
@@ -548,7 +550,7 @@ export class PromoComponent implements AfterViewInit, OnDestroy {
       time += dT;
       lastFrame = thisFrame;
 
-      if (this.model) {
+      if (this.model && this.modelBody) {
         this.model.position.set(
           this.modelBody.position.x,
           this.modelBody.position.y,
