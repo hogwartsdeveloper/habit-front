@@ -20,11 +20,8 @@ import {
   skyVertexShader2,
 } from '../services/another-code/promo';
 import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader';
-import { GUI } from 'dat.gui';
-import { Subject, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { CharacterControls } from '../../../utils/characterControls';
-import CannonDebugRenderer from '../../../utils/cannon-debug-renderer';
-import CannonUtils from '../../../utils/cannon-utils';
 
 @Component({
   selector: 'app-promo',
@@ -53,14 +50,10 @@ export class PromoComponent implements AfterViewInit, OnDestroy {
   mountain: THREE.Group;
   model: THREE.Group;
 
-  allModelLoaded$ = new Subject<number>();
   modelNumber = 1;
   subscription: Subscription;
   keysPressed: { [key: string]: boolean } = {};
   characterControls: CharacterControls;
-  world = new CANNON.World({ gravity: new CANNON.Vec3(0, -9.82, 0) });
-  cannonDebugRenderer: CannonDebugRenderer;
-  modelBody: CANNON.Body;
 
   @HostListener('window:resize')
   resize() {
@@ -90,12 +83,6 @@ export class PromoComponent implements AfterViewInit, OnDestroy {
     this.addModel();
     this.animated();
     this.addStats();
-
-    this.subscription = this.allModelLoaded$.subscribe((res) => {
-      if (res === 2) {
-        this.addGui();
-      }
-    });
   }
 
   init() {
@@ -115,8 +102,6 @@ export class PromoComponent implements AfterViewInit, OnDestroy {
 
     this.camera.position.set(0, 4.5, -35);
     this.orbitControl.update();
-
-    this.cannonDebugRenderer = new CannonDebugRenderer(this.scene, this.world);
   }
   createLight() {
     this.hemiLight.color.set(0xffffff);
@@ -246,7 +231,6 @@ export class PromoComponent implements AfterViewInit, OnDestroy {
       new CANNON.Vec3(1, 0, 0),
       -Math.PI / 2
     );
-    this.world.addBody(planeBody);
 
     this.createGrass(
       width,
@@ -335,10 +319,6 @@ export class PromoComponent implements AfterViewInit, OnDestroy {
     grassBaseGeometry.computeVertexNormals();
 
     const instancedGeometry = new THREE.InstancedBufferGeometry();
-    const instancedAttribute = instancedGeometry.attributes[
-      'position'
-    ] as THREE.BufferAttribute;
-    instancedAttribute;
 
     instancedGeometry.index = grassBaseGeometry.index;
     instancedGeometry.attributes['position'] =
@@ -441,7 +421,6 @@ export class PromoComponent implements AfterViewInit, OnDestroy {
       this.mountain = object;
       this.mountain.position.set(0, -2, 320);
       this.scene.add(this.mountain);
-      this.allModelLoaded$.next(this.modelNumber++);
     });
   }
 
@@ -452,10 +431,6 @@ export class PromoComponent implements AfterViewInit, OnDestroy {
       this.model.position.set(0, 0, 0);
 
       const modelShape = new CANNON.Sphere(5);
-      this.modelBody = new CANNON.Body({ mass: 1, allowSleep: false });
-      this.modelBody.addShape(modelShape, new CANNON.Vec3(0, 5, 0));
-      this.modelBody.position.set(0, 10, 0);
-      this.world.addBody(this.modelBody);
 
       this.mixer = new THREE.AnimationMixer(this.model);
       const animationClip = this.model.animations[0]; // get the first animation clip
@@ -466,7 +441,6 @@ export class PromoComponent implements AfterViewInit, OnDestroy {
         child.receiveShadow = true;
       });
       this.scene.add(this.model);
-      this.allModelLoaded$.next(this.modelNumber++);
 
       this.characterControls = new CharacterControls(
         this.model,
@@ -478,32 +452,6 @@ export class PromoComponent implements AfterViewInit, OnDestroy {
 
   addStats() {
     document.body.appendChild(this.stats.dom);
-  }
-
-  addGui() {
-    const gui = new GUI();
-    const mountainFolder = gui.addFolder('Mountain');
-    const mountainPositionFolder = mountainFolder.addFolder('Position');
-    mountainPositionFolder.add(this.mountain.position, 'x', -100, 100, 2);
-    mountainPositionFolder.add(this.mountain.position, 'y', -100, 100, 2);
-    mountainPositionFolder.add(this.mountain.position, 'z', -10, 1000, 2);
-
-    const modelFolder = gui.addFolder('Model');
-    const modelPositionFolder = modelFolder.addFolder('Position');
-    modelPositionFolder.add(this.model.position, 'x', -100, 100, 2);
-    modelPositionFolder.add(this.model.position, 'y', -100, 100, 2);
-    modelPositionFolder.add(this.model.position, 'z', -10, 1000, 2);
-
-    const physicsFolder = gui.addFolder('Physics');
-    physicsFolder.add(this.world.gravity, 'x', -10.0, 10.0, 0.1);
-    physicsFolder.add(this.world.gravity, 'y', -10.0, 10.0, 0.1);
-    physicsFolder.add(this.world.gravity, 'z', -10.0, 10.0, 0.1);
-
-    physicsFolder.open();
-    mountainFolder.open();
-    mountainPositionFolder.open();
-    modelFolder.open();
-    modelPositionFolder.open();
   }
 
   updateCameraPosition() {
@@ -542,28 +490,11 @@ export class PromoComponent implements AfterViewInit, OnDestroy {
     const animate = () => {
       this.stats.update();
       delta = Math.min(clock.getDelta(), 0.1);
-      this.world.step(delta);
-      this.cannonDebugRenderer.update();
       this.mixer?.update(delta);
       thisFrame = Date.now();
       dT = (thisFrame - lastFrame) / 350;
       time += dT;
       lastFrame = thisFrame;
-
-      if (this.model && this.modelBody) {
-        this.model.position.set(
-          this.modelBody.position.x,
-          this.modelBody.position.y,
-          this.modelBody.position.z
-        );
-
-        this.model.quaternion.set(
-          this.modelBody.quaternion.x,
-          this.modelBody.quaternion.y,
-          this.modelBody.quaternion.z,
-          this.modelBody.quaternion.w
-        );
-      }
 
       if (this.characterControls) {
         this.characterControls.update(
