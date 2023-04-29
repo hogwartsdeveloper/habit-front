@@ -1,10 +1,22 @@
 <div class="container text-white" [formGroup]="form">
-    <h1 class="text-2xl mb-6">Sign In</h1>
+    <h1 class="text-2xl mb-6">{{type === 'signIn' ? 'Sign In' : 'Sign Up'}}</h1>
 
+    <ng-container *ngIf="type === 'signUp'">
+        <div class="flex flex-col">
+            <span>First Name</span>
+            <input class="rounded-md text-sm" type="text" placeholder="Zhannur" autocomplete="off" [formControlName]="'name'">
+        </div>
+
+        <div class="flex flex-col my-5">
+            <span>Last Name</span>
+            <input class="rounded-md text-sm" type="text" placeholder="Akhmetkhanov" autocomplete="off" [formControlName]="'lastName'">
+        </div>
+    </ng-container>
     <div class="flex flex-col">
         <span>Email</span>
         <input class="rounded-md text-sm" type="email" placeholder="username@gmail.com" autocomplete="off" [formControlName]="'email'">
     </div>
+
 
     <div class="flex flex-col my-5">
         <span>Password</span>
@@ -12,7 +24,7 @@
         <span class="text-xs mt-2 cursor-pointer">Forgot Password?</span>
     </div>
 
-    <button mat-button class="sign font-semibold">Sign In</button>
+    <button mat-button class="sign font-semibold">Sign {{type === 'signIn' ? 'in' : 'up'}}</button>
 
     <span class="text-xs text-center my-5">or continue with</span>
 
@@ -20,7 +32,12 @@
         <span class="icon icon-instagram text-white"></span>
     </button>
 
-    <div class="text-xs">
-        Don’t have an account yet? <span class="cursor-pointer font-semibold">Register for free</span>
+    <div class="text-xs text-center" [ngSwitch]="type">
+        <ng-container *ngSwitchCase="'signIn'">
+            Don’t have an account yet? <span class="cursor-pointer font-semibold" (click)="openLogin('signUp')">Register for free</span>
+        </ng-container>
+        <ng-container *ngSwitchCase="'signUp'">
+            Have you an account? <span class="cursor-pointer font-semibold" (click)="openLogin('signIn')">Sign in</span>
+        </ng-container>
     </div>
 </div>
