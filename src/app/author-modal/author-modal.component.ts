@@ -13,6 +13,7 @@ import {
   MatDialogRef,
 } from '@angular/material/dialog';
 import { AuthorType } from '../models/author.model';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-author-modal',
@@ -28,7 +29,8 @@ export class AuthorModalComponent {
   constructor(
     @Inject(MAT_DIALOG_DATA) data: { type: AuthorType },
     private dialogRef: MatDialogRef<AuthorModalComponent>,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private router: Router
   ) {
     this.type = data?.type || 'signIn';
 
@@ -59,5 +61,10 @@ export class AuthorModalComponent {
         type,
       },
     });
+  }
+
+  sign() {
+    this.dialogRef.close();
+    this.router.navigate(['/change']);
   }
 }

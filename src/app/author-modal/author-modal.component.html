@@ -24,7 +24,7 @@
         <span class="text-xs mt-2 cursor-pointer">Forgot Password?</span>
     </div>
 
-    <button mat-button class="sign font-semibold">Sign {{type === 'signIn' ? 'in' : 'up'}}</button>
+    <button mat-button class="sign font-semibold" (click)="sign()">Sign {{type === 'signIn' ? 'in' : 'up'}}</button>
 
     <span class="text-xs text-center my-5">or continue with</span>
 

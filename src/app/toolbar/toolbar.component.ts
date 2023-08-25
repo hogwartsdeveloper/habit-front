@@ -1,13 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { AuthorModalComponent } from '../author-modal/author-modal.component';
 import { AuthorType } from '../models/author.model';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-toolbar',
   templateUrl: './toolbar.component.html',
   styleUrls: ['./toolbar.component.scss'],
-  imports: [MatDialogModule],
+  imports: [MatDialogModule, RouterLink],
   standalone: true,
 })
 export class ToolbarComponent {
