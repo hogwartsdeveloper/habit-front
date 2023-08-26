@@ -1,18 +1,29 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { AuthorModalComponent } from '../author-modal/author-modal.component';
 import { AuthorType } from '../models/author.model';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
+import { AsyncPipe, NgIf } from '@angular/common';
+import { AuthService } from '../services/auth.service';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-toolbar',
   templateUrl: './toolbar.component.html',
   styleUrls: ['./toolbar.component.scss'],
-  imports: [MatDialogModule, RouterLink],
+  imports: [MatDialogModule, RouterLink, MatButtonModule, NgIf, AsyncPipe],
   standalone: true,
 })
 export class ToolbarComponent {
-  constructor(private dialog: MatDialog) {}
+  isAuth$: BehaviorSubject<boolean>;
+  constructor(
+    private dialog: MatDialog,
+    private authService: AuthService,
+    private router: Router
+  ) {
+    this.isAuth$ = this.authService.isAuth$;
+  }
 
   openLogin(type: AuthorType = 'signIn') {
     this.dialog.open(AuthorModalComponent, {
@@ -23,5 +34,10 @@ export class ToolbarComponent {
         type,
       },
     });
+  }
+
+  goToMainPage() {
+    this.authService.isAuth$.next(false);
+    this.router.navigate(['/']);
   }
 }

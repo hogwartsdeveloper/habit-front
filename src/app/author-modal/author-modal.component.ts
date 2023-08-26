@@ -13,7 +13,8 @@ import {
   MatDialogRef,
 } from '@angular/material/dialog';
 import { AuthorType } from '../models/author.model';
-import { Route, Router } from '@angular/router';
+import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-author-modal',
@@ -30,7 +31,8 @@ export class AuthorModalComponent {
     @Inject(MAT_DIALOG_DATA) data: { type: AuthorType },
     private dialogRef: MatDialogRef<AuthorModalComponent>,
     private dialog: MatDialog,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) {
     this.type = data?.type || 'signIn';
 
@@ -66,5 +68,6 @@ export class AuthorModalComponent {
   sign() {
     this.dialogRef.close();
     this.router.navigate(['/change']);
+    this.authService.isAuth$.next(true);
   }
 }
