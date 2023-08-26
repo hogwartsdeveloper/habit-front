@@ -75,7 +75,6 @@ export class AppComponent implements OnInit, OnDestroy {
   constructor(private threeSupportService: ThreeSupportService) {}
 
   ngOnInit() {
-    this.threeSupportService.createGUI();
     this.init();
     this.createLight();
     this.createSky(this.canvas.nativeElement);
@@ -513,11 +512,6 @@ export class AppComponent implements OnInit, OnDestroy {
 
       lineText.rotation.set(0, -3.12, 0);
       lineText.position.set(0, 2, -5);
-
-      this.threeSupportService.createGUIFolder('text', [
-        text.position,
-        text.rotation,
-      ]);
     });
   }
 
