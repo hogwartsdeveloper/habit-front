@@ -509,10 +509,10 @@ export class AppComponent implements OnInit, OnDestroy {
       this.scene.add(lineText);
 
       text.rotation.set(0, -3.12, 0);
-      text.position.set(0, 3, -1.5);
+      text.position.set(0, 2, -1.5);
 
       lineText.rotation.set(0, -3.12, 0);
-      lineText.position.set(0, 3, -4);
+      lineText.position.set(0, 2, -5);
 
       this.threeSupportService.createGUIFolder('text', [
         text.position,
