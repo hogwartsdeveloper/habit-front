@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ToolbarComponent } from './toolbar/toolbar.component';
-import { ThreeSupportService } from './pages/promo/services/three-support.service';
+import { ThreeSupportService } from './services/three-support.service';
 
 @NgModule({
   declarations: [AppComponent],
