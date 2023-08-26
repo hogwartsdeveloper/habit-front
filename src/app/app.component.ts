@@ -1,5 +1,4 @@
 import {
-  AfterViewInit,
   Component,
   ElementRef,
   HostListener,
@@ -23,6 +22,7 @@ import {
   skyFragmentShader2,
   skyVertexShader2,
 } from './pages/promo/services/another-code/promo';
+import { FontLoader } from 'three/examples/jsm/loaders/FontLoader';
 
 @Component({
   selector: 'app-root',
@@ -75,6 +75,7 @@ export class AppComponent implements OnInit, OnDestroy {
   constructor(private threeSupportService: ThreeSupportService) {}
 
   ngOnInit() {
+    this.threeSupportService.createGUI();
     this.init();
     this.createLight();
     this.createSky(this.canvas.nativeElement);
@@ -83,6 +84,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.addModel();
     this.animated();
     this.addStats();
+    this.addText();
   }
 
   init() {
@@ -454,6 +456,69 @@ export class AppComponent implements OnInit, OnDestroy {
 
   addStats() {
     document.body.appendChild(this.stats.dom);
+  }
+
+  addText() {
+    const loader = new FontLoader();
+
+    loader.load('assets/fonts/helvetiker_regular.typeface.json', (font) => {
+      const color = 0xf9fafa;
+      const matDark = new THREE.LineBasicMaterial({
+        color,
+        side: THREE.DoubleSide,
+      });
+      const matLite = new THREE.MeshBasicMaterial({
+        color,
+        transparent: true,
+        opacity: 0.9,
+        side: THREE.DoubleSide,
+      });
+      const message = 'Motivation';
+      const shapes = font.generateShapes(message, 4.5);
+      const geometry = new THREE.ShapeGeometry(shapes);
+      geometry.computeBoundingBox();
+
+      const xMid =
+        -0.5 * (geometry.boundingBox!.max.x - geometry.boundingBox!.min.x);
+      geometry.translate(xMid, 0, 0);
+
+      const text = new THREE.Mesh(geometry, matLite);
+      this.scene.add(text);
+
+      const holeShapes: THREE.Path[] = [];
+
+      shapes.forEach((shape) => {
+        if (shape.holes && shape.holes.length > 0) {
+          shape.holes.forEach((hole) => {
+            holeShapes.push(hole);
+          });
+        }
+      });
+
+      // @ts-ignore
+      shapes.push.apply(shapes, holeShapes);
+      const lineText = new THREE.Object3D();
+      shapes.forEach((shape) => {
+        const points = shape.getPoints();
+        const geometry = new THREE.BufferGeometry().setFromPoints(points);
+        geometry.translate(xMid, 0, 0);
+
+        const lineMesh = new THREE.Line(geometry, matDark);
+        lineText.add(lineMesh);
+      });
+      this.scene.add(lineText);
+
+      text.rotation.set(0, -3.12, 0);
+      text.position.set(0, 3, -1.5);
+
+      lineText.rotation.set(0, -3.12, 0);
+      lineText.position.set(0, 3, -4);
+
+      this.threeSupportService.createGUIFolder('text', [
+        text.position,
+        text.rotation,
+      ]);
+    });
   }
 
   updateCameraPosition() {
