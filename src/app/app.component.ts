@@ -23,6 +23,7 @@ import {
   skyVertexShader2,
 } from './services/another-code/promo';
 import { FontLoader } from 'three/examples/jsm/loaders/FontLoader';
+import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry';
 
 @Component({
   selector: 'app-root',
@@ -54,6 +55,7 @@ export class AppComponent implements OnInit, OnDestroy {
   subscription: Subscription;
   keysPressed: { [key: string]: boolean } = {};
   characterControls: CharacterControls;
+  text: THREE.Mesh<TextGeometry, THREE.MeshPhongMaterial[]>;
 
   @HostListener('window:resize')
   resize() {
@@ -461,57 +463,22 @@ export class AppComponent implements OnInit, OnDestroy {
     const loader = new FontLoader();
 
     loader.load('assets/fonts/helvetiker_regular.typeface.json', (font) => {
-      const color = 0xf9fafa;
-      const matDark = new THREE.LineBasicMaterial({
-        color,
-        side: THREE.DoubleSide,
-      });
-      const matLite = new THREE.MeshBasicMaterial({
-        color,
-        transparent: true,
-        opacity: 0.9,
-        side: THREE.DoubleSide,
-      });
-      const message = 'Motivation';
-      const shapes = font.generateShapes(message, 4.5);
-      const geometry = new THREE.ShapeGeometry(shapes);
-      geometry.computeBoundingBox();
-
-      const xMid =
-        -0.5 * (geometry.boundingBox!.max.x - geometry.boundingBox!.min.x);
-      geometry.translate(xMid, 0, 0);
-
-      const text = new THREE.Mesh(geometry, matLite);
-      this.scene.add(text);
-
-      const holeShapes: THREE.Path[] = [];
-
-      shapes.forEach((shape) => {
-        if (shape.holes && shape.holes.length > 0) {
-          shape.holes.forEach((hole) => {
-            holeShapes.push(hole);
-          });
-        }
+      const geometry = new TextGeometry('Motivation', {
+        font,
+        height: 1,
+        size: 3,
       });
 
-      // @ts-ignore
-      shapes.push.apply(shapes, holeShapes);
-      const lineText = new THREE.Object3D();
-      shapes.forEach((shape) => {
-        const points = shape.getPoints();
-        const geometry = new THREE.BufferGeometry().setFromPoints(points);
-        geometry.translate(xMid, 0, 0);
+      this.text = new THREE.Mesh(geometry, [
+        new THREE.MeshPhongMaterial({ color: 0xf9fafa }),
+        new THREE.MeshPhongMaterial({ color: 0xf9fafa }),
+      ]);
 
-        const lineMesh = new THREE.Line(geometry, matDark);
-        lineText.add(lineMesh);
-      });
-      this.scene.add(lineText);
+      this.text.castShadow = true;
+      this.text.position.set(25, 0.5, 100);
+      this.text.rotation.set(0, -3.15, 0);
 
-      text.rotation.set(0, -3.12, 0);
-      text.position.set(0, 2, -1.5);
-
-      lineText.rotation.set(0, -3.12, 0);
-      lineText.position.set(0, 2, -5);
+      this.scene.add(this.text);
     });
   }
 
