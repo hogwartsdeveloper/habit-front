@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { AuthorModalComponent } from '../author-modal/author-modal.component';
+import { AuthorModalComponent } from '../modals/author-modal/author-modal.component';
 import { AuthorType } from '../models/author.model';
 import { Router, RouterLink } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
