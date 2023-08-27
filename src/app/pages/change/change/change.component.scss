@@ -1,14 +1,9 @@
 :host {
-  display: block;
-  height: 100vh;
-  width: 100vw;
-  background: transparent;
-  backdrop-filter: blur(20px);
+  flex: 1;
 }
-
-.create {
-  margin-left: auto;
-  display: block;
-  background-color: rgb(101 163 13);
-  color: white !important;
+.box {
+  height: 95%;
+  border-radius: 20px;
+  border: 2px solid rgba(255, 255, 255, .5);
+  backdrop-filter: blur(20px);
 }
