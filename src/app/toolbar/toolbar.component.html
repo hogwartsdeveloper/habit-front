@@ -3,7 +3,7 @@
 
     <div class="space-x-4">
         <ng-container *ngIf="isAuth$ | async; else active">
-            <button mat-button class="pulse success font-semibold">Add habit</button>
+            <button mat-button class="pulse success font-semibold" (click)="addHabit()">Add habit</button>
         </ng-container>
     </div>
 </nav>

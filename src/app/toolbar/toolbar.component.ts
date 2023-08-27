@@ -7,6 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { AsyncPipe, NgIf } from '@angular/common';
 import { AuthService } from '../services/auth.service';
 import { BehaviorSubject } from 'rxjs';
+import { HabitModalComponent } from '../modals/habit-modal/habit-modal.component';
 
 @Component({
   selector: 'app-toolbar',
@@ -33,6 +34,15 @@ export class ToolbarComponent {
       data: {
         type,
       },
+    });
+  }
+
+  addHabit() {
+    this.dialog.open(HabitModalComponent, {
+      width: '400px',
+      height: '500px',
+      panelClass: 'noBackground',
+      autoFocus: false,
     });
   }
 

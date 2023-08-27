@@ -1,0 +1,39 @@
+<div class="container text-white" [formGroup]="form">
+    <h1 class="text-2xl mb-6">Create habit</h1>
+    <div class="flex flex-col">
+        <div class="flex gap-0.5">
+            <span>Name</span>
+            <span class="text-red-500">*</span>
+        </div>
+        <input class="rounded-md text-sm" type="text" placeholder="Habit name" autocomplete="off" formControlName="name">
+    </div>
+
+    <div class="flex flex-col mt-5">
+        <span>Description</span>
+        <input class="rounded-md text-sm" type="text" placeholder="Habit description" autocomplete="off" formControlName="description">
+    </div>
+
+    <div class="flex items-center my-4">
+        <span>Hide</span>
+        <mat-checkbox formControlName="isHide"></mat-checkbox>
+    </div>
+
+    <mat-form-field>
+        <mat-label>Start date</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="startDate">
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>End date</mat-label>
+        <input matInput [matDatepicker]="picker2" formControlName="endDate">
+        <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+    </mat-form-field>
+
+    <div class="flex justify-end gap-1.5">
+        <button mat-button class="danger font-semibold" (click)="onClose()">Cancel</button>
+        <button mat-button class="success font-semibold" [disabled]="form.invalid" (click)="onSubmit()">Create</button>
+    </div>
+</div>
