@@ -8,6 +8,7 @@ import { ThreeSupportService } from './services/three-support.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MAT_DATE_LOCALE, MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { AuthGuard } from './auth/auth.guard';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,6 +23,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
   providers: [
     ThreeSupportService,
     { provide: MAT_DATE_LOCALE, useValue: 'en-GB' },
+    AuthGuard,
   ],
   bootstrap: [AppComponent],
 })
