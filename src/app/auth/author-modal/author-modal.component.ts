@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import {
   FormControl,
@@ -15,6 +15,7 @@ import {
 import { AuthorType } from '../../models/author.model';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { ThreeSupportService } from '../../services/three-support.service';
 
 @Component({
   selector: 'app-author-modal',
@@ -23,7 +24,7 @@ import { AuthService } from '../../services/auth.service';
   standalone: true,
   imports: [MatButtonModule, ReactiveFormsModule, NgIf, NgSwitchCase, NgSwitch],
 })
-export class AuthorModalComponent {
+export class AuthorModalComponent implements OnInit {
   type: AuthorType = 'signIn';
   form: FormGroup;
 
@@ -32,7 +33,8 @@ export class AuthorModalComponent {
     private dialogRef: MatDialogRef<AuthorModalComponent>,
     private dialog: MatDialog,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private threeSupportService: ThreeSupportService
   ) {
     this.type = data?.type || 'signIn';
 
@@ -51,6 +53,10 @@ export class AuthorModalComponent {
           lastName: new FormControl('', Validators.required),
         });
     }
+  }
+
+  ngOnInit() {
+    this.threeSupportService.stopAnimation$.next(true);
   }
 
   openLogin(type: AuthorType = 'signIn') {

@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import * as THREE from 'three';
-import { GUI } from 'dat.gui';
 import { Euler, Vector3 } from 'three';
+import { GUI } from 'dat.gui';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable()
 export class ThreeSupportService {
   gui: GUI;
+  stopAnimation$ = new BehaviorSubject<boolean>(false);
   getQuaternion(
     angle: number,
     rotationAxis: THREE.Vector3

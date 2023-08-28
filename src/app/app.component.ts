@@ -10,7 +10,7 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import Stats from 'three/examples/jsm/libs/stats.module';
 import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader';
-import { Subscription } from 'rxjs';
+import { Subject, Subscription, takeUntil } from 'rxjs';
 import * as CANNON from 'cannon-es';
 import { CharacterControls } from './utils/characterControls';
 import { ThreeSupportService } from './services/three-support.service';
@@ -57,6 +57,8 @@ export class AppComponent implements OnInit, OnDestroy {
   keysPressed: { [key: string]: boolean } = {};
   characterControls: CharacterControls;
   text: THREE.Mesh<TextGeometry, THREE.MeshPhongMaterial[]>;
+  stopAnimation = false;
+  destroy$ = new Subject();
 
   @HostListener('window:resize')
   resize() {
@@ -95,6 +97,10 @@ export class AppComponent implements OnInit, OnDestroy {
     this.animated();
     this.addStats();
     this.addText();
+
+    this.threeSupportService.stopAnimation$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((isStop) => (this.stopAnimation = isStop));
   }
 
   init() {
@@ -527,24 +533,26 @@ export class AppComponent implements OnInit, OnDestroy {
     const animate = () => {
       this.stats.update();
       delta = Math.min(clock.getDelta(), 0.1);
-      this.mixer?.update(delta);
       thisFrame = Date.now();
       dT = (thisFrame - lastFrame) / 350;
       time += dT;
       lastFrame = thisFrame;
 
-      if (this.characterControls) {
-        this.characterControls.update(
-          delta,
-          this.keysPressed,
-          speed,
-          grassMaterial,
-          this.groundShader
-        );
-      }
+      if (!this.stopAnimation) {
+        this.mixer?.update(delta);
+        if (this.characterControls) {
+          this.characterControls.update(
+            delta,
+            this.keysPressed,
+            speed,
+            grassMaterial,
+            this.groundShader
+          );
+        }
 
-      if (this.grass && this.groundShader) {
-        grassMaterial.uniforms['time'].value = time;
+        if (this.grass && this.groundShader) {
+          grassMaterial.uniforms['time'].value = time;
+        }
       }
 
       if (this.orbitControl) {
@@ -557,5 +565,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
+    this.destroy$.next(null);
+    this.destroy$.complete();
   }
 }

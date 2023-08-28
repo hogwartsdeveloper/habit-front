@@ -8,6 +8,7 @@ import { AsyncPipe, NgIf } from '@angular/common';
 import { AuthService } from '../services/auth.service';
 import { BehaviorSubject } from 'rxjs';
 import { HabitModalComponent } from '../pages/habit/habit-modal/habit-modal.component';
+import { ThreeSupportService } from '../services/three-support.service';
 
 @Component({
   selector: 'app-toolbar',
@@ -21,20 +22,24 @@ export class ToolbarComponent {
   constructor(
     private dialog: MatDialog,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private threeSupportService: ThreeSupportService
   ) {
     this.isAuth$ = this.authService.isAuth$;
   }
 
   openLogin(type: AuthorType = 'signIn') {
-    this.dialog.open(AuthorModalComponent, {
-      width: '400px',
-      height: type === 'signIn' ? '500px' : '650px',
-      panelClass: 'noBackground',
-      data: {
-        type,
-      },
-    });
+    this.dialog
+      .open(AuthorModalComponent, {
+        width: '400px',
+        height: type === 'signIn' ? '500px' : '650px',
+        panelClass: 'noBackground',
+        data: {
+          type,
+        },
+      })
+      .beforeClosed()
+      .subscribe(() => this.threeSupportService.stopAnimation$.next(false));
   }
 
   addHabit() {
@@ -48,6 +53,7 @@ export class ToolbarComponent {
 
   goToMainPage() {
     this.authService.isAuth$.next(false);
+    this.threeSupportService.stopAnimation$.next(false);
     this.router.navigate(['/']);
   }
 }
