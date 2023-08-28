@@ -1,12 +1,12 @@
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { ChangeComponent } from './change/change.component';
 import { AuthGuard } from '../../auth/auth.guard';
+import { HabitComponent } from './habit/habit.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: ChangeComponent,
+    component: HabitComponent,
     canActivate: [AuthGuard],
   },
 ];
@@ -15,4 +15,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class ChangeRoutingModule {}
+export class HabitRoutingModule {}

@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ChangeComponent } from './change/change.component';
-import { ChangeRoutingModule } from './change-routing.module';
+import { HabitRoutingModule } from './habit-routing.module';
 import { ToolbarComponent } from '../../toolbar/toolbar.component';
 import { MatButtonModule } from '@angular/material/button';
+import { HabitComponent } from './habit/habit.component';
 
 @NgModule({
-  declarations: [ChangeComponent],
+  declarations: [HabitComponent],
   imports: [
     CommonModule,
-    ChangeRoutingModule,
+    HabitRoutingModule,
     ToolbarComponent,
     MatButtonModule,
   ],
 })
-export class ChangeModule {}
+export class HabitModule {}

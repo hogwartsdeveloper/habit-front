@@ -5,7 +5,7 @@ const routes: Routes = [
   {
     path: 'change',
     loadChildren: () =>
-      import('./pages/change/change.module').then((m) => m.ChangeModule),
+      import('./pages/habit/habit.module').then((m) => m.HabitModule),
   },
 ];
 

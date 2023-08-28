@@ -24,6 +24,7 @@ import {
 } from './services/another-code/promo';
 import { FontLoader } from 'three/examples/jsm/loaders/FontLoader';
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry';
+import { HabitService } from './pages/habit/services/habit.service';
 
 @Component({
   selector: 'app-root',
@@ -74,7 +75,15 @@ export class AppComponent implements OnInit, OnDestroy {
     this.keysPressed[event.key?.toLowerCase()] = false;
   }
 
-  constructor(private threeSupportService: ThreeSupportService) {}
+  constructor(
+    private threeSupportService: ThreeSupportService,
+    private habitService: HabitService
+  ) {
+    const habitsStorage = localStorage.getItem('habits');
+    if (habitsStorage) {
+      this.habitService.habits$.next(JSON.parse(habitsStorage));
+    }
+  }
 
   ngOnInit() {
     this.init();

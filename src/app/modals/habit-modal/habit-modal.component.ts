@@ -12,6 +12,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogRef } from '@angular/material/dialog';
+import { HabitService } from '../../pages/habit/services/habit.service';
 
 @Component({
   selector: 'app-habit-modal',
@@ -31,7 +32,10 @@ import { MatDialogRef } from '@angular/material/dialog';
 export class HabitModalComponent implements OnInit {
   form: FormGroup;
 
-  constructor(private dialogRef: MatDialogRef<HabitModalComponent>) {}
+  constructor(
+    private dialogRef: MatDialogRef<HabitModalComponent>,
+    private habitServices: HabitService
+  ) {}
   ngOnInit() {
     this.form = new FormGroup({
       name: new FormControl('', Validators.required),
@@ -47,6 +51,17 @@ export class HabitModalComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.form.getRawValue());
+    this.habitServices.habits$.next([
+      ...this.habitServices.habits$.value,
+      this.form.getRawValue(),
+    ]);
+    localStorage.setItem(
+      'habits',
+      JSON.stringify([
+        ...this.habitServices.habits$.value,
+        this.form.getRawValue(),
+      ])
+    );
+    this.onClose();
   }
 }
