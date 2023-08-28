@@ -472,7 +472,7 @@ export class AppComponent implements OnInit, OnDestroy {
     const loader = new FontLoader();
 
     loader.load('assets/fonts/helvetiker_regular.typeface.json', (font) => {
-      const geometry = new TextGeometry('Motivation', {
+      const geometry = new TextGeometry('Discipline', {
         font,
         height: 1,
         size: 3,
@@ -484,7 +484,7 @@ export class AppComponent implements OnInit, OnDestroy {
       ]);
 
       this.text.castShadow = true;
-      this.text.position.set(25, 0.5, 100);
+      this.text.position.set(9, 29, 150);
       this.text.rotation.set(0, -3.15, 0);
 
       this.scene.add(this.text);

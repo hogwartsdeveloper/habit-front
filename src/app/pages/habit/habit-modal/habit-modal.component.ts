@@ -12,7 +12,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogRef } from '@angular/material/dialog';
-import { HabitService } from '../../pages/habit/services/habit.service';
+import { HabitService } from '../services/habit.service';
 
 @Component({
   selector: 'app-habit-modal',
