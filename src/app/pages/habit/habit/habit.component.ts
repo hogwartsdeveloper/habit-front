@@ -4,6 +4,7 @@ import { Subject, takeUntil } from 'rxjs';
 import { IHabit } from '../models/habit.interface';
 import { MatDialog } from '@angular/material/dialog';
 import { HabitModalComponent } from '../habit-modal/habit-modal.component';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-change',
@@ -49,6 +50,14 @@ export class HabitComponent implements OnInit, OnDestroy {
       'habits',
       JSON.stringify(this.habitService.habits$.value)
     );
+  }
+
+  onDone(habit: IHabit) {
+    habit.count = Math.min(++habit.count, this.countTotalDay(habit));
+  }
+
+  countTotalDay(habit: IHabit) {
+    return moment(habit.endDate).diff(habit.startDate, 'days');
   }
 
   ngOnDestroy() {
