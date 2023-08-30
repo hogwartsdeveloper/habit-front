@@ -2,6 +2,8 @@ import { Component, OnDestroy, OnInit, signal } from '@angular/core';
 import { HabitService } from '../services/habit.service';
 import { Subject, takeUntil } from 'rxjs';
 import { IHabit } from '../models/habit.interface';
+import { MatDialog } from '@angular/material/dialog';
+import { HabitModalComponent } from '../habit-modal/habit-modal.component';
 
 @Component({
   selector: 'app-change',
@@ -12,7 +14,7 @@ export class HabitComponent implements OnInit, OnDestroy {
   habits = signal<IHabit[]>([]);
   selectedHabit: IHabit;
   destroy$ = new Subject();
-  constructor(private habitService: HabitService) {}
+  constructor(private dialog: MatDialog, private habitService: HabitService) {}
 
   ngOnInit() {
     this.habitService.habits$
@@ -24,6 +26,16 @@ export class HabitComponent implements OnInit, OnDestroy {
 
   onSelectHabit(habit: IHabit) {
     this.selectedHabit = habit;
+  }
+
+  onEdit() {
+    this.dialog.open(HabitModalComponent, {
+      width: '400px',
+      height: '500px',
+      panelClass: 'noBackground',
+      autoFocus: false,
+      data: this.selectedHabit,
+    });
   }
 
   onDelete() {
