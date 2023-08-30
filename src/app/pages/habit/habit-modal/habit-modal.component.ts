@@ -79,6 +79,7 @@ export class HabitModalComponent implements OnInit {
             ...this.form.getRawValue(),
             id: id + 1,
             count: 0,
+            lastActiveDate: null,
           },
         ];
         break;

@@ -53,7 +53,17 @@ export class HabitComponent implements OnInit, OnDestroy {
   }
 
   onDone(habit: IHabit) {
-    habit.count = Math.min(++habit.count, this.countTotalDay(habit));
+    if (habit.lastActiveDate !== moment().format('YYYY-MM-DD')) {
+      habit.count = Math.min(++habit.count, this.countTotalDay(habit));
+      habit.lastActiveDate = moment().format('YYYY-MM-DD');
+
+      this.habitService.habits$.next(this.habits());
+
+      localStorage.setItem(
+        'habits',
+        JSON.stringify(this.habitService.habits$.value)
+      );
+    }
   }
 
   countTotalDay(habit: IHabit) {

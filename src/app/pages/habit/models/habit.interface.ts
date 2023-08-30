@@ -6,4 +6,5 @@ export interface IHabit {
   startDate: string;
   endDate: string;
   count: number;
+  lastActiveDate: string | null;
 }
