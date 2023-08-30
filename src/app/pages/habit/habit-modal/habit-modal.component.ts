@@ -13,6 +13,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogRef } from '@angular/material/dialog';
 import { HabitService } from '../services/habit.service';
+import { IHabit } from '../models/habit.interface';
 
 @Component({
   selector: 'app-habit-modal',
@@ -51,17 +52,12 @@ export class HabitModalComponent implements OnInit {
   }
 
   onSubmit() {
-    this.habitServices.habits$.next([
+    const habits: IHabit[] = [
       ...this.habitServices.habits$.value,
       this.form.getRawValue(),
-    ]);
-    localStorage.setItem(
-      'habits',
-      JSON.stringify([
-        ...this.habitServices.habits$.value,
-        this.form.getRawValue(),
-      ])
-    );
+    ];
+    this.habitServices.habits$.next(habits);
+    localStorage.setItem('habits', JSON.stringify(habits));
     this.onClose();
   }
 }

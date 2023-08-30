@@ -18,6 +18,7 @@ export class HabitComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.destroy$))
       .subscribe((habits) => {
         this.habits.set(habits);
+        console.log(habits);
       });
   }
 
