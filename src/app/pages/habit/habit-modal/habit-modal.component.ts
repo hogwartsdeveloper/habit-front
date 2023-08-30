@@ -54,7 +54,7 @@ export class HabitModalComponent implements OnInit {
         this.data?.startDate || moment().format('YYYY-MM-DD')
       ),
       endDate: new FormControl(
-        this.data?.endData || moment().add(21, 'days').format('YYYY-MM-DD')
+        this.data?.endDate || moment().add(21, 'days').format('YYYY-MM-DD')
       ),
     });
   }

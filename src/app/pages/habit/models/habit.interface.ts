@@ -4,5 +4,5 @@ export interface IHabit {
   description: string;
   isHide: boolean;
   startDate: string;
-  endData: string;
+  endDate: string;
 }
