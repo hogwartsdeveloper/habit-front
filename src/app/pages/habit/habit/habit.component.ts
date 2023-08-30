@@ -10,6 +10,7 @@ import { IHabit } from '../models/habit.interface';
 })
 export class HabitComponent implements OnInit, OnDestroy {
   habits = signal<IHabit[]>([]);
+  selectedHabit: IHabit;
   destroy$ = new Subject();
   constructor(private habitService: HabitService) {}
 
@@ -18,8 +19,24 @@ export class HabitComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.destroy$))
       .subscribe((habits) => {
         this.habits.set(habits);
-        console.log(habits);
       });
+  }
+
+  onSelectHabit(habit: IHabit) {
+    this.selectedHabit = habit;
+  }
+
+  onDelete() {
+    this.habitService.habits$.next(
+      this.habitService.habits$.value.filter(
+        (habit) => habit.id !== this.selectedHabit.id
+      )
+    );
+
+    localStorage.setItem(
+      'habits',
+      JSON.stringify(this.habitService.habits$.value)
+    );
   }
 
   ngOnDestroy() {

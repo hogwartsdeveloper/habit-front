@@ -5,7 +5,7 @@
             <div>{{ habit.description}}</div>
         </div>
 
-        <button mat-icon-button [matMenuTriggerFor]="menu"><mat-icon>more_vert</mat-icon></button>
+        <button mat-icon-button [matMenuTriggerFor]="menu" (click)="onSelectHabit(habit)"><mat-icon>more_vert</mat-icon></button>
     </div>
     <div *ngIf="!habits().length" class="flex-1 flex flex-col justify-center items-center text-white">
         <span>No Habits</span>
@@ -19,7 +19,7 @@
         <span>Edit</span>
     </button>
 
-    <button mat-menu-item>
+    <button mat-menu-item (click)="onDelete()">
         <mat-icon>delete_outline</mat-icon>
         <span>Remove</span>
     </button>

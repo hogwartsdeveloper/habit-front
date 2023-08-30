@@ -52,9 +52,17 @@ export class HabitModalComponent implements OnInit {
   }
 
   onSubmit() {
+    const id =
+      this.habitServices.habits$.value[
+        this.habitServices.habits$.value.length - 1
+      ]?.id || 0;
+
     const habits: IHabit[] = [
       ...this.habitServices.habits$.value,
-      this.form.getRawValue(),
+      {
+        ...this.form.getRawValue(),
+        id: id + 1,
+      },
     ];
     this.habitServices.habits$.next(habits);
     localStorage.setItem('habits', JSON.stringify(habits));
