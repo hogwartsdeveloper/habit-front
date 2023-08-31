@@ -7,6 +7,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/habit/habit.module').then((m) => m.HabitModule),
   },
+  {
+    path: 'user',
+    loadChildren: () =>
+      import('./pages/user/user.module').then((m) => m.UserModule),
+  },
 ];
 
 @NgModule({
