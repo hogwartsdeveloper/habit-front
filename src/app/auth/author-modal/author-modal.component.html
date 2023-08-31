@@ -3,28 +3,40 @@
 
     <ng-container *ngIf="type === 'signUp'">
         <div class="flex flex-col">
-            <span>First Name</span>
+            <div class="flex gap-0.5">
+                <span>First Name</span>
+                <span class="text-red-500">*</span>
+            </div>
             <input class="rounded-md text-sm" type="text" placeholder="Zhannur" autocomplete="off" [formControlName]="'name'">
         </div>
 
         <div class="flex flex-col my-5">
-            <span>Last Name</span>
+            <div class="flex gap-0.5">
+                <span>Last Name</span>
+                <span class="text-red-500">*</span>
+            </div>
             <input class="rounded-md text-sm" type="text" placeholder="Akhmetkhanov" autocomplete="off" [formControlName]="'lastName'">
         </div>
     </ng-container>
     <div class="flex flex-col">
-        <span>Email</span>
+        <div class="flex gap-0.5">
+            <span>Email</span>
+            <span class="text-red-500">*</span>
+        </div>
         <input class="rounded-md text-sm" type="email" placeholder="username@gmail.com" autocomplete="off" [formControlName]="'email'">
     </div>
 
 
     <div class="flex flex-col my-5">
-        <span>Password</span>
+        <div class="flex gap-0.5">
+            <span>Password</span>
+            <span class="text-red-500">*</span>
+        </div>
         <input class="rounded-md" type="password" placeholder="Password" [formControlName]="'password'">
         <span class="text-xs mt-2 cursor-pointer">Forgot Password?</span>
     </div>
 
-    <button mat-button class="success font-semibold" (click)="sign()">Sign {{type === 'signIn' ? 'in' : 'up'}}</button>
+    <button mat-button class="success font-semibold" [disabled]="form.invalid" (click)="sign()">Sign {{type === 'signIn' ? 'in' : 'up'}}</button>
 
     <span class="text-xs text-center my-5">or continue with</span>
 
