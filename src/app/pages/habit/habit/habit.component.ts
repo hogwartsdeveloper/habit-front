@@ -15,7 +15,7 @@ export class HabitComponent implements OnInit, OnDestroy {
   habits = signal<IHabit[]>([]);
   selectedHabit: IHabit;
   destroy$ = new Subject();
-  constructor(private dialog: MatDialog, private habitService: HabitService) {}
+  constructor(private dialog: MatDialog, public habitService: HabitService) {}
 
   ngOnInit() {
     this.habitService.habits$
@@ -54,7 +54,10 @@ export class HabitComponent implements OnInit, OnDestroy {
 
   onDone(habit: IHabit) {
     if (habit.lastActiveDate !== moment().format('YYYY-MM-DD')) {
-      habit.count = Math.min(++habit.count, this.countTotalDay(habit));
+      habit.count = Math.min(
+        ++habit.count,
+        this.habitService.countTotalDay(habit)
+      );
       habit.lastActiveDate = moment().format('YYYY-MM-DD');
 
       this.habitService.habits$.next(this.habits());
@@ -64,10 +67,6 @@ export class HabitComponent implements OnInit, OnDestroy {
         JSON.stringify(this.habitService.habits$.value)
       );
     }
-  }
-
-  countTotalDay(habit: IHabit) {
-    return moment(habit.endDate).diff(habit.startDate, 'days');
   }
 
   ngOnDestroy() {

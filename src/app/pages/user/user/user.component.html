@@ -1,1 +1,21 @@
-<p>user works!</p>
+<div class="page-box flex max-w-6xl mx-auto text-white p-6 gap-6">
+    <div class="left">
+        <img [src]="user.img" width="260" height="260">
+        <h1 class="font-extrabold">{{ user.firstName + ' ' + user.lastName}}</h1>
+
+        <button mat-button class="success font-semibold w-full">Edit profile</button>
+    </div>
+    <div class="right">
+        <h2 class="font-bold">Active habits</h2>
+        <div *ngFor="let habit of habits" class="habit h-14 font-semibold">
+            <div>
+                <div>{{ habit.name }}</div>
+                <div>{{ habit.description}}</div>
+            </div>
+
+            <div class="flex items-center gap-2.5">
+                <div>{{ habit.count }}/{{ habitService.countTotalDay(habit) }}</div>
+            </div>
+        </div>
+    </div>
+</div>

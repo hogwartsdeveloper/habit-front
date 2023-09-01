@@ -12,7 +12,6 @@ export class AuthService {
     firstName: 'Zhannur',
     email: 'jannuraidynuly@gmail.com',
     img: 'https://media.licdn.com/dms/image/D4D03AQEDKKK8u_QR-w/profile-displayphoto-shrink_800_800/0/1693367601823?e=1698883200&v=beta&t=2tagzKZb8oXaAq0z4WWw0zTRxJhL7WcBcPtmVlutmgs',
-    habits: [],
   });
 
   constructor() {}

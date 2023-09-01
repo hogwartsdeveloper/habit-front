@@ -12,8 +12,6 @@ export class AuthGuard {
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     if (state.url !== '/') {
       this.threeSupportService.stopAnimation$.next(true);
-    }
-    if (state.url === '/change') {
       this.authService.isAuth$.next(true);
     }
   }

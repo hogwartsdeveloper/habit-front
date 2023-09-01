@@ -1,4 +1,4 @@
-<div class="box flex flex-col max-w-6xl mx-auto">
+<div class="page-box flex flex-col max-w-6xl mx-auto">
     <div *ngFor="let habit of habits()" class="h-14 habit font-semibold cursor-pointer" (click)="onDone(habit)">
         <div>
             <div>{{ habit.name }}</div>
@@ -6,7 +6,7 @@
         </div>
 
         <div class="flex items-center gap-2.5">
-            <div>{{ habit.count }}/{{ countTotalDay(habit) }}</div>
+            <div>{{ habit.count }}/{{ habitService.countTotalDay(habit) }}</div>
             <button mat-icon-button [matMenuTriggerFor]="menu" (click)="onSelectHabit(habit)"><mat-icon>more_vert</mat-icon></button>
         </div>
     </div>
