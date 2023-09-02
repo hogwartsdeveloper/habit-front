@@ -16,13 +16,21 @@ import { AuthorType } from '../../models/author.model';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { ThreeSupportService } from '../../services/three-support.service';
+import { ButtonComponent } from '../../ui/button.component';
 
 @Component({
   selector: 'app-author-modal',
   templateUrl: './author-modal.component.html',
   styleUrls: ['./author-modal.component.scss'],
   standalone: true,
-  imports: [MatButtonModule, ReactiveFormsModule, NgIf, NgSwitchCase, NgSwitch],
+  imports: [
+    MatButtonModule,
+    ReactiveFormsModule,
+    NgIf,
+    NgSwitchCase,
+    NgSwitch,
+    ButtonComponent,
+  ],
 })
 export class AuthorModalComponent implements OnInit {
   type: AuthorType = 'signIn';

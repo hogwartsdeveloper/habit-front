@@ -110,16 +110,6 @@ html, body { height: 100%; }
   z-index: 2 !important;
 }
 
-.success{
-  background-color: var(--cl-success) !important;
-  color: white !important;
-}
-
-.danger {
-  background-color: var(--cl-danger) !important;
-  color: white !important;
-}
-
 .mat-mdc-text-field-wrapper {
   border-radius: 0.375rem !important;
   height: 50px !important;
@@ -137,10 +127,6 @@ input {
 
 input:focus {
   outline: none;
-}
-
-button[disabled] {
-  opacity: 0.5;
 }
 
 .page-box {

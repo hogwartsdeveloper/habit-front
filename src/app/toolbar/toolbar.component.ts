@@ -9,12 +9,20 @@ import { AuthService } from '../services/auth.service';
 import { BehaviorSubject } from 'rxjs';
 import { HabitModalComponent } from '../pages/habit/habit-modal/habit-modal.component';
 import { ThreeSupportService } from '../services/three-support.service';
+import { ButtonComponent } from '../ui/button.component';
 
 @Component({
   selector: 'app-toolbar',
   templateUrl: './toolbar.component.html',
   styleUrls: ['./toolbar.component.scss'],
-  imports: [MatDialogModule, RouterLink, MatButtonModule, NgIf, AsyncPipe],
+  imports: [
+    MatDialogModule,
+    RouterLink,
+    MatButtonModule,
+    NgIf,
+    AsyncPipe,
+    ButtonComponent,
+  ],
   standalone: true,
 })
 export class ToolbarComponent {
