@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { AuthorModalComponent } from '../auth/author-modal/author-modal.component';
-import { AuthorType } from '../models/author.model';
+import { AuthorType } from '../auth/models/author.model';
 import { Router, RouterLink } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { AsyncPipe, NgIf } from '@angular/common';

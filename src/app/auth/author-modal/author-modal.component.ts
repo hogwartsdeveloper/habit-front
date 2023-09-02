@@ -12,7 +12,7 @@ import {
   MatDialog,
   MatDialogRef,
 } from '@angular/material/dialog';
-import { AuthorType } from '../../models/author.model';
+import { AuthorType } from '../models/author.model';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { ThreeSupportService } from '../../services/three-support.service';
