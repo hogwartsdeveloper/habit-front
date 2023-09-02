@@ -1,0 +1,13 @@
+input {
+  height: 35px;
+  padding: 0 15px;
+  color: #BCBEC0;
+
+  &.ng-invalid.ng-touched {
+    border: 1px solid var(--cl-danger);
+  }
+}
+
+input:focus {
+  outline: none;
+}

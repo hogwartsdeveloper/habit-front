@@ -15,6 +15,9 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { HabitService } from '../services/habit.service';
 import { IHabit } from '../models/habit.interface';
 import { ButtonComponent } from '../../../utils/ui/button/button.component';
+import { IInput } from '../../../utils/ui/input/models/input.interface';
+import { InputComponent } from '../../../utils/ui/input/input.component';
+import { habitInputConfigs } from './form.config';
 
 @Component({
   selector: 'app-habit-modal',
@@ -27,6 +30,7 @@ import { ButtonComponent } from '../../../utils/ui/button/button.component';
     MatDatepickerModule,
     MatButtonModule,
     ButtonComponent,
+    InputComponent,
   ],
   providers: [],
   templateUrl: './habit-modal.component.html',
@@ -35,6 +39,7 @@ import { ButtonComponent } from '../../../utils/ui/button/button.component';
 export class HabitModalComponent implements OnInit {
   type: 'create' | 'edit';
   form: FormGroup;
+  inputConfigs: IInput[] = habitInputConfigs;
 
   constructor(
     private dialogRef: MatDialogRef<HabitModalComponent>,

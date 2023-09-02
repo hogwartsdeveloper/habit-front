@@ -1,17 +1,8 @@
 <div class="container text-white" [formGroup]="form">
     <h1 class="text-2xl mb-6">Create habit</h1>
-    <div class="flex flex-col">
-        <div class="flex gap-0.5">
-            <span>Name</span>
-            <span class="text-red-500">*</span>
-        </div>
-        <input class="rounded-md text-sm" type="text" placeholder="Habit name" autocomplete="off" formControlName="name">
-    </div>
 
-    <div class="flex flex-col mt-5">
-        <span>Description</span>
-        <input class="rounded-md text-sm" type="text" placeholder="Habit description" autocomplete="off" formControlName="description">
-    </div>
+    <app-input [config]="inputConfigs[0]" [form]="form"></app-input>
+    <app-input class="mt-5" [config]="inputConfigs[1]" [form]="form"></app-input>
 
     <div class="flex items-center my-4">
         <span>Hide</span>

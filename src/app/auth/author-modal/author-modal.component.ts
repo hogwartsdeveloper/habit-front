@@ -17,6 +17,9 @@ import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { ThreeSupportService } from '../../services/three-support.service';
 import { ButtonComponent } from '../../utils/ui/button/button.component';
+import { IInput } from '../../utils/ui/input/models/input.interface';
+import { InputComponent } from '../../utils/ui/input/input.component';
+import { authInputConfigs } from './form.config';
 
 @Component({
   selector: 'app-author-modal',
@@ -30,11 +33,13 @@ import { ButtonComponent } from '../../utils/ui/button/button.component';
     NgSwitchCase,
     NgSwitch,
     ButtonComponent,
+    InputComponent,
   ],
 })
 export class AuthorModalComponent implements OnInit {
   type: AuthorType = 'signIn';
   form: FormGroup;
+  configs: IInput[] = authInputConfigs;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) data: { type: AuthorType },
