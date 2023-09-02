@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { UserComponent } from './user/user.component';
 import { UserRouterModule } from './user-router.module';
 import { MatButtonModule } from '@angular/material/button';
-import { ButtonComponent } from '../../ui/button.component';
+import { ButtonComponent } from '../../utils/ui/button/button.component';
 
 @NgModule({
   declarations: [UserComponent],

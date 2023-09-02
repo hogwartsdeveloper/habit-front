@@ -12,7 +12,7 @@ import Stats from 'three/examples/jsm/libs/stats.module';
 import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader';
 import { Subject, Subscription, takeUntil } from 'rxjs';
 import * as CANNON from 'cannon-es';
-import { CharacterControls } from './utils/characterControls';
+import { CharacterControls } from './utils/character-control/characterControls';
 import { ThreeSupportService } from './services/three-support.service';
 import {
   grassFragmentSource,
@@ -21,7 +21,7 @@ import {
   groundVertexShaderReplace,
   skyFragmentShader2,
   skyVertexShader2,
-} from './services/another-code/promo';
+} from './utils/another-code/promo';
 import { FontLoader } from 'three/examples/jsm/loaders/FontLoader';
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry';
 import { HabitService } from './pages/habit/services/habit.service';

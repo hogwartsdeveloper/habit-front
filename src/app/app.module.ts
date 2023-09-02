@@ -8,7 +8,7 @@ import { ThreeSupportService } from './services/three-support.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MAT_DATE_LOCALE, MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { AuthGuard } from './auth/auth.guard';
+import { AuthGuard } from './auth/services/auth.guard';
 import { HabitService } from './pages/habit/services/habit.service';
 
 @NgModule({

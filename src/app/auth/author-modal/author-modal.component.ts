@@ -14,9 +14,9 @@ import {
 } from '@angular/material/dialog';
 import { AuthorType } from '../models/author.model';
 import { Router } from '@angular/router';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from '../services/auth.service';
 import { ThreeSupportService } from '../../services/three-support.service';
-import { ButtonComponent } from '../../ui/button.component';
+import { ButtonComponent } from '../../utils/ui/button/button.component';
 
 @Component({
   selector: 'app-author-modal',

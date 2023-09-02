@@ -14,7 +14,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { HabitService } from '../services/habit.service';
 import { IHabit } from '../models/habit.interface';
-import { ButtonComponent } from '../../../ui/button.component';
+import { ButtonComponent } from '../../../utils/ui/button/button.component';
 
 @Component({
   selector: 'app-habit-modal',
