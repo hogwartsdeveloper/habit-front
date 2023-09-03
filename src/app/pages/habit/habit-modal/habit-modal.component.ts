@@ -18,6 +18,7 @@ import { ButtonComponent } from '../../../utils/ui/button/button.component';
 import { IInput } from '../../../utils/ui/input/models/input.interface';
 import { InputComponent } from '../../../utils/ui/input/input.component';
 import { habitInputConfigs } from './form.config';
+import { ModalBaseComponent } from '../../../utils/ui/modal-base/modal-base.component';
 
 @Component({
   selector: 'app-habit-modal',
@@ -31,6 +32,7 @@ import { habitInputConfigs } from './form.config';
     MatButtonModule,
     ButtonComponent,
     InputComponent,
+    ModalBaseComponent,
   ],
   providers: [],
   templateUrl: './habit-modal.component.html',

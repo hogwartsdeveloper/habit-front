@@ -1,30 +1,30 @@
-<div class="container text-white" [formGroup]="form">
-    <h1 class="text-2xl mb-6">Create habit</h1>
+<app-modal-base [title]="'Create habit'" [actives]="actives">
+    <ng-container [formGroup]="form">
+        <app-input [config]="inputConfigs[0]" [form]="form"></app-input>
+        <app-input class="mt-5" [config]="inputConfigs[1]" [form]="form"></app-input>
 
-    <app-input [config]="inputConfigs[0]" [form]="form"></app-input>
-    <app-input class="mt-5" [config]="inputConfigs[1]" [form]="form"></app-input>
+        <div class="flex items-center my-4">
+            <span>Hide</span>
+            <mat-checkbox formControlName="isHide"></mat-checkbox>
+        </div>
 
-    <div class="flex items-center my-4">
-        <span>Hide</span>
-        <mat-checkbox formControlName="isHide"></mat-checkbox>
-    </div>
+        <mat-form-field>
+            <mat-label>Start date</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="startDate">
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
 
-    <mat-form-field>
-        <mat-label>Start date</mat-label>
-        <input matInput [matDatepicker]="picker" formControlName="startDate">
-        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
+        <mat-form-field>
+            <mat-label>End date</mat-label>
+            <input matInput [matDatepicker]="picker2" formControlName="endDate">
+            <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+    </ng-container>
+</app-modal-base>
 
-    <mat-form-field>
-        <mat-label>End date</mat-label>
-        <input matInput [matDatepicker]="picker2" formControlName="endDate">
-        <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
-        <mat-datepicker #picker2></mat-datepicker>
-    </mat-form-field>
-
-    <div class="flex justify-end gap-1.5">
-        <app-button type="danger" (click)="onClose()">Cancel</app-button>
-        <app-button [disabled]="form.invalid" (click)="onSubmit()">{{ type }}</app-button>
-    </div>
-</div>
+<ng-template #actives>
+    <app-button type="danger" (click)="onClose()">Cancel</app-button>
+    <app-button [disabled]="form.invalid" (click)="onSubmit()">{{ type }}</app-button>
+</ng-template>

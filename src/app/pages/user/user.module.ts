@@ -6,6 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { ButtonComponent } from '../../utils/ui/button/button.component';
 import { UserEditModalComponent } from './user-edit-modal/user-edit-modal.component';
 import { InputComponent } from '../../utils/ui/input/input.component';
+import { ModalBaseComponent } from '../../utils/ui/modal-base/modal-base.component';
 
 @NgModule({
   declarations: [UserComponent, UserEditModalComponent],
@@ -15,6 +16,7 @@ import { InputComponent } from '../../utils/ui/input/input.component';
     MatButtonModule,
     ButtonComponent,
     InputComponent,
+    ModalBaseComponent,
   ],
 })
 export class UserModule {}

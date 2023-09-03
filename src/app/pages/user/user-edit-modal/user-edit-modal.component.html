@@ -1,13 +1,13 @@
-<div class="container text-white">
-    <h1 class="text-2xl mb-6">User Edit</h1>
+<app-modal-base [title]="'User Edit'" [actives]="actives">
     <app-input
             *ngFor="let config of userInputConfigs; let ind=index"
             [config]="config"
             [form]="form"
             [ngClass]="{'my-5': ind > 0}"
     ></app-input>
-    <div class="flex justify-end gap-1.5">
-        <app-button type="danger" (click)="onClose()">Cancel</app-button>
-        <app-button [disabled]="form.invalid || !isEdit" (click)="onSave()">Save</app-button>
-    </div>
-</div>
+</app-modal-base>
+
+<ng-template #actives>
+    <app-button type="danger" (click)="onClose()">Cancel</app-button>
+    <app-button [disabled]="form.invalid || !isEdit" (click)="onSave()">Save</app-button>
+</ng-template>

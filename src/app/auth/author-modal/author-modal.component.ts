@@ -20,6 +20,7 @@ import { ButtonComponent } from '../../utils/ui/button/button.component';
 import { IInput } from '../../utils/ui/input/models/input.interface';
 import { InputComponent } from '../../utils/ui/input/input.component';
 import { authInputConfigs } from './form.config';
+import { ModalBaseComponent } from '../../utils/ui/modal-base/modal-base.component';
 
 @Component({
   selector: 'app-author-modal',
@@ -34,6 +35,7 @@ import { authInputConfigs } from './form.config';
     NgSwitch,
     ButtonComponent,
     InputComponent,
+    ModalBaseComponent,
   ],
 })
 export class AuthorModalComponent implements OnInit {

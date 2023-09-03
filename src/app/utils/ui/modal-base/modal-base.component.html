@@ -1,0 +1,8 @@
+<div class="container text-white">
+    <h1 class="text-2xl mb-6">{{ title }}</h1>
+    <ng-content></ng-content>
+
+    <div *ngIf="actives" class="flex gap-1.5">
+        <ng-container *ngTemplateOutlet="actives"></ng-container>
+    </div>
+</div>
