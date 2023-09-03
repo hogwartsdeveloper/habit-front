@@ -7,7 +7,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { AsyncPipe, NgIf } from '@angular/common';
 import { AuthService } from '../auth/services/auth.service';
 import { BehaviorSubject } from 'rxjs';
-import { HabitModalComponent } from '../pages/habit/habit-modal/habit-modal.component';
 import { ThreeSupportService } from '../services/three-support.service';
 import { ButtonComponent } from '../utils/ui/button/button.component';
 
@@ -48,15 +47,6 @@ export class ToolbarComponent {
       })
       .beforeClosed()
       .subscribe(() => this.threeSupportService.stopAnimation$.next(false));
-  }
-
-  addHabit() {
-    this.dialog.open(HabitModalComponent, {
-      width: '400px',
-      height: '500px',
-      panelClass: 'noBackground',
-      autoFocus: false,
-    });
   }
 
   goToMainPage() {

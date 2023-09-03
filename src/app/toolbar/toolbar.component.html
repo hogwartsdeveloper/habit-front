@@ -3,7 +3,7 @@
 
     <div class="space-x-4 flex">
         <ng-container *ngIf="isAuth$ | async; else active">
-            <app-button animation="pulse" (click)="addHabit()">Add habit</app-button>
+            <span class="flex items-center cursor-pointer" routerLink="/change">Habits</span>
             <img routerLink="/user" class="photo" src="https://media.licdn.com/dms/image/D4D03AQEDKKK8u_QR-w/profile-displayphoto-shrink_100_100/0/1693367601823?e=1698883200&v=beta&t=l5TctZTlFFgltBW6vs7znOFRxWGvF-0Js_NO5hGo7Lw">
         </ng-container>
     </div>

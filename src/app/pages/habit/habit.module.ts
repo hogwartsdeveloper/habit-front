@@ -6,6 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { HabitComponent } from './habit/habit.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
+import { ButtonComponent } from '../../utils/ui/button/button.component';
 
 @NgModule({
   declarations: [HabitComponent],
@@ -16,6 +17,7 @@ import { MatMenuModule } from '@angular/material/menu';
     MatButtonModule,
     MatIconModule,
     MatMenuModule,
+    ButtonComponent,
   ],
 })
 export class HabitModule {}

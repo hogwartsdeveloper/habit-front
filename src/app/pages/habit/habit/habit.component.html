@@ -1,5 +1,8 @@
 <div class="page-box flex flex-col max-w-6xl mx-auto">
-    <div *ngFor="let habit of habits()" class="h-14 habit font-semibold cursor-pointer" (click)="onDone(habit)">
+    <div class="flex justify-end mt-2.5 mr-2.5 mb-2.5">
+        <app-button style="width: 110px" [animation]="!habits().length ? 'pulse' : ''" (click)="addHabit()">Add habit</app-button>
+    </div>
+    <div *ngFor="let habit of habits(); let ind = index" [ngStyle]="{borderTop: ind === 0 ? '2px solid rgba(255, 255, 255, .5)': 'none'}" class="h-14 habit font-semibold cursor-pointer" (click)="onDone(habit)">
         <div>
             <div>{{ habit.name }}</div>
             <div>{{ habit.description}}</div>

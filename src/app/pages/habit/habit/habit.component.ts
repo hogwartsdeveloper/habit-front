@@ -39,6 +39,15 @@ export class HabitComponent implements OnInit, OnDestroy {
     });
   }
 
+  addHabit() {
+    this.dialog.open(HabitModalComponent, {
+      width: '400px',
+      height: '500px',
+      panelClass: 'noBackground',
+      autoFocus: false,
+    });
+  }
+
   onDelete() {
     this.habitService.habits$.next(
       this.habitService.habits$.value.filter(
