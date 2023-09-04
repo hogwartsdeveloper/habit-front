@@ -6,6 +6,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { HabitModalComponent } from '../habit-modal/habit-modal.component';
 import * as moment from 'moment';
 import { HabitViewEnum } from './models/habit-view.enum';
+import { ICalendar } from './models/calendar.interface';
+import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 
 @Component({
   selector: 'app-change',
@@ -13,10 +15,15 @@ import { HabitViewEnum } from './models/habit-view.enum';
   styleUrls: ['./habit.component.scss'],
 })
 export class HabitComponent implements OnInit, OnDestroy {
+  allHabits: IHabit[] = [];
   habits = signal<IHabit[]>([]);
   selectedHabit: IHabit;
   type: HabitViewEnum = HabitViewEnum.Active;
   habitViewEnum = HabitViewEnum;
+  calendar: ICalendar = {
+    startDate: null,
+    endDate: moment().format('YYYY-MM-DD'),
+  };
   destroy$ = new Subject();
   constructor(private dialog: MatDialog, public habitService: HabitService) {}
 
@@ -24,20 +31,52 @@ export class HabitComponent implements OnInit, OnDestroy {
     this.habitService.habits$
       .pipe(takeUntil(this.destroy$))
       .subscribe((habits) => {
-        switch (this.type) {
-          case HabitViewEnum.Active:
-            this.habits.set(
-              habits.filter((habit) =>
-                moment(habit.endDate).isSameOrAfter(moment())
+        this.allHabits = habits;
+        this.filterHabit(habits);
+      });
+  }
+
+  filterHabit(habits: IHabit[]) {
+    switch (this.type) {
+      case HabitViewEnum.Active:
+        this.habits.set(
+          habits.filter((habit) =>
+            moment(habit.endDate).isSameOrAfter(moment())
+          )
+        );
+        break;
+      case HabitViewEnum.History:
+        this.habits.set(
+          habits.filter((habit) => {
+            if (!this.calendar.startDate) {
+              return moment(habit.endDate).isSameOrBefore(
+                moment(this.calendar.endDate)
+              );
+            }
+            return (
+              moment(habit.endDate).isSameOrAfter(
+                moment(this.calendar.startDate)
+              ) &&
+              moment(habit.endDate).isSameOrBefore(
+                moment(this.calendar.endDate)
               )
             );
-            break;
-        }
-      });
+          })
+        );
+    }
   }
 
   onChangeViewType(type: HabitViewEnum) {
     this.type = type;
+    this.filterHabit(this.allHabits);
+  }
+
+  onChangeDate(
+    event: MatDatepickerInputEvent<any>,
+    type: 'startDate' | 'endDate'
+  ) {
+    this.calendar[type] = moment(event.value).format('YYYY-MM-DD');
+    this.filterHabit(this.allHabits);
   }
 
   onSelectHabit(habit: IHabit) {
