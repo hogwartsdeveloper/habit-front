@@ -24,7 +24,15 @@ export class HabitComponent implements OnInit, OnDestroy {
     this.habitService.habits$
       .pipe(takeUntil(this.destroy$))
       .subscribe((habits) => {
-        this.habits.set(habits);
+        switch (this.type) {
+          case HabitViewEnum.Active:
+            this.habits.set(
+              habits.filter((habit) =>
+                moment(habit.endDate).isSameOrAfter(moment())
+              )
+            );
+            break;
+        }
       });
   }
 
