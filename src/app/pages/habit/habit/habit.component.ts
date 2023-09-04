@@ -5,6 +5,7 @@ import { IHabit } from '../models/habit.interface';
 import { MatDialog } from '@angular/material/dialog';
 import { HabitModalComponent } from '../habit-modal/habit-modal.component';
 import * as moment from 'moment';
+import { HabitViewEnum } from './models/habit-view.enum';
 
 @Component({
   selector: 'app-change',
@@ -14,6 +15,8 @@ import * as moment from 'moment';
 export class HabitComponent implements OnInit, OnDestroy {
   habits = signal<IHabit[]>([]);
   selectedHabit: IHabit;
+  type: HabitViewEnum = HabitViewEnum.Active;
+  habitViewEnum = HabitViewEnum;
   destroy$ = new Subject();
   constructor(private dialog: MatDialog, public habitService: HabitService) {}
 
@@ -23,6 +26,10 @@ export class HabitComponent implements OnInit, OnDestroy {
       .subscribe((habits) => {
         this.habits.set(habits);
       });
+  }
+
+  onChangeViewType(type: HabitViewEnum) {
+    this.type = type;
   }
 
   onSelectHabit(habit: IHabit) {

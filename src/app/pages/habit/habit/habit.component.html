@@ -1,6 +1,10 @@
 <div class="page-box flex flex-col max-w-6xl mx-auto">
-    <div class="flex justify-end mt-2.5 mr-2.5 mb-2.5">
-        <app-button style="width: 110px" [animation]="!habits().length ? 'pulse' : ''" (click)="addHabit()">Add habit</app-button>
+    <div class="flex justify-between items-center mt-2.5 mr-2.5 mb-2.5 h-14">
+        <div class="flex gap-1.5 font-bold ml-3">
+            <span [ngStyle]="{color: type === habitViewEnum.Active ? 'white' : 'grey'}" class="cursor-pointer" (click)="onChangeViewType(habitViewEnum.Active)">Active</span>
+            <span [ngStyle]="{color: type !== habitViewEnum.Active ? 'white' : 'grey'}" class="cursor-pointer" (click)="onChangeViewType(habitViewEnum.History)">History</span>
+        </div>
+        <app-button *ngIf="type === habitViewEnum.Active; else rangeDate" style="width: 110px" [animation]="!habits().length ? 'pulse' : ''" (click)="addHabit()">Add habit</app-button>
     </div>
     <div *ngFor="let habit of habits(); let ind = index" [ngStyle]="{borderTop: ind === 0 ? '2px solid rgba(255, 255, 255, .5)': 'none'}" class="h-14 habit font-semibold cursor-pointer" (click)="onDone(habit)">
         <div>
@@ -30,3 +34,15 @@
         <span>Remove</span>
     </button>
 </mat-menu>
+
+<ng-template #rangeDate>
+    <mat-form-field>
+        <mat-label>Enter a date range</mat-label>
+        <mat-date-range-input [rangePicker]="picker">
+            <input matStartDate placeholder="Start date">
+            <input matEndDate placeholder="End date">
+        </mat-date-range-input>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+    </mat-form-field>
+</ng-template>
