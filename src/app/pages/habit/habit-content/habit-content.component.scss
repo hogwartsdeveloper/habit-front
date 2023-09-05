@@ -1,0 +1,13 @@
+
+.habit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid rgba(255, 255, 255, .5);
+  backdrop-filter: blur(20px);
+  border-radius: 10px;
+  padding: 0 10px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  color: white;
+}
