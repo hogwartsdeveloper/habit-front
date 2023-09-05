@@ -33,12 +33,11 @@ import * as moment from 'moment';
   ],
 })
 export class HabitContentComponent implements OnChanges {
-  @Input() type: HabitViewEnum = HabitViewEnum.Active;
+  @Input() viewType: 'interactive' | 'show' = 'interactive';
   @Input({ required: true }) habits: IHabit[];
   allHabits: IHabit[];
   HabitViewEnum = HabitViewEnum;
-
-  viewType: 'interactive' | 'show';
+  type: HabitViewEnum = HabitViewEnum.Active;
 
   calendar: ICalendar = {
     startDate: null,
@@ -126,6 +125,8 @@ export class HabitContentComponent implements OnChanges {
   }
 
   onDone(habit: IHabit) {
+    if (this.viewType === 'show') return;
+
     if (habit.lastActiveDate !== moment().format('YYYY-MM-DD')) {
       habit.count = Math.min(
         ++habit.count,
