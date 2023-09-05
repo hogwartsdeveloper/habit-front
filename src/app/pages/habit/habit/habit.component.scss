@@ -1,13 +1,3 @@
 :host {
   flex: 1;
 }
-
-.habit {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 2px solid rgba(255, 255, 255, .5);
-  padding-left: 15px;
-  color: white;
-  backdrop-filter: blur(20px);
-}

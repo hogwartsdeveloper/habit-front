@@ -7,6 +7,7 @@ import { ButtonComponent } from '../../utils/ui/button/button.component';
 import { UserEditModalComponent } from './user-edit-modal/user-edit-modal.component';
 import { InputComponent } from '../../utils/ui/input/input.component';
 import { ModalBaseComponent } from '../../utils/ui/modal-base/modal-base.component';
+import { HabitContentComponent } from '../habit/habit-content/habit-content.component';
 
 @NgModule({
   declarations: [UserComponent, UserEditModalComponent],
@@ -17,6 +18,7 @@ import { ModalBaseComponent } from '../../utils/ui/modal-base/modal-base.compone
     ButtonComponent,
     InputComponent,
     ModalBaseComponent,
+    HabitContentComponent,
   ],
 })
 export class UserModule {}

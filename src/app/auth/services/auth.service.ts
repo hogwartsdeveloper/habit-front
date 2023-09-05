@@ -8,6 +8,7 @@ import { IUser } from '../../pages/user/model/user.interface';
 export class AuthService {
   isAuth$ = new BehaviorSubject(false);
   user$ = new BehaviorSubject<IUser>({
+    id: 1,
     lastName: 'Akhmetkhanov',
     firstName: 'Zhannur',
     email: 'jannuraidynuly@gmail.com',

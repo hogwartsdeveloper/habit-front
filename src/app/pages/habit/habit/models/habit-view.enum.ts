@@ -1,4 +1,4 @@
 export enum HabitViewEnum {
-  Active = 1,
-  History,
+  Active = 'Active',
+  History = 'History',
 }
