@@ -1,4 +1,11 @@
-import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  Inject,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { IUserEditData } from './models/user-edit-data.interface';
@@ -11,6 +18,8 @@ import { userInputConfigs } from './models/user-edit-data.config';
   styleUrls: ['./user-edit-modal.component.scss'],
 })
 export class UserEditModalComponent implements OnInit, OnDestroy {
+  @ViewChild('photoInput', { static: true })
+  photo: ElementRef<HTMLInputElement>;
   userInputConfigs = userInputConfigs;
   form: FormGroup;
   isEdit = false;
@@ -23,6 +32,7 @@ export class UserEditModalComponent implements OnInit, OnDestroy {
     this.form = new FormGroup({
       name: new FormControl(data?.name || '', Validators.required),
       lastName: new FormControl(data?.lastName || '', Validators.required),
+      img: new FormControl(data?.img || ''),
     });
   }
 
@@ -32,8 +42,17 @@ export class UserEditModalComponent implements OnInit, OnDestroy {
       .subscribe((value: IUserEditData) => {
         this.isEdit =
           this.data.name !== value.name ||
-          this.data.lastName !== value.lastName;
+          this.data.lastName !== value.lastName ||
+          this.data?.img !== value.img;
       });
+  }
+
+  onPhotoChange() {
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      this.form.get('img')?.patchValue(event.target!.result);
+    };
+    reader.readAsDataURL(this.photo.nativeElement.files![0]);
   }
 
   onClose(content: IUserEditData | null = null) {

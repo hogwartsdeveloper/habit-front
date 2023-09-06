@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { AuthorModalComponent } from '../auth/author-modal/author-modal.component';
 import { AuthorType } from '../auth/models/author.model';
@@ -6,9 +6,10 @@ import { Router, RouterLink } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { AsyncPipe, NgIf } from '@angular/common';
 import { AuthService } from '../auth/services/auth.service';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subject, takeUntil } from 'rxjs';
 import { ThreeSupportService } from '../services/three-support.service';
 import { ButtonComponent } from '../utils/ui/button/button.component';
+import { IUser } from '../pages/user/model/user.interface';
 
 @Component({
   selector: 'app-toolbar',
@@ -24,8 +25,11 @@ import { ButtonComponent } from '../utils/ui/button/button.component';
   ],
   standalone: true,
 })
-export class ToolbarComponent {
+export class ToolbarComponent implements OnInit, OnDestroy {
   isAuth$: BehaviorSubject<boolean>;
+  user: IUser;
+  destroy$ = new Subject();
+
   constructor(
     private dialog: MatDialog,
     private authService: AuthService,
@@ -33,6 +37,12 @@ export class ToolbarComponent {
     private threeSupportService: ThreeSupportService
   ) {
     this.isAuth$ = this.authService.isAuth$;
+  }
+
+  ngOnInit() {
+    this.authService.user$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((user) => (this.user = user));
   }
 
   openLogin(type: AuthorType = 'signIn') {
@@ -53,5 +63,10 @@ export class ToolbarComponent {
     this.authService.isAuth$.next(false);
     this.threeSupportService.stopAnimation$.next(false);
     this.router.navigate(['/']);
+  }
+
+  ngOnDestroy() {
+    this.destroy$.next(null);
+    this.destroy$.complete();
   }
 }

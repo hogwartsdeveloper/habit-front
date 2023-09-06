@@ -43,6 +43,7 @@ export class UserComponent implements OnInit, OnDestroy {
         data: {
           name: this.user.firstName,
           lastName: this.user.lastName,
+          img: this.user.img,
         },
       })
       .beforeClosed()
@@ -52,6 +53,7 @@ export class UserComponent implements OnInit, OnDestroy {
             ...this.user,
             firstName: value.name,
             lastName: value.lastName,
+            img: value.img,
           });
         }
       });

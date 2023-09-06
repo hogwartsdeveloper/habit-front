@@ -5,6 +5,15 @@
             [form]="form"
             [ngClass]="{'my-5': ind > 0}"
     ></app-input>
+
+    <div class="flex flex-col">
+        <span>Photo</span>
+        <input #photoInput class="rounded-md text-sm" type="file" accept="image/*" (change)="onPhotoChange()">
+    </div>
+
+    <div class="mx-auto my-5">
+        <img [src]="form.get('img')?.value">
+    </div>
 </app-modal-base>
 
 <ng-template #actives>
