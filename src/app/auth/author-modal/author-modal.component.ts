@@ -21,6 +21,7 @@ import { IInput } from '../../utils/ui/input/models/input.interface';
 import { InputComponent } from '../../utils/ui/input/input.component';
 import { authInputConfigs } from './form.config';
 import { ModalBaseComponent } from '../../utils/ui/modal-base/modal-base.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-author-modal',
@@ -36,6 +37,7 @@ import { ModalBaseComponent } from '../../utils/ui/modal-base/modal-base.compone
     ButtonComponent,
     InputComponent,
     ModalBaseComponent,
+    TranslateModule,
   ],
 })
 export class AuthorModalComponent implements OnInit {

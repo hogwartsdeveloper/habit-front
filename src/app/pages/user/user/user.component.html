@@ -3,7 +3,7 @@
         <img [src]="user.img" width="260" height="260">
         <h1 class="font-extrabold">{{ user.firstName + ' ' + user.lastName}}</h1>
 
-        <app-button (click)="openEditModal()">Edit profile</app-button>
+        <app-button (click)="openEditModal()">{{"user.edit" | translate}}</app-button>
     </div>
     <div class="right">
         <app-habit-content [habits]="habits" [viewType]="'show'"></app-habit-content>

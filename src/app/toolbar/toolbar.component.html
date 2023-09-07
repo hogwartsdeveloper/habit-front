@@ -3,13 +3,13 @@
 
     <div class="space-x-4 flex">
         <ng-container *ngIf="isAuth$ | async; else active">
-            <span class="flex items-center cursor-pointer" routerLink="/change">Habits</span>
+            <span class="flex items-center cursor-pointer" routerLink="/change">{{"habit.habits" | translate}}</span>
             <img routerLink="/user" class="photo" [src]="user.img">
         </ng-container>
     </div>
 </nav>
 
 <ng-template #active>
-    <span (click)="openLogin()" class="cursor-pointer">Sign in</span>
-    <span (click)="openLogin('signUp')" class="cursor-pointer">Sign up</span>
+    <span (click)="openLogin()" class="cursor-pointer">{{ 'auth.signIn' | translate }}</span>
+    <span (click)="openLogin('signUp')" class="cursor-pointer">{{ 'auth.signUp' | translate }}</span>
 </ng-template>

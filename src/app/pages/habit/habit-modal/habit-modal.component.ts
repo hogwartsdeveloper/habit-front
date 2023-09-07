@@ -19,6 +19,7 @@ import { IInput } from '../../../utils/ui/input/models/input.interface';
 import { InputComponent } from '../../../utils/ui/input/input.component';
 import { habitInputConfigs } from './form.config';
 import { ModalBaseComponent } from '../../../utils/ui/modal-base/modal-base.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-habit-modal',
@@ -33,6 +34,7 @@ import { ModalBaseComponent } from '../../../utils/ui/modal-base/modal-base.comp
     ButtonComponent,
     InputComponent,
     ModalBaseComponent,
+    TranslateModule,
   ],
   providers: [],
   templateUrl: './habit-modal.component.html',

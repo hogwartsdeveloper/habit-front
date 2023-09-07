@@ -1,4 +1,4 @@
-<app-modal-base [title]="'User Edit'" [actives]="actives">
+<app-modal-base [title]="'user.edit' | translate" [actives]="actives">
     <app-input
             *ngFor="let config of userInputConfigs; let ind=index"
             [config]="config"
@@ -7,7 +7,7 @@
     ></app-input>
 
     <div class="flex flex-col">
-        <span>Photo</span>
+        <span>{{"base.photo" | translate}}</span>
         <input #photoInput class="rounded-md text-sm" type="file" accept="image/*" (change)="onPhotoChange()">
     </div>
 
@@ -17,6 +17,6 @@
 </app-modal-base>
 
 <ng-template #actives>
-    <app-button type="danger" (click)="onClose()">Cancel</app-button>
-    <app-button [disabled]="form.invalid || !isEdit" (click)="onSave()">Save</app-button>
+    <app-button type="danger" (click)="onClose()">{{"base.cancel" | translate}}</app-button>
+    <app-button [disabled]="form.invalid || !isEdit" (click)="onSave()">{{"base.save" | translate}}</app-button>
 </ng-template>

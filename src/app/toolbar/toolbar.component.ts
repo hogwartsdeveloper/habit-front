@@ -10,6 +10,7 @@ import { BehaviorSubject, Subject, takeUntil } from 'rxjs';
 import { ThreeSupportService } from '../services/three-support.service';
 import { ButtonComponent } from '../utils/ui/button/button.component';
 import { IUser } from '../pages/user/model/user.interface';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-toolbar',
@@ -22,6 +23,7 @@ import { IUser } from '../pages/user/model/user.interface';
     NgIf,
     AsyncPipe,
     ButtonComponent,
+    TranslateModule,
   ],
   standalone: true,
 })
@@ -34,12 +36,14 @@ export class ToolbarComponent implements OnInit, OnDestroy {
     private dialog: MatDialog,
     private authService: AuthService,
     private router: Router,
-    private threeSupportService: ThreeSupportService
+    private threeSupportService: ThreeSupportService,
+    private translateService: TranslateService
   ) {
     this.isAuth$ = this.authService.isAuth$;
   }
 
   ngOnInit() {
+    this.translateService.use('ru');
     this.authService.user$
       .pipe(takeUntil(this.destroy$))
       .subscribe((user) => (this.user = user));

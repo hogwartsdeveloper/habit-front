@@ -1,22 +1,22 @@
-<app-modal-base [title]="'Create habit'" [actives]="actives">
+<app-modal-base [title]="'habit.create' | translate" [actives]="actives">
     <ng-container [formGroup]="form">
         <app-input [config]="inputConfigs[0]" [form]="form"></app-input>
         <app-input class="mt-5" [config]="inputConfigs[1]" [form]="form"></app-input>
 
         <div class="flex items-center my-4">
-            <span>Hide</span>
+            <span>{{"base.hide" | translate}}</span>
             <mat-checkbox formControlName="isHide"></mat-checkbox>
         </div>
 
         <mat-form-field>
-            <mat-label>Start date</mat-label>
+            <mat-label>{{"date.start" | translate}}</mat-label>
             <input matInput [matDatepicker]="picker" formControlName="startDate">
             <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
 
         <mat-form-field>
-            <mat-label>End date</mat-label>
+            <mat-label>{{"date.end" | translate}}</mat-label>
             <input matInput [matDatepicker]="picker2" formControlName="endDate">
             <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
             <mat-datepicker #picker2></mat-datepicker>
@@ -25,6 +25,6 @@
 </app-modal-base>
 
 <ng-template #actives>
-    <app-button type="danger" (click)="onClose()">Cancel</app-button>
-    <app-button [disabled]="form.invalid" (click)="onSubmit()">{{ type }}</app-button>
+    <app-button type="danger" (click)="onClose()">{{"base.cancel" | translate}}</app-button>
+    <app-button [disabled]="form.invalid" (click)="onSubmit()">{{ (type === 'create' ? 'base.create' : 'base.edit') | translate }}</app-button>
 </ng-template>

@@ -10,6 +10,9 @@ import { MAT_DATE_LOCALE, MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { AuthGuard } from './auth/services/auth.guard';
 import { HabitService } from './pages/habit/services/habit.service';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,6 +23,14 @@ import { HabitService } from './pages/habit/services/habit.service';
     BrowserAnimationsModule,
     MatNativeDateModule,
     MatDatepickerModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      },
+    }),
+    HttpClientModule,
   ],
   providers: [
     ThreeSupportService,
@@ -30,3 +41,7 @@ import { HabitService } from './pages/habit/services/habit.service';
   bootstrap: [AppComponent],
 })
 export class AppModule {}
+
+function HttpLoaderFactory(http: HttpClient): TranslateLoader {
+  return new TranslateHttpLoader(http, './assets/locale/', '.json');
+}

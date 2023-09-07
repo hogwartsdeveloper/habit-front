@@ -16,6 +16,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { HabitModalComponent } from '../habit-modal/habit-modal.component';
 import { ICalendar } from '../habit/models/calendar.interface';
 import * as moment from 'moment';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-habit-content',
@@ -30,6 +31,7 @@ import * as moment from 'moment';
     MatIconModule,
     ButtonComponent,
     CommonModule,
+    TranslateModule,
   ],
 })
 export class HabitContentComponent implements OnChanges {

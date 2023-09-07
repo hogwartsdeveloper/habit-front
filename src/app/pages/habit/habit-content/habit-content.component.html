@@ -4,13 +4,13 @@
                 class="cursor-pointer"
                 [ngStyle]="{color: type === HabitViewEnum.Active ? 'white' : 'grey'}"
                 (click)="onChangeViewType(HabitViewEnum.Active)"
-        >{{ 'Active' }}</h2>
+        >{{ 'base.active' | translate }}</h2>
 
         <h2
                 class="cursor-pointer"
                 [ngStyle]="{color: type === HabitViewEnum.History ? 'white' : 'grey'}"
                 (click)="onChangeViewType(HabitViewEnum.History)"
-        >{{ 'History' }}</h2>
+        >{{ 'base.history' | translate }}</h2>
     </div>
     <app-button
             *ngIf="type === HabitViewEnum.Active && viewType === 'interactive'"
@@ -18,14 +18,14 @@
             [animation]="!habits.length ? 'pulse' : ''"
             (click)="addHabit()"
     >
-        Add habit
+        {{ "habit.add" | translate}}
     </app-button>
 
     <mat-form-field *ngIf="type === HabitViewEnum.History">
-        <mat-label>Enter a date range</mat-label>
+        <mat-label>{{"date.range" | translate}}</mat-label>
         <mat-date-range-input [rangePicker]="picker">
-            <input matStartDate placeholder="Start date" (dateChange)="onChangeDate($event, 'startDate')">
-            <input matEndDate placeholder="End date" (dateChange)="onChangeDate($event, 'endDate')">
+            <input matStartDate [placeholder]="'date.start' | translate" (dateChange)="onChangeDate($event, 'startDate')">
+            <input matEndDate [placeholder]="'date.end' | translate" (dateChange)="onChangeDate($event, 'endDate')">
         </mat-date-range-input>
         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-date-range-picker #picker></mat-date-range-picker>
@@ -52,12 +52,12 @@
             <mat-menu #menu="matMenu">
                 <button mat-menu-item (click)="onEdit(habit)">
                     <mat-icon>edit</mat-icon>
-                    <span>Edit</span>
+                    <span>{{"base.edit" | translate}}</span>
                 </button>
 
                 <button mat-menu-item (click)="onDelete(habit)">
                     <mat-icon>delete_outline</mat-icon>
-                    <span>Remove</span>
+                    <span>{{"base.rm" | translate}}</span>
                 </button>
             </mat-menu>
         </ng-container>
@@ -65,6 +65,6 @@
 </div>
 
 <div *ngIf="!habits.length" class="flex-1 flex flex-col justify-center items-center text-white">
-    <span>No Habits</span>
-    <span *ngIf="viewType === 'interactive'">Add your first habit</span>
+    <span>{{"habit.no" | translate}}</span>
+    <span *ngIf="viewType === 'interactive'">{{"habit.addFirst" | translate}}</span>
 </div>

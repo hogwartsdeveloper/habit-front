@@ -8,6 +8,7 @@ import { UserEditModalComponent } from './user-edit-modal/user-edit-modal.compon
 import { InputComponent } from '../../utils/ui/input/input.component';
 import { ModalBaseComponent } from '../../utils/ui/modal-base/modal-base.component';
 import { HabitContentComponent } from '../habit/habit-content/habit-content.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [UserComponent, UserEditModalComponent],
@@ -19,6 +20,7 @@ import { HabitContentComponent } from '../habit/habit-content/habit-content.comp
     InputComponent,
     ModalBaseComponent,
     HabitContentComponent,
+    TranslateModule,
   ],
 })
 export class UserModule {}
