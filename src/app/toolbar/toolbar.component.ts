@@ -43,7 +43,7 @@ export class ToolbarComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.translateService.use('ru');
+    this.translateService.use('kz');
     this.authService.user$
       .pipe(takeUntil(this.destroy$))
       .subscribe((user) => (this.user = user));

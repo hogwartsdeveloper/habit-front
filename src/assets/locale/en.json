@@ -40,6 +40,7 @@
     "create": "Create",
     "description": "Description",
     "photo": "Photo",
-    "save": "Save"
+    "save": "Save",
+    "name": "Name"
   }
 }

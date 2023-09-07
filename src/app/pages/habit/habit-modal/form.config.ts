@@ -2,7 +2,7 @@ import { IInput } from '../../../utils/ui/input/models/input.interface';
 
 export const habitInputConfigs: IInput[] = [
   {
-    title: 'user.name',
+    title: 'base.name',
     required: true,
     type: 'text',
     placeholder: 'habit.name',
