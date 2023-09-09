@@ -6,6 +6,12 @@
 
 button {
   width: 100%;
+
+  &.border {
+    background-color: transparent;
+    height: 30px !important;
+    font-weight: 400;
+  }
 }
 
 .pulse {
@@ -43,13 +49,26 @@ button[disabled] {
 }
 
 .success{
-  background-color: var(--cl-success) !important;
-  color: white !important;
+  &.basic {
+    background-color: var(--cl-success) !important;
+    color: white !important;
+  }
+  &.border {
+    color: var(--cl-success);
+    border: 2px solid var(--cl-success);
+  }
 }
 
 .danger {
-  background-color: var(--cl-danger) !important;
-  color: white !important;
+  &.basic {
+    background-color: var(--cl-danger) !important;
+    color: white !important;
+  }
+
+  &.border {
+    color: var(--cl-danger);
+    border: 2px solid var(--cl-danger);
+  }
 }
 
 .insta {

@@ -13,7 +13,7 @@
                 <img routerLink="/user" class="photo" [src]="user.img" alt="user photo">
                 <div>{{user.firstName + ' ' + user.lastName}}</div>
             </div>
-            <app-button routerLink="/user" class="mb-2">View Profile</app-button>
+            <app-button routerLink="/user" class="mb-2" [view]="'border'">View Profile</app-button>
             <hr>
             <mat-form-field class="my-2">
                 <mat-label>Language</mat-label>
@@ -24,7 +24,7 @@
                 </mat-select>
             </mat-form-field>
             <hr>
-            <app-button class="mt-2" type="danger">Logout</app-button>
+            <app-button class="mt-2" type="danger" [view]="'border'">Logout</app-button>
         </div>
     </div>
 </ng-container>

@@ -17,6 +17,7 @@ import { NgClass } from '@angular/common';
 })
 export class ButtonComponent implements OnChanges {
   @Input() type: 'success' | 'danger' | 'insta' = 'success';
+  @Input() view: 'border' | 'basic' = 'basic';
   @Input() animation: 'pulse' | '' = '';
   @Input() disabled = false;
 
