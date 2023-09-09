@@ -1,7 +1,7 @@
 input {
   height: 35px;
   padding: 0 15px;
-  color: #BCBEC0;
+  color: var(--cl-text);
 
   &.ng-invalid.ng-touched {
     border: 1px solid var(--cl-danger);
