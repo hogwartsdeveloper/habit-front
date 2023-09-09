@@ -30,6 +30,9 @@
     "start": "Start date",
     "end": "End date"
   },
+  "promo": {
+    "dream": "Dream"
+  },
   "base": {
     "active": "Active",
     "history": "History",

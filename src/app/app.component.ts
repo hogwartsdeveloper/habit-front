@@ -22,9 +22,10 @@ import {
   skyFragmentShader2,
   skyVertexShader2,
 } from './utils/another-code/promo';
-import { FontLoader } from 'three/examples/jsm/loaders/FontLoader';
+import { Font, FontLoader } from 'three/examples/jsm/loaders/FontLoader';
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry';
 import { HabitService } from './pages/habit/services/habit.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -56,6 +57,7 @@ export class AppComponent implements OnInit, OnDestroy {
   subscription: Subscription;
   keysPressed: { [key: string]: boolean } = {};
   characterControls: CharacterControls;
+  font: Font;
   text: THREE.Mesh<TextGeometry, THREE.MeshPhongMaterial[]>;
   stopAnimation = false;
   destroy$ = new Subject();
@@ -78,6 +80,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   constructor(
+    private translateService: TranslateService,
     private threeSupportService: ThreeSupportService,
     private habitService: HabitService
   ) {
@@ -101,6 +104,21 @@ export class AppComponent implements OnInit, OnDestroy {
     this.threeSupportService.stopAnimation$
       .pipe(takeUntil(this.destroy$))
       .subscribe((isStop) => (this.stopAnimation = isStop));
+
+    this.translateService.onLangChange
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(() => {
+        if (this.text) {
+          this.text.geometry = new TextGeometry(
+            this.translateService.instant('promo.dream'),
+            {
+              font: this.font,
+              height: 1,
+              size: 3,
+            }
+          );
+        }
+      });
   }
 
   init() {
@@ -477,12 +495,16 @@ export class AppComponent implements OnInit, OnDestroy {
   addText() {
     const loader = new FontLoader();
 
-    loader.load('assets/fonts/helvetiker_regular.typeface.json', (font) => {
-      const geometry = new TextGeometry('Discipline', {
-        font,
-        height: 1,
-        size: 3,
-      });
+    loader.load('assets/fonts/Roboto_Regular.json', (font) => {
+      this.font = font;
+      const geometry = new TextGeometry(
+        this.translateService.instant('promo.dream'),
+        {
+          font: this.font,
+          height: 1,
+          size: 3,
+        }
+      );
 
       this.text = new THREE.Mesh(geometry, [
         new THREE.MeshPhongMaterial({ color: 0xf9fafa }),
@@ -490,7 +512,7 @@ export class AppComponent implements OnInit, OnDestroy {
       ]);
 
       this.text.castShadow = true;
-      this.text.position.set(9, 29, 150);
+      this.text.position.set(7, 29, 150);
       this.text.rotation.set(0, -3.15, 0);
 
       this.scene.add(this.text);
