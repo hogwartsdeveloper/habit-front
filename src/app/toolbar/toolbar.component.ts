@@ -11,6 +11,7 @@ import { ThreeSupportService } from '../services/three-support.service';
 import { ButtonComponent } from '../utils/ui/button/button.component';
 import { IUser } from '../pages/user/model/user.interface';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { DropdownMenuComponent } from './dropdown-menu/dropdown-menu.component';
 
 @Component({
   selector: 'app-toolbar',
@@ -24,6 +25,7 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
     AsyncPipe,
     ButtonComponent,
     TranslateModule,
+    DropdownMenuComponent,
   ],
   standalone: true,
 })
@@ -43,7 +45,7 @@ export class ToolbarComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.translateService.use('kz');
+    this.translateService.use('en');
     this.authService.user$
       .pipe(takeUntil(this.destroy$))
       .subscribe((user) => (this.user = user));

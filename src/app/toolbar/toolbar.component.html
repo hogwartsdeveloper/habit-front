@@ -4,7 +4,7 @@
     <div class="space-x-4 flex">
         <ng-container *ngIf="isAuth$ | async; else active">
             <span class="flex items-center cursor-pointer" routerLink="/change">{{"habit.habits" | translate}}</span>
-            <img routerLink="/user" class="photo" [src]="user.img">
+            <app-dropdown-menu></app-dropdown-menu>
         </ng-container>
     </div>
 </nav>
