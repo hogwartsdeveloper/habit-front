@@ -91,6 +91,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.translateService.use('en');
     this.init();
     this.createLight();
     this.createSky(this.canvas.nativeElement);

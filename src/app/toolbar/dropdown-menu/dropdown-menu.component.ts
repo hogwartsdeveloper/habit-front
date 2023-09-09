@@ -51,13 +51,14 @@ export class DropdownMenuComponent implements OnInit, OnDestroy {
     private translateService: TranslateService
   ) {}
   ngOnInit() {
+    this.selectedLang = this.translateService.currentLang;
     this.authService.user$
       .pipe(takeUntil(this.destroy$))
       .subscribe((user) => (this.user = user));
 
-    this.translateService.onLangChange
-      .pipe(take(1))
-      .subscribe((lang) => (this.selectedLang = lang.lang));
+    this.translateService.onLangChange.pipe(take(1)).subscribe((lang) => {
+      this.selectedLang = lang.lang;
+    });
   }
 
   selectLang(event) {
