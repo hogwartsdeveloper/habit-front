@@ -8,6 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { NgForOf, NgIf } from '@angular/common';
 import { TranslateService } from '@ngx-translate/core';
+import { show } from '../../utils/animations/show.animation';
 
 @Component({
   selector: 'app-dropdown-menu',
@@ -22,6 +23,7 @@ import { TranslateService } from '@ngx-translate/core';
     NgForOf,
     NgIf,
   ],
+  animations: [show],
 })
 export class DropdownMenuComponent implements OnInit, OnDestroy {
   user: IUser;

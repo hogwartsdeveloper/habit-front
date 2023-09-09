@@ -105,9 +105,12 @@ export class HabitContentComponent implements OnChanges {
   filterHabit(habits: IHabit[]) {
     switch (this.type) {
       case HabitViewEnum.Active:
-        this.habits = habits.filter((habit) =>
-          moment(habit.endDate).isSameOrAfter(moment())
-        );
+        this.habits = habits.filter((habit) => {
+          return (
+            moment(habit.endDate).isSameOrAfter(moment()) &&
+            moment().diff(moment(habit.lastActiveDate), 'days') <= 1
+          );
+        });
         break;
       case HabitViewEnum.History:
         this.habits = habits.filter((habit) => {
