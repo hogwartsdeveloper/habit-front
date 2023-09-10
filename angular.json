@@ -36,6 +36,7 @@
             ],
             "styles": [
               "./node_modules/ng-zorro-antd/ng-zorro-antd.min.css",
+              "src/app/shared/styles/ant.scss",
               "src/styles.scss"
             ],
             "scripts": []
@@ -100,6 +101,7 @@
             ],
             "styles": [
               "./node_modules/ng-zorro-antd/ng-zorro-antd.min.css",
+              "src/app/shared/styles/ant.scss",
               "src/styles.scss"
             ],
             "scripts": []
