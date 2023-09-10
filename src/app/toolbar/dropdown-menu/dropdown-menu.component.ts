@@ -1,13 +1,14 @@
 import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
-import { AuthService } from '../../auth/services/auth.service';
-import { Subject, take, takeUntil } from 'rxjs';
-import { IUser } from '../../pages/user/model/user.interface';
+import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
-import { ButtonComponent } from '../../utils/ui/button/button.component';
-import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select';
 import { NgForOf, NgIf } from '@angular/common';
+import { Subject, take, takeUntil } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
+import { NzSelectModule } from 'ng-zorro-antd/select';
+
+import { AuthService } from '../../auth/services/auth.service';
+import { IUser } from '../../pages/user/model/user.interface';
+import { ButtonComponent } from '../../utils/ui/button/button.component';
 import { show } from '../../utils/animations/show.animation';
 
 @Component({
@@ -18,10 +19,10 @@ import { show } from '../../utils/animations/show.animation';
   imports: [
     RouterLink,
     ButtonComponent,
-    MatInputModule,
-    MatSelectModule,
+    NzSelectModule,
     NgForOf,
     NgIf,
+    FormsModule,
   ],
   animations: [show],
 })
