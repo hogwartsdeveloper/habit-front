@@ -26,7 +26,8 @@
     "description": "Habit Description",
     "message": {
       "successCreate": "Habit successfully created",
-      "successEdit": "Habit successfully edited"
+      "successEdit": "Habit successfully edited",
+      "successRemove": "Habit successfully deleted"
     }
   },
   "date": {

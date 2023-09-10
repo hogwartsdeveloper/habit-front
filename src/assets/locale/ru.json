@@ -26,7 +26,8 @@
     "description": "Описание привычки",
     "message": {
       "successCreate": "Привычка успешно создано",
-      "successEdit": "Привычка успешно изменено"
+      "successEdit": "Привычка успешно изменено",
+      "successRemove": "Привычка успешно удалено"
     }
   },
   "date": {

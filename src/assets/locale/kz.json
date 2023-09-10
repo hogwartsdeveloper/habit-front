@@ -26,7 +26,8 @@
     "description": "Әдеттің сипаттамасы",
     "message": {
       "successCreate": "Әдет сәтті құрылды",
-      "successEdit": "Әдет сәтті өзгертілді"
+      "successEdit": "Әдет сәтті өзгертілді",
+      "successRemove": "Әдет сәтті жойлды"
     }
   },
   "date": {

@@ -8,8 +8,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
 import * as moment from 'moment';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
+import { NzMessageService } from 'ng-zorro-antd/message';
 
 import { HabitViewEnum } from '../habit/models/habit-view.enum';
 import { IHabit } from '../models/habit.interface';
@@ -48,7 +49,12 @@ export class HabitContentComponent implements OnChanges {
     endDate: moment().format('YYYY-MM-DD'),
   };
 
-  constructor(private dialog: MatDialog, private habitService: HabitService) {}
+  constructor(
+    private dialog: MatDialog,
+    private message: NzMessageService,
+    private translateService: TranslateService,
+    private habitService: HabitService
+  ) {}
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['habits']) {
@@ -84,6 +90,9 @@ export class HabitContentComponent implements OnChanges {
     localStorage.setItem(
       'habits',
       JSON.stringify(this.habitService.habits$.value)
+    );
+    this.message.success(
+      this.translateService.instant('habit.message.successRemove')
     );
   }
 
