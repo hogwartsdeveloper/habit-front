@@ -8,9 +8,6 @@ import {
 } from '@angular/forms';
 import * as moment from 'moment';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatInputModule } from '@angular/material/input';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatButtonModule } from '@angular/material/button';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { HabitService } from '../services/habit.service';
 import { IHabit } from '../models/habit.interface';
@@ -19,8 +16,9 @@ import { IInput } from '../../../utils/ui/input/models/input.interface';
 import { InputComponent } from '../../../utils/ui/input/input.component';
 import { habitInputConfigs } from './form.config';
 import { ModalBaseComponent } from '../../../utils/ui/modal-base/modal-base.component';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
+import { NzMessageService } from 'ng-zorro-antd/message';
 
 @Component({
   selector: 'app-habit-modal',
@@ -29,16 +27,12 @@ import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
     CommonModule,
     ReactiveFormsModule,
     MatCheckboxModule,
-    MatInputModule,
-    MatDatepickerModule,
-    MatButtonModule,
     ButtonComponent,
     InputComponent,
     ModalBaseComponent,
     TranslateModule,
     NzDatePickerModule,
   ],
-  providers: [],
   templateUrl: './habit-modal.component.html',
   styleUrls: ['./habit-modal.component.scss'],
 })
@@ -49,6 +43,8 @@ export class HabitModalComponent implements OnInit {
 
   constructor(
     private dialogRef: MatDialogRef<HabitModalComponent>,
+    private message: NzMessageService,
+    private translateService: TranslateService,
     private habitServices: HabitService,
     @Inject(MAT_DIALOG_DATA) private data: IHabit
   ) {
@@ -95,6 +91,9 @@ export class HabitModalComponent implements OnInit {
             lastActiveDate: null,
           },
         ];
+        this.message.success(
+          this.translateService.instant('habit.message.successCreate')
+        );
         break;
 
       case 'edit':
@@ -106,6 +105,9 @@ export class HabitModalComponent implements OnInit {
             return habit;
           }),
         ];
+        this.message.success(
+          this.translateService.instant('habit.message.successCreate')
+        );
         break;
     }
 

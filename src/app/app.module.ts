@@ -15,6 +15,7 @@ import { HabitService } from './pages/habit/services/habit.service';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { NzMessageService } from 'ng-zorro-antd/message';
 
 registerLocaleData(en);
 
@@ -41,6 +42,7 @@ registerLocaleData(en);
     { provide: MAT_DATE_LOCALE, useValue: 'en-GB' },
     AuthGuard,
     HabitService,
+    NzMessageService,
   ],
   bootstrap: [AppComponent],
 })

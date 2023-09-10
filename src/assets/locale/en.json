@@ -23,7 +23,11 @@
     "no": "No Habits",
     "create": "Create habit",
     "name": "Habit Name",
-    "description": "Habit Description"
+    "description": "Habit Description",
+    "message": {
+      "successCreate": "Habit successfully created",
+      "successEdit": "Habit successfully edited"
+    }
   },
   "date": {
     "range": "Enter a date range",
