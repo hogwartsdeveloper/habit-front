@@ -109,12 +109,8 @@ export class HabitContentComponent implements OnChanges {
     switch (this.type) {
       case HabitViewEnum.Active:
         this.habits = habits.filter((habit) => {
-          const lastActive = habit.lastActiveDate
-            ? moment(habit.lastActiveDate)
-            : moment();
           return (
-            moment(habit.endDate).isSameOrAfter(moment()) &&
-            moment().diff(lastActive, 'days') <= 1
+            moment(habit.endDate).isSameOrAfter(moment()) && !habit.isOverdue
           );
         });
         break;
@@ -126,10 +122,13 @@ export class HabitContentComponent implements OnChanges {
             );
           }
           return (
-            moment(habit.endDate).isSameOrAfter(
+            (moment(habit.endDate).isSameOrAfter(
               moment(this.calendar.startDate)
             ) &&
-            moment(habit.endDate).isSameOrBefore(moment(this.calendar.endDate))
+              moment(habit.endDate).isSameOrBefore(
+                moment(this.calendar.endDate)
+              )) ||
+            habit.isOverdue
           );
         });
     }
