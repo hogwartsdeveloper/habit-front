@@ -106,9 +106,12 @@ export class HabitContentComponent implements OnChanges {
     switch (this.type) {
       case HabitViewEnum.Active:
         this.habits = habits.filter((habit) => {
+          const lastActive = habit.lastActiveDate
+            ? moment(habit.lastActiveDate)
+            : moment();
           return (
             moment(habit.endDate).isSameOrAfter(moment()) &&
-            moment().diff(moment(habit.lastActiveDate), 'days') <= 1
+            moment().diff(lastActive, 'days') <= 1
           );
         });
         break;

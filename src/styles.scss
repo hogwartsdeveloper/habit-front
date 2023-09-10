@@ -121,6 +121,14 @@ html, body { height: 100%; }
 .mat-mdc-text-field-wrapper {
   border-radius: 0.375rem !important;
   height: 50px !important;
+  .mdc-line-ripple {
+    display: none;
+  }
+
+  .mat-mdc-form-field-infix {
+    min-height: 50px;
+    font-size: 14px;
+  }
 }
 
 .page-box {
