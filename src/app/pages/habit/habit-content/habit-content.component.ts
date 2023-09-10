@@ -9,7 +9,6 @@ import { CommonModule } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
 import * as moment from 'moment';
 import { TranslateModule } from '@ngx-translate/core';
-import { en_US, NzI18nService } from 'ng-zorro-antd/i18n';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 
 import { HabitViewEnum } from '../habit/models/habit-view.enum';
@@ -49,13 +48,7 @@ export class HabitContentComponent implements OnChanges {
     endDate: moment().format('YYYY-MM-DD'),
   };
 
-  constructor(
-    private dialog: MatDialog,
-    private habitService: HabitService,
-    private i18n: NzI18nService
-  ) {
-    this.i18n.setLocale(en_US);
-  }
+  constructor(private dialog: MatDialog, private habitService: HabitService) {}
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['habits']) {

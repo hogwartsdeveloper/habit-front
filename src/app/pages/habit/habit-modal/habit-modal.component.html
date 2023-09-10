@@ -8,19 +8,16 @@
             <mat-checkbox formControlName="isHide"></mat-checkbox>
         </div>
 
-        <mat-form-field>
-            <mat-label>{{"date.start" | translate}}</mat-label>
-            <input matInput [matDatepicker]="picker" formControlName="startDate">
-            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
+        <div class="flex flex-col">
+            <span>{{"date.start" | translate}}</span>
+            <nz-date-picker formControlName="startDate"></nz-date-picker>
+        </div>
 
-        <mat-form-field class="my-5">
-            <mat-label>{{"date.end" | translate}}</mat-label>
-            <input matInput [matDatepicker]="picker2" formControlName="endDate">
-            <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
-            <mat-datepicker #picker2></mat-datepicker>
-        </mat-form-field>
+        <div class="flex flex-col my-4">
+            <span>{{"date.end" | translate}}</span>
+            <nz-date-picker formControlName="endDate"></nz-date-picker>
+        </div>
+
     </ng-container>
 </app-modal-base>
 

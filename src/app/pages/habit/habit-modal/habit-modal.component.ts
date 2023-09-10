@@ -20,6 +20,7 @@ import { InputComponent } from '../../../utils/ui/input/input.component';
 import { habitInputConfigs } from './form.config';
 import { ModalBaseComponent } from '../../../utils/ui/modal-base/modal-base.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 
 @Component({
   selector: 'app-habit-modal',
@@ -35,6 +36,7 @@ import { TranslateModule } from '@ngx-translate/core';
     InputComponent,
     ModalBaseComponent,
     TranslateModule,
+    NzDatePickerModule,
   ],
   providers: [],
   templateUrl: './habit-modal.component.html',
