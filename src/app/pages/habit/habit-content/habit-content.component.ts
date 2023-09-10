@@ -1,22 +1,23 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { HabitViewEnum } from '../habit/models/habit-view.enum';
-import { IHabit } from '../models/habit.interface';
-import { HabitService } from '../services/habit.service';
-import {
-  MatDatepickerInputEvent,
-  MatDatepickerModule,
-} from '@angular/material/datepicker';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
-import { ButtonComponent } from '../../../utils/ui/button/button.component';
 import { CommonModule } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
-import { HabitModalComponent } from '../habit-modal/habit-modal.component';
-import { ICalendar } from '../habit/models/calendar.interface';
 import * as moment from 'moment';
 import { TranslateModule } from '@ngx-translate/core';
+import { en_US, NzI18nService } from 'ng-zorro-antd/i18n';
+import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
+
+import { HabitViewEnum } from '../habit/models/habit-view.enum';
+import { IHabit } from '../models/habit.interface';
+import { HabitService } from '../services/habit.service';
+import { ButtonComponent } from '../../../utils/ui/button/button.component';
+import { HabitModalComponent } from '../habit-modal/habit-modal.component';
+import { ICalendar } from '../habit/models/calendar.interface';
 
 @Component({
   selector: 'app-habit-content',
@@ -29,9 +30,11 @@ import { TranslateModule } from '@ngx-translate/core';
     MatButtonModule,
     MatMenuModule,
     MatIconModule,
+    NzDatePickerModule,
     ButtonComponent,
     CommonModule,
     TranslateModule,
+    FormsModule,
   ],
 })
 export class HabitContentComponent implements OnChanges {
@@ -42,11 +45,17 @@ export class HabitContentComponent implements OnChanges {
   type: HabitViewEnum = HabitViewEnum.Active;
 
   calendar: ICalendar = {
-    startDate: null,
+    startDate: moment().startOf('years').format('YYYY-MM-DD'),
     endDate: moment().format('YYYY-MM-DD'),
   };
 
-  constructor(private dialog: MatDialog, private habitService: HabitService) {}
+  constructor(
+    private dialog: MatDialog,
+    private habitService: HabitService,
+    private i18n: NzI18nService
+  ) {
+    this.i18n.setLocale(en_US);
+  }
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['habits']) {
@@ -83,14 +92,6 @@ export class HabitContentComponent implements OnChanges {
       'habits',
       JSON.stringify(this.habitService.habits$.value)
     );
-  }
-
-  onChangeDate(
-    event: MatDatepickerInputEvent<Date>,
-    type: 'startDate' | 'endDate'
-  ) {
-    this.calendar[type] = moment(event.value).format('YYYY-MM-DD');
-    this.filterHabit(this.allHabits);
   }
 
   addHabit() {
@@ -149,5 +150,11 @@ export class HabitContentComponent implements OnChanges {
         JSON.stringify(this.habitService.habits$.value)
       );
     }
+  }
+
+  changeDate(date: Date[]) {
+    this.calendar.startDate = moment(date[0]).format('YYYY-MM-DD');
+    this.calendar.endDate = moment(date[1]).format('YYYY-MM-DD');
+    this.filterHabit(this.allHabits);
   }
 }

@@ -21,15 +21,7 @@
         {{ "habit.add" | translate}}
     </app-button>
 
-    <mat-form-field *ngIf="type === HabitViewEnum.History">
-        <mat-label>{{"date.range" | translate}}</mat-label>
-        <mat-date-range-input [rangePicker]="picker">
-            <input matStartDate [placeholder]="'date.start' | translate" (dateChange)="onChangeDate($event, 'startDate')">
-            <input matEndDate [placeholder]="'date.end' | translate" (dateChange)="onChangeDate($event, 'endDate')">
-        </mat-date-range-input>
-        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-date-range-picker #picker></mat-date-range-picker>
-    </mat-form-field>
+    <nz-range-picker *ngIf="type === HabitViewEnum.History" [ngModel]="[calendar.startDate, calendar.endDate]" (ngModelChange)="changeDate($event)"></nz-range-picker>
 </div>
 <div
         *ngFor="let habit of habits"
