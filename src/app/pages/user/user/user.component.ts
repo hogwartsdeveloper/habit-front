@@ -7,6 +7,8 @@ import { HabitService } from '../../habit/services/habit.service';
 import { MatDialog } from '@angular/material/dialog';
 import { UserEditModalComponent } from '../user-edit-modal/user-edit-modal.component';
 import { IUserEditData } from '../user-edit-modal/models/user-edit-data.interface';
+import { NzMessageService } from 'ng-zorro-antd/message';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-user',
@@ -19,6 +21,8 @@ export class UserComponent implements OnInit, OnDestroy {
   destroy$ = new Subject();
   constructor(
     private dialog: MatDialog,
+    private message: NzMessageService,
+    private translateService: TranslateService,
     private authService: AuthService,
     public habitService: HabitService
   ) {}
@@ -37,7 +41,7 @@ export class UserComponent implements OnInit, OnDestroy {
     this.dialog
       .open(UserEditModalComponent, {
         width: '400px',
-        height: '350px',
+        height: '600px',
         panelClass: 'noBackground',
         autoFocus: false,
         data: {
@@ -55,6 +59,10 @@ export class UserComponent implements OnInit, OnDestroy {
             lastName: value.lastName,
             img: value.img,
           });
+
+          this.message.success(
+            this.translateService.instant('base.successEdit')
+          );
         }
       });
   }

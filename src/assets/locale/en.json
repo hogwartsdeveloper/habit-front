@@ -51,6 +51,7 @@
     "description": "Description",
     "photo": "Photo",
     "save": "Save",
-    "name": "Name"
+    "name": "Name",
+    "successEdit": "Data changed successfully"
   }
 }
