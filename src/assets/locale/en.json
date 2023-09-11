@@ -27,7 +27,9 @@
     "message": {
       "successCreate": "Habit successfully created",
       "successEdit": "Habit successfully edited",
-      "successRemove": "Habit successfully deleted"
+      "successRemove": "Habit successfully deleted",
+      "successAddRecord": "Habit execution record has been successfully added",
+      "warningAddRecord": "Only one entry can be added per day"
     }
   },
   "date": {

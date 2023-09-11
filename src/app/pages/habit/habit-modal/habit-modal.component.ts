@@ -106,7 +106,7 @@ export class HabitModalComponent implements OnInit {
           }),
         ];
         this.message.success(
-          this.translateService.instant('habit.message.successCreate')
+          this.translateService.instant('habit.message.successEdit')
         );
         break;
     }

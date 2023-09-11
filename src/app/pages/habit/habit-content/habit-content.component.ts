@@ -150,7 +150,16 @@ export class HabitContentComponent implements OnChanges {
         'habits',
         JSON.stringify(this.habitService.habits$.value)
       );
+
+      this.message.success(
+        this.translateService.instant('habit.message.successAddRecord')
+      );
+      return;
     }
+
+    this.message.warning(
+      this.translateService.instant('habit.message.warningAddRecord')
+    );
   }
 
   changeDate(date: Date[]) {

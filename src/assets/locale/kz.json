@@ -27,7 +27,9 @@
     "message": {
       "successCreate": "Әдет сәтті құрылды",
       "successEdit": "Әдет сәтті өзгертілді",
-      "successRemove": "Әдет сәтті жойлды"
+      "successRemove": "Әдет сәтті жойлды",
+      "successAddRecord": "Әдетті орындау туралы жазба сәтті қосылды",
+      "warningAddRecord": "Күніне бір ғана жазба қосылуы мүмкін"
     }
   },
   "date": {
