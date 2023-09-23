@@ -16,8 +16,9 @@ import { HabitViewEnum } from '../habit/models/habit-view.enum';
 import { IHabit } from '../models/habit.interface';
 import { HabitService } from '../services/habit.service';
 import { ButtonComponent } from '../../../utils/ui/button/button.component';
-import { HabitModalComponent } from '../habit-modal/habit-modal.component';
 import { ICalendar } from '../habit/models/calendar.interface';
+import { HabitCreateModalComponent } from '../habit-create-modal/habit-create-modal.component';
+import { HabitModalComponent } from '../habit-modal/habit-modal.component';
 
 @Component({
   selector: 'app-habit-content',
@@ -73,12 +74,12 @@ export class HabitContentComponent implements OnChanges {
   }
 
   onEdit(habit: IHabit) {
-    this.dialog.open(HabitModalComponent, {
+    this.dialog.open(HabitCreateModalComponent, {
       width: '400px',
       height: '500px',
       panelClass: 'noBackground',
       autoFocus: false,
-      data: habit,
+      data: { startDate: habit.startDate, endDate: habit.endDate },
     });
   }
 
@@ -97,7 +98,7 @@ export class HabitContentComponent implements OnChanges {
   }
 
   addHabit() {
-    this.dialog.open(HabitModalComponent, {
+    this.dialog.open(HabitCreateModalComponent, {
       width: '400px',
       height: '500px',
       panelClass: 'noBackground',
@@ -160,6 +161,15 @@ export class HabitContentComponent implements OnChanges {
     this.message.warning(
       this.translateService.instant('habit.message.warningAddRecord')
     );
+  }
+
+  openHabitModal(habit: IHabit) {
+    this.dialog.open(HabitModalComponent, {
+      width: '700px',
+      height: '700px',
+      panelClass: 'noBackground',
+      autoFocus: false,
+    });
   }
 
   changeDate(date: Date[]) {

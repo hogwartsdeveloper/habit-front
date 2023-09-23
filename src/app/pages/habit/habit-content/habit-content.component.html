@@ -27,7 +27,7 @@
         *ngFor="let habit of habits"
         class="habit h-14 font-semibold"
         [ngClass]="{'cursor-pointer': viewType === 'interactive', overdue: habit.isOverdue}"
-        (click)="onDone(habit)"
+        (click)="openHabitModal(habit)"
 >
     <div>
         <div>{{ habit.name }}</div>
