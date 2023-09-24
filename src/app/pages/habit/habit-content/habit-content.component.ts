@@ -166,7 +166,7 @@ export class HabitContentComponent implements OnChanges {
   openHabitModal(habit: IHabit) {
     this.dialog.open(HabitModalComponent, {
       width: '700px',
-      height: '700px',
+      height: '550px',
       panelClass: 'noBackground',
       autoFocus: false,
       data: { startDate: habit.startDate, endDate: habit.endDate },

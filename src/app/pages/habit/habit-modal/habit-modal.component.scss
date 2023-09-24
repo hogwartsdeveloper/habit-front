@@ -1,0 +1,23 @@
+.box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  .item {
+    flex: 1 0 calc(14.28% - 10px);
+    text-align: right;
+    border-bottom: 2px solid rgba(255, 255, 255, .5);
+    margin: 0 5px;
+    padding: 5px;
+
+    &.tb {
+      height: 70px;
+      cursor: pointer;
+
+      &:hover {
+        background: rgba(255, 255, 255, .25);
+        transition: .5s;
+      }
+    }
+  }
+}
