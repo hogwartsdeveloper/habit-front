@@ -12,11 +12,18 @@
 
     &.tb {
       height: 70px;
-      cursor: pointer;
+      color: #bfbfbf;
+      opacity: .5;
 
-      &:hover {
-        background: rgba(255, 255, 255, .25);
-        transition: .5s;
+      &.active {
+        cursor: pointer;
+        color: white;
+        opacity: 1;
+
+        &:hover {
+          background: rgba(255, 255, 255, .25);
+          transition: .5s;
+        }
       }
     }
   }
