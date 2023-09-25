@@ -135,34 +135,6 @@ export class HabitContentComponent implements OnChanges {
     }
   }
 
-  onDone(habit: IHabit) {
-    if (this.viewType === 'show') return;
-
-    if (habit.lastActiveDate !== moment().format('YYYY-MM-DD')) {
-      habit.count = Math.min(
-        ++habit.count,
-        this.habitService.countTotalDay(habit)
-      );
-      habit.lastActiveDate = moment().format('YYYY-MM-DD');
-
-      this.habitService.habits$.next(this.habits);
-
-      localStorage.setItem(
-        'habits',
-        JSON.stringify(this.habitService.habits$.value)
-      );
-
-      this.message.success(
-        this.translateService.instant('habit.message.successAddRecord')
-      );
-      return;
-    }
-
-    this.message.warning(
-      this.translateService.instant('habit.message.warningAddRecord')
-    );
-  }
-
   openHabitModal(habit: IHabit) {
     this.dialog.open(HabitModalComponent, {
       width: '700px',
