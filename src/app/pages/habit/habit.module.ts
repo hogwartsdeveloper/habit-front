@@ -5,6 +5,7 @@ import { HabitComponent } from './habit/habit.component';
 import { HabitContentComponent } from './habit-content/habit-content.component';
 import { HabitModalComponent } from './habit-modal/habit-modal.component';
 import { ModalBaseComponent } from '../../utils/ui/modal-base/modal-base.component';
+import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
 
 @NgModule({
   declarations: [HabitComponent, HabitModalComponent],
@@ -13,6 +14,7 @@ import { ModalBaseComponent } from '../../utils/ui/modal-base/modal-base.compone
     HabitRoutingModule,
     HabitContentComponent,
     ModalBaseComponent,
+    NzToolTipModule,
   ],
 })
 export class HabitModule {}

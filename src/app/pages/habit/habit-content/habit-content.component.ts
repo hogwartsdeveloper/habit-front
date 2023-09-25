@@ -169,7 +169,7 @@ export class HabitContentComponent implements OnChanges {
       height: '550px',
       panelClass: 'noBackground',
       autoFocus: false,
-      data: { startDate: habit.startDate, endDate: habit.endDate },
+      data: habit,
     });
   }
 

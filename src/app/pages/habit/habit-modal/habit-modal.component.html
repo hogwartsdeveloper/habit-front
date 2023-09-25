@@ -3,6 +3,13 @@
         <div class="item" *ngFor="let weekDay of weekDays">{{ weekDay }}</div>
     </div>
     <div class="box">
-        <div class="item tb" *ngFor="let day of days" [ngClass]="{active: day?.active}">{{ day.name }}</div>
+        <div
+                class="item tb"
+                *ngFor="let day of days" [ngClass]="{active: day?.active}"
+                nz-tooltip
+                [nzTooltipTitle]="day.fullDate"
+                nzTooltipPlacement="rightTop"
+                [nzTooltipTrigger]="day?.active ? 'hover' : null"
+        >{{ day.name }}</div>
     </div>
 </app-modal-base>

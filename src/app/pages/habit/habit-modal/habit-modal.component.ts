@@ -2,6 +2,7 @@ import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import * as moment from 'moment';
 import { ICalendarDay } from './model/calendar-day.interface';
+import { IHabit } from '../models/habit.interface';
 
 @Component({
   templateUrl: './habit-modal.component.html',
@@ -12,7 +13,7 @@ export class HabitModalComponent {
   days: ICalendarDay[] = [];
   constructor(
     @Inject(MAT_DIALOG_DATA)
-    private data: { startDate: string; endDate: string }
+    private data: IHabit
   ) {
     if (this.data) {
       this.days = this.getDays();
@@ -32,6 +33,7 @@ export class HabitModalComponent {
     while (count < 42) {
       const day: ICalendarDay = {
         name: date.getDate(),
+        fullDate: moment(date).format('YYYY-MM-DD'),
       };
       if (
         moment(this.data.startDate).isSameOrBefore(moment(date)) &&
