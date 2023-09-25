@@ -12,6 +12,8 @@ export class HabitModalComponent {
   weekDays = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
   days: ICalendarDay[] = [];
   today = moment().format('YYYY-MM-DD');
+  selectedDay: ICalendarDay;
+
   constructor(
     private dialogRef: MatDialogRef<HabitModalComponent>,
     @Inject(MAT_DIALOG_DATA)
@@ -53,6 +55,7 @@ export class HabitModalComponent {
   }
 
   onDone(day: ICalendarDay) {
+    this.selectedDay = day;
     if (day.fullDate === this.today) {
       switch (day.status) {
         case 'basic':
@@ -70,5 +73,15 @@ export class HabitModalComponent {
 
   close(payload?: IHabit) {
     this.dialogRef.close(payload);
+  }
+
+  save() {
+    switch (this.selectedDay.status) {
+      case 'success':
+        this.data.count++;
+        this.data.lastActiveDate = this.today;
+        this.close(this.data);
+        break;
+    }
   }
 }

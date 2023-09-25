@@ -19,6 +19,6 @@
 <ng-template #actives>
     <div class="flex justify-end gap-1.5 ml-auto mt-3">
         <app-button type="danger" (click)="close()">{{"base.cancel" | translate}}</app-button>
-        <app-button>{{ 'base.save' | translate }}</app-button>
+        <app-button [disabled]="!selectedDay || selectedDay.status === 'basic'" (click)="save()">{{ 'base.save' | translate }}</app-button>
     </div>
 </ng-template>
