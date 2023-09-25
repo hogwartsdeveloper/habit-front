@@ -1,19 +1,22 @@
 import {
   Directive,
   ElementRef,
-  HostListener,
   Input,
+  OnChanges,
   OnInit,
+  SimpleChanges,
 } from '@angular/core';
 
 @Directive({ selector: '[pickItemByStatus]', standalone: true })
-export class PickItemByStatusDirective implements OnInit {
+export class PickItemByStatusDirective implements OnInit, OnChanges {
   @Input() pickItemByStatus: 'basic' | 'success' | 'danger';
-  @HostListener('click')
-  onClick() {
-    this.changeColor();
-  }
   constructor(private el: ElementRef<HTMLElement>) {}
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['pickItemByStatus']) {
+      this.changeColor();
+    }
+  }
 
   ngOnInit() {
     this.changeColor();
