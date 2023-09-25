@@ -3,6 +3,8 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import * as moment from 'moment';
 import { ICalendarDay } from './model/calendar-day.interface';
 import { IHabit } from '../models/habit.interface';
+import { NzMessageService } from 'ng-zorro-antd/message';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   templateUrl: './habit-modal.component.html',
@@ -16,6 +18,8 @@ export class HabitModalComponent {
 
   constructor(
     private dialogRef: MatDialogRef<HabitModalComponent>,
+    private message: NzMessageService,
+    private translateService: TranslateService,
     @Inject(MAT_DIALOG_DATA)
     public data: IHabit
   ) {
@@ -79,9 +83,16 @@ export class HabitModalComponent {
     switch (this.selectedDay.status) {
       case 'success':
         this.data.count++;
-        this.data.lastActiveDate = this.today;
-        this.close(this.data);
+        break;
+      case 'danger':
+        this.data.isOverdue = true;
         break;
     }
+
+    this.data.lastActiveDate = this.today;
+    this.message.success(
+      this.translateService.instant('habit.message.successAddRecord')
+    );
+    this.close(this.data);
   }
 }
