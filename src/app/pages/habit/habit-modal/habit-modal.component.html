@@ -6,10 +6,12 @@
         <div
                 class="item tb"
                 *ngFor="let day of days" [ngClass]="{active: day?.active}"
+                [pickItemByStatus]="day.status"
                 nz-tooltip
                 [nzTooltipTitle]="day.fullDate"
                 nzTooltipPlacement="rightTop"
                 [nzTooltipTrigger]="day?.active ? 'hover' : null"
+                (click)="onDone(day)"
         >{{ day.name }}</div>
     </div>
 </app-modal-base>

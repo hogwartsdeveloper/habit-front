@@ -21,7 +21,7 @@
         opacity: 1;
 
         &:hover {
-          background: rgba(255, 255, 255, .25);
+          background: rgba(255, 255, 255, .25) !important;
           transition: .5s;
         }
       }

@@ -33,6 +33,7 @@ export class HabitModalComponent {
     while (count < 42) {
       const day: ICalendarDay = {
         name: date.getDate(),
+        status: 'basic',
         fullDate: moment(date).format('YYYY-MM-DD'),
       };
       if (
@@ -47,5 +48,19 @@ export class HabitModalComponent {
     }
 
     return result;
+  }
+
+  onDone(day: ICalendarDay) {
+    switch (day.status) {
+      case 'basic':
+        day.status = 'success';
+        break;
+      case 'success':
+        day.status = 'danger';
+        break;
+      case 'danger':
+        day.status = 'basic';
+        break;
+    }
   }
 }
