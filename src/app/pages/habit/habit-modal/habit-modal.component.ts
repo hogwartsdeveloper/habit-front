@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import * as moment from 'moment';
 import { ICalendarDay } from './model/calendar-day.interface';
@@ -10,7 +10,7 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: './habit-modal.component.html',
   styleUrls: ['./habit-modal.component.scss'],
 })
-export class HabitModalComponent {
+export class HabitModalComponent implements OnInit {
   weekDays = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
   days: ICalendarDay[] = [];
   today = moment().format('YYYY-MM-DD');
@@ -22,7 +22,9 @@ export class HabitModalComponent {
     private translateService: TranslateService,
     @Inject(MAT_DIALOG_DATA)
     public data: IHabit
-  ) {
+  ) {}
+
+  ngOnInit() {
     if (this.data) {
       this.days = this.getDays();
     }
@@ -38,18 +40,29 @@ export class HabitModalComponent {
 
     let count = 0;
     date.setDate(date.getDate() - date.getDay());
+
     while (count < 42) {
       const day: ICalendarDay = {
         name: date.getDate(),
         status: 'basic',
         fullDate: moment(date).format('YYYY-MM-DD'),
       };
+
       if (
         moment(this.data.startDate).isSameOrBefore(moment(date)) &&
         moment(this.data.endDate).isAfter(moment(date))
       ) {
         day.active = true;
+
+        if (moment(date).isSameOrBefore(moment(this.data.lastActiveDate))) {
+          day.status =
+            this.data.isOverdue &&
+            this.data.lastActiveDate === moment(date).format('YYYY-MM-DD')
+              ? 'danger'
+              : 'success';
+        }
       }
+
       result.push(day);
       date.setDate(date.getDate() + 1);
       count++;
