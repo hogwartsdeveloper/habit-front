@@ -1,5 +1,5 @@
 import { Component, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import * as moment from 'moment';
 import { ICalendarDay } from './model/calendar-day.interface';
 import { IHabit } from '../models/habit.interface';
@@ -11,9 +11,11 @@ import { IHabit } from '../models/habit.interface';
 export class HabitModalComponent {
   weekDays = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
   days: ICalendarDay[] = [];
+  today = moment().format('YYYY-MM-DD');
   constructor(
+    private dialogRef: MatDialogRef<HabitModalComponent>,
     @Inject(MAT_DIALOG_DATA)
-    private data: IHabit
+    public data: IHabit
   ) {
     if (this.data) {
       this.days = this.getDays();
@@ -51,16 +53,22 @@ export class HabitModalComponent {
   }
 
   onDone(day: ICalendarDay) {
-    switch (day.status) {
-      case 'basic':
-        day.status = 'success';
-        break;
-      case 'success':
-        day.status = 'danger';
-        break;
-      case 'danger':
-        day.status = 'basic';
-        break;
+    if (day.fullDate === this.today) {
+      switch (day.status) {
+        case 'basic':
+          day.status = 'success';
+          break;
+        case 'success':
+          day.status = 'danger';
+          break;
+        case 'danger':
+          day.status = 'basic';
+          break;
+      }
     }
+  }
+
+  close(payload?: IHabit) {
+    this.dialogRef.close(payload);
   }
 }

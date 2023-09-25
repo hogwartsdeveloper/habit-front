@@ -7,6 +7,8 @@ import { HabitModalComponent } from './habit-modal/habit-modal.component';
 import { ModalBaseComponent } from '../../utils/ui/modal-base/modal-base.component';
 import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
 import { PickItemByStatusDirective } from '../../utils/ui/directives/pick-item-by-status.directive';
+import { ButtonComponent } from '../../utils/ui/button/button.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [HabitComponent, HabitModalComponent],
@@ -17,6 +19,8 @@ import { PickItemByStatusDirective } from '../../utils/ui/directives/pick-item-b
     ModalBaseComponent,
     NzToolTipModule,
     PickItemByStatusDirective,
+    ButtonComponent,
+    TranslateModule,
   ],
 })
 export class HabitModule {}
