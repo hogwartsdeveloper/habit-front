@@ -531,12 +531,8 @@ export class AppComponent implements OnInit, OnDestroy {
       lastFrame = thisFrame;
 
       if (this.introText) {
-        timestamp = timestamp / 10000;
+        timestamp = timestamp / 5000;
         this.introText.changeAmplitude(timestamp);
-
-        setTimeout(() => {
-          this.introText.changeStateAnimation(true);
-        }, 5000);
       }
 
       if (!this.stopAnimation) {

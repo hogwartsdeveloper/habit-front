@@ -13,18 +13,23 @@ export class IntroThreeSceneService {
   constructor(private threeSupportService: ThreeSupportService) {}
 
   createIntroText(font: Font) {
-    let geometry = new TextGeometry('Мотивация первый шаг', {
-      font,
-      size: 9,
-      height: 0,
-      curveSegments: 3,
-      bevelThickness: 2,
-      bevelSize: 1,
-      bevelEnabled: true,
-    });
+    function createGeometry(text: string) {
+      let geometry = new TextGeometry(text, {
+        font,
+        size: 9,
+        height: 0,
+        curveSegments: 3,
+        bevelThickness: 2,
+        bevelSize: 1,
+        bevelEnabled: true,
+      });
 
-    const tessellateModifier = new TessellateModifier(8, 6);
-    geometry = tessellateModifier.modify(geometry);
+      const tessellateModifier = new TessellateModifier(8, 6);
+      geometry = tessellateModifier.modify(geometry);
+
+      return geometry;
+    }
+    let geometry = createGeometry('Мотивация первый шаг');
 
     const numFaces = geometry.attributes['position'].count / 3;
 
@@ -56,7 +61,7 @@ export class IntroThreeSceneService {
     );
 
     const material = new THREE.ShaderMaterial({
-      uniforms: { amplitude: { value: 0.0 }, back: { value: false } },
+      uniforms: { amplitude: { value: 0.0 } },
       vertexShader,
       fragmentShader,
     });
@@ -74,8 +79,19 @@ export class IntroThreeSceneService {
       changeAmplitude: (value: number) => {
         material.uniforms['amplitude'].value = value;
       },
-      changeStateAnimation: (isBack: boolean) => {
-        material.uniforms['back'].value = isBack;
+      changeText: (text: string) => {
+        let newGeometry = createGeometry(text);
+
+        newGeometry.setAttribute(
+          'customColor',
+          new THREE.BufferAttribute(colors, 3)
+        );
+        newGeometry.setAttribute(
+          'displacement',
+          new THREE.BufferAttribute(displacement, 3)
+        );
+
+        mesh.geometry = newGeometry;
       },
     };
   }
