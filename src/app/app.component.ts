@@ -26,11 +26,13 @@ import { Font, FontLoader } from 'three/examples/jsm/loaders/FontLoader';
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry';
 import { HabitService } from './pages/habit/services/habit.service';
 import { TranslateService } from '@ngx-translate/core';
+import { IntroThreeSceneService } from './services/intro-three-scene.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  providers: [IntroThreeSceneService],
 })
 export class AppComponent implements OnInit, OnDestroy {
   @ViewChild('main', { static: true }) canvas: ElementRef<HTMLCanvasElement>;
@@ -57,9 +59,8 @@ export class AppComponent implements OnInit, OnDestroy {
   subscription: Subscription;
   keysPressed: { [key: string]: boolean } = {};
   characterControls: CharacterControls;
-  font: Font;
-  text: THREE.Mesh<TextGeometry, THREE.MeshPhongMaterial[]>;
   stopAnimation = false;
+  introText;
   destroy$ = new Subject();
 
   @HostListener('window:resize')
@@ -82,6 +83,7 @@ export class AppComponent implements OnInit, OnDestroy {
   constructor(
     private translateService: TranslateService,
     private threeSupportService: ThreeSupportService,
+    private introThreeService: IntroThreeSceneService,
     private habitService: HabitService
   ) {
     const habitsStorage = localStorage.getItem('habits');
@@ -105,21 +107,6 @@ export class AppComponent implements OnInit, OnDestroy {
     this.threeSupportService.stopAnimation$
       .pipe(takeUntil(this.destroy$))
       .subscribe((isStop) => (this.stopAnimation = isStop));
-
-    this.translateService.onLangChange
-      .pipe(takeUntil(this.destroy$))
-      .subscribe(() => {
-        if (this.text) {
-          this.text.geometry = new TextGeometry(
-            this.translateService.instant('promo.dream'),
-            {
-              font: this.font,
-              height: 1,
-              size: 3,
-            }
-          );
-        }
-      });
   }
 
   init() {
@@ -497,26 +484,8 @@ export class AppComponent implements OnInit, OnDestroy {
     const loader = new FontLoader();
 
     loader.load('assets/fonts/Roboto_Regular.json', (font) => {
-      this.font = font;
-      const geometry = new TextGeometry(
-        this.translateService.instant('promo.dream'),
-        {
-          font: this.font,
-          height: 1,
-          size: 3,
-        }
-      );
-
-      this.text = new THREE.Mesh(geometry, [
-        new THREE.MeshPhongMaterial({ color: 0xf9fafa }),
-        new THREE.MeshPhongMaterial({ color: 0xf9fafa }),
-      ]);
-
-      this.text.castShadow = true;
-      this.text.position.set(7, 29, 150);
-      this.text.rotation.set(0, -3.15, 0);
-
-      this.scene.add(this.text);
+      this.introText = this.introThreeService.createIntroText(font);
+      this.scene.add(this.introText.mesh);
     });
   }
 
@@ -553,13 +522,22 @@ export class AppComponent implements OnInit, OnDestroy {
     let thisFrame;
     let dT = 0;
     const speed = 0.8;
-    const animate = () => {
+    const animate = (timestamp: number) => {
       this.stats.update();
       delta = Math.min(clock.getDelta(), 0.1);
       thisFrame = Date.now();
       dT = (thisFrame - lastFrame) / 350;
       time += dT;
       lastFrame = thisFrame;
+
+      if (this.introText) {
+        timestamp = timestamp / 10000;
+        this.introText.changeAmplitude(timestamp);
+
+        setTimeout(() => {
+          this.introText.changeStateAnimation(true);
+        }, 5000);
+      }
 
       if (!this.stopAnimation) {
         this.mixer?.update(delta);
