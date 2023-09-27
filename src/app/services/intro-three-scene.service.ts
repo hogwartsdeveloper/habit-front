@@ -68,11 +68,8 @@ export class IntroThreeSceneService {
 
     const mesh = new THREE.Mesh(geometry, material);
 
-    mesh.position.set(70, 5, 150);
+    mesh.position.set(120, 5, 140);
     mesh.rotation.set(0, -3.15, 0);
-
-    this.threeSupportService.createGUI();
-    this.threeSupportService.createGUIFolder('text', mesh.position);
 
     return {
       mesh,

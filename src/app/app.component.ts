@@ -22,8 +22,8 @@ import {
   skyFragmentShader2,
   skyVertexShader2,
 } from './utils/another-code/promo';
-import { Font, FontLoader } from 'three/examples/jsm/loaders/FontLoader';
-import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry';
+import { FontLoader } from 'three/examples/jsm/loaders/FontLoader';
+import TWEEN from '@tweenjs/tween.js';
 import { HabitService } from './pages/habit/services/habit.service';
 import { TranslateService } from '@ngx-translate/core';
 import { IntroThreeSceneService } from './services/intro-three-scene.service';
@@ -484,8 +484,25 @@ export class AppComponent implements OnInit, OnDestroy {
     const loader = new FontLoader();
 
     loader.load('assets/fonts/Roboto_Regular.json', (font) => {
-      this.introText = this.introThreeService.createIntroText(font);
-      this.scene.add(this.introText.mesh);
+      this.orbitControl.enabled = false;
+      new TWEEN.Tween(this.camera.position)
+        .to(
+          {
+            x: 10,
+            y: this.camera.position.y,
+            z: this.camera.position.z - 1,
+          },
+          500
+        )
+        .easing(TWEEN.Easing.Cubic.Out)
+        .start()
+        .onComplete(() => {
+          this.introText = this.introThreeService.createIntroText(font);
+          this.scene.add(this.introText.mesh);
+        });
+
+      this.threeSupportService.createGUI();
+      this.threeSupportService.createGUIFolder('camera', this.camera.position);
     });
   }
 
@@ -523,6 +540,7 @@ export class AppComponent implements OnInit, OnDestroy {
     let dT = 0;
     const speed = 0.8;
     const animate = (timestamp: number) => {
+      TWEEN.update();
       this.stats.update();
       delta = Math.min(clock.getDelta(), 0.1);
       thisFrame = Date.now();
@@ -532,7 +550,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
       if (this.introText) {
         timestamp = timestamp / 5000;
-        this.introText.changeAmplitude(timestamp);
+        // this.introText.changeAmplitude(timestamp);
       }
 
       if (!this.stopAnimation) {
