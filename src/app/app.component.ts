@@ -6,12 +6,13 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
+import { Subject, Subscription, takeUntil } from 'rxjs';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import Stats from 'three/examples/jsm/libs/stats.module';
 import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader';
-import { Subject, Subscription, takeUntil } from 'rxjs';
-import * as CANNON from 'cannon-es';
+import { TranslateService } from '@ngx-translate/core';
+
 import { CharacterControls } from './utils/character-control/characterControls';
 import { ThreeSupportService } from './services/three-support.service';
 import {
@@ -22,10 +23,7 @@ import {
   skyFragmentShader2,
   skyVertexShader2,
 } from './utils/another-code/promo';
-import { FontLoader } from 'three/examples/jsm/loaders/FontLoader';
-import TWEEN from '@tweenjs/tween.js';
 import { HabitService } from './pages/habit/services/habit.service';
-import { TranslateService } from '@ngx-translate/core';
 import { IntroThreeSceneService } from './services/intro-three-scene.service';
 
 @Component({
@@ -60,7 +58,6 @@ export class AppComponent implements OnInit, OnDestroy {
   keysPressed: { [key: string]: boolean } = {};
   characterControls: CharacterControls;
   stopAnimation = false;
-  introText;
   destroy$ = new Subject();
 
   @HostListener('window:resize')
@@ -102,7 +99,6 @@ export class AppComponent implements OnInit, OnDestroy {
     this.addModel();
     this.animated();
     this.addStats();
-    this.addText();
 
     this.threeSupportService.stopAnimation$
       .pipe(takeUntil(this.destroy$))
@@ -249,14 +245,6 @@ export class AppComponent implements OnInit, OnDestroy {
     this.plane = new THREE.Mesh(groundGeometry, groundMaterial);
     this.plane.receiveShadow = true;
     this.scene.add(this.plane);
-
-    const planeShape = new CANNON.Plane();
-    const planeBody = new CANNON.Body({ mass: 0 });
-    planeBody.addShape(planeShape);
-    planeBody.quaternion.setFromAxisAngle(
-      new CANNON.Vec3(1, 0, 0),
-      -Math.PI / 2
-    );
 
     this.createGrass(
       width,
@@ -456,8 +444,6 @@ export class AppComponent implements OnInit, OnDestroy {
       this.model.scale.copy(new THREE.Vector3(5, 5, 5));
       this.model.position.set(0, 0, 0);
 
-      const modelShape = new CANNON.Sphere(5);
-
       this.mixer = new THREE.AnimationMixer(this.model);
       const animationClip = this.model.animations[0]; // get the first animation clip
       const action = this.mixer.clipAction(animationClip);
@@ -478,32 +464,6 @@ export class AppComponent implements OnInit, OnDestroy {
 
   addStats() {
     document.body.appendChild(this.stats.dom);
-  }
-
-  addText() {
-    const loader = new FontLoader();
-
-    loader.load('assets/fonts/Roboto_Regular.json', (font) => {
-      this.orbitControl.enabled = false;
-      new TWEEN.Tween(this.camera.position)
-        .to(
-          {
-            x: 10,
-            y: this.camera.position.y,
-            z: this.camera.position.z - 1,
-          },
-          500
-        )
-        .easing(TWEEN.Easing.Cubic.Out)
-        .start()
-        .onComplete(() => {
-          this.introText = this.introThreeService.createIntroText(font);
-          this.scene.add(this.introText.mesh);
-        });
-
-      this.threeSupportService.createGUI();
-      this.threeSupportService.createGUIFolder('camera', this.camera.position);
-    });
   }
 
   updateCameraPosition() {
@@ -533,25 +493,10 @@ export class AppComponent implements OnInit, OnDestroy {
   animated() {
     const grassMaterial = this.grass.material as THREE.RawShaderMaterial;
     const clock = new THREE.Clock();
-    let delta;
-    let time = 0;
-    let lastFrame = Date.now();
-    let thisFrame;
-    let dT = 0;
     const speed = 0.8;
     const animate = (timestamp: number) => {
-      TWEEN.update();
       this.stats.update();
-      delta = Math.min(clock.getDelta(), 0.1);
-      thisFrame = Date.now();
-      dT = (thisFrame - lastFrame) / 350;
-      time += dT;
-      lastFrame = thisFrame;
-
-      if (this.introText) {
-        timestamp = timestamp / 5000;
-        // this.introText.changeAmplitude(timestamp);
-      }
+      const delta = Math.min(clock.getDelta(), 0.1);
 
       if (!this.stopAnimation) {
         this.mixer?.update(delta);
@@ -566,7 +511,7 @@ export class AppComponent implements OnInit, OnDestroy {
         }
 
         if (this.grass && this.groundShader) {
-          grassMaterial.uniforms['time'].value = time;
+          grassMaterial.uniforms['time'].value = timestamp / 500;
         }
       }
 
