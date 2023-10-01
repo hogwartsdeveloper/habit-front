@@ -1,4 +1,4 @@
-import { IInput } from '../../utils/ui/input/models/input.interface';
+import { IInput } from '../../../utils/ui/input/models/input.interface';
 
 export const authInputConfigs: IInput[] = [
   {

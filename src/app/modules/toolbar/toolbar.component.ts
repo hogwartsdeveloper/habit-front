@@ -7,9 +7,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { AsyncPipe, NgIf } from '@angular/common';
 import { AuthService } from '../auth/services/auth.service';
 import { BehaviorSubject, Subject, takeUntil } from 'rxjs';
-import { ThreeSupportService } from '../services/three-support.service';
-import { ButtonComponent } from '../utils/ui/button/button.component';
-import { IUser } from '../pages/user/model/user.interface';
+import { ThreeSupportService } from '../../services/three-support.service';
+import { ButtonComponent } from '../../utils/ui/button/button.component';
+import { IUser } from '../user/model/user.interface';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { DropdownMenuComponent } from './dropdown-menu/dropdown-menu.component';
 

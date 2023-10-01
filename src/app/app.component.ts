@@ -23,7 +23,7 @@ import {
   skyFragmentShader2,
   skyVertexShader2,
 } from './utils/another-code/promo';
-import { HabitService } from './pages/habit/services/habit.service';
+import { HabitService } from './modules/habit/services/habit.service';
 import { IntroThreeSceneService } from './services/intro-three-scene.service';
 
 @Component({

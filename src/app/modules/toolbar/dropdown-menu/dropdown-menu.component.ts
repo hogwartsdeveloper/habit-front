@@ -8,9 +8,9 @@ import { NzSelectModule } from 'ng-zorro-antd/select';
 import { en_US, kk_KZ, NzI18nService, ru_RU } from 'ng-zorro-antd/i18n';
 
 import { AuthService } from '../../auth/services/auth.service';
-import { IUser } from '../../pages/user/model/user.interface';
-import { ButtonComponent } from '../../utils/ui/button/button.component';
-import { show } from '../../utils/animations/show.animation';
+import { IUser } from '../../user/model/user.interface';
+import { ButtonComponent } from '../../../utils/ui/button/button.component';
+import { show } from '../../../utils/animations/show.animation';
 
 @Component({
   selector: 'app-dropdown-menu',

@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { AuthService } from '../../../auth/services/auth.service';
+import { AuthService } from '../../auth/services/auth.service';
 import { IUser } from '../model/user.interface';
 import { Subject, take, takeUntil } from 'rxjs';
 import { IHabit } from '../../habit/models/habit.interface';

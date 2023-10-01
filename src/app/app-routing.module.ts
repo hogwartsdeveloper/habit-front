@@ -5,12 +5,12 @@ const routes: Routes = [
   {
     path: 'change',
     loadChildren: () =>
-      import('./pages/habit/habit.module').then((m) => m.HabitModule),
+      import('./modules/habit/habit.module').then((m) => m.HabitModule),
   },
   {
     path: 'user',
     loadChildren: () =>
-      import('./pages/user/user.module').then((m) => m.UserModule),
+      import('./modules/user/user.module').then((m) => m.UserModule),
   },
 ];
 

@@ -15,12 +15,12 @@ import {
 import { AuthorType } from '../models/author.model';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
-import { ThreeSupportService } from '../../services/three-support.service';
-import { ButtonComponent } from '../../utils/ui/button/button.component';
-import { IInput } from '../../utils/ui/input/models/input.interface';
-import { InputComponent } from '../../utils/ui/input/input.component';
+import { ThreeSupportService } from '../../../services/three-support.service';
+import { ButtonComponent } from '../../../utils/ui/button/button.component';
+import { IInput } from '../../../utils/ui/input/models/input.interface';
+import { InputComponent } from '../../../utils/ui/input/input.component';
 import { authInputConfigs } from './form.config';
-import { ModalBaseComponent } from '../../utils/ui/modal-base/modal-base.component';
+import { ModalBaseComponent } from '../../../utils/ui/modal-base/modal-base.component';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({

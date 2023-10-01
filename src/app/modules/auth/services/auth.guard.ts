@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { AuthService } from './auth.service';
-import { ThreeSupportService } from '../../services/three-support.service';
+import { ThreeSupportService } from '../../../services/three-support.service';
 
 @Injectable()
 export class AuthGuard {
