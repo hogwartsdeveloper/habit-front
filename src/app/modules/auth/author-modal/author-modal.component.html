@@ -6,16 +6,9 @@
         </ng-container>
 
         <app-input [config]="configs[2]" [form]="form"></app-input>
-        <app-input class="mt-5" [config]="configs[3]" [form]="form"></app-input>
-        <span class="text-xs mt-2 mb-5 cursor-pointer">{{'auth.forgotPassword' | translate}}?</span>
+        <app-input class="my-5" [config]="configs[3]" [form]="form"></app-input>
 
         <app-button [disabled]="form.invalid" (click)="sign()">{{(type === 'signIn' ? 'auth.signIn' : 'auth.signUp') | translate}}</app-button>
-
-        <span class="text-xs text-center my-5">{{ "auth.continueWith" | translate }}</span>
-
-        <app-button type="insta" class="mb-5">
-            <span class="icon icon-instagram text-white"></span>
-        </app-button>
 
         <div class="text-xs text-center" [ngSwitch]="type">
             <ng-container *ngSwitchCase="'signIn'">

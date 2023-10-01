@@ -3,6 +3,7 @@
         class="photo"
         [src]="user.img"
         alt="user photo"
+        (click)="showMenu = false"
 >
 
 <ng-container *ngIf="showMenu">

@@ -80,7 +80,7 @@ export class AuthorModalComponent implements OnInit {
     this.dialogRef.close();
     this.dialog.open(AuthorModalComponent, {
       width: '400px',
-      height: type === 'signIn' ? '500px' : '650px',
+      height: type === 'signIn' ? '350px' : '500px',
       panelClass: 'noBackground',
       data: {
         type,
