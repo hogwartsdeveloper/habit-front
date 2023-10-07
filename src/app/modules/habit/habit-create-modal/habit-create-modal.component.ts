@@ -19,6 +19,7 @@ import { ModalBaseComponent } from '../../../utils/ui/modal-base/modal-base.comp
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 import { NzMessageService } from 'ng-zorro-antd/message';
+import { take } from 'rxjs';
 
 @Component({
   selector: 'app-habit-modal',
@@ -73,46 +74,29 @@ export class HabitCreateModalComponent implements OnInit {
   }
 
   onSubmit() {
-    let habits: IHabit[];
-
     switch (this.type) {
       case 'create':
-        const id =
-          this.habitServices.habits$.value[
-            this.habitServices.habits$.value.length - 1
-          ]?.id || 0;
-
-        habits = [
-          ...this.habitServices.habits$.value,
-          {
-            ...this.form.getRawValue(),
-            id: id + 1,
-            count: 0,
-            lastActiveDate: null,
-          },
-        ];
-        this.message.success(
-          this.translateService.instant('habit.message.successCreate')
-        );
+        this.habitServices
+          .add(this.form.getRawValue())
+          .pipe(take(1))
+          .subscribe(() => {
+            this.message.success(
+              this.translateService.instant('habit.message.successCreate')
+            );
+          });
         break;
 
       case 'edit':
-        habits = [
-          ...this.habitServices.habits$.value.map((habit) => {
-            if (habit.id === this.data.id) {
-              return { ...this.form.getRawValue(), id: this.data.id };
-            }
-            return habit;
-          }),
-        ];
-        this.message.success(
-          this.translateService.instant('habit.message.successEdit')
-        );
+        this.habitServices
+          .update(this.data._id, this.form.getRawValue())
+          .pipe(take(1))
+          .subscribe((res) => {
+            this.message.success(
+              this.translateService.instant('habit.message.successEdit')
+            );
+          });
         break;
     }
-
-    this.habitServices.habits$.next(habits);
-    localStorage.setItem('habits', JSON.stringify(habits));
 
     this.onClose();
   }
