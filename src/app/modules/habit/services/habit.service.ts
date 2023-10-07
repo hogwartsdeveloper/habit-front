@@ -4,6 +4,7 @@ import { BehaviorSubject } from 'rxjs';
 import * as moment from 'moment/moment';
 
 import { IHabit } from '../models/habit.interface';
+import { IHabits } from '../models/habits.interface';
 
 @Injectable()
 export class HabitService {
@@ -25,5 +26,9 @@ export class HabitService {
 
   delete(id: string) {
     return this.http.delete('/api/habit' + id);
+  }
+
+  get(userId: string) {
+    return this.http.get<IHabits>('/api/habit/getByUser/' + userId);
   }
 }
