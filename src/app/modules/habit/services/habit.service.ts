@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject } from 'rxjs';
 import * as moment from 'moment/moment';
 
 import { IHabit } from '../models/habit.interface';
@@ -8,8 +7,6 @@ import { IHabits } from '../models/habits.interface';
 
 @Injectable()
 export class HabitService {
-  habits$ = new BehaviorSubject<IHabit[]>([]);
-
   constructor(private readonly http: HttpClient) {}
 
   countTotalDay(habit: IHabit) {

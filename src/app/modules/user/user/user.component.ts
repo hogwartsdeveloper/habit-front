@@ -9,6 +9,7 @@ import { UserEditModalComponent } from '../user-edit-modal/user-edit-modal.compo
 import { IUserEditData } from '../user-edit-modal/models/user-edit-data.interface';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { TranslateService } from '@ngx-translate/core';
+import { IHabits } from '../../habit/models/habits.interface';
 
 @Component({
   selector: 'app-user',
@@ -17,7 +18,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class UserComponent implements OnInit, OnDestroy {
   user: IUser;
-  habits: IHabit[];
+  habits: IHabits;
   destroy$ = new Subject();
   constructor(
     private dialog: MatDialog,
@@ -32,7 +33,8 @@ export class UserComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.destroy$))
       .subscribe((user) => (this.user = user));
 
-    this.habitService.habits$
+    this.habitService
+      .get('651f80fc007ede299e36a86c')
       .pipe(take(1))
       .subscribe((habits) => (this.habits = habits));
   }

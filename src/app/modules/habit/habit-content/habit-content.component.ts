@@ -20,6 +20,7 @@ import { ICalendar } from '../habit/models/calendar.interface';
 import { HabitCreateModalComponent } from '../habit-create-modal/habit-create-modal.component';
 import { HabitModalComponent } from '../habit-modal/habit-modal.component';
 import { take } from 'rxjs';
+import { IHabits } from '../models/habits.interface';
 
 @Component({
   selector: 'app-habit-content',
@@ -41,8 +42,8 @@ import { take } from 'rxjs';
 })
 export class HabitContentComponent implements OnChanges {
   @Input() viewType: 'interactive' | 'show' = 'interactive';
-  @Input({ required: true }) habits: IHabit[];
-  allHabits: IHabit[];
+  @Input({ required: true }) allHabits: IHabits;
+  habits: IHabit[] = [];
   HabitViewEnum = HabitViewEnum;
   type: HabitViewEnum = HabitViewEnum.Active;
 
@@ -59,15 +60,14 @@ export class HabitContentComponent implements OnChanges {
   ) {}
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes['habits']) {
-      this.allHabits = [...this.habits];
-      this.filterHabit(this.habits);
+    if (changes['allHabits']) {
+      this.habits = this.allHabits[this.type.toString().toLowerCase()];
     }
   }
 
   onChangeViewType(type: HabitViewEnum) {
     this.type = type;
-    this.filterHabit(this.allHabits);
+    this.habits = this.allHabits[this.type.toString().toLowerCase()];
   }
 
   countTotalDay(habit: IHabit) {
@@ -104,35 +104,6 @@ export class HabitContentComponent implements OnChanges {
     });
   }
 
-  filterHabit(habits: IHabit[]) {
-    switch (this.type) {
-      case HabitViewEnum.Active:
-        this.habits = habits.filter((habit) => {
-          return (
-            moment(habit.endDate).isSameOrAfter(moment()) && !habit.isOverdue
-          );
-        });
-        break;
-      case HabitViewEnum.History:
-        this.habits = habits.filter((habit) => {
-          if (!this.calendar.startDate) {
-            return moment(habit.endDate).isSameOrBefore(
-              moment(this.calendar.endDate)
-            );
-          }
-          return (
-            (moment(habit.endDate).isSameOrAfter(
-              moment(this.calendar.startDate)
-            ) &&
-              moment(habit.endDate).isSameOrBefore(
-                moment(this.calendar.endDate)
-              )) ||
-            habit.isOverdue
-          );
-        });
-    }
-  }
-
   openHabitModal(habit: IHabit) {
     this.dialog.open(HabitModalComponent, {
       width: '700px',
@@ -146,6 +117,5 @@ export class HabitContentComponent implements OnChanges {
   changeDate(date: Date[]) {
     this.calendar.startDate = moment(date[0]).format('YYYY-MM-DD');
     this.calendar.endDate = moment(date[1]).format('YYYY-MM-DD');
-    this.filterHabit(this.allHabits);
   }
 }

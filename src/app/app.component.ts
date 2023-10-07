@@ -23,7 +23,6 @@ import {
   skyFragmentShader2,
   skyVertexShader2,
 } from './utils/another-code/promo';
-import { HabitService } from './modules/habit/services/habit.service';
 import { IntroThreeSceneService } from './services/intro-three-scene.service';
 
 @Component({
@@ -79,15 +78,8 @@ export class AppComponent implements OnInit, OnDestroy {
 
   constructor(
     private translateService: TranslateService,
-    private threeSupportService: ThreeSupportService,
-    private introThreeService: IntroThreeSceneService,
-    private habitService: HabitService
-  ) {
-    const habitsStorage = localStorage.getItem('habits');
-    if (habitsStorage) {
-      this.habitService.habits$.next(JSON.parse(habitsStorage));
-    }
-  }
+    private threeSupportService: ThreeSupportService
+  ) {}
 
   ngOnInit() {
     this.translateService.use('en');
