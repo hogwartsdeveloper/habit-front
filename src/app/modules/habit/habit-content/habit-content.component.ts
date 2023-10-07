@@ -19,6 +19,7 @@ import { ButtonComponent } from '../../../utils/ui/button/button.component';
 import { ICalendar } from '../habit/models/calendar.interface';
 import { HabitCreateModalComponent } from '../habit-create-modal/habit-create-modal.component';
 import { HabitModalComponent } from '../habit-modal/habit-modal.component';
+import { take } from 'rxjs';
 
 @Component({
   selector: 'app-habit-content',
@@ -83,18 +84,15 @@ export class HabitContentComponent implements OnChanges {
     });
   }
 
-  onDelete(habit: IHabit) {
-    this.habitService.habits$.next(
-      this.habitService.habits$.value.filter((item) => item.id !== habit.id)
-    );
-
-    localStorage.setItem(
-      'habits',
-      JSON.stringify(this.habitService.habits$.value)
-    );
-    this.message.success(
-      this.translateService.instant('habit.message.successRemove')
-    );
+  onDelete(id: string) {
+    this.habitService
+      .delete(id)
+      .pipe(take(1))
+      .subscribe(() => {
+        this.message.success(
+          this.translateService.instant('habit.message.successRemove')
+        );
+      });
   }
 
   addHabit() {

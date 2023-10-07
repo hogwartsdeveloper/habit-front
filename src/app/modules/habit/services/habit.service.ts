@@ -22,4 +22,8 @@ export class HabitService {
   update(id: string, habit: Omit<IHabit, '_id'>) {
     return this.http.patch('/api/habit/' + id, habit);
   }
+
+  delete(id: string) {
+    return this.http.delete('/api/habit' + id);
+  }
 }
