@@ -14,11 +14,11 @@ export class HabitService {
   }
 
   add(habit: Omit<IHabit, '_id'>) {
-    return this.http.post('/api/habit/create', habit);
+    return this.http.post<IHabit>('/api/habit/create', habit);
   }
 
   update(id: string, habit: Omit<IHabit, '_id'>) {
-    return this.http.patch('/api/habit/' + id, habit);
+    return this.http.patch<IHabit>('/api/habit/' + id, habit);
   }
 
   delete(id: string) {

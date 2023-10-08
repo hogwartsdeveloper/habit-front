@@ -7,8 +7,8 @@ import { ButtonComponent } from '../../utils/ui/button/button.component';
 import { UserEditModalComponent } from './user-edit-modal/user-edit-modal.component';
 import { InputComponent } from '../../utils/ui/input/input.component';
 import { ModalBaseComponent } from '../../utils/ui/modal-base/modal-base.component';
-import { HabitContentComponent } from '../habit/habit-content/habit-content.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { HabitViewModule } from '../habit/habit-view/habit-view.module';
 
 @NgModule({
   declarations: [UserComponent, UserEditModalComponent],
@@ -19,7 +19,7 @@ import { TranslateModule } from '@ngx-translate/core';
     ButtonComponent,
     InputComponent,
     ModalBaseComponent,
-    HabitContentComponent,
+    HabitViewModule,
     TranslateModule,
   ],
 })

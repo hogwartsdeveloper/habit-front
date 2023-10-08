@@ -69,8 +69,8 @@ export class HabitCreateModalComponent implements OnInit {
     });
   }
 
-  onClose() {
-    this.dialogRef.close();
+  onClose(habit?: IHabit) {
+    this.dialogRef.close(habit);
   }
 
   onSubmit() {
@@ -79,10 +79,12 @@ export class HabitCreateModalComponent implements OnInit {
         this.habitServices
           .add(this.form.getRawValue())
           .pipe(take(1))
-          .subscribe(() => {
+          .subscribe((res) => {
             this.message.success(
               this.translateService.instant('habit.message.successCreate')
             );
+
+            this.onClose(res);
           });
         break;
 
@@ -94,10 +96,10 @@ export class HabitCreateModalComponent implements OnInit {
             this.message.success(
               this.translateService.instant('habit.message.successEdit')
             );
+
+            this.onClose(res);
           });
         break;
     }
-
-    this.onClose();
   }
 }

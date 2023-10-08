@@ -6,6 +6,6 @@
         <app-button (click)="openEditModal()">{{"user.edit" | translate}}</app-button>
     </div>
     <div class="right">
-        <app-habit-content [allHabits]="habits" [viewType]="'show'"></app-habit-content>
+        <app-habit-view [allHabits]="habits" [viewType]="'show'"></app-habit-view>
     </div>
 </div>

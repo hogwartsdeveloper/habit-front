@@ -1,0 +1,25 @@
+<nz-tabset>
+    <nz-tab [nzTitle]="'base.active' | translate">
+        <div class="tab-header">
+            <app-button
+                    *ngIf="viewType === 'interactive'"
+                    style="width: 110px"
+                    [animation]="!habits.length ? 'pulse' : ''"
+                    (click)="addHabit()"
+            >
+                {{ "habit.add" | translate}}
+            </app-button>
+        </div>
+        <app-habit-view-content [habits]="allHabits?.active || []" [viewType]="viewType"></app-habit-view-content>
+    </nz-tab>
+    <nz-tab [nzTitle]="'base.history' | translate">
+        <div class="tab-header">
+            <nz-range-picker
+                    [ngModel]="[calendar.startDate, calendar.endDate]"
+                    (ngModelChange)="changeDate($event)"
+            ></nz-range-picker>
+        </div>
+
+        <app-habit-view-content [habits]="allHabits?.history || []" [viewType]="'show'"></app-habit-view-content>
+    </nz-tab>
+</nz-tabset>
