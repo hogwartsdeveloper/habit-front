@@ -1,10 +1,11 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import * as moment from 'moment';
+import * as dayjs from 'dayjs';
+import { TranslateService } from '@ngx-translate/core';
+import { NzMessageService } from 'ng-zorro-antd/message';
+
 import { ICalendarDay } from './model/calendar-day.interface';
 import { IHabit } from '../models/habit.interface';
-import { NzMessageService } from 'ng-zorro-antd/message';
-import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   templateUrl: './habit-modal.component.html',
@@ -13,7 +14,7 @@ import { TranslateService } from '@ngx-translate/core';
 export class HabitModalComponent implements OnInit {
   weekDays = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
   days: ICalendarDay[] = [];
-  today = moment().format('YYYY-MM-DD');
+  today = dayjs().format('YYYY-MM-DD');
   selectedDay: ICalendarDay | null;
 
   constructor(
@@ -32,9 +33,9 @@ export class HabitModalComponent implements OnInit {
 
   getDays() {
     const date = new Date(
-      moment(this.data.startDate).year(),
-      moment(this.data.startDate).month(),
-      moment(this.data.startDate).date()
+      dayjs(this.data.startDate).year(),
+      dayjs(this.data.startDate).month(),
+      dayjs(this.data.startDate).date()
     );
     const result: ICalendarDay[] = [];
 
@@ -45,19 +46,23 @@ export class HabitModalComponent implements OnInit {
       const day: ICalendarDay = {
         name: date.getDate(),
         status: 'basic',
-        fullDate: moment(date).format('YYYY-MM-DD'),
+        fullDate: dayjs(date).format('YYYY-MM-DD'),
       };
 
       if (
-        moment(this.data.startDate).isSameOrBefore(moment(date)) &&
-        moment(this.data.endDate).isAfter(moment(date))
+        (dayjs(this.data.startDate).isSame(dayjs(date)) ||
+          dayjs(this.data.startDate).isBefore(dayjs(date))) &&
+        dayjs(this.data.endDate).isAfter(dayjs(date))
       ) {
         day.active = true;
 
-        if (moment(date).isSameOrBefore(moment(this.data.lastActiveDate))) {
+        if (
+          dayjs(date).isSame(dayjs(this.data.lastActiveDate)) ||
+          dayjs(date).isBefore(dayjs(this.data.lastActiveDate))
+        ) {
           day.status =
             this.data.isOverdue &&
-            this.data.lastActiveDate === moment(date).format('YYYY-MM-DD')
+            this.data.lastActiveDate === dayjs(date).format('YYYY-MM-DD')
               ? 'danger'
               : 'success';
         }

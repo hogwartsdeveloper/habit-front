@@ -6,7 +6,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import * as moment from 'moment';
+import * as dayjs from 'dayjs';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { HabitService } from '../services/habit.service';
@@ -61,10 +61,10 @@ export class HabitCreateModalComponent implements OnInit {
       description: new FormControl(this.data?.description || ''),
       isHide: new FormControl(this.data?.isHide || false),
       startDate: new FormControl(
-        this.data?.startDate || moment().format('YYYY-MM-DD')
+        this.data?.startDate || dayjs().format('YYYY-MM-DD')
       ),
       endDate: new FormControl(
-        this.data?.endDate || moment().add(21, 'days').format('YYYY-MM-DD')
+        this.data?.endDate || dayjs().add(21, 'days').format('YYYY-MM-DD')
       ),
     });
   }

@@ -1,16 +1,11 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import * as moment from 'moment';
-import { TranslateService } from '@ngx-translate/core';
-import { NzMessageService } from 'ng-zorro-antd/message';
+import * as dayjs from 'dayjs';
 
 import { HabitViewEnum } from '../habit/models/habit-view.enum';
 import { IHabit } from '../models/habit.interface';
-import { HabitService } from '../services/habit.service';
 import { ICalendar } from '../habit/models/calendar.interface';
 import { HabitCreateModalComponent } from '../habit-create-modal/habit-create-modal.component';
-import { HabitModalComponent } from '../habit-modal/habit-modal.component';
-import { take } from 'rxjs';
 import { IHabits } from '../models/habits.interface';
 
 @Component({
@@ -25,8 +20,8 @@ export class HabitViewComponent {
   type: HabitViewEnum = HabitViewEnum.Active;
 
   calendar: ICalendar = {
-    startDate: moment().startOf('years').format('YYYY-MM-DD'),
-    endDate: moment().format('YYYY-MM-DD'),
+    startDate: dayjs().startOf('years').format('YYYY-MM-DD'),
+    endDate: dayjs().format('YYYY-MM-DD'),
   };
 
   constructor(private dialog: MatDialog) {}
@@ -49,7 +44,7 @@ export class HabitViewComponent {
   }
 
   changeDate(date: Date[]) {
-    this.calendar.startDate = moment(date[0]).format('YYYY-MM-DD');
-    this.calendar.endDate = moment(date[1]).format('YYYY-MM-DD');
+    this.calendar.startDate = dayjs(date[0]).format('YYYY-MM-DD');
+    this.calendar.endDate = dayjs(date[1]).format('YYYY-MM-DD');
   }
 }
