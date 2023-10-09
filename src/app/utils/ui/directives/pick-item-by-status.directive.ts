@@ -9,7 +9,7 @@ import {
 
 @Directive({ selector: '[pickItemByStatus]', standalone: true })
 export class PickItemByStatusDirective implements OnInit, OnChanges {
-  @Input() pickItemByStatus: 'basic' | 'success' | 'danger';
+  @Input() pickItemByStatus: 'basic' | 'add' | 'overdue';
   constructor(private el: ElementRef<HTMLElement>) {}
 
   ngOnChanges(changes: SimpleChanges) {
@@ -27,10 +27,10 @@ export class PickItemByStatusDirective implements OnInit, OnChanges {
       case 'basic':
         this.el.nativeElement.style.background = 'transparent';
         break;
-      case 'success':
+      case 'add':
         this.el.nativeElement.style.background = 'var(--cl-success)';
         break;
-      case 'danger':
+      case 'overdue':
         this.el.nativeElement.style.background = 'var(--cl-danger)';
         break;
     }

@@ -66,8 +66,8 @@ export class HabitModalComponent implements OnInit {
           day.status =
             this.data.isOverdue &&
             this.data.lastActiveDate === dayjs(date).format('YYYY-MM-DD')
-              ? 'danger'
-              : 'success';
+              ? 'overdue'
+              : 'add';
         }
       }
 
@@ -93,12 +93,12 @@ export class HabitModalComponent implements OnInit {
     if (day.fullDate === this.today) {
       switch (day.status) {
         case 'basic':
-          day.status = 'success';
+          day.status = 'add';
           break;
-        case 'success':
-          day.status = 'danger';
+        case 'add':
+          day.status = 'overdue';
           break;
-        case 'danger':
+        case 'overdue':
           day.status = 'basic';
           break;
       }
@@ -110,18 +110,8 @@ export class HabitModalComponent implements OnInit {
   }
 
   save() {
-    switch (this.selectedDay?.status) {
-      case 'success':
-        this.data.countCompleted++;
-        break;
-      case 'danger':
-        this.data.isOverdue = true;
-        break;
-    }
-
-    this.data.lastActiveDate = this.today;
     this.habitService
-      .update(this.data._id, this.data)
+      .addRecord(this.data._id, this.selectedDay?.status)
       .pipe(take(1))
       .subscribe((habit) => {
         this.message.success(

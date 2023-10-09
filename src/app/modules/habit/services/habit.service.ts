@@ -17,6 +17,10 @@ export class HabitService {
     return this.http.post<IHabit>('/api/habit/create', habit);
   }
 
+  addRecord(id: string, status) {
+    return this.http.post<IHabit>('/api/habit/addRecord/' + id, { status });
+  }
+
   update(id: string, habit: Omit<IHabit, '_id'>) {
     return this.http.patch<IHabit>('/api/habit/' + id, habit);
   }

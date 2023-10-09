@@ -25,13 +25,21 @@ export class HabitViewContentComponent {
   ) {}
 
   openHabitModal(habit: IHabit) {
-    this.dialog.open(HabitModalComponent, {
-      width: '700px',
-      height: '600px',
-      panelClass: 'noBackground',
-      autoFocus: false,
-      data: habit,
-    });
+    this.dialog
+      .open(HabitModalComponent, {
+        width: '700px',
+        height: '600px',
+        panelClass: 'noBackground',
+        autoFocus: false,
+        data: habit,
+      })
+      .afterClosed()
+      .subscribe((habit: IHabit) => {
+        const findIndex = this.habits.findIndex(
+          (item) => item._id === habit._id
+        );
+        this.habits[findIndex] = habit;
+      });
   }
 
   countTotalDay(habit: IHabit) {
