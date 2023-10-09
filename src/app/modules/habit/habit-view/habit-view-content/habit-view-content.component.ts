@@ -48,12 +48,15 @@ export class HabitViewContentComponent {
         data: habit,
       })
       .afterClosed()
-      .subscribe((res) => {
-        if (!res) {
+      .subscribe((habit: IHabit) => {
+        if (!habit) {
           return;
         }
 
-        this.habits.push(res);
+        const findIndex = this.habits.findIndex(
+          (item) => item._id === habit._id
+        );
+        this.habits[findIndex] = habit;
       });
   }
 
