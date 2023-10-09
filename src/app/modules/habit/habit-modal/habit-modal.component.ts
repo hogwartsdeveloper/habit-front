@@ -3,9 +3,11 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import * as dayjs from 'dayjs';
 import { TranslateService } from '@ngx-translate/core';
 import { NzMessageService } from 'ng-zorro-antd/message';
+import { take } from 'rxjs';
 
 import { ICalendarDay } from './model/calendar-day.interface';
 import { IHabit } from '../models/habit.interface';
+import { HabitService } from '../services/habit.service';
 
 @Component({
   templateUrl: './habit-modal.component.html',
@@ -21,6 +23,7 @@ export class HabitModalComponent implements OnInit {
     private dialogRef: MatDialogRef<HabitModalComponent>,
     private message: NzMessageService,
     private translateService: TranslateService,
+    private habitService: HabitService,
     @Inject(MAT_DIALOG_DATA)
     public data: IHabit
   ) {}
@@ -117,9 +120,14 @@ export class HabitModalComponent implements OnInit {
     }
 
     this.data.lastActiveDate = this.today;
-    this.message.success(
-      this.translateService.instant('habit.message.successAddRecord')
-    );
-    this.close(this.data);
+    this.habitService
+      .update(this.data._id, this.data)
+      .pipe(take(1))
+      .subscribe((habit) => {
+        this.message.success(
+          this.translateService.instant('habit.message.successAddRecord')
+        );
+        this.close(habit);
+      });
   }
 }
