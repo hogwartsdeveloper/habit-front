@@ -61,7 +61,8 @@ export class HabitViewContentComponent {
     this.habitService
       .delete(id)
       .pipe(take(1))
-      .subscribe(() => {
+      .subscribe((habit) => {
+        this.habits = this.habits.filter((item) => item._id !== habit._id);
         this.message.success(
           this.translateService.instant('habit.message.successRemove')
         );

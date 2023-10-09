@@ -7,6 +7,6 @@ export interface IHabit {
   isOverdue: boolean;
   startDate: string;
   endDate: string;
-  count: number;
+  countCompleted: number;
   lastActiveDate: string | null;
 }

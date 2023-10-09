@@ -22,7 +22,7 @@ export class HabitService {
   }
 
   delete(id: string) {
-    return this.http.delete('/api/habit' + id);
+    return this.http.delete<IHabit>('/api/habit/' + id);
   }
 
   get(userId: string) {

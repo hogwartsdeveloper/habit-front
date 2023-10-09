@@ -10,7 +10,7 @@
     </div>
 
     <div class="flex items-center gap-2.5">
-        <div>{{ habit.count }} / {{ countTotalDay(habit) }}</div>
+        <div>{{ habit.countCompleted }} / {{ countTotalDay(habit) }}</div>
 
         <ng-container *ngIf="viewType === 'interactive'">
             <button mat-icon-button [matMenuTriggerFor]="menu" (click)="$event.stopPropagation()">

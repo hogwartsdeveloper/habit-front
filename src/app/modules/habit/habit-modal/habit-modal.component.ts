@@ -109,7 +109,7 @@ export class HabitModalComponent implements OnInit {
   save() {
     switch (this.selectedDay?.status) {
       case 'success':
-        this.data.count++;
+        this.data.countCompleted++;
         break;
       case 'danger':
         this.data.isOverdue = true;
