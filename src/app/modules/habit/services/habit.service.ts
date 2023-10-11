@@ -4,6 +4,7 @@ import * as dayjs from 'dayjs';
 
 import { IHabit } from '../models/habit.interface';
 import { IHabits } from '../models/habits.interface';
+import { ICalendarDay } from '../habit-modal/model/calendar-day.interface';
 
 @Injectable()
 export class HabitService {
@@ -31,5 +32,9 @@ export class HabitService {
 
   get(userId: string) {
     return this.http.get<IHabits>('/api/habit/getByUser/' + userId);
+  }
+
+  getDays(habitId: string) {
+    return this.http.get<ICalendarDay[]>('/api/habit/getDays/' + habitId);
   }
 }
