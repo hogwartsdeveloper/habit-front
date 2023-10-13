@@ -1,23 +1,24 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import * as dayjs from 'dayjs';
 import { TranslateService } from '@ngx-translate/core';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { take } from 'rxjs';
-
-import { ICalendarDay } from './model/calendar-day.interface';
-import { IHabit } from '../models/habit.interface';
+import {
+  HabitCalendarStatus,
+  IHabit,
+  IHabitCalendar,
+} from '../models/habit.interface';
 import { HabitService } from '../services/habit.service';
 
 @Component({
   templateUrl: './habit-modal.component.html',
   styleUrls: ['./habit-modal.component.scss'],
 })
-export class HabitModalComponent implements OnInit {
+export class HabitModalComponent {
   weekDays = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
-  days: ICalendarDay[] = [];
   today = dayjs().format('YYYY-MM-DD');
-  selectedDay: ICalendarDay | null;
+  selectedDay: IHabitCalendar | null;
 
   constructor(
     private dialogRef: MatDialogRef<HabitModalComponent>,
@@ -28,14 +29,7 @@ export class HabitModalComponent implements OnInit {
     public data: IHabit
   ) {}
 
-  ngOnInit() {
-    this.habitService
-      .getDays(this.data._id)
-      .pipe(take(1))
-      .subscribe((days) => (this.days = days));
-  }
-
-  onDone(day: ICalendarDay) {
+  onDone(day: IHabitCalendar) {
     this.selectedDay = day;
     if (this.data.lastActiveDate === this.today) {
       this.message.warning(
@@ -46,16 +40,16 @@ export class HabitModalComponent implements OnInit {
       return;
     }
 
-    if (day.fullDate === this.today) {
+    if (day.date === this.today) {
       switch (day.status) {
-        case 'basic':
-          day.status = 'add';
+        case HabitCalendarStatus.Clean:
+          day.status = HabitCalendarStatus.Success;
           break;
-        case 'add':
-          day.status = 'overdue';
+        case HabitCalendarStatus.Success:
+          day.status = HabitCalendarStatus.Danger;
           break;
-        case 'overdue':
-          day.status = 'basic';
+        case HabitCalendarStatus.Danger:
+          day.status = HabitCalendarStatus.Clean;
           break;
       }
     }
@@ -67,7 +61,10 @@ export class HabitModalComponent implements OnInit {
 
   save() {
     this.habitService
-      .addRecord(this.data._id, this.selectedDay?.status)
+      .addRecord(this.data._id, {
+        date: this.selectedDay?.date!,
+        status: this.selectedDay?.status!,
+      })
       .pipe(take(1))
       .subscribe((habit) => {
         this.message.success(
@@ -76,4 +73,6 @@ export class HabitModalComponent implements OnInit {
         this.close(habit);
       });
   }
+
+  protected readonly HabitCalendarStatus = HabitCalendarStatus;
 }

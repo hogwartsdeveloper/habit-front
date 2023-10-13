@@ -5,20 +5,25 @@
     <div class="box">
         <div
                 class="item tb"
-                *ngFor="let day of days" [ngClass]="{active: day?.active, pickable: day?.fullDate === today && day?.status === 'basic'}"
+                *ngFor="let day of data.days"
+                [ngClass]="{
+                    active: day?.active, pickable: day?.date === today && day?.status === HabitCalendarStatus.Clean
+                }"
                 [pickItemByStatus]="day.status"
                 nz-tooltip
-                [nzTooltipTitle]="day.fullDate"
+                [nzTooltipTitle]="day.date"
                 nzTooltipPlacement="rightTop"
                 [nzTooltipTrigger]="day?.active ? 'hover' : null"
                 (click)="onDone(day)"
-        >{{ day.name }}</div>
+        >{{ day.numDay }}</div>
     </div>
 </app-modal-base>
 
 <ng-template #actives>
     <div class="flex justify-end gap-1.5 ml-auto mt-3">
         <app-button type="danger" (click)="close()">{{"base.cancel" | translate}}</app-button>
-        <app-button [disabled]="!selectedDay || selectedDay.status === 'basic'" (click)="save()">{{ 'base.save' | translate }}</app-button>
+        <app-button [disabled]="!selectedDay || selectedDay.status === HabitCalendarStatus.Clean"
+                    (click)="save()"
+        >{{ 'base.save' | translate }}</app-button>
     </div>
 </ng-template>

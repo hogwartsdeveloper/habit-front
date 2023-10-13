@@ -35,6 +35,10 @@ export class HabitViewContentComponent {
       })
       .afterClosed()
       .subscribe((habit: IHabit) => {
+        if (!habit) {
+          return;
+        }
+
         const findIndex = this.habits.findIndex(
           (item) => item._id === habit._id
         );

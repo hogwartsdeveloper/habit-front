@@ -1,6 +1,18 @@
+export enum HabitCalendarStatus {
+  Success,
+  Danger,
+  Clean,
+}
+
+export interface IHabitCalendar {
+  numDay: number;
+  date: string;
+  active: boolean;
+  status: HabitCalendarStatus;
+}
+
 export interface IHabit {
   _id: string;
-  id: number;
   name: string;
   description: string;
   isHide: boolean;
@@ -9,4 +21,6 @@ export interface IHabit {
   endDate: string;
   countCompleted: number;
   lastActiveDate: string | null;
+
+  days: IHabitCalendar[];
 }
