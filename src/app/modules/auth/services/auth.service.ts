@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, catchError, of, take } from 'rxjs';
+import { BehaviorSubject, catchError, of, switchMap, take } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { NzMessageService } from 'ng-zorro-antd/message';
 
@@ -19,25 +19,28 @@ export class AuthService {
   ) {}
 
   auth(user: AuthUser) {
-    return this.http
-      .post<IAuth>('/api/auth/login', user)
-      .pipe(catchError(this.catchError.bind(this)), take(1))
-      .subscribe((res) => {
-        if (res) {
-          this.login(res.token);
-        }
-      });
+    return this.http.post<IAuth>('/api/auth/login', user).pipe(
+      catchError(this.catchError.bind(this)),
+      switchMap((res) => this.catchToken(res)),
+      take(1)
+    );
   }
 
   registration(user: CreateUser) {
-    return this.http
-      .post<IAuth>('/api/auth/registration', user)
-      .pipe(catchError(this.catchError.bind(this)), take(1))
-      .subscribe((res) => {
-        if (res) {
-          this.login(res.token);
-        }
-      });
+    return this.http.post<IAuth>('/api/auth/registration', user).pipe(
+      catchError(this.catchError.bind(this)),
+      switchMap((res) => this.catchToken(res)),
+      take(1)
+    );
+  }
+
+  catchToken(res: IAuth | null) {
+    if (res) {
+      this.login(res.token);
+      return of(true);
+    }
+
+    return of(null);
   }
 
   catchError(err: HttpErrorResponse) {

@@ -11,6 +11,7 @@ import { AuthService } from '../services/auth.service';
 import { ThreeSupportService } from '../../../services/three-support.service';
 import { IInput } from '../../../utils/ui/input/models/input.interface';
 import { authInputConfigs } from './form.config';
+import { take } from 'rxjs';
 
 @Component({
   selector: 'app-author-modal',
@@ -68,10 +69,24 @@ export class AuthModalComponent implements OnInit {
   sign(type: AuthorType) {
     switch (type) {
       case 'signUp':
-        this.authService.registration({ ...this.form.getRawValue() });
+        this.authService
+          .registration({ ...this.form.getRawValue() })
+          .pipe(take(1))
+          .subscribe((res) => {
+            if (res) {
+              this.dialogRef.close();
+            }
+          });
         break;
       case 'signIn':
-        this.authService.auth({ ...this.form.getRawValue() });
+        this.authService
+          .auth({ ...this.form.getRawValue() })
+          .pipe(take(1))
+          .subscribe((res) => {
+            if (res) {
+              this.dialogRef.close();
+            }
+          });
     }
   }
 }
