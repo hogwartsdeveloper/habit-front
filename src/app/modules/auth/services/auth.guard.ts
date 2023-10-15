@@ -1,18 +1,33 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import {
+  ActivatedRouteSnapshot,
+  CanActivate,
+  Router,
+  RouterStateSnapshot,
+} from '@angular/router';
+import { map, take } from 'rxjs';
+
 import { AuthService } from './auth.service';
 import { ThreeSupportService } from '../../../services/three-support.service';
 
 @Injectable()
-export class AuthGuard {
+export class AuthGuard implements CanActivate {
   constructor(
     private authService: AuthService,
-    private threeSupportService: ThreeSupportService
+    private threeSupportService: ThreeSupportService,
+    private readonly router: Router
   ) {}
+
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    if (state.url !== '/') {
-      this.threeSupportService.stopAnimation$.next(true);
-      this.authService.isAuth$.next(true);
-    }
+    return this.authService.user$.pipe(
+      take(1),
+      map((user) => {
+        if (!user) {
+          this.router.navigate(['/']);
+          return false;
+        }
+        return true;
+      })
+    );
   }
 }

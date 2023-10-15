@@ -2,11 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import * as dayjs from 'dayjs';
 
-import {
-  HabitCalendarStatus,
-  IHabit,
-  IHabitCalendar,
-} from '../models/habit.interface';
+import { HabitCalendarStatus, IHabit } from '../models/habit.interface';
 import { IHabits } from '../models/habits.interface';
 
 @Injectable()

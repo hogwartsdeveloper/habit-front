@@ -66,7 +66,7 @@ export class AuthorModalComponent implements OnInit {
         this.form = new FormGroup({
           email: new FormControl('', Validators.required),
           password: new FormControl('', Validators.required),
-          name: new FormControl('', Validators.required),
+          firstName: new FormControl('', Validators.required),
           lastName: new FormControl('', Validators.required),
         });
     }
@@ -88,9 +88,13 @@ export class AuthorModalComponent implements OnInit {
     });
   }
 
-  sign() {
-    this.dialogRef.close();
-    this.router.navigate(['/change']);
-    this.authService.isAuth$.next(true);
+  sign(type: AuthorType) {
+    switch (type) {
+      case 'signUp':
+        this.authService.registration({ ...this.form.getRawValue() });
+        break;
+      case 'signIn':
+        this.authService.auth({ ...this.form.getRawValue() });
+    }
   }
 }

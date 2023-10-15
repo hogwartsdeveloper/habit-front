@@ -29,9 +29,9 @@ export class UserComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    this.authService.user$
-      .pipe(takeUntil(this.destroy$))
-      .subscribe((user) => (this.user = user));
+    // this.authService.user$
+    //   .pipe(takeUntil(this.destroy$))
+    //   .subscribe((user) => (this.user = user));
 
     this.habitService
       .get('651f80fc007ede299e36a86c')
@@ -55,12 +55,12 @@ export class UserComponent implements OnInit, OnDestroy {
       .beforeClosed()
       .subscribe((value: IUserEditData) => {
         if (value) {
-          this.authService.user$.next({
-            ...this.user,
-            firstName: value.name,
-            lastName: value.lastName,
-            img: value.img,
-          });
+          // this.authService.user$.next({
+          //   ...this.user,
+          //   firstName: value.name,
+          //   lastName: value.lastName,
+          //   img: value.img,
+          // });
 
           this.message.success(
             this.translateService.instant('base.successEdit')

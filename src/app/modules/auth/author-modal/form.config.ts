@@ -6,7 +6,7 @@ export const authInputConfigs: IInput[] = [
     required: true,
     placeholder: 'Zhannur',
     type: 'text',
-    fName: 'name',
+    fName: 'firstName',
   },
   {
     title: 'user.lName',

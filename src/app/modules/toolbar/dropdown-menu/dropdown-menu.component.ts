@@ -11,6 +11,7 @@ import { AuthService } from '../../auth/services/auth.service';
 import { IUser } from '../../user/model/user.interface';
 import { ButtonComponent } from '../../../utils/ui/button/button.component';
 import { show } from '../../../utils/animations/show.animation';
+import { User } from '../../user/model/user';
 
 @Component({
   selector: 'app-dropdown-menu',
@@ -28,7 +29,7 @@ import { show } from '../../../utils/animations/show.animation';
   animations: [show],
 })
 export class DropdownMenuComponent implements OnInit, OnDestroy {
-  user: IUser;
+  user: User;
   selectedLang;
   langs = [
     { id: 'kz', name: 'Kazakh' },
@@ -58,9 +59,11 @@ export class DropdownMenuComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.selectedLang = this.translateService.currentLang;
     this.nzLocalChange(this.selectedLang);
-    this.authService.user$
-      .pipe(takeUntil(this.destroy$))
-      .subscribe((user) => (this.user = user));
+    this.authService.user$.pipe(takeUntil(this.destroy$)).subscribe((user) => {
+      if (user) {
+        this.user = user;
+      }
+    });
 
     this.translateService.onLangChange.pipe(take(1)).subscribe((lang) => {
       this.selectedLang = lang.lang;

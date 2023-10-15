@@ -16,6 +16,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { NzMessageService } from 'ng-zorro-antd/message';
+import { AuthService } from './modules/auth/services/auth.service';
 
 registerLocaleData(en);
 
@@ -43,6 +44,7 @@ registerLocaleData(en);
     AuthGuard,
     HabitService,
     NzMessageService,
+    AuthService,
   ],
   bootstrap: [AppComponent],
 })

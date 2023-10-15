@@ -12,6 +12,7 @@ import { ButtonComponent } from '../../utils/ui/button/button.component';
 import { IUser } from '../user/model/user.interface';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { DropdownMenuComponent } from './dropdown-menu/dropdown-menu.component';
+import { User } from '../user/model/user';
 
 @Component({
   selector: 'app-toolbar',
@@ -30,8 +31,8 @@ import { DropdownMenuComponent } from './dropdown-menu/dropdown-menu.component';
   standalone: true,
 })
 export class ToolbarComponent implements OnInit, OnDestroy {
-  isAuth$: BehaviorSubject<boolean>;
-  user: IUser;
+  isAuth$: BehaviorSubject<User | null>;
+  user: User;
   destroy$ = new Subject();
 
   constructor(
@@ -41,14 +42,16 @@ export class ToolbarComponent implements OnInit, OnDestroy {
     private threeSupportService: ThreeSupportService,
     private translateService: TranslateService
   ) {
-    this.isAuth$ = this.authService.isAuth$;
+    this.isAuth$ = this.authService.user$;
   }
 
   ngOnInit() {
     this.translateService.use('en');
-    this.authService.user$
-      .pipe(takeUntil(this.destroy$))
-      .subscribe((user) => (this.user = user));
+    this.authService.user$.pipe(takeUntil(this.destroy$)).subscribe((user) => {
+      if (user) {
+        this.user = user;
+      }
+    });
   }
 
   openLogin(type: AuthorType = 'signIn') {
@@ -66,7 +69,7 @@ export class ToolbarComponent implements OnInit, OnDestroy {
   }
 
   goToMainPage() {
-    this.authService.isAuth$.next(false);
+    // this.authService.isAuth$.next(false);
     this.threeSupportService.stopAnimation$.next(false);
     this.router.navigate(['/']);
   }

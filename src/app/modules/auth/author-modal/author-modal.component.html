@@ -8,7 +8,7 @@
         <app-input [config]="configs[2]" [form]="form"></app-input>
         <app-input class="my-5" [config]="configs[3]" [form]="form"></app-input>
 
-        <app-button [disabled]="form.invalid" (click)="sign()">{{(type === 'signIn' ? 'auth.signIn' : 'auth.signUp') | translate}}</app-button>
+        <app-button [disabled]="form.invalid" (click)="sign(type)">{{(type === 'signIn' ? 'auth.signIn' : 'auth.signUp') | translate}}</app-button>
 
         <div class="text-xs text-center" [ngSwitch]="type">
             <ng-container *ngSwitchCase="'signIn'">

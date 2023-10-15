@@ -1,19 +1,80 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-import { IUser } from '../../user/model/user.interface';
+import { BehaviorSubject, catchError, of, take } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { NzMessageService } from 'ng-zorro-antd/message';
 
-@Injectable({
-  providedIn: 'root',
-})
+import { AuthUser, CreateUser } from '../../user/model/user.interface';
+import { IAuth } from '../models/author.model';
+import { User } from '../../user/model/user';
+import { Router } from '@angular/router';
+
+@Injectable()
 export class AuthService {
-  isAuth$ = new BehaviorSubject(false);
-  user$ = new BehaviorSubject<IUser>({
-    id: 1,
-    lastName: 'Akhmetkhanov',
-    firstName: 'Zhannur',
-    email: 'jannuraidynuly@gmail.com',
-    img: 'https://media.licdn.com/dms/image/D4D03AQEDKKK8u_QR-w/profile-displayphoto-shrink_800_800/0/1693367601823?e=1698883200&v=beta&t=2tagzKZb8oXaAq0z4WWw0zTRxJhL7WcBcPtmVlutmgs',
-  });
+  user$ = new BehaviorSubject<User | null>(null);
 
-  constructor() {}
+  constructor(
+    private readonly http: HttpClient,
+    private readonly messageService: NzMessageService,
+    private readonly router: Router
+  ) {}
+
+  auth(user: AuthUser) {
+    return this.http
+      .post<IAuth>('/api/auth/login', user)
+      .pipe(catchError(this.catchError.bind(this)), take(1))
+      .subscribe((res) => {
+        if (res) {
+          this.login(res.token);
+        }
+      });
+  }
+
+  registration(user: CreateUser) {
+    return this.http
+      .post<IAuth>('/api/auth/registration', user)
+      .pipe(catchError(this.catchError.bind(this)), take(1))
+      .subscribe((res) => {
+        if (res) {
+          this.login(res.token);
+        }
+      });
+  }
+
+  catchError(err: HttpErrorResponse) {
+    this.messageService.error(err?.error?.message);
+    return of(null);
+  }
+
+  login(token: string) {
+    const payload = this.parseJWT(token);
+    const user = new User(
+      payload._id,
+      payload.email,
+      payload.firstName,
+      payload.lastName,
+      payload.img,
+      token,
+      payload.exp
+    );
+
+    this.user$.next(user);
+    localStorage.setItem('user', JSON.stringify(user));
+    this.router.navigate(['/change']);
+  }
+
+  parseJWT(token: string) {
+    const base64URL = token.split('.')[1];
+    const base64 = base64URL.replace(/-/g, '+').replace(/_/g, '/');
+    const jsonPayload = decodeURIComponent(
+      window
+        .atob(base64)
+        .split('')
+        .map(function (c) {
+          return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+        })
+        .join('')
+    );
+
+    return JSON.parse(jsonPayload);
+  }
 }
