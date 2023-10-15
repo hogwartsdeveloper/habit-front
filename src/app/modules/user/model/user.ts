@@ -10,7 +10,7 @@ export class User {
   ) {}
 
   get token() {
-    if (new Date().getMilliseconds() < this._tokenExpired) {
+    if (this._tokenExpired > Date.now() / 1000) {
       return this._token;
     }
     return null;

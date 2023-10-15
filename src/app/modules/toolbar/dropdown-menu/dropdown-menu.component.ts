@@ -89,6 +89,10 @@ export class DropdownMenuComponent implements OnInit, OnDestroy {
     }
   }
 
+  logout() {
+    this.authService.logout();
+  }
+
   ngOnDestroy() {
     this.destroy$.next(null);
     this.destroy$.complete();

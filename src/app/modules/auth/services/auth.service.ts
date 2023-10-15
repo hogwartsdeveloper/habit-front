@@ -43,7 +43,10 @@ export class AuthService {
 
     if (user.token) {
       this.user$.next(user);
+      this.router.navigate(['/change']);
+      return;
     }
+    this.user$.next(null);
   }
 
   registration(user: CreateUser) {
@@ -83,6 +86,12 @@ export class AuthService {
     this.user$.next(user);
     localStorage.setItem('user', JSON.stringify(user));
     this.router.navigate(['/change']);
+  }
+
+  logout() {
+    this.user$.next(null);
+    localStorage.removeItem('user');
+    this.router.navigate(['/']);
   }
 
   parseJWT(token: string) {
