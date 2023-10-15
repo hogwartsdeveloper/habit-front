@@ -11,6 +11,7 @@ import { User } from '../../user/model/user';
 @Injectable()
 export class AuthService {
   user$ = new BehaviorSubject<User | null>(null);
+  updateTokenInterval: ReturnType<typeof setInterval>;
 
   constructor(
     private readonly http: HttpClient,
@@ -21,8 +22,7 @@ export class AuthService {
   auth(user: AuthUser) {
     return this.http.post<IAuth>('/api/auth/login', user).pipe(
       catchError(this.catchError.bind(this)),
-      switchMap((res) => this.catchToken(res)),
-      take(1)
+      switchMap((res) => this.catchToken(res))
     );
   }
 
@@ -44,17 +44,35 @@ export class AuthService {
     if (user.token) {
       this.user$.next(user);
       this.router.navigate(['/change']);
+      this.autoUpdateToken(userParse._tokenExpired - Date.now() - 60000);
       return;
     }
     this.user$.next(null);
   }
 
+  autoUpdateToken(exp: number) {
+    this.updateTokenInterval = setInterval(() => {
+      this.updateToken()
+        .pipe(take(1))
+        .subscribe((res) => {
+          if (!res) {
+            this.logout();
+          }
+        });
+    }, exp);
+  }
+
   registration(user: CreateUser) {
     return this.http.post<IAuth>('/api/auth/registration', user).pipe(
       catchError(this.catchError.bind(this)),
-      switchMap((res) => this.catchToken(res)),
-      take(1)
+      switchMap((res) => this.catchToken(res))
     );
+  }
+
+  updateToken() {
+    return this.http
+      .get<IAuth>('/api/auth/updateToken')
+      .pipe(switchMap((res) => this.catchToken(res)));
   }
 
   catchToken(res: IAuth | null) {
@@ -86,6 +104,7 @@ export class AuthService {
     this.user$.next(user);
     localStorage.setItem('user', JSON.stringify(user));
     this.router.navigate(['/change']);
+    this.autoUpdateToken(payload.exp - Date.now() - 60000);
   }
 
   logout() {
@@ -108,5 +127,9 @@ export class AuthService {
     );
 
     return JSON.parse(jsonPayload);
+  }
+
+  clearInterval() {
+    clearInterval(this.updateTokenInterval);
   }
 }
