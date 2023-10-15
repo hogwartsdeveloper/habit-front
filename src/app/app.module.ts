@@ -12,10 +12,17 @@ import { MAT_DATE_LOCALE, MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { HabitService } from './modules/habit/services/habit.service';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import {
+  HTTP_INTERCEPTORS,
+  HttpClient,
+  HttpClientModule,
+} from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { AuthModule } from './modules/auth/auth.module';
+import { AuthInterceptor } from './modules/auth/interceptor/auth.interceptor';
+import { AuthService } from './modules/auth/services/auth.service';
+import { AuthGuard } from './modules/auth/guard/auth.guard';
 
 registerLocaleData(en);
 
@@ -41,8 +48,11 @@ registerLocaleData(en);
   providers: [
     ThreeSupportService,
     { provide: MAT_DATE_LOCALE, useValue: 'en-GB' },
+    AuthService,
+    AuthGuard,
     HabitService,
     NzMessageService,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],
 })

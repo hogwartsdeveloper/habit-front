@@ -3,7 +3,7 @@
 
     <div class="space-x-4 flex">
 
-        <ng-container *ngIf="isAuth$ | async; else active">
+        <ng-container *ngIf="user$ | async; else active">
             <span class="flex items-center cursor-pointer" routerLink="/change">{{"habit.habits" | translate}}</span>
             <app-dropdown-menu></app-dropdown-menu>
         </ng-container>

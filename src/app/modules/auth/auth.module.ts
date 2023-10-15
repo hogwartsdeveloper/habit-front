@@ -5,8 +5,6 @@ import { TranslateModule } from '@ngx-translate/core';
 import { InputComponent } from '../../utils/ui/input/input.component';
 import { ButtonComponent } from '../../utils/ui/button/button.component';
 import { ModalBaseComponent } from '../../utils/ui/modal-base/modal-base.component';
-import { AuthGuard } from './guard/auth.guard';
-import { AuthService } from './services/auth.service';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -19,6 +17,5 @@ import { ReactiveFormsModule } from '@angular/forms';
     ModalBaseComponent,
     ReactiveFormsModule,
   ],
-  providers: [AuthGuard, AuthService],
 })
 export class AuthModule {}
