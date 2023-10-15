@@ -24,6 +24,7 @@ import {
   skyVertexShader2,
 } from './utils/another-code/promo';
 import { IntroThreeSceneService } from './services/intro-three-scene.service';
+import { AuthService } from './modules/auth/services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -78,7 +79,8 @@ export class AppComponent implements OnInit, OnDestroy {
 
   constructor(
     private translateService: TranslateService,
-    private threeSupportService: ThreeSupportService
+    private threeSupportService: ThreeSupportService,
+    private readonly authService: AuthService
   ) {}
 
   ngOnInit() {
@@ -95,6 +97,8 @@ export class AppComponent implements OnInit, OnDestroy {
     this.threeSupportService.stopAnimation$
       .pipe(takeUntil(this.destroy$))
       .subscribe((isStop) => (this.stopAnimation = isStop));
+
+    this.authService.autoLogin();
   }
 
   init() {

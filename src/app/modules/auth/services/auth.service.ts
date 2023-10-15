@@ -2,11 +2,11 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, catchError, of, switchMap, take } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { NzMessageService } from 'ng-zorro-antd/message';
+import { Router } from '@angular/router';
 
 import { AuthUser, CreateUser } from '../../user/model/user.interface';
 import { IAuth } from '../models/author.model';
 import { User } from '../../user/model/user';
-import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthService {
@@ -24,6 +24,26 @@ export class AuthService {
       switchMap((res) => this.catchToken(res)),
       take(1)
     );
+  }
+
+  autoLogin() {
+    const userStore = localStorage.getItem('user');
+    if (!userStore) return;
+
+    const userParse = JSON.parse(userStore);
+    const user = new User(
+      userParse.id,
+      userParse.email,
+      userParse.firstName,
+      userParse.lastName,
+      userParse.img,
+      userParse._token,
+      userParse._tokenExpired
+    );
+
+    if (user.token) {
+      this.user$.next(user);
+    }
   }
 
   registration(user: CreateUser) {
