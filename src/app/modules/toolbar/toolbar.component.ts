@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { AuthorModalComponent } from '../auth/author-modal/author-modal.component';
+import { AuthModalComponent } from '../auth/author-modal/auth-modal.component';
 import { AuthorType } from '../auth/models/author.model';
 import { Router, RouterLink } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
@@ -9,7 +9,6 @@ import { AuthService } from '../auth/services/auth.service';
 import { BehaviorSubject, Subject, takeUntil } from 'rxjs';
 import { ThreeSupportService } from '../../services/three-support.service';
 import { ButtonComponent } from '../../utils/ui/button/button.component';
-import { IUser } from '../user/model/user.interface';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { DropdownMenuComponent } from './dropdown-menu/dropdown-menu.component';
 import { User } from '../user/model/user';
@@ -56,7 +55,7 @@ export class ToolbarComponent implements OnInit, OnDestroy {
 
   openLogin(type: AuthorType = 'signIn') {
     this.dialog
-      .open(AuthorModalComponent, {
+      .open(AuthModalComponent, {
         width: '400px',
         height: type === 'signIn' ? '350px' : '500px',
         panelClass: 'noBackground',

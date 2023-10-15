@@ -1,12 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
-import {
-  FormControl,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
-import { NgIf, NgSwitch, NgSwitchCase } from '@angular/common';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import {
   MAT_DIALOG_DATA,
   MatDialog,
@@ -16,38 +9,22 @@ import { AuthorType } from '../models/author.model';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { ThreeSupportService } from '../../../services/three-support.service';
-import { ButtonComponent } from '../../../utils/ui/button/button.component';
 import { IInput } from '../../../utils/ui/input/models/input.interface';
-import { InputComponent } from '../../../utils/ui/input/input.component';
 import { authInputConfigs } from './form.config';
-import { ModalBaseComponent } from '../../../utils/ui/modal-base/modal-base.component';
-import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-author-modal',
-  templateUrl: './author-modal.component.html',
-  styleUrls: ['./author-modal.component.scss'],
-  standalone: true,
-  imports: [
-    MatButtonModule,
-    ReactiveFormsModule,
-    NgIf,
-    NgSwitchCase,
-    NgSwitch,
-    ButtonComponent,
-    InputComponent,
-    ModalBaseComponent,
-    TranslateModule,
-  ],
+  templateUrl: './auth-modal.component.html',
+  styleUrls: ['./auth-modal.component.scss'],
 })
-export class AuthorModalComponent implements OnInit {
+export class AuthModalComponent implements OnInit {
   type: AuthorType = 'signIn';
   form: FormGroup;
   configs: IInput[] = authInputConfigs;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) data: { type: AuthorType },
-    private dialogRef: MatDialogRef<AuthorModalComponent>,
+    private dialogRef: MatDialogRef<AuthModalComponent>,
     private dialog: MatDialog,
     private router: Router,
     private authService: AuthService,
@@ -78,7 +55,7 @@ export class AuthorModalComponent implements OnInit {
 
   openLogin(type: AuthorType = 'signIn') {
     this.dialogRef.close();
-    this.dialog.open(AuthorModalComponent, {
+    this.dialog.open(AuthModalComponent, {
       width: '400px',
       height: type === 'signIn' ? '350px' : '500px',
       panelClass: 'noBackground',

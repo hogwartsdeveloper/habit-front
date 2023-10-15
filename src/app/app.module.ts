@@ -10,13 +10,12 @@ import { ThreeSupportService } from './services/three-support.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MAT_DATE_LOCALE, MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { AuthGuard } from './modules/auth/services/auth.guard';
 import { HabitService } from './modules/habit/services/habit.service';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { NzMessageService } from 'ng-zorro-antd/message';
-import { AuthService } from './modules/auth/services/auth.service';
+import { AuthModule } from './modules/auth/auth.module';
 
 registerLocaleData(en);
 
@@ -37,14 +36,13 @@ registerLocaleData(en);
       },
     }),
     HttpClientModule,
+    AuthModule,
   ],
   providers: [
     ThreeSupportService,
     { provide: MAT_DATE_LOCALE, useValue: 'en-GB' },
-    AuthGuard,
     HabitService,
     NzMessageService,
-    AuthService,
   ],
   bootstrap: [AppComponent],
 })

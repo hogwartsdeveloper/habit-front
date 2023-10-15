@@ -7,7 +7,7 @@ import {
 } from '@angular/router';
 import { map, take } from 'rxjs';
 
-import { AuthService } from './auth.service';
+import { AuthService } from '../services/auth.service';
 import { ThreeSupportService } from '../../../services/three-support.service';
 
 @Injectable()
