@@ -1,3 +1,9 @@
+:host {
+  display: block;
+  height: 74vh;
+  overflow: auto;
+}
+
 .habit {
   display: flex;
   justify-content: space-between;

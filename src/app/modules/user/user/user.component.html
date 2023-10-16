@@ -1,7 +1,7 @@
 <div class="page-box flex max-w-6xl mx-auto text-white p-6 gap-6">
     <div class="left">
-        <img [src]="user.img" width="260" height="260">
-        <h1 class="font-extrabold">{{ user.firstName + ' ' + user.lastName}}</h1>
+        <img [src]="user?.img" width="260" height="260">
+        <h1 class="font-extrabold">{{ user?.firstName + ' ' + user?.lastName}}</h1>
 
         <app-button (click)="openEditModal()">{{"user.edit" | translate}}</app-button>
     </div>
