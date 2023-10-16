@@ -51,9 +51,16 @@ export class AuthService {
   }
 
   autoUpdateToken(exp: number) {
+    clearInterval(this.updateTokenInterval);
     this.updateTokenInterval = setInterval(() => {
       this.updateToken()
-        .pipe(take(1))
+        .pipe(
+          catchError(() => {
+            this.logout();
+            return of(null);
+          }),
+          take(1)
+        )
         .subscribe((res) => {
           if (!res) {
             this.logout();

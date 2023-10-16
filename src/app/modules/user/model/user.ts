@@ -10,7 +10,7 @@ export class User {
   ) {}
 
   get token() {
-    if (this._tokenExpired > Date.now() / 1000) {
+    if (this._tokenExpired > Date.now()) {
       return this._token;
     }
     return null;
