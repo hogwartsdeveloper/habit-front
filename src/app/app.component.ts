@@ -69,12 +69,12 @@ export class AppComponent implements OnInit, OnDestroy {
 
   @HostListener('document:keydown', ['$event'])
   onKeyDown(event: KeyboardEvent) {
-    this.keysPressed[event.key?.toLowerCase()] = true;
+    this.keysPressed[event.code] = true;
   }
 
   @HostListener('document:keyup', ['$event'])
   onKeyUp(event: KeyboardEvent) {
-    this.keysPressed[event.key?.toLowerCase()] = false;
+    this.keysPressed[event.code] = false;
   }
 
   constructor(

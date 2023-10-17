@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-import { A, W, D, S } from './control.model';
+import { KeyEnum } from '../ui/keyboard/types/key.enum';
 
 export class CharacterControls {
   walkDirection = new THREE.Vector3();
@@ -51,23 +51,23 @@ export class CharacterControls {
   private directionOffset(keysPressed: { [key: string]: boolean }) {
     let directionOffset = Math.PI;
 
-    if (keysPressed[W]) {
-      if (keysPressed[A]) {
+    if (keysPressed[KeyEnum.W]) {
+      if (keysPressed[KeyEnum.A]) {
         directionOffset = -Math.PI / 4 - Math.PI / 2;
-      } else if (keysPressed[D]) {
+      } else if (keysPressed[KeyEnum.D]) {
         directionOffset = Math.PI / 4 + Math.PI / 2;
       }
-    } else if (keysPressed[S]) {
-      if (keysPressed[A]) {
+    } else if (keysPressed[KeyEnum.S]) {
+      if (keysPressed[KeyEnum.A]) {
         directionOffset = -Math.PI / 4;
-      } else if (keysPressed[D]) {
+      } else if (keysPressed[KeyEnum.D]) {
         directionOffset = Math.PI / 4;
       } else {
         directionOffset = 0;
       }
-    } else if (keysPressed[A]) {
+    } else if (keysPressed[KeyEnum.A]) {
       directionOffset = -Math.PI / 2;
-    } else if (keysPressed[D]) {
+    } else if (keysPressed[KeyEnum.D]) {
       directionOffset = Math.PI / 2;
     }
 
