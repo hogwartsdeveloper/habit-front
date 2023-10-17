@@ -4,6 +4,13 @@
   height: 100%;
 }
 
+app-keyboard {
+  z-index: 2;
+  position: absolute;
+  bottom: 50px;
+  left: 50px;
+}
+
 canvas {
   position: absolute;
   top: 0;

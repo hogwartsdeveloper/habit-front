@@ -23,6 +23,7 @@ import { AuthModule } from './modules/auth/auth.module';
 import { AuthInterceptor } from './modules/auth/interceptor/auth.interceptor';
 import { AuthService } from './modules/auth/services/auth.service';
 import { AuthGuard } from './modules/auth/guard/auth.guard';
+import { KeyboardComponent } from './utils/ui/keyboard/keyboard.component';
 
 registerLocaleData(en);
 
@@ -44,6 +45,7 @@ registerLocaleData(en);
     }),
     HttpClientModule,
     AuthModule,
+    KeyboardComponent,
   ],
   providers: [
     ThreeSupportService,
