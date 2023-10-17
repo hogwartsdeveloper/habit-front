@@ -40,7 +40,7 @@
 
         animation: shadow 5s calc(-0.5s + var(--delay)) linear infinite;
 
-        .content {
+        .content.active {
           animation: color 5s calc(-0.5s + var(--delay)) linear infinite;
         }
       }
