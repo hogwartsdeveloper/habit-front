@@ -1,6 +1,6 @@
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -24,6 +24,7 @@ import { AuthInterceptor } from './modules/auth/interceptor/auth.interceptor';
 import { AuthService } from './modules/auth/services/auth.service';
 import { AuthGuard } from './modules/auth/guard/auth.guard';
 import { KeyboardComponent } from './utils/ui/keyboard/keyboard.component';
+import { CatchErrorHandler } from './handler/catch-error.handler';
 
 registerLocaleData(en);
 
@@ -55,6 +56,7 @@ registerLocaleData(en);
     HabitService,
     NzMessageService,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    { provide: ErrorHandler, useClass: CatchErrorHandler },
   ],
   bootstrap: [AppComponent],
 })

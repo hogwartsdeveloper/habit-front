@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, catchError, of, switchMap, take } from 'rxjs';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { Router } from '@angular/router';
 
@@ -20,10 +20,9 @@ export class AuthService {
   ) {}
 
   auth(user: AuthUser) {
-    return this.http.post<IAuth>('/api/auth/login', user).pipe(
-      catchError(this.catchError.bind(this)),
-      switchMap((res) => this.catchToken(res))
-    );
+    return this.http
+      .post<IAuth>('/api/auth/login', user)
+      .pipe(switchMap((res) => this.catchToken(res)));
   }
 
   autoLogin() {
@@ -70,10 +69,9 @@ export class AuthService {
   }
 
   registration(user: CreateUser) {
-    return this.http.post<IAuth>('/api/auth/registration', user).pipe(
-      catchError(this.catchError.bind(this)),
-      switchMap((res) => this.catchToken(res))
-    );
+    return this.http
+      .post<IAuth>('/api/auth/registration', user)
+      .pipe(switchMap((res) => this.catchToken(res)));
   }
 
   updateToken() {
@@ -88,11 +86,6 @@ export class AuthService {
       return of(true);
     }
 
-    return of(null);
-  }
-
-  catchError(err: HttpErrorResponse) {
-    this.messageService.error(err?.error?.message);
     return of(null);
   }
 
