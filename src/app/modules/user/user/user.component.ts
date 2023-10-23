@@ -1,8 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AuthService } from '../../auth/services/auth.service';
-import { IUser } from '../model/user.interface';
 import { Subject, take, takeUntil } from 'rxjs';
-import { IHabit } from '../../habit/models/habit.interface';
 import { HabitService } from '../../habit/services/habit.service';
 import { MatDialog } from '@angular/material/dialog';
 import { UserEditModalComponent } from '../user-edit-modal/user-edit-modal.component';
@@ -10,6 +8,7 @@ import { IUserEditData } from '../user-edit-modal/models/user-edit-data.interfac
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { TranslateService } from '@ngx-translate/core';
 import { IHabits } from '../../habit/models/habits.interface';
+import { User } from '../model/user';
 
 @Component({
   selector: 'app-user',
@@ -17,8 +16,8 @@ import { IHabits } from '../../habit/models/habits.interface';
   styleUrls: ['./user.component.scss'],
 })
 export class UserComponent implements OnInit, OnDestroy {
-  user: IUser;
-  habits: IHabits;
+  user: User;
+  habits: IHabits = { active: [], history: [] };
   destroy$ = new Subject();
   constructor(
     private dialog: MatDialog,
@@ -29,14 +28,13 @@ export class UserComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    // this.authService.user$
-    //   .pipe(takeUntil(this.destroy$))
-    //   .subscribe((user) => (this.user = user));
-
-    this.habitService
-      .get('651f80fc007ede299e36a86c')
-      .pipe(take(1))
-      .subscribe((habits) => (this.habits = habits));
+    this.authService.user$.pipe(takeUntil(this.destroy$)).subscribe((user) => {
+      this.user = user!;
+      this.habitService
+        .get(this.user.id)
+        .pipe(take(1))
+        .subscribe((habits) => (this.habits = habits));
+    });
   }
 
   openEditModal() {

@@ -23,4 +23,5 @@ export interface IHabit {
   lastActiveDate: string | null;
 
   days: IHabitCalendar[];
+  userId: string;
 }

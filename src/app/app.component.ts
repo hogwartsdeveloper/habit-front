@@ -112,6 +112,8 @@ export class AppComponent implements OnInit, OnDestroy {
     this.threeSupportService.stopAnimation$
       .pipe(takeUntil(this.destroy$))
       .subscribe((res) => (this.stopAnimation = res));
+
+    this.authService.autoLogin();
   }
 
   init() {

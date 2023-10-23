@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HabitService } from '../services/habit.service';
 import { IHabits } from '../models/habits.interface';
+import { AuthService } from '../../auth/services/auth.service';
 
 @Component({
   selector: 'app-change',
@@ -8,12 +9,15 @@ import { IHabits } from '../models/habits.interface';
   styleUrls: ['./habit.component.scss'],
 })
 export class HabitComponent implements OnInit {
-  habits: IHabits;
-  constructor(public habitService: HabitService) {}
+  habits: IHabits = { active: [], history: [] };
+  constructor(
+    private readonly habitService: HabitService,
+    private readonly authService: AuthService
+  ) {}
 
   ngOnInit() {
     this.habitService
-      .get('651f80fc007ede299e36a86c')
+      .get(this.authService.user$.value?.id!)
       .subscribe((habits) => (this.habits = habits));
   }
 }

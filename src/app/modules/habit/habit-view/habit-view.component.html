@@ -10,7 +10,7 @@
                 {{ "habit.add" | translate}}
             </app-button>
         </div>
-        <app-habit-view-content [habits]="allHabits?.active || []" [viewType]="viewType"></app-habit-view-content>
+        <app-habit-view-content [habits]="allHabits.active" [viewType]="viewType"></app-habit-view-content>
     </nz-tab>
     <nz-tab [nzTitle]="'base.history' | translate">
         <div class="tab-header">
@@ -20,6 +20,6 @@
             ></nz-range-picker>
         </div>
 
-        <app-habit-view-content [habits]="allHabits?.history || []" [viewType]="'show'"></app-habit-view-content>
+        <app-habit-view-content [habits]="allHabits.history" [viewType]="'show'"></app-habit-view-content>
     </nz-tab>
 </nz-tabset>
