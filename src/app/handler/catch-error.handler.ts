@@ -7,6 +7,6 @@ export class CatchErrorHandler implements ErrorHandler {
 
   handleError(error: any) {
     this.messageService.error(error?.error?.message);
-    throw new Error(error?.error?.message);
+    throw new Error(error);
   }
 }

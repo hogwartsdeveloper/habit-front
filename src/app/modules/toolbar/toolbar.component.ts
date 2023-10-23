@@ -62,7 +62,6 @@ export class ToolbarComponent implements OnInit, OnDestroy {
   }
 
   goToMainPage() {
-    this.threeSupportService.stopAnimation$.next(false);
     this.router.navigate(['/']);
   }
 

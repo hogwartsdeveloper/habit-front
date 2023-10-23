@@ -1,4 +1,5 @@
 import {
+  ChangeDetectionStrategy,
   Component,
   ElementRef,
   HostListener,
@@ -6,13 +7,14 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { Subject, Subscription, takeUntil } from 'rxjs';
+import { filter, Subject, Subscription, takeUntil } from 'rxjs';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import { NavigationEnd, Router } from '@angular/router';
 import Stats from 'three/examples/jsm/libs/stats.module';
 import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader';
-import { TranslateService } from '@ngx-translate/core';
 
+import { TranslateService } from '@ngx-translate/core';
 import { CharacterControls } from './utils/character-control/characterControls';
 import { ThreeSupportService } from './services/three-support.service';
 import {
@@ -31,6 +33,7 @@ import { AuthService } from './modules/auth/services/auth.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   providers: [IntroThreeSceneService],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent implements OnInit, OnDestroy {
   @ViewChild('main', { static: true }) canvas: ElementRef<HTMLCanvasElement>;
@@ -80,7 +83,8 @@ export class AppComponent implements OnInit, OnDestroy {
   constructor(
     private translateService: TranslateService,
     private threeSupportService: ThreeSupportService,
-    private readonly authService: AuthService
+    private readonly authService: AuthService,
+    private readonly router: Router
   ) {}
 
   ngOnInit() {
@@ -94,11 +98,20 @@ export class AppComponent implements OnInit, OnDestroy {
     this.animated();
     this.addStats();
 
+    this.router.events
+      .pipe(takeUntil(this.destroy$))
+      .pipe(filter((event) => event instanceof NavigationEnd))
+      .subscribe((event: any) => {
+        if (event.url === '/') {
+          this.stopAnimation = false;
+          return;
+        }
+        this.stopAnimation = true;
+      });
+
     this.threeSupportService.stopAnimation$
       .pipe(takeUntil(this.destroy$))
-      .subscribe((isStop) => (this.stopAnimation = isStop));
-
-    this.authService.autoLogin();
+      .subscribe((res) => (this.stopAnimation = res));
   }
 
   init() {
