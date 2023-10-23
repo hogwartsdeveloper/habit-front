@@ -39,7 +39,6 @@ export class HabitViewComponent {
         if (!res) {
           return;
         }
-        console.log(res);
         this.allHabits.active.push(res);
       });
   }
