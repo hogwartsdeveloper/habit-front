@@ -12,7 +12,11 @@
     </div>
 
     <div class="mx-auto my-5">
-        <img [src]="form.get('img')?.value">
+        <app-avatar
+                [text]="data.firstName[0] + ' ' + data.lastName[0]"
+                [src]="form.get('img')?.value"
+                [size]="207"
+        ></app-avatar>
     </div>
 </app-modal-base>
 

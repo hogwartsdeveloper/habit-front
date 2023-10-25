@@ -33,7 +33,7 @@ export class UserEditModalComponent implements OnInit, OnDestroy {
     private readonly userService: UserService,
     private readonly messageService: NzMessageService,
     private readonly translateService: TranslateService,
-    @Inject(MAT_DIALOG_DATA) private data: UpdateUser & { id: string }
+    @Inject(MAT_DIALOG_DATA) public readonly data: UpdateUser & { id: string }
   ) {
     this.form = new FormGroup({
       firstName: new FormControl(data?.firstName || '', Validators.required),

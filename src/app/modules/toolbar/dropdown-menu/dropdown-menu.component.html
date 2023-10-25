@@ -1,17 +1,21 @@
-<img
+<app-avatar
         routerLink="/user"
-        class="photo"
+        [text]="user.firstName[0] + ' ' + user.lastName[0]"
         [src]="user.img"
-        alt="user photo"
         (click)="showMenu = false"
->
+></app-avatar>
 
 <ng-container *ngIf="showMenu">
     <div @show class="menu">
         <div class="menu-top"></div>
         <div class="menu-content">
             <div>
-                <img routerLink="/user" class="photo" [src]="user.img" alt="user photo">
+                <app-avatar
+                        routerLink="/user"
+                        [text]="user.firstName[0] + ' ' + user.lastName[0]"
+                        [src]="user.img"
+                        (click)="showMenu = false"
+                ></app-avatar>
                 <div>{{user.firstName + ' ' + user.lastName}}</div>
             </div>
             <app-button routerLink="/user" class="mb-2" [view]="'border'">View Profile</app-button>
