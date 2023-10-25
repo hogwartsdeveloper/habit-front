@@ -1,17 +1,18 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
+import { AsyncPipe, NgIf } from '@angular/common';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { BehaviorSubject, Subject } from 'rxjs';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+
 import { AuthModalComponent } from '../auth/author-modal/auth-modal.component';
 import { AuthorType } from '../auth/models/author.model';
-import { Router, RouterLink } from '@angular/router';
-import { MatButtonModule } from '@angular/material/button';
-import { AsyncPipe, NgIf } from '@angular/common';
-import { AuthService } from '../auth/services/auth.service';
-import { BehaviorSubject, Subject } from 'rxjs';
 import { ThreeSupportService } from '../../services/three-support.service';
 import { ButtonComponent } from '../../utils/ui/button/button.component';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { DropdownMenuComponent } from './dropdown-menu/dropdown-menu.component';
 import { User } from '../user/model/user';
+import { UserService } from '../user/services/user.service';
 
 @Component({
   selector: 'app-toolbar',
@@ -34,13 +35,13 @@ export class ToolbarComponent implements OnInit, OnDestroy {
   destroy$ = new Subject();
 
   constructor(
-    private dialog: MatDialog,
-    private authService: AuthService,
-    private router: Router,
-    private threeSupportService: ThreeSupportService,
-    private translateService: TranslateService
+    private readonly dialog: MatDialog,
+    private readonly userService: UserService,
+    private readonly router: Router,
+    private readonly threeSupportService: ThreeSupportService,
+    private readonly translateService: TranslateService
   ) {
-    this.user$ = this.authService.user$;
+    this.user$ = this.userService.user$;
   }
 
   ngOnInit() {

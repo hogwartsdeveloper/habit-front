@@ -1,14 +1,14 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { AuthService } from '../../auth/services/auth.service';
-import { Subject, take, takeUntil } from 'rxjs';
-import { HabitService } from '../../habit/services/habit.service';
 import { MatDialog } from '@angular/material/dialog';
-import { UserEditModalComponent } from '../user-edit-modal/user-edit-modal.component';
-import { IUserEditData } from '../user-edit-modal/models/user-edit-data.interface';
-import { NzMessageService } from 'ng-zorro-antd/message';
+import { Subject, take, takeUntil } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
+import { NzMessageService } from 'ng-zorro-antd/message';
+
+import { HabitService } from '../../habit/services/habit.service';
+import { UserEditModalComponent } from '../user-edit-modal/user-edit-modal.component';
 import { IHabits } from '../../habit/models/habits.interface';
 import { User } from '../model/user';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-user',
@@ -20,15 +20,15 @@ export class UserComponent implements OnInit, OnDestroy {
   habits: IHabits = { active: [], history: [] };
   destroy$ = new Subject();
   constructor(
-    private dialog: MatDialog,
-    private message: NzMessageService,
-    private translateService: TranslateService,
-    private authService: AuthService,
-    public habitService: HabitService
+    private readonly dialog: MatDialog,
+    private readonly message: NzMessageService,
+    private readonly translateService: TranslateService,
+    public readonly habitService: HabitService,
+    private readonly userService: UserService
   ) {}
 
   ngOnInit() {
-    this.authService.user$.pipe(takeUntil(this.destroy$)).subscribe((user) => {
+    this.userService.user$.pipe(takeUntil(this.destroy$)).subscribe((user) => {
       this.user = user!;
       this.habitService
         .get(this.user.id)
@@ -38,33 +38,13 @@ export class UserComponent implements OnInit, OnDestroy {
   }
 
   openEditModal() {
-    this.dialog
-      .open(UserEditModalComponent, {
-        width: '400px',
-        height: '600px',
-        panelClass: 'noBackground',
-        autoFocus: false,
-        data: {
-          name: this.user.firstName,
-          lastName: this.user.lastName,
-          img: this.user.img,
-        },
-      })
-      .beforeClosed()
-      .subscribe((value: IUserEditData) => {
-        if (value) {
-          // this.authService.user$.next({
-          //   ...this.user,
-          //   firstName: value.name,
-          //   lastName: value.lastName,
-          //   img: value.img,
-          // });
-
-          this.message.success(
-            this.translateService.instant('base.successEdit')
-          );
-        }
-      });
+    this.dialog.open(UserEditModalComponent, {
+      width: '400px',
+      height: '600px',
+      panelClass: 'noBackground',
+      autoFocus: false,
+      data: this.user,
+    });
   }
 
   ngOnDestroy() {

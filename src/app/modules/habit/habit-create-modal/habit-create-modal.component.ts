@@ -20,7 +20,7 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { take } from 'rxjs';
-import { AuthService } from '../../auth/services/auth.service';
+import { UserService } from '../../user/services/user.service';
 
 @Component({
   selector: 'app-habit-modal',
@@ -44,12 +44,12 @@ export class HabitCreateModalComponent implements OnInit {
   inputConfigs: IInput[] = habitInputConfigs;
 
   constructor(
-    private dialogRef: MatDialogRef<HabitCreateModalComponent>,
-    private message: NzMessageService,
-    private translateService: TranslateService,
-    private habitServices: HabitService,
-    @Inject(MAT_DIALOG_DATA) private data: IHabit,
-    private readonly authService: AuthService
+    private readonly dialogRef: MatDialogRef<HabitCreateModalComponent>,
+    private readonly message: NzMessageService,
+    private readonly translateService: TranslateService,
+    private readonly habitServices: HabitService,
+    private readonly userService: UserService,
+    @Inject(MAT_DIALOG_DATA) private data: IHabit
   ) {
     this.type = this.data ? 'edit' : 'create';
   }
@@ -81,7 +81,7 @@ export class HabitCreateModalComponent implements OnInit {
         this.habitServices
           .add({
             ...this.form.getRawValue(),
-            userId: this.authService.user$.value?.id!,
+            userId: this.userService.user$.value?.id!,
           })
           .pipe(take(1))
           .subscribe((res) => {

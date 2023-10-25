@@ -6,7 +6,7 @@ export const userInputConfigs: IInput[] = [
     required: true,
     type: 'text',
     placeholder: 'Zhannur',
-    fName: 'name',
+    fName: 'firstName',
   },
   {
     title: 'user.lName',

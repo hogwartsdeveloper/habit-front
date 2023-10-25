@@ -8,10 +8,10 @@ import { NzSelectModule } from 'ng-zorro-antd/select';
 import { en_US, kk_KZ, NzI18nService, ru_RU } from 'ng-zorro-antd/i18n';
 
 import { AuthService } from '../../auth/services/auth.service';
-import { IUser } from '../../user/model/user.interface';
 import { ButtonComponent } from '../../../utils/ui/button/button.component';
 import { show } from '../../../utils/animations/show.animation';
 import { User } from '../../user/model/user';
+import { UserService } from '../../user/services/user.service';
 
 @Component({
   selector: 'app-dropdown-menu',
@@ -52,14 +52,15 @@ export class DropdownMenuComponent implements OnInit, OnDestroy {
     }
   }
   constructor(
-    private i18n: NzI18nService,
-    private authService: AuthService,
-    private translateService: TranslateService
+    private readonly i18n: NzI18nService,
+    private readonly userService: UserService,
+    private readonly authService: AuthService,
+    private readonly translateService: TranslateService
   ) {}
   ngOnInit() {
     this.selectedLang = this.translateService.currentLang;
     this.nzLocalChange(this.selectedLang);
-    this.authService.user$.pipe(takeUntil(this.destroy$)).subscribe((user) => {
+    this.userService.user$.pipe(takeUntil(this.destroy$)).subscribe((user) => {
       if (user) {
         this.user = user;
       }

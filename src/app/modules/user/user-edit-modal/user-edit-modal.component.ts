@@ -8,9 +8,12 @@ import {
 } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { IUserEditData } from './models/user-edit-data.interface';
-import { Subject, takeUntil } from 'rxjs';
+import { Subject, take, takeUntil } from 'rxjs';
+import { TranslateService } from '@ngx-translate/core';
+import { NzMessageService } from 'ng-zorro-antd/message';
 import { userInputConfigs } from './models/user-edit-data.config';
+import { UserService } from '../services/user.service';
+import { UpdateUser } from '../model/user.interface';
 
 @Component({
   selector: 'app-user-edit',
@@ -26,25 +29,25 @@ export class UserEditModalComponent implements OnInit, OnDestroy {
   destroy$ = new Subject();
 
   constructor(
-    private dialogRef: MatDialogRef<UserEditModalComponent>,
-    @Inject(MAT_DIALOG_DATA) private data: IUserEditData
+    private readonly dialogRef: MatDialogRef<UserEditModalComponent>,
+    private readonly userService: UserService,
+    private readonly messageService: NzMessageService,
+    private readonly translateService: TranslateService,
+    @Inject(MAT_DIALOG_DATA) private data: UpdateUser & { id: string }
   ) {
     this.form = new FormGroup({
-      name: new FormControl(data?.name || '', Validators.required),
+      firstName: new FormControl(data?.firstName || '', Validators.required),
       lastName: new FormControl(data?.lastName || '', Validators.required),
-      img: new FormControl(data?.img || ''),
+      img: new FormControl(''),
     });
   }
 
   ngOnInit() {
-    this.form.valueChanges
-      .pipe(takeUntil(this.destroy$))
-      .subscribe((value: IUserEditData) => {
-        this.isEdit =
-          this.data.name !== value.name ||
-          this.data.lastName !== value.lastName ||
-          this.data?.img !== value.img;
-      });
+    this.form.valueChanges.pipe(takeUntil(this.destroy$)).subscribe((value) => {
+      this.isEdit =
+        this.data.firstName !== value.firstName ||
+        this.data.lastName !== value.lastName;
+    });
   }
 
   onPhotoChange() {
@@ -55,12 +58,20 @@ export class UserEditModalComponent implements OnInit, OnDestroy {
     reader.readAsDataURL(this.photo.nativeElement.files![0]);
   }
 
-  onClose(content: IUserEditData | null = null) {
-    this.dialogRef.close(content);
+  onClose() {
+    this.dialogRef.close();
   }
 
   onSave() {
-    this.onClose(this.form.getRawValue());
+    this.userService
+      .update(this.data.id, this.form.getRawValue())
+      .pipe(take(1))
+      .subscribe(() => {
+        this.messageService.success(
+          this.translateService.instant('base.successEdit')
+        );
+        this.onClose();
+      });
   }
 
   ngOnDestroy() {

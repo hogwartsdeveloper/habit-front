@@ -1,22 +1,23 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, catchError, of, switchMap, take } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
-import { NzMessageService } from 'ng-zorro-antd/message';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { catchError, of, switchMap, take } from 'rxjs';
+import { NzMessageService } from 'ng-zorro-antd/message';
 
-import { AuthUser, CreateUser } from '../../user/model/user.interface';
 import { IAuth } from '../models/author.model';
 import { User } from '../../user/model/user';
+import { AuthUser, CreateUser } from '../../user/model/user.interface';
+import { UserService } from '../../user/services/user.service';
 
 @Injectable()
 export class AuthService {
-  user$ = new BehaviorSubject<User | null>(null);
   updateTokenInterval: ReturnType<typeof setInterval>;
 
   constructor(
     private readonly http: HttpClient,
     private readonly messageService: NzMessageService,
-    private readonly router: Router
+    private readonly router: Router,
+    private readonly userService: UserService
   ) {}
 
   auth(user: AuthUser) {
@@ -37,16 +38,16 @@ export class AuthService {
       userParse.lastName,
       userParse.img,
       userParse._token,
-      userParse._tokenExpired
+      userParse.tokenExpired
     );
 
     if (user.token) {
-      this.user$.next(user);
+      this.userService.user$.next(user);
       this.router.navigate(['/change']);
       this.autoUpdateToken(userParse._tokenExpired - Date.now() - 60000);
       return;
     }
-    this.user$.next(null);
+    this.userService.user$.next(null);
   }
 
   autoUpdateToken(exp: number) {
@@ -101,14 +102,14 @@ export class AuthService {
       payload.exp
     );
 
-    this.user$.next(user);
+    this.userService.user$.next(user);
     localStorage.setItem('user', JSON.stringify(user));
     this.router.navigate(['/change']);
     this.autoUpdateToken(payload.exp - Date.now() - 60000);
   }
 
   logout() {
-    this.user$.next(null);
+    this.userService.user$.next(null);
     localStorage.removeItem('user');
     this.router.navigate(['/']);
   }

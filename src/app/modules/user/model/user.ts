@@ -6,11 +6,11 @@ export class User {
     public lastName: string,
     public img: string,
     private readonly _token: string,
-    private readonly _tokenExpired: number
+    public readonly tokenExpired: number
   ) {}
 
   get token() {
-    if (this._tokenExpired > Date.now()) {
+    if (this.tokenExpired > Date.now()) {
       return this._token;
     }
     return null;

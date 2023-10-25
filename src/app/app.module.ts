@@ -25,6 +25,7 @@ import { AuthService } from './modules/auth/services/auth.service';
 import { AuthGuard } from './modules/auth/guard/auth.guard';
 import { KeyboardComponent } from './utils/ui/keyboard/keyboard.component';
 import { CatchErrorHandler } from './handler/catch-error.handler';
+import { UserService } from './modules/user/services/user.service';
 
 registerLocaleData(en);
 
@@ -52,6 +53,7 @@ registerLocaleData(en);
     ThreeSupportService,
     { provide: MAT_DATE_LOCALE, useValue: 'en-GB' },
     AuthService,
+    UserService,
     AuthGuard,
     HabitService,
     NzMessageService,
