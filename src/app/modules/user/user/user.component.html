@@ -18,10 +18,11 @@
             </app-button>
             <nz-dropdown-menu #menu="nzDropdownMenu">
                 <ul nz-menu>
-                    <li nz-menu-item>Upload a photo</li>
+                    <li nz-menu-item (click)="photoInput.click()">Upload a photo</li>
                     <li nz-menu-item>Remove photo</li>
                 </ul>
             </nz-dropdown-menu>
+            <input #photoInput type="file" accept="image/*" (change)="onSelectedAvatar(photoInput.files)">
         </div>
 
         <h1 class="font-extrabold">{{ user.firstName + ' ' + user.lastName}}</h1>

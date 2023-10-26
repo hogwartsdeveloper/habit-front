@@ -47,6 +47,18 @@ export class UserComponent implements OnInit, OnDestroy {
     });
   }
 
+  onSelectedAvatar(files: FileList | null) {
+    if (!files) {
+      return;
+    }
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      console.log(event);
+    };
+
+    reader.readAsDataURL(files[0]);
+  }
+
   ngOnDestroy() {
     this.destroy$.next(null);
     this.destroy$.complete();
