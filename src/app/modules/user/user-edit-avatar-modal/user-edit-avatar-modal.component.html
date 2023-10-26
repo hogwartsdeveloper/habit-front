@@ -1,0 +1,9 @@
+<app-modal-base
+        [title]="'Crop your new profile picture'"
+        [actives]="actives"
+></app-modal-base>
+
+<ng-template #actives>
+    <app-button type="danger" (click)="onClose()">{{ 'base.cancel' | translate}}</app-button>
+    <app-button>Set new profile picture</app-button>
+</ng-template>

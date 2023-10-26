@@ -12,9 +12,14 @@ import { HabitViewModule } from '../habit/habit-view/habit-view.module';
 import { AvatarComponent } from '../../utils/ui/avatar/avatar.component';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
+import { UserEditAvatarModalComponent } from './user-edit-avatar-modal/user-edit-avatar-modal.component';
 
 @NgModule({
-  declarations: [UserComponent, UserEditModalComponent],
+  declarations: [
+    UserComponent,
+    UserEditModalComponent,
+    UserEditAvatarModalComponent,
+  ],
   imports: [
     CommonModule,
     UserRouterModule,

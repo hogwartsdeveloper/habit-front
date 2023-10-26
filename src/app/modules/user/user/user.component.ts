@@ -9,6 +9,7 @@ import { UserEditModalComponent } from '../user-edit-modal/user-edit-modal.compo
 import { IHabits } from '../../habit/models/habits.interface';
 import { User } from '../model/user';
 import { UserService } from '../services/user.service';
+import { UserEditAvatarModalComponent } from '../user-edit-avatar-modal/user-edit-avatar-modal.component';
 
 @Component({
   selector: 'app-user',
@@ -53,7 +54,12 @@ export class UserComponent implements OnInit, OnDestroy {
     }
     const reader = new FileReader();
     reader.onload = (event) => {
-      console.log(event);
+      this.dialog.open(UserEditAvatarModalComponent, {
+        width: '400px',
+        height: '600px',
+        panelClass: 'noBackground',
+        autoFocus: false,
+      });
     };
 
     reader.readAsDataURL(files[0]);
