@@ -1,0 +1,29 @@
+:host::ng-deep {
+  .cropper-container {
+    width: 300px;
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cropper-view-box {
+    border-radius: 50%;
+    box-shadow: 0 0 0 1px #39f;
+    outline: 0;
+  }
+
+  .cropper-face,
+  .cropper-line,
+  .cropper-point {
+    border-radius: 50%;
+  }
+
+  .cropper-crop-box,
+  .cropper-mask {
+    border-radius: 50%;
+  }
+
+  .cropper-dashed {
+    display: none;
+  }
+}

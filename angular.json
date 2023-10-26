@@ -37,6 +37,7 @@
             "styles": [
               "./node_modules/ng-zorro-antd/ng-zorro-antd.min.css",
               "src/app/shared/styles/ant.scss",
+              "./node_modules/cropperjs/dist/cropper.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -102,7 +103,8 @@
             "styles": [
               "./node_modules/ng-zorro-antd/ng-zorro-antd.min.css",
               "src/app/shared/styles/ant.scss",
-              "src/styles.scss"
+              "src/styles.scss",
+              "./node_modules/cropperjs/dist/cropper.css"
             ],
             "scripts": []
           }

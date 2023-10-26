@@ -56,9 +56,14 @@ export class UserComponent implements OnInit, OnDestroy {
     reader.onload = (event) => {
       this.dialog.open(UserEditAvatarModalComponent, {
         width: '400px',
-        height: '600px',
+        height: '500px',
         panelClass: 'noBackground',
         autoFocus: false,
+        disableClose: true,
+        data: {
+          user: this.user,
+          uploadableImg: event.target!.result,
+        },
       });
     };
 

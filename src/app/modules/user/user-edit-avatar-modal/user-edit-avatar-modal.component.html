@@ -1,7 +1,11 @@
 <app-modal-base
         [title]="'Crop your new profile picture'"
         [actives]="actives"
-></app-modal-base>
+>
+    <div class="flex-1 mb-2.5">
+        <img #image [src]="data.uploadableImg">
+    </div>
+</app-modal-base>
 
 <ng-template #actives>
     <app-button type="danger" (click)="onClose()">{{ 'base.cancel' | translate}}</app-button>
