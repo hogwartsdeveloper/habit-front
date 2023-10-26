@@ -1,10 +1,29 @@
 <div class="page-box flex max-w-6xl mx-auto text-white p-6 gap-6">
     <div class="left">
-        <app-avatar
-                [text]="user.firstName[0] + ' ' + user.lastName[0]"
-                [src]="user.img"
-                [size]="207"
-        ></app-avatar>
+        <div class="avatar">
+            <app-avatar
+                    [text]="user.firstName[0] + ' ' + user.lastName[0]"
+                    [src]="user.img"
+                    [size]="207"
+            ></app-avatar>
+            <app-button
+                    [view]="'border'"
+                    [customStyle]="'white'"
+                    nz-dropdown
+                    nzTrigger="click"
+                    [nzDropdownMenu]="menu"
+            >
+                <span nz-icon nzType="edit" nzTheme="outline"></span>
+                Edit
+            </app-button>
+            <nz-dropdown-menu #menu="nzDropdownMenu">
+                <ul nz-menu>
+                    <li nz-menu-item>Upload a photo</li>
+                    <li nz-menu-item>Remove photo</li>
+                </ul>
+            </nz-dropdown-menu>
+        </div>
+
         <h1 class="font-extrabold">{{ user.firstName + ' ' + user.lastName}}</h1>
 
         <app-button (click)="openEditModal()">{{"user.edit" | translate}}</app-button>

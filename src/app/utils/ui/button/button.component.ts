@@ -20,6 +20,7 @@ export class ButtonComponent implements OnChanges {
   @Input() view: 'border' | 'basic' = 'basic';
   @Input() animation: 'pulse' | '' = '';
   @Input() disabled = false;
+  @Input() customStyle: 'white' | '' = '';
 
   constructor(private element: ElementRef<HTMLElement>) {}
 

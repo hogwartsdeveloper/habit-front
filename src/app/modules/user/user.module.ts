@@ -10,6 +10,8 @@ import { ModalBaseComponent } from '../../utils/ui/modal-base/modal-base.compone
 import { TranslateModule } from '@ngx-translate/core';
 import { HabitViewModule } from '../habit/habit-view/habit-view.module';
 import { AvatarComponent } from '../../utils/ui/avatar/avatar.component';
+import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 
 @NgModule({
   declarations: [UserComponent, UserEditModalComponent],
@@ -23,6 +25,8 @@ import { AvatarComponent } from '../../utils/ui/avatar/avatar.component';
     HabitViewModule,
     TranslateModule,
     AvatarComponent,
+    NzIconModule,
+    NzDropDownModule,
   ],
 })
 export class UserModule {}

@@ -3,19 +3,22 @@
   flex: 1;
 }
 
-img {
-  width: 260px;
-  height: 260px;
-  border-radius: 50%;
-  max-width: none;
-}
-
 .left {
   flex: 0.35;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
+
+  .avatar {
+    position: relative;
+
+    app-button {
+      position: absolute;
+      bottom: 5px;
+      width: 100px;
+    }
+  }
 }
 
 .right {
