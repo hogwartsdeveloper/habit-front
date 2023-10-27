@@ -3,11 +3,11 @@
         [actives]="actives"
 >
     <div class="flex-1 mb-2.5">
-        <img #image [src]="data.uploadableImg">
+        <img #image [src]="imgURL">
     </div>
 </app-modal-base>
 
 <ng-template #actives>
     <app-button type="danger" (click)="onClose()">{{ 'base.cancel' | translate}}</app-button>
-    <app-button>Set new profile picture</app-button>
+    <app-button (click)="onSave()">Set new profile picture</app-button>
 </ng-template>

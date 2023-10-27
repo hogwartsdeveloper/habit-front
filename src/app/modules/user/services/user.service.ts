@@ -29,4 +29,25 @@ export class UserService {
       })
     );
   }
+
+  uploadImg(userId: string, imgBase64: string) {
+    return this.http
+      .post<User>('/api/users/uploadImg/' + userId, { image: imgBase64 })
+      .pipe(
+        map((res) => {
+          const oldUser = this.user$.value;
+          return this.user$.next(
+            new User(
+              oldUser?.id!,
+              oldUser?.email!,
+              oldUser?.firstName!,
+              oldUser?.lastName!,
+              res.img,
+              oldUser?.token!,
+              oldUser?.tokenExpired!
+            )
+          );
+        })
+      );
+  }
 }
