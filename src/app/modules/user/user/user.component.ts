@@ -70,6 +70,12 @@ export class UserComponent implements OnInit, OnDestroy {
     reader.readAsDataURL(files[0]);
   }
 
+  removeImg() {
+    this.userService.deleteImg(this.user.id).subscribe(() => {
+      this.message.success('Изображения успешно удалено');
+    });
+  }
+
   ngOnDestroy() {
     this.destroy$.next(null);
     this.destroy$.complete();

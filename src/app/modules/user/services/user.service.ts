@@ -12,42 +12,35 @@ export class UserService {
   constructor(private readonly http: HttpClient) {}
 
   update(userId: string, data: UpdateUser) {
-    return this.http.put<User>('/api/users/' + userId, data).pipe(
-      map((res) => {
-        const oldUser = this.user$.value;
-        return this.user$.next(
-          new User(
-            oldUser?.id!,
-            res.email,
-            res.firstName,
-            res.lastName,
-            res.img,
-            oldUser?.token!,
-            oldUser?.tokenExpired!
-          )
-        );
-      })
-    );
+    return this.http
+      .put<User>('/api/users/' + userId, data)
+      .pipe(map((res) => this.updateUserData(res)));
   }
 
   uploadImg(userId: string, imgBase64: string) {
     return this.http
       .post<User>('/api/users/uploadImg/' + userId, { image: imgBase64 })
-      .pipe(
-        map((res) => {
-          const oldUser = this.user$.value;
-          return this.user$.next(
-            new User(
-              oldUser?.id!,
-              oldUser?.email!,
-              oldUser?.firstName!,
-              oldUser?.lastName!,
-              res.img,
-              oldUser?.token!,
-              oldUser?.tokenExpired!
-            )
-          );
-        })
-      );
+      .pipe(map((res) => this.updateUserData(res)));
+  }
+
+  deleteImg(userId) {
+    return this.http
+      .delete<User>('/api/users/uploadImg/' + userId)
+      .pipe(map((res) => this.updateUserData(res)));
+  }
+
+  private updateUserData(data: Partial<User>) {
+    const oldUser = this.user$.value!;
+    this.user$.next(
+      new User(
+        data?.id || oldUser.id,
+        data?.email || oldUser.email,
+        data?.firstName || oldUser.firstName,
+        data?.lastName || oldUser.lastName,
+        data?.img ?? oldUser.img,
+        oldUser.token || '',
+        oldUser.tokenExpired
+      )
+    );
   }
 }

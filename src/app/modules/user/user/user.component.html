@@ -19,7 +19,7 @@
             <nz-dropdown-menu #menu="nzDropdownMenu">
                 <ul nz-menu>
                     <li nz-menu-item (click)="photoInput.click()">Upload a photo</li>
-                    <li nz-menu-item>Remove photo</li>
+                    <li nz-menu-item (click)="removeImg()">Remove photo</li>
                 </ul>
             </nz-dropdown-menu>
             <input #photoInput type="file" accept="image/*" (change)="onSelectedAvatar(photoInput.files)">
