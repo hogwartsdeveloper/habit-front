@@ -31,27 +31,11 @@ export class AuthService {
     if (!userStore) return;
 
     const userParse = JSON.parse(userStore);
-    const user = new User(
-      userParse.id,
-      userParse.email,
-      userParse.firstName,
-      userParse.lastName,
-      userParse.img,
-      userParse._token,
-      userParse.tokenExpired
-    );
-
-    if (user.token) {
-      this.userService.user$.next(user);
-      this.router.navigate(['/change']);
-      this.autoUpdateToken(userParse._tokenExpired - Date.now() - 60000);
-      return;
-    }
-    this.userService.user$.next(null);
+    this.login(userParse?._token);
   }
 
   autoUpdateToken(exp: number) {
-    clearInterval(this.updateTokenInterval);
+    this.clearIntervals();
     this.updateTokenInterval = setInterval(() => {
       this.updateToken()
         .pipe(
@@ -102,6 +86,11 @@ export class AuthService {
       payload.exp
     );
 
+    if (!user.token) {
+      this.logout();
+      return;
+    }
+
     this.userService.user$.next(user);
     localStorage.setItem('user', JSON.stringify(user));
     this.router.navigate(['/change']);
@@ -112,6 +101,7 @@ export class AuthService {
     this.userService.user$.next(null);
     localStorage.removeItem('user');
     this.router.navigate(['/']);
+    this.clearIntervals();
   }
 
   parseJWT(token: string) {
@@ -130,7 +120,7 @@ export class AuthService {
     return JSON.parse(jsonPayload);
   }
 
-  clearInterval() {
+  clearIntervals() {
     clearInterval(this.updateTokenInterval);
   }
 }

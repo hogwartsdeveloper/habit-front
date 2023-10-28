@@ -535,9 +535,10 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
+    console.log('destroy');
+    this.authService.clearIntervals();
     this.subscription.unsubscribe();
     this.destroy$.next(null);
     this.destroy$.complete();
-    this.authService.clearInterval();
   }
 }
