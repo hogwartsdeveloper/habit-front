@@ -1,3 +1,13 @@
-:host {
+:host::ng-deep {
   z-index: 1;
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+
+  .page-box {
+    height: 200px;
+    width: 475px;
+    padding: 20px;
+    color: white;
+  }
 }
