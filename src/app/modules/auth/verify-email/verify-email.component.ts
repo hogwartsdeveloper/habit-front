@@ -1,4 +1,11 @@
-import { Component, signal } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  QueryList,
+  signal,
+  ViewChildren,
+} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { IInput } from '../../../utils/ui/input/models/input.interface';
@@ -8,7 +15,7 @@ import { IInput } from '../../../utils/ui/input/models/input.interface';
   templateUrl: './verify-email.component.html',
   styleUrls: ['./verify-email.component.scss'],
 })
-export class VerifyEmailComponent {
+export class VerifyEmailComponent implements AfterViewInit {
   config = signal<IInput>({
     title: 'Enter code',
     placeholder: '',
@@ -20,4 +27,16 @@ export class VerifyEmailComponent {
   form = signal<FormGroup>(
     new FormGroup({ code: new FormControl(null, Validators.required) })
   );
+
+  @ViewChildren('inputs') inputs: QueryList<ElementRef<HTMLInputElement>>;
+
+  ngAfterViewInit() {
+    this.inputs.forEach((input, key) => {
+      const inputEl = input.nativeElement;
+
+      inputEl.addEventListener('keyup', () => {
+        this.inputs.get(key + 1)?.nativeElement.focus();
+      });
+    });
+  }
 }
