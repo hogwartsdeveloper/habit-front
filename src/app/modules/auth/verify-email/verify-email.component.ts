@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 import { IInput } from '../../../utils/ui/input/models/input.interface';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-verify-email',
@@ -26,9 +27,21 @@ export class VerifyEmailComponent implements OnInit {
     })
   );
 
+  email = signal<string>('');
+
   destroyRef = inject(DestroyRef);
 
+  constructor(private readonly route: ActivatedRoute) {}
+
   ngOnInit() {
+    this.route.queryParamMap
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe((map) => {
+        if (map.has('email')) {
+          this.email.set(map.get('email')!);
+        }
+      });
+
     this.form()
       .get(this.config().fName)
       ?.valueChanges.pipe(takeUntilDestroyed(this.destroyRef))

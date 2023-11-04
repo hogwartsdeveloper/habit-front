@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { catchError, of, switchMap, take } from 'rxjs';
+import { catchError, of, switchMap, take, tap } from 'rxjs';
 import { NzMessageService } from 'ng-zorro-antd/message';
 
 import { IAuth } from '../models/author.model';
@@ -55,8 +55,20 @@ export class AuthService {
 
   registration(user: CreateUser) {
     return this.http
-      .post<IAuth>('/api/auth/registration', user)
-      .pipe(switchMap((res) => this.catchToken(res)));
+      .post<{ result: string }>('/api/auth/registration', user)
+      .pipe(
+        tap((res) => {
+          this.router
+            .navigate(['/auth/verifyEmail'], {
+              queryParams: { email: user.email },
+              replaceUrl: true,
+            })
+            .then(() => {
+              this.messageService.success(res.result);
+              sessionStorage.setItem('verifyEmail', user.email);
+            });
+        })
+      );
   }
 
   updateToken() {
