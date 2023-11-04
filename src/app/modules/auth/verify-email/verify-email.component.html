@@ -3,4 +3,5 @@
     <p class="mb-3.5">We sent a launch code to {{ email() }}</p>
 
     <app-input [form]="form()" [config]="config()"></app-input>
+    The code didn't arrive? <span class="cursor-pointer font-semibold text-sm" (click)="tryAgain()">Send again</span>
 </div>

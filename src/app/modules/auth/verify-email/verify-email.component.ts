@@ -2,7 +2,7 @@ import { Component, DestroyRef, inject, OnInit, signal } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ActivatedRoute } from '@angular/router';
-import { switchMap, take } from 'rxjs';
+import { debounceTime, switchMap, take } from 'rxjs';
 import { NzMessageService } from 'ng-zorro-antd/message';
 
 import { IInput } from '../../../utils/ui/input/models/input.interface';
@@ -33,6 +33,7 @@ export class VerifyEmailComponent implements OnInit {
   );
 
   email = signal<string>('');
+  userData = sessionStorage.getItem('verifyEmail');
 
   destroyRef = inject(DestroyRef);
 
@@ -76,5 +77,16 @@ export class VerifyEmailComponent implements OnInit {
           sessionStorage.removeItem('verifyEmail');
         }
       });
+  }
+
+  tryAgain() {
+    if (this.userData) {
+      this.authApiService
+        .verifyEmailTryAgain({ ...JSON.parse(this.userData) })
+        .pipe(take(1))
+        .subscribe((res) => {
+          this.messageService.success(res.result);
+        });
+    }
   }
 }

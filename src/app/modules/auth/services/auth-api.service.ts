@@ -27,4 +27,11 @@ export class AuthApiService {
   verifyEmail(verifyData: VerifyEmail) {
     return this.http.post<IAuth>('/api/auth/verify/email', verifyData);
   }
+
+  verifyEmailTryAgain(user: CreateUser) {
+    return this.http.post<{ result: string }>(
+      '/api/auth/verify/tryAgain',
+      user
+    );
+  }
 }
