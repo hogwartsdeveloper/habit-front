@@ -11,24 +11,3 @@
     color: white;
   }
 }
-
-form {
-  display: flex;
-  justify-content: center;
-}
-
-input {
-  margin: 0 0.5rem;
-  padding: 0.5rem;
-  border: 1px solid #333;
-  width: 50px;
-  height: 50px;
-  text-align: center;
-  font-size: 3rem;
-  color: black;
-}
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-}

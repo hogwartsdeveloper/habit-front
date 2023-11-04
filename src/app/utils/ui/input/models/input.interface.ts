@@ -3,5 +3,5 @@ export interface IInput {
   required: boolean;
   placeholder: string;
   fName: string;
-  type: 'text' | 'email' | 'password';
+  type: 'text' | 'email' | 'password' | 'code';
 }

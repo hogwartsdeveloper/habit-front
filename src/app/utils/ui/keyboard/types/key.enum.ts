@@ -3,4 +3,5 @@ export enum KeyEnum {
   A = 'KeyA',
   S = 'KeyS',
   D = 'KeyD',
+  Backspace = 'Backspace',
 }

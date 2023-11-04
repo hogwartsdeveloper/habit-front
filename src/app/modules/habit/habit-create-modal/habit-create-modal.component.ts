@@ -13,7 +13,6 @@ import { HabitService } from '../services/habit.service';
 import { IHabit } from '../models/habit.interface';
 import { ButtonComponent } from '../../../utils/ui/button/button.component';
 import { IInput } from '../../../utils/ui/input/models/input.interface';
-import { InputComponent } from '../../../utils/ui/input/input.component';
 import { habitInputConfigs } from './form.config';
 import { ModalBaseComponent } from '../../../utils/ui/modal-base/modal-base.component';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
@@ -21,6 +20,7 @@ import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { take } from 'rxjs';
 import { UserService } from '../../user/services/user.service';
+import { InputModule } from '../../../utils/ui/input/input.module';
 
 @Component({
   selector: 'app-habit-modal',
@@ -30,7 +30,7 @@ import { UserService } from '../../user/services/user.service';
     ReactiveFormsModule,
     MatCheckboxModule,
     ButtonComponent,
-    InputComponent,
+    InputModule,
     ModalBaseComponent,
     TranslateModule,
     NzDatePickerModule,
