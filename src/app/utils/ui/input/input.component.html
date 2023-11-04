@@ -4,11 +4,11 @@
         <span *ngIf="config.required" class="text-red-500">*</span>
     </div>
 
-    <app-input-code *ngSwitchCase="'code'"></app-input-code>
+    <app-input-code *ngSwitchCase="'code'" [form]="form" [config]="config"></app-input-code>
     <input
             *ngSwitchDefault
             class="rounded-md text-sm"
             [type]="config.type"
-            [placeholder]="config.placeholder | translate" [formControlName]="config.fName"
+            [placeholder]="config.placeholder ? (config.placeholder! | translate) : ''" [formControlName]="config.fName"
     >
 </form>

@@ -1,5 +1,6 @@
-import { Component, signal } from '@angular/core';
+import { Component, DestroyRef, inject, OnInit, signal } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 import { IInput } from '../../../utils/ui/input/models/input.interface';
 
@@ -8,10 +9,9 @@ import { IInput } from '../../../utils/ui/input/models/input.interface';
   templateUrl: './verify-email.component.html',
   styleUrls: ['./verify-email.component.scss'],
 })
-export class VerifyEmailComponent {
+export class VerifyEmailComponent implements OnInit {
   config = signal<IInput>({
     title: 'Enter code',
-    placeholder: '',
     required: true,
     type: 'code',
     fName: 'code',
@@ -25,4 +25,15 @@ export class VerifyEmailComponent {
       ]),
     })
   );
+
+  destroyRef = inject(DestroyRef);
+
+  ngOnInit() {
+    this.form()
+      .get(this.config().fName)
+      ?.valueChanges.pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe((value) => {
+        console.log(value);
+      });
+  }
 }
