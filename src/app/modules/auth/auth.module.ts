@@ -9,6 +9,7 @@ import { ModalBaseComponent } from '../../utils/ui/modal-base/modal-base.compone
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { AuthRouterModule } from './auth-router.module';
 import { InputModule } from '../../utils/ui/input/input.module';
+import { AuthApiService } from './services/auth-api.service';
 
 @NgModule({
   declarations: [AuthModalComponent, VerifyEmailComponent],
@@ -21,5 +22,6 @@ import { InputModule } from '../../utils/ui/input/input.module';
     ReactiveFormsModule,
     AuthRouterModule,
   ],
+  providers: [AuthApiService],
 })
 export class AuthModule {}

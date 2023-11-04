@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { catchError, of, switchMap, take, tap } from 'rxjs';
+import { catchError, of, take } from 'rxjs';
 import { NzMessageService } from 'ng-zorro-antd/message';
 
 import { IAuth } from '../models/author.model';
 import { User } from '../../user/model/user';
-import { AuthUser, CreateUser } from '../../user/model/user.interface';
+import { CreateUser } from '../../user/model/user.interface';
 import { UserService } from '../../user/services/user.service';
+import { AuthApiService } from './auth-api.service';
 
 @Injectable()
 export class AuthService {
@@ -17,14 +18,9 @@ export class AuthService {
     private readonly http: HttpClient,
     private readonly messageService: NzMessageService,
     private readonly router: Router,
-    private readonly userService: UserService
+    private readonly userService: UserService,
+    private readonly authApiService: AuthApiService
   ) {}
-
-  auth(user: AuthUser) {
-    return this.http
-      .post<IAuth>('/api/auth/login', user)
-      .pipe(switchMap((res) => this.catchToken(res)));
-  }
 
   autoLogin() {
     const userStore = localStorage.getItem('user');
@@ -37,7 +33,8 @@ export class AuthService {
   autoUpdateToken(exp: number) {
     this.clearIntervals();
     this.updateTokenInterval = setInterval(() => {
-      this.updateToken()
+      this.authApiService
+        .updateToken()
         .pipe(
           catchError(() => {
             this.logout();
@@ -53,30 +50,6 @@ export class AuthService {
     }, exp);
   }
 
-  registration(user: CreateUser) {
-    return this.http
-      .post<{ result: string }>('/api/auth/registration', user)
-      .pipe(
-        tap((res) => {
-          this.router
-            .navigate(['/auth/verifyEmail'], {
-              queryParams: { email: user.email },
-              replaceUrl: true,
-            })
-            .then(() => {
-              this.messageService.success(res.result);
-              sessionStorage.setItem('verifyEmail', user.email);
-            });
-        })
-      );
-  }
-
-  updateToken() {
-    return this.http
-      .get<IAuth>('/api/auth/updateToken')
-      .pipe(switchMap((res) => this.catchToken(res)));
-  }
-
   catchToken(res: IAuth | null) {
     if (res) {
       this.login(res.token);
@@ -84,6 +57,18 @@ export class AuthService {
     }
 
     return of(null);
+  }
+
+  checkRegistration(user: CreateUser, msg: string) {
+    this.router
+      .navigate(['/auth/verifyEmail'], {
+        queryParams: { email: user.email },
+        replaceUrl: true,
+      })
+      .then(() => {
+        this.messageService.success(msg);
+        sessionStorage.setItem('verifyEmail', user.email);
+      });
   }
 
   login(token: string) {
