@@ -22,7 +22,7 @@ import { NzMessageService } from 'ng-zorro-antd/message';
 import { AuthModule } from './modules/auth/auth.module';
 import { AuthInterceptor } from './modules/auth/interceptor/auth.interceptor';
 import { AuthService } from './modules/auth/services/auth.service';
-import { AuthGuard } from './modules/auth/guard/auth.guard';
+import { AuthGuard } from './guard/auth.guard';
 import { KeyboardComponent } from './utils/ui/keyboard/keyboard.component';
 import { CatchErrorHandler } from './handler/catch-error.handler';
 import { UserService } from './modules/user/services/user.service';

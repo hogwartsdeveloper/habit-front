@@ -7,8 +7,8 @@ import {
 } from '@angular/router';
 import { map, take } from 'rxjs';
 
-import { ThreeSupportService } from '../../../services/three-support.service';
-import { UserService } from '../../user/services/user.service';
+import { ThreeSupportService } from '../services/three-support.service';
+import { UserService } from '../modules/user/services/user.service';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
