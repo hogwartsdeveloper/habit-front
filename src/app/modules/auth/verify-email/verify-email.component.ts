@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ActivatedRoute } from '@angular/router';
 import { switchMap, take } from 'rxjs';
+import { NzMessageService } from 'ng-zorro-antd/message';
 
 import { IInput } from '../../../utils/ui/input/models/input.interface';
 import { AuthApiService } from '../services/auth-api.service';
@@ -38,7 +39,8 @@ export class VerifyEmailComponent implements OnInit {
   constructor(
     private readonly route: ActivatedRoute,
     private readonly authApiService: AuthApiService,
-    private readonly authService: AuthService
+    private readonly authService: AuthService,
+    private readonly messageService: NzMessageService
   ) {}
 
   ngOnInit() {
@@ -54,14 +56,25 @@ export class VerifyEmailComponent implements OnInit {
       .get(this.config().fName)
       ?.valueChanges.pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe((value) => {
-        console.log(value);
+        const verifyData = sessionStorage.getItem('verifyEmail');
+        if (verifyData) {
+          this.verifyEmail({ ...JSON.parse(verifyData), code: +value });
+        }
       });
   }
 
   verifyEmail(verifyData: VerifyEmail) {
-    this.authApiService.verifyEmail(verifyData).pipe(
-      switchMap((res) => this.authService.catchToken(res)),
-      take(1)
-    );
+    this.authApiService
+      .verifyEmail(verifyData)
+      .pipe(
+        switchMap((res) => this.authService.catchToken(res)),
+        take(1)
+      )
+      .subscribe((res) => {
+        if (res) {
+          this.messageService.success('Вы зарегистрировались');
+          sessionStorage.removeItem('verifyEmail');
+        }
+      });
   }
 }
