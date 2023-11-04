@@ -1,9 +1,13 @@
 import { Component, DestroyRef, inject, OnInit, signal } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { ActivatedRoute } from '@angular/router';
+import { switchMap, take } from 'rxjs';
 
 import { IInput } from '../../../utils/ui/input/models/input.interface';
-import { ActivatedRoute } from '@angular/router';
+import { AuthApiService } from '../services/auth-api.service';
+import { AuthService } from '../services/auth.service';
+import { VerifyEmail } from '../../user/model/user.interface';
 
 @Component({
   selector: 'app-verify-email',
@@ -31,7 +35,11 @@ export class VerifyEmailComponent implements OnInit {
 
   destroyRef = inject(DestroyRef);
 
-  constructor(private readonly route: ActivatedRoute) {}
+  constructor(
+    private readonly route: ActivatedRoute,
+    private readonly authApiService: AuthApiService,
+    private readonly authService: AuthService
+  ) {}
 
   ngOnInit() {
     this.route.queryParamMap
@@ -48,5 +56,12 @@ export class VerifyEmailComponent implements OnInit {
       .subscribe((value) => {
         console.log(value);
       });
+  }
+
+  verifyEmail(verifyData: VerifyEmail) {
+    this.authApiService.verifyEmail(verifyData).pipe(
+      switchMap((res) => this.authService.catchToken(res)),
+      take(1)
+    );
   }
 }

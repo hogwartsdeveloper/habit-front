@@ -114,6 +114,7 @@ export class AppComponent implements OnInit, OnDestroy {
       .subscribe((res) => (this.stopAnimation = res));
 
     this.authService.autoLogin();
+    this.authService.checkVerify();
   }
 
   init() {
@@ -535,7 +536,6 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    console.log('destroy');
     this.authService.clearIntervals();
     this.subscription.unsubscribe();
     this.destroy$.next(null);

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { catchError, of, take } from 'rxjs';
+import { catchError, of, switchMap, take } from 'rxjs';
 import { NzMessageService } from 'ng-zorro-antd/message';
 
 import { IAuth } from '../models/author.model';
@@ -36,6 +36,7 @@ export class AuthService {
       this.authApiService
         .updateToken()
         .pipe(
+          switchMap((res) => this.catchToken(res)),
           catchError(() => {
             this.logout();
             return of(null);
@@ -67,8 +68,18 @@ export class AuthService {
       })
       .then(() => {
         this.messageService.success(msg);
-        sessionStorage.setItem('verifyEmail', user.email);
+        sessionStorage.setItem('verifyEmail', JSON.stringify(user));
       });
+  }
+
+  checkVerify() {
+    const verify = sessionStorage.getItem('verifyEmail');
+    if (verify) {
+      this.checkRegistration(
+        JSON.parse(verify),
+        'Завершите подтверждение email'
+      );
+    }
   }
 
   login(token: string) {

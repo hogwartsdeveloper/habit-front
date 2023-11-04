@@ -6,13 +6,14 @@ import {
   MatDialogRef,
 } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { take } from 'rxjs';
+import { switchMap, take, tap } from 'rxjs';
 
 import { AuthorType } from '../models/author.model';
 import { ThreeSupportService } from '../../../services/three-support.service';
 import { IInput } from '../../../utils/ui/input/models/input.interface';
 import { authInputConfigs } from './form.config';
 import { AuthApiService } from '../services/auth-api.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-author-modal',
@@ -30,6 +31,7 @@ export class AuthModalComponent implements OnInit {
     private readonly dialog: MatDialog,
     private readonly router: Router,
     private readonly authApiService: AuthApiService,
+    private readonly authService: AuthService,
     private readonly threeSupportService: ThreeSupportService
   ) {
     this.type = data?.type || 'signIn';
@@ -68,11 +70,15 @@ export class AuthModalComponent implements OnInit {
   }
 
   sign(type: AuthorType) {
+    const user = { ...this.form.getRawValue() };
     switch (type) {
       case 'signUp':
         this.authApiService
-          .registration({ ...this.form.getRawValue() })
-          .pipe(take(1))
+          .registration(user)
+          .pipe(
+            tap((res) => this.authService.checkRegistration(user, res.result)),
+            take(1)
+          )
           .subscribe((res) => {
             if (res) {
               this.dialogRef.close();
@@ -81,8 +87,11 @@ export class AuthModalComponent implements OnInit {
         break;
       case 'signIn':
         this.authApiService
-          .authorization({ ...this.form.getRawValue() })
-          .pipe(take(1))
+          .authorization(user)
+          .pipe(
+            switchMap((res) => this.authService.catchToken(res)),
+            take(1)
+          )
           .subscribe((res) => {
             if (res) {
               this.dialogRef.close();
