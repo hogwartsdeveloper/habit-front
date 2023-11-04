@@ -61,6 +61,7 @@ export class AuthService {
   }
 
   checkRegistration(user: CreateUser, msg: string) {
+    sessionStorage.setItem('verifyEmail', JSON.stringify(user));
     this.router
       .navigate(['/auth/verifyEmail'], {
         queryParams: { email: user.email },
@@ -68,7 +69,6 @@ export class AuthService {
       })
       .then(() => {
         this.messageService.success(msg);
-        sessionStorage.setItem('verifyEmail', JSON.stringify(user));
       });
   }
 
