@@ -53,15 +53,17 @@ export class VerifyEmailComponent implements OnInit {
         }
       });
 
-    this.form()
-      .get(this.config().fName)
-      ?.valueChanges.pipe(takeUntilDestroyed(this.destroyRef))
+    this.formCode?.valueChanges
+      .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe((value) => {
-        const verifyData = sessionStorage.getItem('verifyEmail');
-        if (verifyData) {
-          this.verifyEmail({ ...JSON.parse(verifyData), code: +value });
+        if (value.length === 4) {
+          this.verifyEmail({ ...JSON.parse(this.userData!), code: +value });
         }
       });
+  }
+
+  get formCode() {
+    return this.form().get(this.config().fName);
   }
 
   verifyEmail(verifyData: VerifyEmail) {
@@ -80,13 +82,11 @@ export class VerifyEmailComponent implements OnInit {
   }
 
   tryAgain() {
-    if (this.userData) {
-      this.authApiService
-        .verifyEmailTryAgain({ ...JSON.parse(this.userData) })
-        .pipe(take(1))
-        .subscribe((res) => {
-          this.messageService.success(res.result);
-        });
-    }
+    this.authApiService
+      .verifyEmailTryAgain({ ...JSON.parse(this.userData!) })
+      .pipe(take(1))
+      .subscribe((res) => {
+        this.messageService.success(res.result);
+      });
   }
 }

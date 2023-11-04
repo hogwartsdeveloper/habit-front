@@ -11,6 +11,7 @@ import { FormGroup } from '@angular/forms';
 
 import { KeyEnum } from '../../keyboard/types/key.enum';
 import { IInput } from '../models/input.interface';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-input-code',
@@ -23,8 +24,10 @@ export class InputCodeComponent implements AfterViewInit, OnDestroy {
 
   @ViewChildren('inputs') inputs: QueryList<ElementRef<HTMLInputElement>>;
   listeners: any[] = [];
+  formChange?: Subscription;
 
   ngAfterViewInit() {
+    this.listenForm();
     this.inputs.forEach((input, key) => {
       const inputEl = input.nativeElement;
 
@@ -65,11 +68,25 @@ export class InputCodeComponent implements AfterViewInit, OnDestroy {
     });
   }
 
+  listenForm() {
+    this.formChange = this.form
+      .get(this.config.fName)
+      ?.valueChanges.subscribe((value) => {
+        console.log(value);
+        this.inputs.forEach((input, index) => {
+          input.nativeElement.value = value;
+        });
+      });
+  }
+
   patchValue() {
+    this.formChange?.unsubscribe();
     const code = this.inputs.map((el) => el.nativeElement.value).join('');
     if (code.length === this.inputs.length) {
       this.form.get(this.config.fName)?.patchValue(code);
     }
+
+    this.listenForm();
   }
 
   ngOnDestroy() {
@@ -83,5 +100,7 @@ export class InputCodeComponent implements AfterViewInit, OnDestroy {
         this.listeners[index][1]
       );
     });
+
+    this.formChange?.unsubscribe();
   }
 }
