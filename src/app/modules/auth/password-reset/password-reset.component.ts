@@ -1,0 +1,26 @@
+import { Component, signal } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+
+import { IInput } from '../../../utils/ui/input/models/input.interface';
+
+@Component({
+  selector: 'app-password-reset',
+  templateUrl: './password-reset.component.html',
+  styleUrls: ['./password-reset.component.scss'],
+})
+export class PasswordResetComponent {
+  config = signal<IInput>({
+    title: 'Email',
+    required: true,
+    type: 'email',
+    fName: 'email',
+  });
+
+  form = signal<FormGroup>(
+    new FormGroup({
+      email: new FormControl(null, [Validators.required, Validators.email]),
+    })
+  );
+
+  isSent = signal<boolean>(false);
+}

@@ -10,9 +10,15 @@ import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { AuthRouterModule } from './auth-router.module';
 import { InputModule } from '../../utils/ui/input/input.module';
 import { AuthApiService } from './services/auth-api.service';
+import { PasswordResetComponent } from './password-reset/password-reset.component';
+import { NzResultModule } from 'ng-zorro-antd/result';
 
 @NgModule({
-  declarations: [AuthModalComponent, VerifyEmailComponent],
+  declarations: [
+    AuthModalComponent,
+    VerifyEmailComponent,
+    PasswordResetComponent,
+  ],
   imports: [
     CommonModule,
     TranslateModule,
@@ -21,6 +27,7 @@ import { AuthApiService } from './services/auth-api.service';
     ModalBaseComponent,
     ReactiveFormsModule,
     AuthRouterModule,
+    NzResultModule,
   ],
   providers: [AuthApiService],
 })
