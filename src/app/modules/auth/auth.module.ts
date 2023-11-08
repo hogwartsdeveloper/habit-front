@@ -12,12 +12,14 @@ import { InputModule } from '../../utils/ui/input/input.module';
 import { AuthApiService } from './services/auth-api.service';
 import { PasswordResetComponent } from './password-reset/password-reset.component';
 import { NzResultModule } from 'ng-zorro-antd/result';
+import { PasswordChangeComponent } from './password-change/password-change.component';
 
 @NgModule({
   declarations: [
     AuthModalComponent,
     VerifyEmailComponent,
     PasswordResetComponent,
+    PasswordChangeComponent,
   ],
   imports: [
     CommonModule,
