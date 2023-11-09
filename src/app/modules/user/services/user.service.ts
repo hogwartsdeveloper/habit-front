@@ -29,6 +29,10 @@ export class UserService {
       .pipe(map((res) => this.updateUserData(res)));
   }
 
+  checkEmail(email: string) {
+    return this.http.get<Pick<User, 'email'>>('/api/users/checkEmail/' + email);
+  }
+
   private updateUserData(data: Partial<User>) {
     const oldUser = this.user$.value!;
     this.user$.next(
