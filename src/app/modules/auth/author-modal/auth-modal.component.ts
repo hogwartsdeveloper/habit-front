@@ -14,6 +14,8 @@ import { IInput } from '../../../utils/ui/input/models/input.interface';
 import { authInputConfigs } from './form.config';
 import { AuthApiService } from '../services/auth-api.service';
 import { AuthService } from '../services/auth.service';
+import { UserService } from '../../user/services/user.service';
+import { emailValidator } from '../../../utils/validators/email.validator';
 
 @Component({
   selector: 'app-author-modal',
@@ -32,23 +34,32 @@ export class AuthModalComponent implements OnInit {
     private readonly router: Router,
     private readonly authApiService: AuthApiService,
     private readonly authService: AuthService,
-    private readonly threeSupportService: ThreeSupportService
+    private readonly threeSupportService: ThreeSupportService,
+    private readonly userService: UserService
   ) {
     this.type = data?.type || 'signIn';
 
     switch (this.type) {
       case 'signIn':
         this.form = new FormGroup({
-          email: new FormControl('', Validators.required),
-          password: new FormControl('', Validators.required),
+          email: new FormControl(
+            '',
+            [Validators.required, Validators.email],
+            [emailValidator(this.userService)]
+          ),
+          password: new FormControl('', [Validators.required]),
         });
         break;
       case 'signUp':
         this.form = new FormGroup({
-          email: new FormControl('', Validators.required),
-          password: new FormControl('', Validators.required),
-          firstName: new FormControl('', Validators.required),
-          lastName: new FormControl('', Validators.required),
+          email: new FormControl(
+            '',
+            [Validators.required, Validators.email],
+            [emailValidator(this.userService)]
+          ),
+          password: new FormControl('', [Validators.required]),
+          firstName: new FormControl('', [Validators.required]),
+          lastName: new FormControl('', [Validators.required]),
         });
     }
   }
