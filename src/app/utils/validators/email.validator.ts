@@ -22,8 +22,10 @@ export function emailValidator(userService: UserService): AsyncValidatorFn {
       debounceTime(500),
       distinctUntilChanged(),
       switchMap((value) => userService.checkEmail(value)),
-      map((isAvailable) => (isAvailable ? null : { email: true })),
-      catchError(() => of(null)),
+      map(() => null),
+      catchError((err) => {
+        return of({ email: err.error.message });
+      }),
       take(1)
     );
   };
