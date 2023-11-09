@@ -34,4 +34,17 @@ export class AuthApiService {
       user
     );
   }
+
+  passwordRecovery(email: string) {
+    return this.http.post<{ result: string }>('/api/auth/password/recovery', {
+      email,
+    });
+  }
+
+  passwordChange(token: string, password: string) {
+    return this.http.post<{ result: string }>(
+      '/api/auth/password/change/' + token,
+      { password }
+    );
+  }
 }
