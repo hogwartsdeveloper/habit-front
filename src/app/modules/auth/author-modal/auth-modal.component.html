@@ -6,7 +6,16 @@
         </ng-container>
 
         <app-input [config]="configs[2]" [form]="form"></app-input>
-        <app-input class="my-5" [config]="configs[3]" [form]="form"></app-input>
+
+        <div class="my-5 relative">
+            <ng-container *ngIf="type === 'signIn'">
+                <span
+                        class="absolute right-0 top-1 cursor-pointer font-semibold text-xs"
+                        (click)="onRecoveryPassword()"
+                >Forgot password</span>
+            </ng-container>
+            <app-input  [config]="configs[3]" [form]="form"></app-input>
+        </div>
 
         <app-button [disabled]="form.invalid" (click)="sign(type)">{{(type === 'signIn' ? 'auth.signIn' : 'auth.signUp') | translate}}</app-button>
 

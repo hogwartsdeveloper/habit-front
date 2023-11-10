@@ -14,7 +14,6 @@ import { IInput } from '../../../utils/ui/input/models/input.interface';
 import { authInputConfigs } from './form.config';
 import { AuthApiService } from '../services/auth-api.service';
 import { AuthService } from '../services/auth.service';
-import { emailExistValidator } from '../../../utils/validators/email-exist.validator';
 import { emailNotExistValidator } from '../../../utils/validators/email-not-exist.validator';
 
 @Component({
@@ -41,11 +40,7 @@ export class AuthModalComponent implements OnInit {
     switch (this.type) {
       case 'signIn':
         this.form = new FormGroup({
-          email: new FormControl(
-            '',
-            [Validators.required, Validators.email],
-            [emailExistValidator()]
-          ),
+          email: new FormControl('', [Validators.required, Validators.email]),
           password: new FormControl('', [Validators.required]),
         });
         break;
@@ -108,5 +103,11 @@ export class AuthModalComponent implements OnInit {
             }
           });
     }
+  }
+
+  onRecoveryPassword() {
+    this.router
+      .navigate(['/auth/password_reset'])
+      .then(() => this.dialogRef.close());
   }
 }
