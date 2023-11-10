@@ -14,8 +14,8 @@ import { IInput } from '../../../utils/ui/input/models/input.interface';
 import { authInputConfigs } from './form.config';
 import { AuthApiService } from '../services/auth-api.service';
 import { AuthService } from '../services/auth.service';
-import { UserService } from '../../user/services/user.service';
-import { emailValidator } from '../../../utils/validators/email.validator';
+import { emailExistValidator } from '../../../utils/validators/email-exist.validator';
+import { emailNotExistValidator } from '../../../utils/validators/email-not-exist.validator';
 
 @Component({
   selector: 'app-author-modal',
@@ -34,8 +34,7 @@ export class AuthModalComponent implements OnInit {
     private readonly router: Router,
     private readonly authApiService: AuthApiService,
     private readonly authService: AuthService,
-    private readonly threeSupportService: ThreeSupportService,
-    private readonly userService: UserService
+    private readonly threeSupportService: ThreeSupportService
   ) {
     this.type = data?.type || 'signIn';
 
@@ -45,7 +44,7 @@ export class AuthModalComponent implements OnInit {
           email: new FormControl(
             '',
             [Validators.required, Validators.email],
-            [emailValidator(this.userService)]
+            [emailExistValidator()]
           ),
           password: new FormControl('', [Validators.required]),
         });
@@ -55,7 +54,7 @@ export class AuthModalComponent implements OnInit {
           email: new FormControl(
             '',
             [Validators.required, Validators.email],
-            [emailValidator(this.userService)]
+            [emailNotExistValidator()]
           ),
           password: new FormControl('', [Validators.required]),
           firstName: new FormControl('', [Validators.required]),

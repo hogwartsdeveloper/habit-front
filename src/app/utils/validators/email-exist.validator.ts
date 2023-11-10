@@ -3,6 +3,7 @@ import {
   AsyncValidatorFn,
   ValidationErrors,
 } from '@angular/forms';
+import { inject } from '@angular/core';
 import {
   catchError,
   debounceTime,
@@ -16,16 +17,16 @@ import {
 
 import { UserService } from '../../modules/user/services/user.service';
 
-export function emailValidator(userService: UserService): AsyncValidatorFn {
+export function emailExistValidator(): AsyncValidatorFn {
+  const userService = inject(UserService);
+
   return (control: AbstractControl): Observable<ValidationErrors | null> => {
     return control.valueChanges.pipe(
       debounceTime(500),
       distinctUntilChanged(),
-      switchMap((value) => userService.checkEmail(value)),
+      switchMap((value) => userService.checkEmailExist(value)),
       map(() => null),
-      catchError((err) => {
-        return of({ email: err.error.message });
-      }),
+      catchError((err) => of(err.error.message)),
       take(1)
     );
   };

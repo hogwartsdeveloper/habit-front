@@ -29,8 +29,12 @@ export class UserService {
       .pipe(map((res) => this.updateUserData(res)));
   }
 
-  checkEmail(email: string) {
-    return this.http.get<Pick<User, 'email'>>('/api/users/checkEmail/' + email);
+  checkEmailExist(email: string) {
+    return this.http.get('/api/users/checkEmailExist/' + email);
+  }
+
+  checkEmailNotExist(email: string) {
+    return this.http.get('/api/users/checkEmailNotExist/' + email);
   }
 
   private updateUserData(data: Partial<User>) {
