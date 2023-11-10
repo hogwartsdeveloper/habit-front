@@ -4,6 +4,7 @@ import { take } from 'rxjs';
 
 import { IInput } from '../../../utils/ui/input/models/input.interface';
 import { AuthApiService } from '../services/auth-api.service';
+import { emailExistValidator } from '../../../utils/validators/email-exist.validator';
 
 @Component({
   selector: 'app-password-reset',
@@ -20,18 +21,27 @@ export class PasswordResetComponent {
 
   form = signal<FormGroup>(
     new FormGroup({
-      email: new FormControl(null, [Validators.required, Validators.email]),
+      email: new FormControl(
+        null,
+        [Validators.required, Validators.email],
+        [emailExistValidator()]
+      ),
     })
   );
 
   isSent = signal<boolean>(false);
+  load = signal<boolean>(false);
 
   constructor(private readonly authApiService: AuthApiService) {}
 
   sent() {
+    this.load.set(true);
     this.authApiService
       .passwordRecovery(this.form().getRawValue().email)
       .pipe(take(1))
-      .subscribe(() => this.isSent.set(true));
+      .subscribe(() => {
+        this.load.set(false);
+        this.isSent.set(true);
+      });
   }
 }

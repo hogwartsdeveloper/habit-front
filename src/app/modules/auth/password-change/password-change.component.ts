@@ -38,6 +38,7 @@ export class PasswordChangeComponent implements OnInit {
   );
   email = signal<string>('jannuraidynuly@gmail.com');
   isPasswordCoincide = signal<boolean>(false);
+  load = signal<boolean>(false);
   token: string;
   destroyRef = inject(DestroyRef);
 
@@ -68,10 +69,12 @@ export class PasswordChangeComponent implements OnInit {
   }
 
   save() {
+    this.load.set(true);
     this.authApiService
       .passwordChange(this.token, this.form().get('password')?.value)
       .pipe(take(1))
       .subscribe(() => {
+        this.load.set(false);
         this.messageService.success('Password changed!');
         this.router.navigate(['/']);
       });
