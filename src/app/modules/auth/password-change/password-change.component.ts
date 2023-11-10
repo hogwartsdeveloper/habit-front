@@ -1,6 +1,7 @@
 import { Component, signal } from '@angular/core';
-import { IInput } from '../../../utils/ui/input/models/input.interface';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+
+import { IInput } from '../../../utils/ui/input/models/input.interface';
 
 @Component({
   selector: 'app-password-change',

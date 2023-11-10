@@ -41,6 +41,10 @@ export class AuthApiService {
     });
   }
 
+  checkPasswordChangeToken(token: string) {
+    return this.http.get('/api/auth/password/check/' + token);
+  }
+
   passwordChange(token: string, password: string) {
     return this.http.post<{ result: string }>(
       '/api/auth/password/change/' + token,
