@@ -7,6 +7,7 @@ import { IInput } from '../../../utils/ui/input/models/input.interface';
 import { AuthApiService } from '../services/auth-api.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NzMessageService } from 'ng-zorro-antd/message';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-password-change',
@@ -43,12 +44,17 @@ export class PasswordChangeComponent implements OnInit {
   constructor(
     private readonly route: ActivatedRoute,
     private readonly router: Router,
+    private readonly authService: AuthService,
     private readonly authApiService: AuthApiService,
     private readonly messageService: NzMessageService
   ) {}
 
   ngOnInit() {
     this.token = this.route.snapshot.paramMap.get('token')!;
+    const payload = this.authService.parseJWT(this.token);
+    if (payload?.email) {
+      this.email.set(payload?.email);
+    }
 
     this.form()
       .valueChanges.pipe(
