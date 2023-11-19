@@ -130,39 +130,6 @@
             }
           },
           "defaultConfiguration": "production"
-        },
-        "serve-ssr": {
-          "builder": "@nguniversal/builders:ssr-dev-server",
-          "configurations": {
-            "development": {
-              "browserTarget": "habit:build:development",
-              "serverTarget": "habit:server:development"
-            },
-            "production": {
-              "browserTarget": "habit:build:production",
-              "serverTarget": "habit:server:production"
-            }
-          },
-          "defaultConfiguration": "development"
-        },
-        "prerender": {
-          "builder": "@nguniversal/builders:prerender",
-          "options": {
-            "routes": [
-              "/"
-            ]
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "habit:build:production",
-              "serverTarget": "habit:server:production"
-            },
-            "development": {
-              "browserTarget": "habit:build:development",
-              "serverTarget": "habit:server:development"
-            }
-          },
-          "defaultConfiguration": "production"
         }
       }
     }
