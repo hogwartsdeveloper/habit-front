@@ -1,7 +1,7 @@
 import { Component, DestroyRef, inject, OnInit, signal } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { debounceTime, distinctUntilChanged, take } from 'rxjs';
+import { debounceTime, distinctUntilChanged, take, tap } from 'rxjs';
 
 import { IInput } from '../../../utils/ui/input/models/input.interface';
 import { AuthApiService } from '../services/auth-api.service';
@@ -38,7 +38,7 @@ export class PasswordChangeComponent implements OnInit {
   );
   email = signal<string>('jannuraidynuly@gmail.com');
   isPasswordCoincide = signal<boolean>(false);
-  load = signal<boolean>(false);
+  loading = signal<boolean>(true);
   token: string;
   destroyRef = inject(DestroyRef);
 
@@ -66,15 +66,19 @@ export class PasswordChangeComponent implements OnInit {
       .subscribe((values) => {
         this.isPasswordCoincide.set(values.password === values.confirmPassword);
       });
+
+    this.loading.set(false);
   }
 
   save() {
-    this.load.set(true);
+    this.loading.set(true);
     this.authApiService
       .passwordChange(this.token, this.form().get('password')?.value)
-      .pipe(take(1))
+      .pipe(
+        tap(() => this.loading.set(false)),
+        take(1)
+      )
       .subscribe(() => {
-        this.load.set(false);
         this.messageService.success('Password changed!');
         this.router.navigate(['/']);
       });
