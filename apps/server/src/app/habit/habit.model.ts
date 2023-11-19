@@ -47,7 +47,7 @@ export class Habit {
   countCompleted: number;
 
   @Prop()
-  lastActiveDate: string | null;
+  lastActiveDate: string;
 
   @Prop({ type: () => [HabitCalendar], _id: false })
   days: HabitCalendar[];
