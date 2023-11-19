@@ -2,7 +2,7 @@ import { Component, DestroyRef, inject, OnInit, signal } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ActivatedRoute } from '@angular/router';
-import { switchMap, take } from 'rxjs';
+import { switchMap, take, tap } from 'rxjs';
 import { NzMessageService } from 'ng-zorro-antd/message';
 
 import { IInput } from '../../../utils/ui/input/models/input.interface';
@@ -34,6 +34,7 @@ export class VerifyEmailComponent implements OnInit {
 
   email = signal<string>('');
   userData = sessionStorage.getItem('verifyEmail');
+  loading = signal(true);
 
   destroyRef = inject(DestroyRef);
 
@@ -60,6 +61,8 @@ export class VerifyEmailComponent implements OnInit {
           this.verifyEmail({ ...JSON.parse(this.userData!), code: +value });
         }
       });
+
+    this.loading.set(false);
   }
 
   get formCode() {
@@ -67,10 +70,12 @@ export class VerifyEmailComponent implements OnInit {
   }
 
   verifyEmail(verifyData: VerifyEmail) {
+    this.loading.set(true);
     this.authApiService
       .verifyEmail(verifyData)
       .pipe(
         switchMap((res) => this.authService.catchToken(res)),
+        tap(() => this.loading.set(false)),
         take(1)
       )
       .subscribe((res) => {
