@@ -28996,3 +28996,1069 @@
 [NX Daemon Server] - 2023-11-19T08:14:44.645Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
 [NX Daemon Server] - 2023-11-19T08:14:44.646Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
 [NX Daemon Server] - 2023-11-19T08:14:44.646Z - [REQUEST]: .nx/cache/project-graph.json~0898df75,.nx/cache/file-map.json~0898df75
+[NX Daemon Server] - 2023-11-19T08:14:44.781Z - Time taken for 'hash changed files from watcher' 127.50816702842712ms
+[NX Daemon Server] - 2023-11-19T08:14:44.821Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:14:44.838Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:14:45.075Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:14:45.075Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:14:45.076Z - [REQUEST]: .nx/cache/file-map.json~fdcdcb3e,.nx/cache/project-graph.json~fdcdcb3e
+[NX Daemon Server] - 2023-11-19T08:14:45.159Z - Time taken for 'hash changed files from watcher' 87.74475002288818ms
+[NX Daemon Server] - 2023-11-19T08:14:45.213Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:14:45.213Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:14:45.403Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:14:45.403Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:14:45.403Z - [REQUEST]: .nx/cache/project-graph.json~7a82b71f,.nx/cache/file-map.json~7a82b71f
+[NX Daemon Server] - 2023-11-19T08:14:45.506Z - Time taken for 'hash changed files from watcher' 53.902791023254395ms
+[NX Daemon Server] - 2023-11-19T08:14:45.596Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:14:45.597Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:14:45.856Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:14:45.856Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:14:45.856Z - [REQUEST]: .nx/cache/project-graph.json~e48e90c7,.nx/cache/file-map.json~e48e90c7
+[NX Daemon Server] - 2023-11-19T08:14:45.968Z - Time taken for 'hash changed files from watcher' 92.15224993228912ms
+[NX Daemon Server] - 2023-11-19T08:14:46.023Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:14:46.025Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:14:46.359Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:14:46.359Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:14:46.359Z - [REQUEST]: .nx/cache/project-graph.json~499175af,.nx/cache/file-map.json~499175af
+[NX Daemon Server] - 2023-11-19T08:14:46.632Z - Time taken for 'hash changed files from watcher' 179.22287499904633ms
+[NX Daemon Server] - 2023-11-19T08:14:46.676Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:14:46.693Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:14:46.981Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:14:46.982Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:14:46.982Z - [REQUEST]: .nx/cache/project-graph.json~a6075216,.nx/cache/file-map.json~a6075216
+[NX Daemon Server] - 2023-11-19T08:14:47.146Z - Time taken for 'hash changed files from watcher' 107.97241699695587ms
+[NX Daemon Server] - 2023-11-19T08:14:47.243Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:14:47.243Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:14:47.460Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:14:47.460Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:14:47.461Z - [REQUEST]: .nx/cache/project-graph.json~c2fe505a,.nx/cache/file-map.json~c2fe505a
+[NX Daemon Server] - 2023-11-19T08:14:47.543Z - Time taken for 'hash changed files from watcher' 70.99570798873901ms
+[NX Daemon Server] - 2023-11-19T08:14:47.600Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:14:47.603Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:14:47.822Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:14:47.822Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:14:47.822Z - [REQUEST]: .nx/cache/file-map.json~88de5bd8,.nx/cache/project-graph.json~88de5bd8
+[NX Daemon Server] - 2023-11-19T08:14:48.083Z - Time taken for 'hash changed files from watcher' 86.8199999332428ms
+[NX Daemon Server] - 2023-11-19T08:14:48.156Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:14:48.156Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:14:48.333Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:14:48.333Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:14:48.333Z - [REQUEST]: .nx/cache/project-graph.json~54c5a23d,.nx/cache/file-map.json~54c5a23d
+[NX Daemon Server] - 2023-11-19T08:14:48.411Z - Time taken for 'hash changed files from watcher' 50.50112497806549ms
+[NX Daemon Server] - 2023-11-19T08:14:48.466Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:14:48.468Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:14:48.698Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:14:48.699Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:14:48.699Z - [REQUEST]: .nx/cache/project-graph.json~046d7bb0,.nx/cache/file-map.json~046d7bb0
+[NX Daemon Server] - 2023-11-19T08:14:48.898Z - Time taken for 'hash changed files from watcher' 70.65470898151398ms
+[NX Daemon Server] - 2023-11-19T08:14:48.946Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:14:48.946Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:14:49.130Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:14:49.130Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:14:49.131Z - [REQUEST]: .nx/cache/file-map.json~6f59087f,.nx/cache/project-graph.json~6f59087f
+[NX Daemon Server] - 2023-11-19T08:14:49.204Z - Time taken for 'hash changed files from watcher' 49.83495903015137ms
+[NX Daemon Server] - 2023-11-19T08:14:49.261Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:14:49.262Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:14:49.440Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:14:49.440Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:14:49.440Z - [REQUEST]: .nx/cache/file-map.json~e1c42115,.nx/cache/project-graph.json~e1c42115
+[NX Daemon Server] - 2023-11-19T08:14:49.526Z - Time taken for 'hash changed files from watcher' 52.538209080696106ms
+[NX Daemon Server] - 2023-11-19T08:14:49.573Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:14:49.574Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:14:49.746Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:14:49.746Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:14:49.746Z - [REQUEST]: .nx/cache/project-graph.json~775833f3,.nx/cache/file-map.json~775833f3
+[NX Daemon Server] - 2023-11-19T08:14:49.826Z - Time taken for 'hash changed files from watcher' 46.705000042915344ms
+[NX Daemon Server] - 2023-11-19T08:14:49.882Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:14:49.885Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:14:50.064Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:14:50.064Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:14:50.064Z - [REQUEST]: .nx/cache/file-map.json~9b52c81b,.nx/cache/project-graph.json~9b52c81b
+[NX Daemon Server] - 2023-11-19T08:14:50.140Z - Time taken for 'hash changed files from watcher' 47.41500008106232ms
+[NX Daemon Server] - 2023-11-19T08:14:50.193Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:14:50.194Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:14:50.364Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:14:50.364Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:14:50.364Z - [REQUEST]: .nx/cache/project-graph.json~d8696a68,.nx/cache/file-map.json~d8696a68
+[NX Daemon Server] - 2023-11-19T08:14:50.415Z - Time taken for 'hash changed files from watcher' 48.768792033195496ms
+[NX Daemon Server] - 2023-11-19T08:14:50.475Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:14:50.475Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:14:50.624Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:14:50.624Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:14:50.624Z - [REQUEST]: .nx/cache/file-map.json~1f7beeb8,.nx/cache/project-graph.json~1f7beeb8
+[NX Daemon Server] - 2023-11-19T08:14:50.676Z - Time taken for 'hash changed files from watcher' 31.25712502002716ms
+[NX Daemon Server] - 2023-11-19T08:14:50.736Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:14:50.736Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:14:50.896Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:14:50.896Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:14:50.896Z - [REQUEST]: .nx/cache/project-graph.json~3f0607f0,.nx/cache/file-map.json~3f0607f0
+[NX Daemon Server] - 2023-11-19T08:14:50.964Z - Time taken for 'hash changed files from watcher' 38.2535001039505ms
+[NX Daemon Server] - 2023-11-19T08:14:51.016Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:14:51.017Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:14:51.182Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:14:51.182Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:14:51.182Z - [REQUEST]: .nx/cache/file-map.json~3650aa2c,.nx/cache/project-graph.json~3650aa2c
+[NX Daemon Server] - 2023-11-19T08:14:51.240Z - Time taken for 'hash changed files from watcher' 45.387749910354614ms
+[NX Daemon Server] - 2023-11-19T08:14:51.297Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:14:51.298Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:14:51.466Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:14:51.466Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:14:51.466Z - [REQUEST]: .nx/cache/file-map.json~bd325168,.nx/cache/project-graph.json~bd325168
+[NX Daemon Server] - 2023-11-19T08:14:51.540Z - Time taken for 'hash changed files from watcher' 43.10983407497406ms
+[NX Daemon Server] - 2023-11-19T08:14:51.596Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:14:51.597Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:14:51.755Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:14:51.755Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:14:51.755Z - [REQUEST]: .nx/cache/project-graph.json~0361e910,.nx/cache/file-map.json~0361e910
+[NX Daemon Server] - 2023-11-19T08:14:51.808Z - Time taken for 'hash changed files from watcher' 40.01887500286102ms
+[NX Daemon Server] - 2023-11-19T08:14:51.866Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:14:51.866Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:14:52.038Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:14:52.038Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:14:52.038Z - [REQUEST]: .nx/cache/project-graph.json~574e61d2,.nx/cache/file-map.json~574e61d2
+[NX Daemon Server] - 2023-11-19T08:14:52.112Z - Time taken for 'hash changed files from watcher' 47.55829095840454ms
+[NX Daemon Server] - 2023-11-19T08:14:52.169Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:14:52.169Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:14:52.338Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:14:52.338Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:14:52.338Z - [REQUEST]: .nx/cache/project-graph.json~8a540fbc,.nx/cache/file-map.json~8a540fbc
+[NX Daemon Server] - 2023-11-19T08:14:52.433Z - Time taken for 'hash changed files from watcher' 42.75466597080231ms
+[NX Daemon Server] - 2023-11-19T08:14:52.479Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:14:52.479Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:14:52.669Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:14:52.669Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:14:52.669Z - [REQUEST]: .nx/cache/file-map.json~92d49a9f,.nx/cache/project-graph.json~92d49a9f
+[NX Daemon Server] - 2023-11-19T08:14:52.756Z - Time taken for 'hash changed files from watcher' 52.13737499713898ms
+[NX Daemon Server] - 2023-11-19T08:14:52.811Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:14:52.813Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:14:53.020Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:14:53.021Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:14:53.021Z - [REQUEST]: .nx/cache/file-map.json~71cbecd2,.nx/cache/project-graph.json~71cbecd2
+[NX Daemon Server] - 2023-11-19T08:14:53.131Z - Time taken for 'hash changed files from watcher' 65.04933393001556ms
+[NX Daemon Server] - 2023-11-19T08:14:53.196Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:14:53.198Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:14:53.517Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:14:53.518Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:14:53.518Z - [REQUEST]: .nx/cache/project-graph.json~fbf2e231,.nx/cache/file-map.json~fbf2e231
+[NX Daemon Server] - 2023-11-19T08:14:53.635Z - Time taken for 'hash changed files from watcher' 168.6227079629898ms
+[NX Daemon Server] - 2023-11-19T08:14:53.692Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:14:53.693Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:14:53.903Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:14:53.904Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:14:53.904Z - [REQUEST]: .nx/cache/file-map.json~5633f7b8,.nx/cache/project-graph.json~5633f7b8
+[NX Daemon Server] - 2023-11-19T08:14:53.990Z - Time taken for 'hash changed files from watcher' 67.03487503528595ms
+[NX Daemon Server] - 2023-11-19T08:14:54.044Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:14:54.045Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:14:54.262Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:14:54.262Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:14:54.262Z - [REQUEST]: .nx/cache/file-map.json~3f5ffb25,.nx/cache/project-graph.json~3f5ffb25
+[NX Daemon Server] - 2023-11-19T08:14:54.359Z - Time taken for 'hash changed files from watcher' 84.07766699790955ms
+[NX Daemon Server] - 2023-11-19T08:14:54.425Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:14:54.426Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:14:54.629Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:14:54.629Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:14:54.629Z - [REQUEST]: .nx/cache/project-graph.json~455d4a58,.nx/cache/file-map.json~455d4a58
+[NX Daemon Server] - 2023-11-19T08:14:54.733Z - Time taken for 'hash changed files from watcher' 68.74412500858307ms
+[NX Daemon Server] - 2023-11-19T08:14:54.777Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:14:54.777Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:14:54.951Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:14:54.952Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:14:54.952Z - [REQUEST]: .nx/cache/file-map.json~52523450,.nx/cache/project-graph.json~52523450
+[NX Daemon Server] - 2023-11-19T08:14:55.032Z - Time taken for 'hash changed files from watcher' 48.99775004386902ms
+[NX Daemon Server] - 2023-11-19T08:14:55.088Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:14:55.088Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:14:55.245Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:14:55.245Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:14:55.245Z - [REQUEST]: .nx/cache/project-graph.json~9b6a1f17,.nx/cache/file-map.json~9b6a1f17
+[NX Daemon Server] - 2023-11-19T08:14:55.299Z - Time taken for 'hash changed files from watcher' 37.00950002670288ms
+[NX Daemon Server] - 2023-11-19T08:14:55.356Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:14:55.358Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:14:55.545Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:14:55.545Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:14:55.546Z - [REQUEST]: .nx/cache/file-map.json~8ac74615,.nx/cache/project-graph.json~8ac74615
+[NX Daemon Server] - 2023-11-19T08:14:55.629Z - Time taken for 'hash changed files from watcher' 59.23683297634125ms
+[NX Daemon Server] - 2023-11-19T08:14:55.680Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:14:55.682Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:14:55.859Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:14:55.859Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:14:55.859Z - [REQUEST]: .nx/cache/file-map.json~34ff1e4a,.nx/cache/project-graph.json~34ff1e4a
+[NX Daemon Server] - 2023-11-19T08:14:55.938Z - Time taken for 'hash changed files from watcher' 49.65350008010864ms
+[NX Daemon Server] - 2023-11-19T08:14:55.994Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:14:55.996Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:14:56.163Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:14:56.163Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:14:56.163Z - [REQUEST]: .nx/cache/file-map.json~24db3d35,.nx/cache/project-graph.json~24db3d35
+[NX Daemon Server] - 2023-11-19T08:14:56.223Z - Time taken for 'hash changed files from watcher' 46.12399995326996ms
+[NX Daemon Server] - 2023-11-19T08:14:56.280Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:14:56.281Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:14:56.448Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:14:56.448Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:14:56.448Z - [REQUEST]: .nx/cache/project-graph.json~1ad06015,.nx/cache/file-map.json~1ad06015
+[NX Daemon Server] - 2023-11-19T08:14:56.527Z - Time taken for 'hash changed files from watcher' 46.173291087150574ms
+[NX Daemon Server] - 2023-11-19T08:14:56.580Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:14:56.580Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:14:56.746Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:14:56.747Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:14:56.747Z - [REQUEST]: .nx/cache/project-graph.json~cca537e5,.nx/cache/file-map.json~cca537e5
+[NX Daemon Server] - 2023-11-19T08:14:56.803Z - Time taken for 'hash changed files from watcher' 48.691792011260986ms
+[NX Daemon Server] - 2023-11-19T08:14:56.862Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:14:56.862Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:14:57.027Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:14:57.027Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:14:57.028Z - [REQUEST]: .nx/cache/project-graph.json~af2fdaf2,.nx/cache/file-map.json~af2fdaf2
+[NX Daemon Server] - 2023-11-19T08:14:57.089Z - Time taken for 'hash changed files from watcher' 44.13716697692871ms
+[NX Daemon Server] - 2023-11-19T08:14:57.148Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:14:57.148Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:14:57.388Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:14:57.389Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:14:57.389Z - [REQUEST]: .nx/cache/project-graph.json~7f7a8a39,.nx/cache/file-map.json~7f7a8a39
+[NX Daemon Server] - 2023-11-19T08:14:57.500Z - Time taken for 'hash changed files from watcher' 109.83491599559784ms
+[NX Daemon Server] - 2023-11-19T08:14:57.556Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:14:57.556Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:14:57.726Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:14:57.726Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:14:57.727Z - [REQUEST]: .nx/cache/project-graph.json~abba26f7,.nx/cache/file-map.json~abba26f7
+[NX Daemon Server] - 2023-11-19T08:14:57.785Z - Time taken for 'hash changed files from watcher' 44.04174995422363ms
+[NX Daemon Server] - 2023-11-19T08:14:57.846Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:14:57.846Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:14:58.019Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:14:58.019Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:14:58.019Z - [REQUEST]: .nx/cache/file-map.json~0b3d2bbf,.nx/cache/project-graph.json~0b3d2bbf
+[NX Daemon Server] - 2023-11-19T08:14:58.106Z - Time taken for 'hash changed files from watcher' 45.30050003528595ms
+[NX Daemon Server] - 2023-11-19T08:14:58.162Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:14:58.162Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:14:58.405Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:14:58.405Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:14:58.405Z - [REQUEST]: .nx/cache/file-map.json~2e1f491d,.nx/cache/project-graph.json~2e1f491d
+[NX Daemon Server] - 2023-11-19T08:14:58.501Z - Time taken for 'hash changed files from watcher' 102.98866701126099ms
+[NX Daemon Server] - 2023-11-19T08:14:58.559Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:14:58.559Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:14:58.804Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:14:58.804Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:14:58.804Z - [REQUEST]: .nx/cache/file-map.json~31d2ae29,.nx/cache/project-graph.json~31d2ae29
+[NX Daemon Server] - 2023-11-19T08:14:58.927Z - Time taken for 'hash changed files from watcher' 82.93008291721344ms
+[NX Daemon Server] - 2023-11-19T08:14:58.979Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:14:58.980Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:14:59.213Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:14:59.214Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:14:59.214Z - [REQUEST]: .nx/cache/project-graph.json~5aa1808a,.nx/cache/file-map.json~5aa1808a
+[NX Daemon Server] - 2023-11-19T08:14:59.309Z - Time taken for 'hash changed files from watcher' 94.27920794487ms
+[NX Daemon Server] - 2023-11-19T08:14:59.365Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:14:59.366Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:14:59.552Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:14:59.553Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:14:59.553Z - [REQUEST]: .nx/cache/file-map.json~44cf9e5f,.nx/cache/project-graph.json~44cf9e5f
+[NX Daemon Server] - 2023-11-19T08:14:59.632Z - Time taken for 'hash changed files from watcher' 57.866541028022766ms
+[NX Daemon Server] - 2023-11-19T08:14:59.695Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:14:59.696Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:14:59.888Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:14:59.888Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:14:59.888Z - [REQUEST]: .nx/cache/file-map.json~f2fa73d9,.nx/cache/project-graph.json~f2fa73d9
+[NX Daemon Server] - 2023-11-19T08:15:00.025Z - Time taken for 'hash changed files from watcher' 61.775750041007996ms
+[NX Daemon Server] - 2023-11-19T08:15:00.066Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:00.067Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:00.268Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:00.268Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:15:00.268Z - [REQUEST]: .nx/cache/project-graph.json~61d6b7af,.nx/cache/file-map.json~61d6b7af
+[NX Daemon Server] - 2023-11-19T08:15:00.353Z - Time taken for 'hash changed files from watcher' 72.18174993991852ms
+[NX Daemon Server] - 2023-11-19T08:15:00.406Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:00.408Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:00.595Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:00.596Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:15:00.596Z - [REQUEST]: .nx/cache/file-map.json~9cacc61f,.nx/cache/project-graph.json~9cacc61f
+[NX Daemon Server] - 2023-11-19T08:15:00.679Z - Time taken for 'hash changed files from watcher' 55.04883301258087ms
+[NX Daemon Server] - 2023-11-19T08:15:00.736Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:00.736Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:00.912Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:00.912Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:15:00.912Z - [REQUEST]: .nx/cache/project-graph.json~20ae97bb,.nx/cache/file-map.json~20ae97bb
+[NX Daemon Server] - 2023-11-19T08:15:01.009Z - Time taken for 'hash changed files from watcher' 49.39304196834564ms
+[NX Daemon Server] - 2023-11-19T08:15:01.059Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:01.059Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:01.235Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:01.235Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:01.235Z - [REQUEST]: .nx/cache/file-map.json~1a8fe54d,.nx/cache/project-graph.json~1a8fe54d
+[NX Daemon Server] - 2023-11-19T08:15:01.301Z - Time taken for 'hash changed files from watcher' 48.35629200935364ms
+[NX Daemon Server] - 2023-11-19T08:15:01.369Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:01.370Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:01.558Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:01.559Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:15:01.559Z - [REQUEST]: .nx/cache/file-map.json~b2909911,.nx/cache/project-graph.json~b2909911
+[NX Daemon Server] - 2023-11-19T08:15:01.631Z - Time taken for 'hash changed files from watcher' 59.93124997615814ms
+[NX Daemon Server] - 2023-11-19T08:15:01.688Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:01.689Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:01.851Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:01.851Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:01.851Z - [REQUEST]: .nx/cache/file-map.json~e704b89e,.nx/cache/project-graph.json~e704b89e
+[NX Daemon Server] - 2023-11-19T08:15:01.918Z - Time taken for 'hash changed files from watcher' 39.98087501525879ms
+[NX Daemon Server] - 2023-11-19T08:15:01.978Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:01.978Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:02.156Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:02.156Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:15:02.156Z - [REQUEST]: .nx/cache/file-map.json~f869e55b,.nx/cache/project-graph.json~f869e55b
+[NX Daemon Server] - 2023-11-19T08:15:02.231Z - Time taken for 'hash changed files from watcher' 51.558417081832886ms
+[NX Daemon Server] - 2023-11-19T08:15:02.289Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:02.290Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:02.463Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:02.463Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:15:02.463Z - [REQUEST]: .nx/cache/file-map.json~a093037f,.nx/cache/project-graph.json~a093037f
+[NX Daemon Server] - 2023-11-19T08:15:02.536Z - Time taken for 'hash changed files from watcher' 42.03791606426239ms
+[NX Daemon Server] - 2023-11-19T08:15:02.593Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:02.593Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:02.738Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:02.738Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:15:02.738Z - [REQUEST]: .nx/cache/project-graph.json~f582c95a,.nx/cache/file-map.json~f582c95a
+[NX Daemon Server] - 2023-11-19T08:15:02.776Z - Time taken for 'hash changed files from watcher' 31.909124970436096ms
+[NX Daemon Server] - 2023-11-19T08:15:02.835Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:02.835Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:02.973Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:02.973Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:02.973Z - [REQUEST]: .nx/cache/project-graph.json~97e1cf85,.nx/cache/file-map.json~97e1cf85
+[NX Daemon Server] - 2023-11-19T08:15:03.010Z - Time taken for 'hash changed files from watcher' 23.87399995326996ms
+[NX Daemon Server] - 2023-11-19T08:15:03.071Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:03.071Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:03.212Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:03.213Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:15:03.213Z - [REQUEST]: .nx/cache/project-graph.json~0e9850d9,.nx/cache/file-map.json~0e9850d9
+[NX Daemon Server] - 2023-11-19T08:15:03.263Z - Time taken for 'hash changed files from watcher' 26.76199996471405ms
+[NX Daemon Server] - 2023-11-19T08:15:03.318Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:03.318Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:03.473Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:03.473Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:03.473Z - [REQUEST]: .nx/cache/project-graph.json~0d982929,.nx/cache/file-map.json~0d982929
+[NX Daemon Server] - 2023-11-19T08:15:03.532Z - Time taken for 'hash changed files from watcher' 34.07395899295807ms
+[NX Daemon Server] - 2023-11-19T08:15:03.589Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:03.590Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:03.742Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:03.742Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:03.742Z - [REQUEST]: .nx/cache/file-map.json~29c53c55,.nx/cache/project-graph.json~29c53c55
+[NX Daemon Server] - 2023-11-19T08:15:03.797Z - Time taken for 'hash changed files from watcher' 34.68608295917511ms
+[NX Daemon Server] - 2023-11-19T08:15:03.850Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:03.850Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:03.994Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:03.994Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:03.994Z - [REQUEST]: .nx/cache/file-map.json~2c140810,.nx/cache/project-graph.json~2c140810
+[NX Daemon Server] - 2023-11-19T08:15:04.039Z - Time taken for 'hash changed files from watcher' 28.370792031288147ms
+[NX Daemon Server] - 2023-11-19T08:15:04.098Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:04.099Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:04.242Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:04.242Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:04.242Z - [REQUEST]: .nx/cache/file-map.json~b025956b,.nx/cache/project-graph.json~b025956b
+[NX Daemon Server] - 2023-11-19T08:15:04.292Z - Time taken for 'hash changed files from watcher' 27.803125023841858ms
+[NX Daemon Server] - 2023-11-19T08:15:04.351Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:04.352Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:04.512Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:04.512Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:15:04.513Z - [REQUEST]: .nx/cache/project-graph.json~dc92de81,.nx/cache/file-map.json~dc92de81
+[NX Daemon Server] - 2023-11-19T08:15:04.568Z - Time taken for 'hash changed files from watcher' 41.967458963394165ms
+[NX Daemon Server] - 2023-11-19T08:15:04.626Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:04.629Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:04.778Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:04.778Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:04.778Z - [REQUEST]: .nx/cache/file-map.json~80c5a9d8,.nx/cache/project-graph.json~80c5a9d8
+[NX Daemon Server] - 2023-11-19T08:15:04.830Z - Time taken for 'hash changed files from watcher' 31.05162501335144ms
+[NX Daemon Server] - 2023-11-19T08:15:04.889Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:04.889Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:05.041Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:05.041Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:05.041Z - [REQUEST]: .nx/cache/project-graph.json~e70ea176,.nx/cache/file-map.json~e70ea176
+[NX Daemon Server] - 2023-11-19T08:15:05.084Z - Time taken for 'hash changed files from watcher' 35.36416697502136ms
+[NX Daemon Server] - 2023-11-19T08:15:05.144Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:05.144Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:05.294Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:05.294Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:05.294Z - [REQUEST]: .nx/cache/file-map.json~b5839fa4,.nx/cache/project-graph.json~b5839fa4
+[NX Daemon Server] - 2023-11-19T08:15:05.344Z - Time taken for 'hash changed files from watcher' 32.6102499961853ms
+[NX Daemon Server] - 2023-11-19T08:15:05.401Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:05.402Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:05.543Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:05.543Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:15:05.543Z - [REQUEST]: .nx/cache/project-graph.json~341ad6cd,.nx/cache/file-map.json~341ad6cd
+[NX Daemon Server] - 2023-11-19T08:15:05.588Z - Time taken for 'hash changed files from watcher' 26.71679198741913ms
+[NX Daemon Server] - 2023-11-19T08:15:05.651Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:05.652Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:05.811Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:05.812Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:05.812Z - [REQUEST]: .nx/cache/file-map.json~efff5cdc,.nx/cache/project-graph.json~efff5cdc
+[NX Daemon Server] - 2023-11-19T08:15:05.881Z - Time taken for 'hash changed files from watcher' 39.174708008766174ms
+[NX Daemon Server] - 2023-11-19T08:15:05.938Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:05.938Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:06.119Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:06.119Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:06.119Z - [REQUEST]: .nx/cache/project-graph.json~e7b7ee78,.nx/cache/file-map.json~e7b7ee78
+[NX Daemon Server] - 2023-11-19T08:15:06.228Z - Time taken for 'hash changed files from watcher' 51.297500014305115ms
+[NX Daemon Server] - 2023-11-19T08:15:06.273Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:06.274Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:06.466Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:06.467Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:15:06.467Z - [REQUEST]: .nx/cache/file-map.json~e2b3b9d5,.nx/cache/project-graph.json~e2b3b9d5
+[NX Daemon Server] - 2023-11-19T08:15:06.557Z - Time taken for 'hash changed files from watcher' 61.18679106235504ms
+[NX Daemon Server] - 2023-11-19T08:15:06.611Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:06.612Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:06.791Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:06.791Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:15:06.791Z - [REQUEST]: .nx/cache/file-map.json~8f0da114,.nx/cache/project-graph.json~8f0da114
+[NX Daemon Server] - 2023-11-19T08:15:06.880Z - Time taken for 'hash changed files from watcher' 50.80566596984863ms
+[NX Daemon Server] - 2023-11-19T08:15:06.931Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:06.933Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:07.101Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:07.102Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:15:07.102Z - [REQUEST]: .nx/cache/project-graph.json~73a02e3c,.nx/cache/file-map.json~73a02e3c
+[NX Daemon Server] - 2023-11-19T08:15:07.180Z - Time taken for 'hash changed files from watcher' 42.60079097747803ms
+[NX Daemon Server] - 2023-11-19T08:15:07.236Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:07.237Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:07.443Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:07.443Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:07.443Z - [REQUEST]: .nx/cache/project-graph.json~e8fed828,.nx/cache/file-map.json~e8fed828
+[NX Daemon Server] - 2023-11-19T08:15:07.558Z - Time taken for 'hash changed files from watcher' 70.55058300495148ms
+[NX Daemon Server] - 2023-11-19T08:15:07.602Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:07.616Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:07.799Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:07.799Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:07.799Z - [REQUEST]: .nx/cache/file-map.json~43e629b1,.nx/cache/project-graph.json~43e629b1
+[NX Daemon Server] - 2023-11-19T08:15:07.876Z - Time taken for 'hash changed files from watcher' 67.32845902442932ms
+[NX Daemon Server] - 2023-11-19T08:15:07.933Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:07.933Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:08.121Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:08.121Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:15:08.121Z - [REQUEST]: .nx/cache/project-graph.json~20261b16,.nx/cache/file-map.json~20261b16
+[NX Daemon Server] - 2023-11-19T08:15:08.223Z - Time taken for 'hash changed files from watcher' 60.0630829334259ms
+[NX Daemon Server] - 2023-11-19T08:15:08.265Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:08.266Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:08.445Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:08.445Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:15:08.445Z - [REQUEST]: .nx/cache/file-map.json~046efecf,.nx/cache/project-graph.json~046efecf
+[NX Daemon Server] - 2023-11-19T08:15:08.520Z - Time taken for 'hash changed files from watcher' 50.6654589176178ms
+[NX Daemon Server] - 2023-11-19T08:15:08.578Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:08.578Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:08.726Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:08.726Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:08.726Z - [REQUEST]: .nx/cache/project-graph.json~f729d5a6,.nx/cache/file-map.json~f729d5a6
+[NX Daemon Server] - 2023-11-19T08:15:08.780Z - Time taken for 'hash changed files from watcher' 31.790416955947876ms
+[NX Daemon Server] - 2023-11-19T08:15:08.840Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:08.840Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:08.988Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:08.989Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:08.989Z - [REQUEST]: .nx/cache/project-graph.json~c02e8a66,.nx/cache/file-map.json~c02e8a66
+[NX Daemon Server] - 2023-11-19T08:15:09.037Z - Time taken for 'hash changed files from watcher' 31.562584042549133ms
+[NX Daemon Server] - 2023-11-19T08:15:09.099Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:09.099Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:09.314Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:09.314Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:09.314Z - [REQUEST]: .nx/cache/file-map.json~ba6d731a,.nx/cache/project-graph.json~ba6d731a
+[NX Daemon Server] - 2023-11-19T08:15:09.397Z - Time taken for 'hash changed files from watcher' 75.7369589805603ms
+[NX Daemon Server] - 2023-11-19T08:15:09.443Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:09.443Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:09.629Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:09.629Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:15:09.629Z - [REQUEST]: .nx/cache/project-graph.json~e1a71937,.nx/cache/file-map.json~e1a71937
+[NX Daemon Server] - 2023-11-19T08:15:09.695Z - Time taken for 'hash changed files from watcher' 58.4242080450058ms
+[NX Daemon Server] - 2023-11-19T08:15:09.750Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:09.751Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:09.899Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:09.899Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:15:09.899Z - [REQUEST]: .nx/cache/file-map.json~2c8df2ee,.nx/cache/project-graph.json~2c8df2ee
+[NX Daemon Server] - 2023-11-19T08:15:09.941Z - Time taken for 'hash changed files from watcher' 30.140583038330078ms
+[NX Daemon Server] - 2023-11-19T08:15:10.001Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:10.002Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:10.146Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:10.146Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:10.146Z - [REQUEST]: .nx/cache/project-graph.json~8905ca88,.nx/cache/file-map.json~8905ca88
+[NX Daemon Server] - 2023-11-19T08:15:10.194Z - Time taken for 'hash changed files from watcher' 28.424582958221436ms
+[NX Daemon Server] - 2023-11-19T08:15:10.251Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:10.251Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:10.395Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:10.395Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:15:10.395Z - [REQUEST]: .nx/cache/project-graph.json~31370129,.nx/cache/file-map.json~31370129
+[NX Daemon Server] - 2023-11-19T08:15:10.441Z - Time taken for 'hash changed files from watcher' 27.27066707611084ms
+[NX Daemon Server] - 2023-11-19T08:15:10.499Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:10.500Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:10.641Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:10.641Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:15:10.641Z - [REQUEST]: .nx/cache/project-graph.json~c72d76fe,.nx/cache/file-map.json~c72d76fe
+[NX Daemon Server] - 2023-11-19T08:15:10.682Z - Time taken for 'hash changed files from watcher' 26.102707982063293ms
+[NX Daemon Server] - 2023-11-19T08:15:10.742Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:10.743Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:10.893Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:10.893Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:10.893Z - [REQUEST]: .nx/cache/file-map.json~ec591234,.nx/cache/project-graph.json~ec591234
+[NX Daemon Server] - 2023-11-19T08:15:10.950Z - Time taken for 'hash changed files from watcher' 30.41670799255371ms
+[NX Daemon Server] - 2023-11-19T08:15:11.010Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:11.010Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:11.178Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:11.178Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:11.178Z - [REQUEST]: .nx/cache/file-map.json~159dbe7d,.nx/cache/project-graph.json~159dbe7d
+[NX Daemon Server] - 2023-11-19T08:15:11.234Z - Time taken for 'hash changed files from watcher' 46.07854104042053ms
+[NX Daemon Server] - 2023-11-19T08:15:11.295Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:11.295Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:11.433Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:11.433Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:15:11.433Z - [REQUEST]: .nx/cache/project-graph.json~76c09d1e,.nx/cache/file-map.json~76c09d1e
+[NX Daemon Server] - 2023-11-19T08:15:11.473Z - Time taken for 'hash changed files from watcher' 23.187999963760376ms
+[NX Daemon Server] - 2023-11-19T08:15:11.533Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:11.533Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:11.682Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:11.682Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:11.682Z - [REQUEST]: .nx/cache/project-graph.json~858eb7cd,.nx/cache/file-map.json~858eb7cd
+[NX Daemon Server] - 2023-11-19T08:15:11.732Z - Time taken for 'hash changed files from watcher' 30.772374987602234ms
+[NX Daemon Server] - 2023-11-19T08:15:11.792Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:11.792Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:11.965Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:11.966Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:11.966Z - [REQUEST]: .nx/cache/file-map.json~cf57b878,.nx/cache/project-graph.json~cf57b878
+[NX Daemon Server] - 2023-11-19T08:15:12.057Z - Time taken for 'hash changed files from watcher' 46.55924999713898ms
+[NX Daemon Server] - 2023-11-19T08:15:12.113Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:12.114Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:12.289Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:12.289Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:12.289Z - [REQUEST]: .nx/cache/project-graph.json~faf96960,.nx/cache/file-map.json~faf96960
+[NX Daemon Server] - 2023-11-19T08:15:12.345Z - Time taken for 'hash changed files from watcher' 50.25ms
+[NX Daemon Server] - 2023-11-19T08:15:12.405Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:12.407Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:12.560Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:12.560Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:12.560Z - [REQUEST]: .nx/cache/project-graph.json~3dc1b210,.nx/cache/file-map.json~3dc1b210
+[NX Daemon Server] - 2023-11-19T08:15:12.636Z - Time taken for 'hash changed files from watcher' 31.62362504005432ms
+[NX Daemon Server] - 2023-11-19T08:15:12.693Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:12.693Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:12.885Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:12.886Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:12.886Z - [REQUEST]: .nx/cache/file-map.json~d4500c26,.nx/cache/project-graph.json~d4500c26
+[NX Daemon Server] - 2023-11-19T08:15:13.027Z - Time taken for 'hash changed files from watcher' 62.31941604614258ms
+[NX Daemon Server] - 2023-11-19T08:15:13.072Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:13.072Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:13.256Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:13.256Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:13.256Z - [REQUEST]: .nx/cache/project-graph.json~a3d6b494,.nx/cache/file-map.json~a3d6b494
+[NX Daemon Server] - 2023-11-19T08:15:13.337Z - Time taken for 'hash changed files from watcher' 55.07379198074341ms
+[NX Daemon Server] - 2023-11-19T08:15:13.393Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:13.393Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:13.557Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:13.557Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:15:13.558Z - [REQUEST]: .nx/cache/file-map.json~e240892b,.nx/cache/project-graph.json~e240892b
+[NX Daemon Server] - 2023-11-19T08:15:13.617Z - Time taken for 'hash changed files from watcher' 41.31145799160004ms
+[NX Daemon Server] - 2023-11-19T08:15:13.679Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:13.679Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:13.907Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:13.907Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:13.907Z - [REQUEST]: .nx/cache/file-map.json~f066ab63,.nx/cache/project-graph.json~f066ab63
+[NX Daemon Server] - 2023-11-19T08:15:14.028Z - Time taken for 'hash changed files from watcher' 91.20058298110962ms
+[NX Daemon Server] - 2023-11-19T08:15:14.080Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:14.080Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:14.307Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:14.307Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:14.307Z - [REQUEST]: .nx/cache/project-graph.json~d509db8e,.nx/cache/file-map.json~d509db8e
+[NX Daemon Server] - 2023-11-19T08:15:14.402Z - Time taken for 'hash changed files from watcher' 88.94504201412201ms
+[NX Daemon Server] - 2023-11-19T08:15:14.472Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:14.472Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:14.687Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:14.687Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:15:14.687Z - [REQUEST]: .nx/cache/project-graph.json~725e2a0f,.nx/cache/file-map.json~725e2a0f
+[NX Daemon Server] - 2023-11-19T08:15:14.763Z - Time taken for 'hash changed files from watcher' 93.1174590587616ms
+[NX Daemon Server] - 2023-11-19T08:15:14.836Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:14.836Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:15.038Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:15.039Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:15.039Z - [REQUEST]: .nx/cache/project-graph.json~000b9d6a,.nx/cache/file-map.json~000b9d6a
+[NX Daemon Server] - 2023-11-19T08:15:15.133Z - Time taken for 'hash changed files from watcher' 66.49587500095367ms
+[NX Daemon Server] - 2023-11-19T08:15:15.181Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:15.184Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:15.369Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:15.370Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:15:15.370Z - [REQUEST]: .nx/cache/file-map.json~22bab6a1,.nx/cache/project-graph.json~22bab6a1
+[NX Daemon Server] - 2023-11-19T08:15:15.452Z - Time taken for 'hash changed files from watcher' 55.6244580745697ms
+[NX Daemon Server] - 2023-11-19T08:15:15.512Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:15.514Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:15.691Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:15.691Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:15:15.691Z - [REQUEST]: .nx/cache/file-map.json~19cad276,.nx/cache/project-graph.json~19cad276
+[NX Daemon Server] - 2023-11-19T08:15:15.770Z - Time taken for 'hash changed files from watcher' 49.82754194736481ms
+[NX Daemon Server] - 2023-11-19T08:15:15.829Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:15.835Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:16.001Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:16.001Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:15:16.001Z - [REQUEST]: .nx/cache/project-graph.json~85f8297d,.nx/cache/file-map.json~85f8297d
+[NX Daemon Server] - 2023-11-19T08:15:16.068Z - Time taken for 'hash changed files from watcher' 43.57099997997284ms
+[NX Daemon Server] - 2023-11-19T08:15:16.126Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:16.127Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:16.285Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:16.286Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:16.286Z - [REQUEST]: .nx/cache/file-map.json~969b8415,.nx/cache/project-graph.json~969b8415
+[NX Daemon Server] - 2023-11-19T08:15:16.352Z - Time taken for 'hash changed files from watcher' 36.88183403015137ms
+[NX Daemon Server] - 2023-11-19T08:15:16.409Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:16.409Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:16.573Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:16.573Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:15:16.573Z - [REQUEST]: .nx/cache/project-graph.json~33954a41,.nx/cache/file-map.json~33954a41
+[NX Daemon Server] - 2023-11-19T08:15:16.670Z - Time taken for 'hash changed files from watcher' 37.79212498664856ms
+[NX Daemon Server] - 2023-11-19T08:15:16.737Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:16.739Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:16.927Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:16.927Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:15:16.927Z - [REQUEST]: .nx/cache/project-graph.json~41af5dc9,.nx/cache/file-map.json~41af5dc9
+[NX Daemon Server] - 2023-11-19T08:15:17.012Z - Time taken for 'hash changed files from watcher' 56.468124985694885ms
+[NX Daemon Server] - 2023-11-19T08:15:17.066Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:17.068Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:17.233Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:17.233Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:17.233Z - [REQUEST]: .nx/cache/file-map.json~83d84be3,.nx/cache/project-graph.json~83d84be3
+[NX Daemon Server] - 2023-11-19T08:15:17.294Z - Time taken for 'hash changed files from watcher' 40.995458006858826ms
+[NX Daemon Server] - 2023-11-19T08:15:17.352Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:17.353Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:17.532Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:17.533Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:17.533Z - [REQUEST]: .nx/cache/file-map.json~e5d6964f,.nx/cache/project-graph.json~e5d6964f
+[NX Daemon Server] - 2023-11-19T08:15:17.608Z - Time taken for 'hash changed files from watcher' 51.839332938194275ms
+[NX Daemon Server] - 2023-11-19T08:15:17.664Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:17.665Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:17.877Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:17.877Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:17.877Z - [REQUEST]: .nx/cache/file-map.json~174b1ce2,.nx/cache/project-graph.json~174b1ce2
+[NX Daemon Server] - 2023-11-19T08:15:17.953Z - Time taken for 'hash changed files from watcher' 75.53645896911621ms
+[NX Daemon Server] - 2023-11-19T08:15:18.010Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:18.011Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:18.189Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:18.190Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:18.190Z - [REQUEST]: .nx/cache/project-graph.json~94e53acc,.nx/cache/file-map.json~94e53acc
+[NX Daemon Server] - 2023-11-19T08:15:18.265Z - Time taken for 'hash changed files from watcher' 51.47849988937378ms
+[NX Daemon Server] - 2023-11-19T08:15:18.320Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:18.322Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:18.559Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:18.559Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:18.559Z - [REQUEST]: .nx/cache/project-graph.json~e24d8cc3,.nx/cache/file-map.json~e24d8cc3
+[NX Daemon Server] - 2023-11-19T08:15:18.646Z - Time taken for 'hash changed files from watcher' 90.55433309078217ms
+[NX Daemon Server] - 2023-11-19T08:15:18.711Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:18.711Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:18.915Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:18.915Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:15:18.916Z - [REQUEST]: .nx/cache/file-map.json~6dc50636,.nx/cache/project-graph.json~6dc50636
+[NX Daemon Server] - 2023-11-19T08:15:19.013Z - [WATCHER]: .nx/cache/terminalOutputs/2901903112431565051 was modified
+[NX Daemon Server] - 2023-11-19T08:15:19.013Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:19.015Z - Time taken for 'hash changed files from watcher' 63.76279091835022ms
+[NX Daemon Server] - 2023-11-19T08:15:19.021Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2023-11-19T08:15:19.021Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2023-11-19T08:15:19.063Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:19.064Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:19.282Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:19.282Z - [REQUEST]: .nx/cache/terminalOutputs/2901903112431565051,.nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:15:19.282Z - [REQUEST]: .nx/cache/project-graph.json~1dc58724,.nx/cache/file-map.json~1dc58724
+[NX Daemon Server] - 2023-11-19T08:15:19.360Z - Time taken for 'hash changed files from watcher' 43.63041698932648ms
+[NX Daemon Server] - 2023-11-19T08:15:19.418Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:19.418Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:19.611Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:19.611Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:19.611Z - [REQUEST]: .nx/cache/project-graph.json~88a68df1,.nx/cache/file-map.json~88a68df1
+[NX Daemon Server] - 2023-11-19T08:15:19.695Z - Time taken for 'hash changed files from watcher' 62.746874928474426ms
+[NX Daemon Server] - 2023-11-19T08:15:19.748Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:19.749Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:20.070Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:20.070Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:15:20.070Z - [REQUEST]: .nx/cache/project-graph.json~d7ef7e85,.nx/cache/file-map.json~d7ef7e85
+[NX Daemon Server] - 2023-11-19T08:15:20.164Z - Time taken for 'hash changed files from watcher' 183.95179200172424ms
+[NX Daemon Server] - 2023-11-19T08:15:20.221Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:20.221Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:20.468Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:20.468Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:15:20.468Z - [REQUEST]: .nx/cache/file-map.json~7e3c0042,.nx/cache/project-graph.json~7e3c0042
+[NX Daemon Server] - 2023-11-19T08:15:20.711Z - Time taken for 'hash changed files from watcher' 96.81841695308685ms
+[NX Daemon Server] - 2023-11-19T08:15:20.794Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:20.803Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:20.978Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:20.978Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:15:20.979Z - [REQUEST]: .nx/cache/project-graph.json~ba444427,.nx/cache/file-map.json~ba444427
+[NX Daemon Server] - 2023-11-19T08:15:21.082Z - Time taken for 'hash changed files from watcher' 47.17654204368591ms
+[NX Daemon Server] - 2023-11-19T08:15:21.135Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:21.142Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:21.313Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:21.313Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:21.313Z - [REQUEST]: .nx/cache/project-graph.json~0df60193,.nx/cache/file-map.json~0df60193
+[NX Daemon Server] - 2023-11-19T08:15:21.367Z - Time taken for 'hash changed files from watcher' 51.104166984558105ms
+[NX Daemon Server] - 2023-11-19T08:15:21.424Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:21.426Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:21.578Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:21.578Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:21.578Z - [REQUEST]: .nx/cache/file-map.json~a8e94c3e,.nx/cache/project-graph.json~a8e94c3e
+[NX Daemon Server] - 2023-11-19T08:15:21.628Z - Time taken for 'hash changed files from watcher' 31.423083066940308ms
+[NX Daemon Server] - 2023-11-19T08:15:21.687Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:21.687Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:21.855Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:21.855Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:21.855Z - [REQUEST]: .nx/cache/project-graph.json~3b4a813c,.nx/cache/file-map.json~3b4a813c
+[NX Daemon Server] - 2023-11-19T08:15:21.933Z - Time taken for 'hash changed files from watcher' 42.736124992370605ms
+[NX Daemon Server] - 2023-11-19T08:15:21.990Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:21.990Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:22.144Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:22.144Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:22.144Z - [REQUEST]: .nx/cache/project-graph.json~7d642fdd,.nx/cache/file-map.json~7d642fdd
+[NX Daemon Server] - 2023-11-19T08:15:22.195Z - Time taken for 'hash changed files from watcher' 34.628833055496216ms
+[NX Daemon Server] - 2023-11-19T08:15:22.254Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:22.254Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:22.393Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:22.393Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:15:22.393Z - [REQUEST]: .nx/cache/file-map.json~f2020768,.nx/cache/project-graph.json~f2020768
+[NX Daemon Server] - 2023-11-19T08:15:22.432Z - Time taken for 'hash changed files from watcher' 24.50979197025299ms
+[NX Daemon Server] - 2023-11-19T08:15:22.491Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:22.492Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:22.632Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:22.632Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:15:22.632Z - [REQUEST]: .nx/cache/file-map.json~e808c0ce,.nx/cache/project-graph.json~e808c0ce
+[NX Daemon Server] - 2023-11-19T08:15:22.678Z - Time taken for 'hash changed files from watcher' 25.831042051315308ms
+[NX Daemon Server] - 2023-11-19T08:15:22.738Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:22.738Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:22.914Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:22.914Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:15:22.915Z - [REQUEST]: .nx/cache/project-graph.json~dc9f118d,.nx/cache/file-map.json~dc9f118d
+[NX Daemon Server] - 2023-11-19T08:15:22.994Z - Time taken for 'hash changed files from watcher' 50.68041706085205ms
+[NX Daemon Server] - 2023-11-19T08:15:23.049Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:23.049Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:23.200Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:23.201Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:23.201Z - [REQUEST]: .nx/cache/file-map.json~25731223,.nx/cache/project-graph.json~25731223
+[NX Daemon Server] - 2023-11-19T08:15:23.253Z - Time taken for 'hash changed files from watcher' 33.41470801830292ms
+[NX Daemon Server] - 2023-11-19T08:15:23.312Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:23.312Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:23.494Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:23.494Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:23.494Z - [REQUEST]: .nx/cache/file-map.json~47278b7d,.nx/cache/project-graph.json~47278b7d
+[NX Daemon Server] - 2023-11-19T08:15:23.569Z - Time taken for 'hash changed files from watcher' 55.30466592311859ms
+[NX Daemon Server] - 2023-11-19T08:15:23.628Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:23.629Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:23.809Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:23.809Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:15:23.809Z - [REQUEST]: .nx/cache/file-map.json~c768ad4a,.nx/cache/project-graph.json~c768ad4a
+[NX Daemon Server] - 2023-11-19T08:15:23.896Z - Time taken for 'hash changed files from watcher' 50.41908395290375ms
+[NX Daemon Server] - 2023-11-19T08:15:23.952Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:23.953Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:24.112Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:24.112Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:15:24.112Z - [REQUEST]: .nx/cache/project-graph.json~f5260aea,.nx/cache/file-map.json~f5260aea
+[NX Daemon Server] - 2023-11-19T08:15:24.167Z - Time taken for 'hash changed files from watcher' 39.286916971206665ms
+[NX Daemon Server] - 2023-11-19T08:15:24.222Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:24.224Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:24.466Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:24.466Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:24.466Z - [REQUEST]: .nx/cache/file-map.json~644bf8ac,.nx/cache/project-graph.json~644bf8ac
+[NX Daemon Server] - 2023-11-19T08:15:24.550Z - Time taken for 'hash changed files from watcher' 106.49395799636841ms
+[NX Daemon Server] - 2023-11-19T08:15:24.610Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:24.610Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:24.802Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:24.802Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:24.802Z - [REQUEST]: .nx/cache/project-graph.json~232c5564,.nx/cache/file-map.json~232c5564
+[NX Daemon Server] - 2023-11-19T08:15:24.881Z - Time taken for 'hash changed files from watcher' 62.69820809364319ms
+[NX Daemon Server] - 2023-11-19T08:15:24.937Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:24.938Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:25.110Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:25.110Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:15:25.110Z - [REQUEST]: .nx/cache/file-map.json~95d3b1a5,.nx/cache/project-graph.json~95d3b1a5
+[NX Daemon Server] - 2023-11-19T08:15:25.167Z - Time taken for 'hash changed files from watcher' 45.604292035102844ms
+[NX Daemon Server] - 2023-11-19T08:15:25.226Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:25.226Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:25.388Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:25.388Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:25.388Z - [REQUEST]: .nx/cache/file-map.json~24a5ff24,.nx/cache/project-graph.json~24a5ff24
+[NX Daemon Server] - 2023-11-19T08:15:25.465Z - Time taken for 'hash changed files from watcher' 36.9991250038147ms
+[NX Daemon Server] - 2023-11-19T08:15:25.528Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:25.528Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:25.725Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:25.725Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:25.725Z - [REQUEST]: .nx/cache/project-graph.json~919d9a41,.nx/cache/file-map.json~919d9a41
+[NX Daemon Server] - 2023-11-19T08:15:25.804Z - Time taken for 'hash changed files from watcher' 66.42041599750519ms
+[NX Daemon Server] - 2023-11-19T08:15:25.860Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:25.861Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:26.017Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:26.017Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:26.017Z - [REQUEST]: .nx/cache/project-graph.json~3a24371e,.nx/cache/file-map.json~3a24371e
+[NX Daemon Server] - 2023-11-19T08:15:26.073Z - Time taken for 'hash changed files from watcher' 38.331542015075684ms
+[NX Daemon Server] - 2023-11-19T08:15:26.131Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:26.131Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:26.314Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:26.314Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:26.314Z - [REQUEST]: .nx/cache/project-graph.json~775a59b9,.nx/cache/file-map.json~775a59b9
+[NX Daemon Server] - 2023-11-19T08:15:26.394Z - Time taken for 'hash changed files from watcher' 56.881916999816895ms
+[NX Daemon Server] - 2023-11-19T08:15:26.451Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:26.451Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:26.629Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:26.630Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:15:26.630Z - [REQUEST]: .nx/cache/file-map.json~8e632b86,.nx/cache/project-graph.json~8e632b86
+[NX Daemon Server] - 2023-11-19T08:15:26.694Z - Time taken for 'hash changed files from watcher' 48.23341703414917ms
+[NX Daemon Server] - 2023-11-19T08:15:26.753Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:26.754Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:26.903Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:26.903Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:15:26.903Z - [REQUEST]: .nx/cache/file-map.json~46df497f,.nx/cache/project-graph.json~46df497f
+[NX Daemon Server] - 2023-11-19T08:15:26.952Z - Time taken for 'hash changed files from watcher' 31.508957982063293ms
+[NX Daemon Server] - 2023-11-19T08:15:27.012Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:27.012Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:27.151Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:27.151Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:27.151Z - [REQUEST]: .nx/cache/file-map.json~f2356675,.nx/cache/project-graph.json~f2356675
+[NX Daemon Server] - 2023-11-19T08:15:27.194Z - Time taken for 'hash changed files from watcher' 25.26687490940094ms
+[NX Daemon Server] - 2023-11-19T08:15:27.253Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:27.254Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:27.412Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:27.412Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:27.412Z - [REQUEST]: .nx/cache/file-map.json~81062e6b,.nx/cache/project-graph.json~81062e6b
+[NX Daemon Server] - 2023-11-19T08:15:27.487Z - Time taken for 'hash changed files from watcher' 36.60945796966553ms
+[NX Daemon Server] - 2023-11-19T08:15:27.543Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:27.543Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:27.733Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:27.733Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:27.733Z - [REQUEST]: .nx/cache/file-map.json~5582264d,.nx/cache/project-graph.json~5582264d
+[NX Daemon Server] - 2023-11-19T08:15:27.808Z - Time taken for 'hash changed files from watcher' 55.408708930015564ms
+[NX Daemon Server] - 2023-11-19T08:15:27.866Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:27.866Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:28.009Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:28.009Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:15:28.009Z - [REQUEST]: .nx/cache/file-map.json~d4a2f600,.nx/cache/project-graph.json~d4a2f600
+[NX Daemon Server] - 2023-11-19T08:15:28.050Z - Time taken for 'hash changed files from watcher' 27.592417001724243ms
+[NX Daemon Server] - 2023-11-19T08:15:28.109Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:28.109Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:28.249Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:28.249Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:15:28.249Z - [REQUEST]: .nx/cache/project-graph.json~5111b7a0,.nx/cache/file-map.json~5111b7a0
+[NX Daemon Server] - 2023-11-19T08:15:28.301Z - Time taken for 'hash changed files from watcher' 25.90229105949402ms
+[NX Daemon Server] - 2023-11-19T08:15:28.359Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:28.359Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:28.531Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:28.531Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:28.531Z - [REQUEST]: .nx/cache/project-graph.json~68d21dda,.nx/cache/file-map.json~68d21dda
+[NX Daemon Server] - 2023-11-19T08:15:28.613Z - Time taken for 'hash changed files from watcher' 45.195667028427124ms
+[NX Daemon Server] - 2023-11-19T08:15:28.668Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:28.669Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:28.809Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:28.809Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:15:28.809Z - [REQUEST]: .nx/cache/file-map.json~72bc2c96,.nx/cache/project-graph.json~72bc2c96
+[NX Daemon Server] - 2023-11-19T08:15:28.849Z - Time taken for 'hash changed files from watcher' 25.60604202747345ms
+[NX Daemon Server] - 2023-11-19T08:15:28.904Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:28.906Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:29.046Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:29.046Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:15:29.046Z - [REQUEST]: .nx/cache/project-graph.json~410de4b6,.nx/cache/file-map.json~410de4b6
+[NX Daemon Server] - 2023-11-19T08:15:29.086Z - Time taken for 'hash changed files from watcher' 26.237583994865417ms
+[NX Daemon Server] - 2023-11-19T08:15:29.145Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:29.145Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:29.284Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:29.285Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:29.285Z - [REQUEST]: .nx/cache/file-map.json~fd88959c,.nx/cache/project-graph.json~fd88959c
+[NX Daemon Server] - 2023-11-19T08:15:29.322Z - Time taken for 'hash changed files from watcher' 25.500165939331055ms
+[NX Daemon Server] - 2023-11-19T08:15:29.382Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:29.383Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:29.557Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:29.557Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:29.557Z - [REQUEST]: .nx/cache/file-map.json~f421b491,.nx/cache/project-graph.json~f421b491
+[NX Daemon Server] - 2023-11-19T08:15:29.670Z - Time taken for 'hash changed files from watcher' 49.24150002002716ms
+[NX Daemon Server] - 2023-11-19T08:15:29.743Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:29.744Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:29.920Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:29.920Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:29.920Z - [REQUEST]: .nx/cache/project-graph.json~ffbd35ec,.nx/cache/file-map.json~ffbd35ec
+[NX Daemon Server] - 2023-11-19T08:15:29.986Z - Time taken for 'hash changed files from watcher' 50.471874952316284ms
+[NX Daemon Server] - 2023-11-19T08:15:30.046Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:30.046Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:30.185Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:30.186Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:30.186Z - [REQUEST]: .nx/cache/project-graph.json~6dfbcacc,.nx/cache/file-map.json~6dfbcacc
+[NX Daemon Server] - 2023-11-19T08:15:30.228Z - Time taken for 'hash changed files from watcher' 25.43287491798401ms
+[NX Daemon Server] - 2023-11-19T08:15:30.285Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:30.285Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:30.459Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:30.460Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:15:30.460Z - [REQUEST]: .nx/cache/file-map.json~0ec65739,.nx/cache/project-graph.json~0ec65739
+[NX Daemon Server] - 2023-11-19T08:15:30.531Z - Time taken for 'hash changed files from watcher' 43.51854205131531ms
+[NX Daemon Server] - 2023-11-19T08:15:30.604Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:30.609Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:30.801Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:30.801Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:15:30.801Z - [REQUEST]: .nx/cache/project-graph.json~810613c4,.nx/cache/file-map.json~810613c4
+[NX Daemon Server] - 2023-11-19T08:15:30.878Z - Time taken for 'hash changed files from watcher' 69.38958299160004ms
+[NX Daemon Server] - 2023-11-19T08:15:30.939Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:30.940Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:31.121Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:31.121Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:31.121Z - [REQUEST]: .nx/cache/project-graph.json~cd465085,.nx/cache/file-map.json~cd465085
+[NX Daemon Server] - 2023-11-19T08:15:31.191Z - Time taken for 'hash changed files from watcher' 57.80162501335144ms
+[NX Daemon Server] - 2023-11-19T08:15:31.248Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:31.248Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:31.413Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:31.413Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:15:31.413Z - [REQUEST]: .nx/cache/file-map.json~a47297d0,.nx/cache/project-graph.json~a47297d0
+[NX Daemon Server] - 2023-11-19T08:15:31.474Z - Time taken for 'hash changed files from watcher' 42.34362506866455ms
+[NX Daemon Server] - 2023-11-19T08:15:31.532Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:31.532Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:31.685Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:31.685Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:15:31.685Z - [REQUEST]: .nx/cache/file-map.json~bb95b9a5,.nx/cache/project-graph.json~bb95b9a5
+[NX Daemon Server] - 2023-11-19T08:15:31.738Z - Time taken for 'hash changed files from watcher' 35.272082924842834ms
+[NX Daemon Server] - 2023-11-19T08:15:31.795Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:31.796Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:31.965Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:31.965Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:31.965Z - [REQUEST]: .nx/cache/project-graph.json~3b5ac449,.nx/cache/file-map.json~3b5ac449
+[NX Daemon Server] - 2023-11-19T08:15:32.039Z - Time taken for 'hash changed files from watcher' 42.57429099082947ms
+[NX Daemon Server] - 2023-11-19T08:15:32.094Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:32.094Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:32.237Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:32.237Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:15:32.237Z - [REQUEST]: .nx/cache/project-graph.json~79f66bf2,.nx/cache/file-map.json~79f66bf2
+[NX Daemon Server] - 2023-11-19T08:15:32.280Z - Time taken for 'hash changed files from watcher' 26.737333059310913ms
+[NX Daemon Server] - 2023-11-19T08:15:32.341Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:32.341Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:32.498Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:32.498Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:32.498Z - [REQUEST]: .nx/cache/file-map.json~29778cd7,.nx/cache/project-graph.json~29778cd7
+[NX Daemon Server] - 2023-11-19T08:15:32.556Z - Time taken for 'hash changed files from watcher' 40.415915966033936ms
+[NX Daemon Server] - 2023-11-19T08:15:32.610Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:32.611Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:32.868Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:32.868Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:15:32.868Z - [REQUEST]: .nx/cache/project-graph.json~ec597179,.nx/cache/file-map.json~ec597179
+[NX Daemon Server] - 2023-11-19T08:15:32.959Z - Time taken for 'hash changed files from watcher' 125.47525000572205ms
+[NX Daemon Server] - 2023-11-19T08:15:33.015Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:33.016Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:33.193Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:33.193Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:33.193Z - [REQUEST]: .nx/cache/project-graph.json~016b4d88,.nx/cache/file-map.json~016b4d88
+[NX Daemon Server] - 2023-11-19T08:15:33.276Z - Time taken for 'hash changed files from watcher' 51.91433298587799ms
+[NX Daemon Server] - 2023-11-19T08:15:33.324Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:33.325Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:33.528Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:33.528Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:15:33.528Z - [REQUEST]: .nx/cache/project-graph.json~4732d554,.nx/cache/file-map.json~4732d554
+[NX Daemon Server] - 2023-11-19T08:15:33.635Z - Time taken for 'hash changed files from watcher' 57.24266600608826ms
+[NX Daemon Server] - 2023-11-19T08:15:33.709Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:33.712Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:33.907Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:33.907Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:15:33.907Z - [REQUEST]: .nx/cache/project-graph.json~0be7149b,.nx/cache/file-map.json~0be7149b
+[NX Daemon Server] - 2023-11-19T08:15:33.987Z - Time taken for 'hash changed files from watcher' 50.32462501525879ms
+[NX Daemon Server] - 2023-11-19T08:15:34.041Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:34.042Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:34.294Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:34.294Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:15:34.294Z - [REQUEST]: .nx/cache/project-graph.json~1b469caf,.nx/cache/file-map.json~1b469caf
+[NX Daemon Server] - 2023-11-19T08:15:34.415Z - Time taken for 'hash changed files from watcher' 113.67316699028015ms
+[NX Daemon Server] - 2023-11-19T08:15:34.469Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:34.471Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:34.635Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:34.636Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:15:34.636Z - [REQUEST]: .nx/cache/file-map.json~42f2ab07,.nx/cache/project-graph.json~42f2ab07
+[NX Daemon Server] - 2023-11-19T08:15:34.704Z - Time taken for 'hash changed files from watcher' 42.473958015441895ms
+[NX Daemon Server] - 2023-11-19T08:15:34.777Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:34.777Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:34.966Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:34.966Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:15:34.966Z - [REQUEST]: .nx/cache/file-map.json~8a18ca3d,.nx/cache/project-graph.json~8a18ca3d
+[NX Daemon Server] - 2023-11-19T08:15:35.090Z - Time taken for 'hash changed files from watcher' 58.84129202365875ms
+[NX Daemon Server] - 2023-11-19T08:15:35.143Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:35.143Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:35.321Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:35.321Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:35.321Z - [REQUEST]: .nx/cache/file-map.json~4e142b0d,.nx/cache/project-graph.json~4e142b0d
+[NX Daemon Server] - 2023-11-19T08:15:35.399Z - Time taken for 'hash changed files from watcher' 52.24962508678436ms
+[NX Daemon Server] - 2023-11-19T08:15:35.454Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:35.456Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:35.629Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:35.630Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:35.630Z - [REQUEST]: .nx/cache/project-graph.json~21717bca,.nx/cache/file-map.json~21717bca
+[NX Daemon Server] - 2023-11-19T08:15:35.708Z - Time taken for 'hash changed files from watcher' 47.13754200935364ms
+[NX Daemon Server] - 2023-11-19T08:15:35.760Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:35.761Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:35.916Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:35.917Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:35.917Z - [REQUEST]: .nx/cache/file-map.json~9788c1f1,.nx/cache/project-graph.json~9788c1f1
+[NX Daemon Server] - 2023-11-19T08:15:35.975Z - Time taken for 'hash changed files from watcher' 35.73270797729492ms
+[NX Daemon Server] - 2023-11-19T08:15:36.034Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:36.034Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:36.184Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:36.184Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:36.184Z - [REQUEST]: .nx/cache/project-graph.json~6f517fb3,.nx/cache/file-map.json~6f517fb3
+[NX Daemon Server] - 2023-11-19T08:15:36.249Z - Time taken for 'hash changed files from watcher' 31.01004195213318ms
+[NX Daemon Server] - 2023-11-19T08:15:36.307Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:36.308Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:36.465Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:36.465Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:36.465Z - [REQUEST]: .nx/cache/project-graph.json~807dd8f1,.nx/cache/file-map.json~807dd8f1
+[NX Daemon Server] - 2023-11-19T08:15:36.512Z - Time taken for 'hash changed files from watcher' 38.9539999961853ms
+[NX Daemon Server] - 2023-11-19T08:15:36.571Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:36.571Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:36.722Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:36.722Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:36.722Z - [REQUEST]: .nx/cache/file-map.json~9d05d2e4,.nx/cache/project-graph.json~9d05d2e4
+[NX Daemon Server] - 2023-11-19T08:15:36.764Z - Time taken for 'hash changed files from watcher' 37.38120901584625ms
+[NX Daemon Server] - 2023-11-19T08:15:36.824Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:36.825Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:37.000Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:37.000Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:37.000Z - [REQUEST]: .nx/cache/file-map.json~d5544590,.nx/cache/project-graph.json~d5544590
+[NX Daemon Server] - 2023-11-19T08:15:37.098Z - Time taken for 'hash changed files from watcher' 49.26908302307129ms
+[NX Daemon Server] - 2023-11-19T08:15:37.144Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:37.144Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:37.332Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:37.332Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:15:37.332Z - [REQUEST]: .nx/cache/project-graph.json~124da2b4,.nx/cache/file-map.json~124da2b4
+[NX Daemon Server] - 2023-11-19T08:15:37.527Z - Time taken for 'hash changed files from watcher' 54.35425007343292ms
+[NX Daemon Server] - 2023-11-19T08:15:37.580Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:37.581Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:37.764Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:37.764Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:15:37.764Z - [REQUEST]: .nx/cache/file-map.json~5daecb35,.nx/cache/project-graph.json~5daecb35
+[NX Daemon Server] - 2023-11-19T08:15:37.843Z - Time taken for 'hash changed files from watcher' 51.34020805358887ms
+[NX Daemon Server] - 2023-11-19T08:15:37.911Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:37.912Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:38.100Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:38.102Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:15:38.102Z - [REQUEST]: .nx/cache/file-map.json~1e4f90a3,.nx/cache/project-graph.json~1e4f90a3
+[NX Daemon Server] - 2023-11-19T08:15:38.196Z - Time taken for 'hash changed files from watcher' 61.327207922935486ms
+[NX Daemon Server] - 2023-11-19T08:15:38.259Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:38.259Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:38.434Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:38.434Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:15:38.434Z - [REQUEST]: .nx/cache/project-graph.json~f4a8816e,.nx/cache/file-map.json~f4a8816e
+[NX Daemon Server] - 2023-11-19T08:15:38.502Z - Time taken for 'hash changed files from watcher' 46.9742089509964ms
+[NX Daemon Server] - 2023-11-19T08:15:38.559Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:38.559Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:38.705Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:38.705Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:38.705Z - [REQUEST]: .nx/cache/file-map.json~3246f1b1,.nx/cache/project-graph.json~3246f1b1
+[NX Daemon Server] - 2023-11-19T08:15:38.748Z - Time taken for 'hash changed files from watcher' 32.14512503147125ms
+[NX Daemon Server] - 2023-11-19T08:15:38.808Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:38.808Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:38.951Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:38.951Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:15:38.951Z - [REQUEST]: .nx/cache/file-map.json~98058abd,.nx/cache/project-graph.json~98058abd
+[NX Daemon Server] - 2023-11-19T08:15:39.001Z - Time taken for 'hash changed files from watcher' 27.036041021347046ms
+[NX Daemon Server] - 2023-11-19T08:15:39.058Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:39.058Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:39.211Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:39.211Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:39.211Z - [REQUEST]: .nx/cache/project-graph.json~7197d1b7,.nx/cache/file-map.json~7197d1b7
+[NX Daemon Server] - 2023-11-19T08:15:39.271Z - Time taken for 'hash changed files from watcher' 33.43933403491974ms
+[NX Daemon Server] - 2023-11-19T08:15:39.326Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:39.326Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:39.527Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:39.527Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:15:39.527Z - [REQUEST]: .nx/cache/file-map.json~ae6e048f,.nx/cache/project-graph.json~ae6e048f
+[NX Daemon Server] - 2023-11-19T08:15:39.605Z - Time taken for 'hash changed files from watcher' 74.03474998474121ms
+[NX Daemon Server] - 2023-11-19T08:15:39.662Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:39.662Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:39.859Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:39.859Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:39.859Z - [REQUEST]: .nx/cache/file-map.json~7449d557,.nx/cache/project-graph.json~7449d557
+[NX Daemon Server] - 2023-11-19T08:15:39.945Z - Time taken for 'hash changed files from watcher' 71.00708305835724ms
+[NX Daemon Server] - 2023-11-19T08:15:40.002Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:40.003Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:40.198Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:40.198Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:15:40.198Z - [REQUEST]: .nx/cache/project-graph.json~5aa8b701,.nx/cache/file-map.json~5aa8b701
+[NX Daemon Server] - 2023-11-19T08:15:40.279Z - Time taken for 'hash changed files from watcher' 62.91745889186859ms
+[NX Daemon Server] - 2023-11-19T08:15:40.352Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:40.355Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:40.533Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:40.533Z - [REQUEST]: .nx/cache/file-map.json,.nx/cache/project-graph.json
+[NX Daemon Server] - 2023-11-19T08:15:40.533Z - [REQUEST]: .nx/cache/project-graph.json~fc968ba4,.nx/cache/file-map.json~fc968ba4
+[NX Daemon Server] - 2023-11-19T08:15:40.600Z - Time taken for 'hash changed files from watcher' 48.24816703796387ms
+[NX Daemon Server] - 2023-11-19T08:15:40.661Z - [WATCHER]: 2 file(s) created or restored, 0 file(s) modified, 2 file(s) deleted
+[NX Daemon Server] - 2023-11-19T08:15:40.661Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2023-11-19T08:15:40.849Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2023-11-19T08:15:40.849Z - [REQUEST]: .nx/cache/project-graph.json,.nx/cache/file-map.json
+[NX Daemon Server] - 2023-11-19T08:15:40.849Z - [REQUEST]: .nx/cache/project-graph.json~c315aaca,.nx/cache/file-map.json~c315aaca
