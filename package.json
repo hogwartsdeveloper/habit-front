@@ -2,9 +2,9 @@
   "name": "habit",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
-    "start": "nx serve",
-    "local": "nx serve --proxy-config proxies/local.conf.json",
+    "habit": "nx serve habit",
+    "server": "nx serve server",
+    "habit:local": "nx serve habit --proxy-config apps/habit/proxies/local.conf.json",
     "build": "nx build",
     "watch": "nx build --watch --configuration development",
     "test": "nx test",
