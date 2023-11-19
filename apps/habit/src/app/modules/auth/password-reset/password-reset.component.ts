@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { take } from 'rxjs';
+import { take, tap } from 'rxjs';
 
 import { IInput } from '../../../utils/ui/input/models/input.interface';
 import { AuthApiService } from '../services/auth-api.service';
@@ -30,17 +30,19 @@ export class PasswordResetComponent {
   );
 
   isSent = signal<boolean>(false);
-  load = signal<boolean>(false);
+  loading = signal(false);
 
   constructor(private readonly authApiService: AuthApiService) {}
 
   sent() {
-    this.load.set(true);
+    this.loading.set(true);
     this.authApiService
       .passwordRecovery(this.form().getRawValue().email)
-      .pipe(take(1))
+      .pipe(
+        tap(() => this.loading.set(false)),
+        take(1)
+      )
       .subscribe(() => {
-        this.load.set(false);
         this.isSent.set(true);
       });
   }
