@@ -21,7 +21,9 @@
     "useDefineForClassFields": false,
     "strictPropertyInitialization": false,
     "lib": ["ES2022", "dom"],
-    "paths": {},
+    "paths": {
+      "ui": ["libs/ui/src/index.ts"]
+    },
     "rootDir": "."
   },
   "angularCompilerOptions": {

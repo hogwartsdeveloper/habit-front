@@ -13,6 +13,7 @@ import { AuthApiService } from './services/auth-api.service';
 import { PasswordResetComponent } from './password-reset/password-reset.component';
 import { NzResultModule } from 'ng-zorro-antd/result';
 import { PasswordChangeComponent } from './password-change/password-change.component';
+import { LoadComponent } from '../../../../../../libs/ui/src/lib/load/load.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { PasswordChangeComponent } from './password-change/password-change.compo
     ReactiveFormsModule,
     AuthRouterModule,
     NzResultModule,
+    LoadComponent,
   ],
   providers: [AuthApiService],
 })

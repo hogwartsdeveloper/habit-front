@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, signal } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import {
   MAT_DIALOG_DATA,
@@ -25,6 +25,7 @@ export class AuthModalComponent implements OnInit {
   type: AuthorType = 'signIn';
   form: FormGroup;
   configs: IInput[] = authInputConfigs;
+  loading = signal(true);
 
   constructor(
     @Inject(MAT_DIALOG_DATA) data: { type: AuthorType },
@@ -60,6 +61,7 @@ export class AuthModalComponent implements OnInit {
 
   ngOnInit() {
     this.threeSupportService.stopAnimation$.next(true);
+    this.loading.set(false);
   }
 
   openLogin(type: AuthorType = 'signIn') {
@@ -75,13 +77,17 @@ export class AuthModalComponent implements OnInit {
   }
 
   sign(type: AuthorType) {
+    this.loading.set(true);
     const user = { ...this.form.getRawValue() };
     switch (type) {
       case 'signUp':
         this.authApiService
           .registration(user)
           .pipe(
-            tap((res) => this.authService.checkRegistration(user, res.result)),
+            tap((res) => {
+              this.authService.checkRegistration(user, res.result);
+              this.loading.set(false);
+            }),
             take(1)
           )
           .subscribe((res) => {
@@ -95,6 +101,9 @@ export class AuthModalComponent implements OnInit {
           .authorization(user)
           .pipe(
             switchMap((res) => this.authService.catchToken(res)),
+            tap(() => {
+              this.loading.set(false);
+            }),
             take(1)
           )
           .subscribe((res) => {

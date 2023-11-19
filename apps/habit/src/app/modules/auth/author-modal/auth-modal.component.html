@@ -1,5 +1,6 @@
 <app-modal-base
-  [title]="(type === 'signIn' ? 'auth.signIn' : 'auth.signUp') | translate"
+        *ngIf="!loading(); else load"
+        [title]="(type === 'signIn' ? 'auth.signIn' : 'auth.signUp') | translate"
 >
   <ng-container [formGroup]="form">
     <ng-container *ngIf="type === 'signUp'">
@@ -44,3 +45,7 @@
     </div>
   </ng-container>
 </app-modal-base>
+
+<ng-template #load>
+  <lib-load [isLoading]="loading()"></lib-load>
+</ng-template>
