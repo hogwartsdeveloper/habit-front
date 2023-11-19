@@ -1,0 +1,46 @@
+<app-modal-base
+  [title]="(type === 'signIn' ? 'auth.signIn' : 'auth.signUp') | translate"
+>
+  <ng-container [formGroup]="form">
+    <ng-container *ngIf="type === 'signUp'">
+      <app-input [config]="configs[0]" [form]="form"></app-input>
+      <app-input class="my-5" [config]="configs[1]" [form]="form"></app-input>
+    </ng-container>
+
+    <app-input [config]="configs[2]" [form]="form"></app-input>
+
+    <div class="my-5 relative">
+      <ng-container *ngIf="type === 'signIn'">
+        <span
+          class="absolute right-0 top-1 cursor-pointer font-semibold text-xs"
+          (click)="onRecoveryPassword()"
+          >Forgot password</span
+        >
+      </ng-container>
+      <app-input [config]="configs[3]" [form]="form"></app-input>
+    </div>
+
+    <app-button [disabled]="form.invalid" (click)="sign(type)">{{
+      (type === 'signIn' ? 'auth.signIn' : 'auth.signUp') | translate
+    }}</app-button>
+
+    <div class="text-xs text-center" [ngSwitch]="type">
+      <ng-container *ngSwitchCase="'signIn'">
+        {{ 'auth.noHaveAcc' | translate }}?
+        <span
+          class="cursor-pointer font-semibold"
+          (click)="openLogin('signUp')"
+          >{{ 'auth.registerFree' | translate }}</span
+        >
+      </ng-container>
+      <ng-container *ngSwitchCase="'signUp'">
+        {{ 'auth.haveAcc' | translate }}?
+        <span
+          class="cursor-pointer font-semibold"
+          (click)="openLogin('signIn')"
+          >{{ 'auth.signIn' | translate }}</span
+        >
+      </ng-container>
+    </div>
+  </ng-container>
+</app-modal-base>

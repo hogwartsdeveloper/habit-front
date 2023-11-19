@@ -1,0 +1,22 @@
+:host {
+  position: relative;
+}
+
+.menu {
+  width: 250px;
+  position: absolute;
+  top: 30px;
+  right: 0;
+  padding: 0 0 20px 20px;
+
+  .menu-top {
+    height: 10px;
+  }
+
+  .menu-content {
+    background: white;
+    color: black;
+    padding: 10px;
+    border-radius: 10px 0 10px 10px;
+  }
+}

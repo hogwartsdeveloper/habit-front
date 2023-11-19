@@ -1,0 +1,30 @@
+.box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  .item {
+    flex: 1 0 calc(14.28% - 10px);
+    text-align: right;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+    margin: 0 5px;
+    padding: 5px;
+
+    &.tb {
+      height: 70px;
+      color: #bfbfbf;
+      opacity: 0.5;
+
+      &.active {
+        cursor: pointer;
+        color: white;
+        opacity: 1;
+      }
+
+      &.pickable {
+        background-color: rgba(255, 255, 255, 0.1) !important;
+        transition: 0.5s;
+      }
+    }
+  }
+}

@@ -1,0 +1,47 @@
+<app-avatar
+  routerLink="/user"
+  [text]="user.firstName[0] + ' ' + user.lastName[0]"
+  [src]="user.img"
+  (click)="showMenu = false"
+></app-avatar>
+
+<ng-container *ngIf="showMenu">
+  <div @show class="menu">
+    <div class="menu-top"></div>
+    <div class="menu-content">
+      <div>
+        <app-avatar
+          routerLink="/user"
+          [text]="user.firstName[0] + ' ' + user.lastName[0]"
+          [src]="user.img"
+          (click)="showMenu = false"
+        ></app-avatar>
+        <div>{{ user.firstName + ' ' + user.lastName }}</div>
+      </div>
+      <app-button routerLink="/user" class="mb-2" [view]="'border'"
+        >View Profile</app-button
+      >
+      <hr />
+      <nz-select
+        class="my-2"
+        [(ngModel)]="selectedLang"
+        (ngModelChange)="selectLang($event)"
+        (nzOpenChange)="openedSelect = $event"
+      >
+        <nz-option
+          *ngFor="let lang of langs"
+          [nzValue]="lang.id"
+          [nzLabel]="lang.name"
+        ></nz-option>
+      </nz-select>
+      <hr />
+      <app-button
+        class="mt-2"
+        type="danger"
+        [view]="'border'"
+        (click)="logout()"
+        >Logout</app-button
+      >
+    </div>
+  </div>
+</ng-container>

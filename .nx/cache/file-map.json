@@ -1,0 +1,1046 @@
+{
+  "version": "6.0",
+  "nxVersion": "16.10.0",
+  "deps": {
+    "@angular/animations": "^16.1.6",
+    "@angular/cdk": "^16.1.5",
+    "@angular/common": "^16.1.6",
+    "@angular/compiler": "^16.1.6",
+    "@angular/core": "^16.1.6",
+    "@angular/forms": "^16.1.6",
+    "@angular/material": "^16.1.5",
+    "@angular/platform-browser": "^16.1.6",
+    "@angular/platform-browser-dynamic": "^16.1.6",
+    "@angular/router": "^16.1.6",
+    "@ngx-translate/core": "^15.0.0",
+    "@ngx-translate/http-loader": "^8.0.0",
+    "@tweenjs/tween.js": "^21.0.0",
+    "cannon-es": "^0.20.0",
+    "cropperjs": "^1.6.1",
+    "d3": "^7.8.5",
+    "dat.gui": "^0.7.7",
+    "dayjs": "^1.11.10",
+    "fantasticon": "^2.0.0",
+    "ng-zorro-antd": "^16.1.0",
+    "prettier": "^2.6.2",
+    "rxjs": "~7.8.0",
+    "three": "^0.150.1",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.13.1",
+    "@angular-devkit/build-angular": "^16.1.5",
+    "@angular-devkit/core": "~16.1.5",
+    "@angular-devkit/schematics": "~16.1.5",
+    "@angular/cli": "~16.1.5",
+    "@angular/compiler-cli": "^16.1.6",
+    "@nx/angular": "16.10.0",
+    "@nx/js": "16.10.0",
+    "@nx/workspace": "16.10.0",
+    "@schematics/angular": "~16.1.5",
+    "@types/d3": "^7.4.0",
+    "@types/dat.gui": "^0.7.7",
+    "@types/express": "^4.17.0",
+    "@types/jasmine": "~4.3.0",
+    "@types/node": "^16.11.7",
+    "@types/three": "^0.149.0",
+    "autoprefixer": "^10.4.0",
+    "jasmine-core": "~4.5.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.1.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.0.0",
+    "nx": "16.10.0",
+    "postcss": "^8.4.5",
+    "tailwindcss": "^3.0.2",
+    "typescript": "~4.9.4"
+  },
+  "pathMappings": {},
+  "nxJsonPlugins": [],
+  "fileMap": {
+    "nonProjectFiles": [
+      {
+        "file": ".editorconfig",
+        "hash": "6686520031028425313"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "13044518069027839699"
+      },
+      {
+        "file": ".nx/cache/d/daemon.log",
+        "hash": "999653942079523455"
+      },
+      {
+        "file": ".nx/cache/d/server-process.json",
+        "hash": "10011816148221317785"
+      },
+      {
+        "file": ".nx/cache/file-map.json",
+        "hash": "1908091819703761631"
+      },
+      {
+        "file": ".nx/cache/lockfile.hash",
+        "hash": "6656545845792367393"
+      },
+      {
+        "file": ".nx/cache/parsed-lock-file.json",
+        "hash": "2574333843850760568"
+      },
+      {
+        "file": ".nx/cache/project-graph.json",
+        "hash": "13116503581605876249"
+      },
+      {
+        "file": ".nx/cache/terminalOutputs/13637022036130352025",
+        "hash": "8549671540865666817"
+      },
+      {
+        "file": ".nx/cache/terminalOutputs/14507000662472948324",
+        "hash": "18344394470150094496"
+      },
+      {
+        "file": ".nx/cache/terminalOutputs/3137919844502509648",
+        "hash": "14841453630015473802"
+      },
+      {
+        "file": ".nx/cache/terminalOutputs/7192383612344261668",
+        "hash": "12959245472843707107"
+      },
+      {
+        "file": ".prettierignore",
+        "hash": "8865097869854018350"
+      },
+      {
+        "file": ".prettierrc",
+        "hash": "16267754514737964994"
+      },
+      {
+        "file": ".vscode/extensions.json",
+        "hash": "11761272470041752234"
+      },
+      {
+        "file": ".vscode/launch.json",
+        "hash": "4815948323043747099"
+      },
+      {
+        "file": ".vscode/tasks.json",
+        "hash": "5336636969995539451"
+      },
+      {
+        "file": "README.md",
+        "hash": "11112497734348000846"
+      },
+      {
+        "file": "karma.conf.js",
+        "hash": "9656364725710720620"
+      },
+      {
+        "file": "libs/.gitkeep",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "nx.json",
+        "hash": "262277212529736329"
+      },
+      {
+        "file": "package-lock.json",
+        "hash": "5462444840636517656"
+      },
+      {
+        "file": "package.json",
+        "hash": "8448513242191018735"
+      },
+      {
+        "file": "proxies/local.conf.json",
+        "hash": "14713895069178682051"
+      },
+      {
+        "file": "tools/generators/.gitkeep",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "tools/tsconfig.tools.json",
+        "hash": "16088922570277978783"
+      },
+      {
+        "file": "tsconfig.base.json",
+        "hash": "5378522249507455135"
+      },
+      {
+        "file": ".nx/cache/terminalOutputs/2901903112431565051",
+        "hash": "3244421341483603138"
+      }
+    ],
+    "projectFileMap": {
+      "habit": [
+        {
+          "file": "apps/habit/fantasticonrc.js",
+          "hash": "12317310819381292408"
+        },
+        {
+          "file": "apps/habit/project.json",
+          "hash": "13196352796299873977"
+        },
+        {
+          "file": "apps/habit/src/app/app-routing.module.ts",
+          "hash": "6528074037284752517",
+          "deps": [
+            "npm:@angular/router",
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "apps/habit/src/app/app.component.html",
+          "hash": "5900223147670179823"
+        },
+        {
+          "file": "apps/habit/src/app/app.component.scss",
+          "hash": "10055199878449332790"
+        },
+        {
+          "file": "apps/habit/src/app/app.component.ts",
+          "hash": "10414311209843630731",
+          "deps": [
+            "npm:@angular/core",
+            "npm:rxjs",
+            "npm:three",
+            "npm:@angular/router",
+            "npm:@ngx-translate/core"
+          ]
+        },
+        {
+          "file": "apps/habit/src/app/app.module.ts",
+          "hash": "2166156872259307415",
+          "deps": [
+            "npm:@angular/common",
+            "npm:@angular/core",
+            "npm:@angular/platform-browser",
+            "npm:@angular/material",
+            "npm:@ngx-translate/core",
+            "npm:@ngx-translate/http-loader",
+            "npm:ng-zorro-antd"
+          ]
+        },
+        {
+          "file": "apps/habit/src/app/guard/auth.guard.ts",
+          "hash": "15089357368180504416",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/router",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "apps/habit/src/app/guard/password-change.guard.ts",
+          "hash": "16062950510322101883",
+          "deps": [
+            "npm:@angular/router",
+            "npm:@angular/core",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "apps/habit/src/app/guard/verify-email.guard.ts",
+          "hash": "15170852091657220201",
+          "deps": [
+            "npm:@angular/router"
+          ]
+        },
+        {
+          "file": "apps/habit/src/app/handler/catch-error.handler.ts",
+          "hash": "10542915699217344747",
+          "deps": [
+            "npm:@angular/core",
+            "npm:ng-zorro-antd"
+          ]
+        },
+        {
+          "file": "apps/habit/src/app/modules/auth/auth-router.module.ts",
+          "hash": "3190622271478481463",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/router"
+          ]
+        },
+        {
+          "file": "apps/habit/src/app/modules/auth/auth.module.ts",
+          "hash": "15074219392441979380",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/forms",
+            "npm:@angular/common",
+            "npm:@ngx-translate/core",
+            "npm:ng-zorro-antd"
+          ]
+        },
+        {
+          "file": "apps/habit/src/app/modules/auth/author-modal/auth-modal.component.html",
+          "hash": "16441845640904934399"
+        },
+        {
+          "file": "apps/habit/src/app/modules/auth/author-modal/auth-modal.component.scss",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/habit/src/app/modules/auth/author-modal/auth-modal.component.ts",
+          "hash": "17349123010171674581",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/forms",
+            "npm:@angular/material",
+            "npm:@angular/router",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "apps/habit/src/app/modules/auth/author-modal/form.config.ts",
+          "hash": "16830763242000533878"
+        },
+        {
+          "file": "apps/habit/src/app/modules/auth/interceptor/auth.interceptor.ts",
+          "hash": "4563789694811615430",
+          "deps": [
+            "npm:@angular/common",
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "apps/habit/src/app/modules/auth/models/author.model.ts",
+          "hash": "9337079727322306898"
+        },
+        {
+          "file": "apps/habit/src/app/modules/auth/password-change/password-change.component.html",
+          "hash": "1313648282091264991"
+        },
+        {
+          "file": "apps/habit/src/app/modules/auth/password-change/password-change.component.scss",
+          "hash": "12795528607714167370"
+        },
+        {
+          "file": "apps/habit/src/app/modules/auth/password-change/password-change.component.ts",
+          "hash": "5625573902984090028",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/forms",
+            "npm:rxjs",
+            "npm:@angular/router",
+            "npm:ng-zorro-antd"
+          ]
+        },
+        {
+          "file": "apps/habit/src/app/modules/auth/password-reset/password-reset.component.html",
+          "hash": "5444545505281485582"
+        },
+        {
+          "file": "apps/habit/src/app/modules/auth/password-reset/password-reset.component.scss",
+          "hash": "12795528607714167370"
+        },
+        {
+          "file": "apps/habit/src/app/modules/auth/password-reset/password-reset.component.ts",
+          "hash": "8971565438492402069",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/forms",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "apps/habit/src/app/modules/auth/services/auth-api.service.ts",
+          "hash": "4667402069838896938",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common"
+          ]
+        },
+        {
+          "file": "apps/habit/src/app/modules/auth/services/auth.service.ts",
+          "hash": "16706792791282957710",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/router",
+            "npm:@angular/common",
+            "npm:rxjs",
+            "npm:ng-zorro-antd"
+          ]
+        },
+        {
+          "file": "apps/habit/src/app/modules/auth/verify-email/verify-email.component.html",
+          "hash": "9712445489270060290"
+        },
+        {
+          "file": "apps/habit/src/app/modules/auth/verify-email/verify-email.component.scss",
+          "hash": "4653616630794441582"
+        },
+        {
+          "file": "apps/habit/src/app/modules/auth/verify-email/verify-email.component.ts",
+          "hash": "262242465134161041",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/forms",
+            "npm:@angular/router",
+            "npm:rxjs",
+            "npm:ng-zorro-antd"
+          ]
+        },
+        {
+          "file": "apps/habit/src/app/modules/habit/habit/habit.component.html",
+          "hash": "11931599995098078821"
+        },
+        {
+          "file": "apps/habit/src/app/modules/habit/habit/habit.component.scss",
+          "hash": "4284942905459487398"
+        },
+        {
+          "file": "apps/habit/src/app/modules/habit/habit/habit.component.ts",
+          "hash": "17901891449786381824",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "apps/habit/src/app/modules/habit/habit/models/calendar.interface.ts",
+          "hash": "7298330418908500140"
+        },
+        {
+          "file": "apps/habit/src/app/modules/habit/habit/models/habit-view.enum.ts",
+          "hash": "12734625918947617452"
+        },
+        {
+          "file": "apps/habit/src/app/modules/habit/habit-create-modal/form.config.ts",
+          "hash": "9856334208078677611"
+        },
+        {
+          "file": "apps/habit/src/app/modules/habit/habit-create-modal/habit-create-modal.component.html",
+          "hash": "11761263907336514734"
+        },
+        {
+          "file": "apps/habit/src/app/modules/habit/habit-create-modal/habit-create-modal.component.scss",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/habit/src/app/modules/habit/habit-create-modal/habit-create-modal.component.ts",
+          "hash": "15467252220357261601",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "npm:@angular/forms",
+            "npm:dayjs",
+            "npm:@angular/material",
+            "npm:@ngx-translate/core",
+            "npm:ng-zorro-antd",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "apps/habit/src/app/modules/habit/habit-modal/habit-modal.component.html",
+          "hash": "1354142709708794638"
+        },
+        {
+          "file": "apps/habit/src/app/modules/habit/habit-modal/habit-modal.component.scss",
+          "hash": "795277888582599805"
+        },
+        {
+          "file": "apps/habit/src/app/modules/habit/habit-modal/habit-modal.component.ts",
+          "hash": "2164461668670802214",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/material",
+            "npm:dayjs",
+            "npm:@ngx-translate/core",
+            "npm:ng-zorro-antd",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "apps/habit/src/app/modules/habit/habit-modal/model/calendar-day.interface.ts",
+          "hash": "8675474603481853174"
+        },
+        {
+          "file": "apps/habit/src/app/modules/habit/habit-routing.module.ts",
+          "hash": "15287372361410789866",
+          "deps": [
+            "npm:@angular/router",
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "apps/habit/src/app/modules/habit/habit-view/habit-view-content/habit-view-content.component.html",
+          "hash": "10512833194089422016"
+        },
+        {
+          "file": "apps/habit/src/app/modules/habit/habit-view/habit-view-content/habit-view-content.component.scss",
+          "hash": "2996605742192426084"
+        },
+        {
+          "file": "apps/habit/src/app/modules/habit/habit-view/habit-view-content/habit-view-content.component.ts",
+          "hash": "6899301599189221228",
+          "deps": [
+            "npm:@angular/core",
+            "npm:rxjs",
+            "npm:ng-zorro-antd",
+            "npm:@ngx-translate/core",
+            "npm:@angular/material"
+          ]
+        },
+        {
+          "file": "apps/habit/src/app/modules/habit/habit-view/habit-view.component.html",
+          "hash": "14239214345919184577"
+        },
+        {
+          "file": "apps/habit/src/app/modules/habit/habit-view/habit-view.component.scss",
+          "hash": "11568754004223759608"
+        },
+        {
+          "file": "apps/habit/src/app/modules/habit/habit-view/habit-view.component.ts",
+          "hash": "8243316375714064912",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/material",
+            "npm:dayjs"
+          ]
+        },
+        {
+          "file": "apps/habit/src/app/modules/habit/habit-view/habit-view.module.ts",
+          "hash": "9578856031069816049",
+          "deps": [
+            "npm:@angular/core",
+            "npm:ng-zorro-antd",
+            "npm:@ngx-translate/core",
+            "npm:@angular/material",
+            "npm:@angular/common",
+            "npm:@angular/forms"
+          ]
+        },
+        {
+          "file": "apps/habit/src/app/modules/habit/habit.module.ts",
+          "hash": "18260643601154781692",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "npm:ng-zorro-antd",
+            "npm:@ngx-translate/core"
+          ]
+        },
+        {
+          "file": "apps/habit/src/app/modules/habit/models/habit.interface.ts",
+          "hash": "1279203855842848075"
+        },
+        {
+          "file": "apps/habit/src/app/modules/habit/models/habits.interface.ts",
+          "hash": "8126676764716935793"
+        },
+        {
+          "file": "apps/habit/src/app/modules/habit/services/habit.service.ts",
+          "hash": "15831139963029376865",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "npm:dayjs"
+          ]
+        },
+        {
+          "file": "apps/habit/src/app/modules/toolbar/dropdown-menu/dropdown-menu.component.html",
+          "hash": "3479198337352908443"
+        },
+        {
+          "file": "apps/habit/src/app/modules/toolbar/dropdown-menu/dropdown-menu.component.scss",
+          "hash": "4859459264697474218"
+        },
+        {
+          "file": "apps/habit/src/app/modules/toolbar/dropdown-menu/dropdown-menu.component.ts",
+          "hash": "11841288398354887158",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/forms",
+            "npm:@angular/router",
+            "npm:@angular/common",
+            "npm:rxjs",
+            "npm:@ngx-translate/core",
+            "npm:ng-zorro-antd"
+          ]
+        },
+        {
+          "file": "apps/habit/src/app/modules/toolbar/toolbar.component.html",
+          "hash": "1184123187166477305"
+        },
+        {
+          "file": "apps/habit/src/app/modules/toolbar/toolbar.component.scss",
+          "hash": "646343512806342005"
+        },
+        {
+          "file": "apps/habit/src/app/modules/toolbar/toolbar.component.ts",
+          "hash": "1668151832753295348",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/router",
+            "npm:@angular/common",
+            "npm:@angular/material",
+            "npm:rxjs",
+            "npm:@ngx-translate/core"
+          ]
+        },
+        {
+          "file": "apps/habit/src/app/modules/user/model/user.interface.ts",
+          "hash": "7182780837343434426"
+        },
+        {
+          "file": "apps/habit/src/app/modules/user/model/user.ts",
+          "hash": "13898149404615571170"
+        },
+        {
+          "file": "apps/habit/src/app/modules/user/services/user.service.ts",
+          "hash": "3995550527625103811",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "apps/habit/src/app/modules/user/user/user.component.html",
+          "hash": "9746552919054748891"
+        },
+        {
+          "file": "apps/habit/src/app/modules/user/user/user.component.scss",
+          "hash": "12151317660773321525"
+        },
+        {
+          "file": "apps/habit/src/app/modules/user/user/user.component.ts",
+          "hash": "3555002932440050036",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/material",
+            "npm:rxjs",
+            "npm:@ngx-translate/core",
+            "npm:ng-zorro-antd"
+          ]
+        },
+        {
+          "file": "apps/habit/src/app/modules/user/user-edit-avatar-modal/user-edit-avatar-modal.component.html",
+          "hash": "5541580150156552841"
+        },
+        {
+          "file": "apps/habit/src/app/modules/user/user-edit-avatar-modal/user-edit-avatar-modal.component.scss",
+          "hash": "15643374436159698255"
+        },
+        {
+          "file": "apps/habit/src/app/modules/user/user-edit-avatar-modal/user-edit-avatar-modal.component.ts",
+          "hash": "2536219628690299787",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/material",
+            "npm:cropperjs",
+            "npm:rxjs",
+            "npm:ng-zorro-antd"
+          ]
+        },
+        {
+          "file": "apps/habit/src/app/modules/user/user-edit-modal/models/user-edit-data.config.ts",
+          "hash": "16711500626109606037"
+        },
+        {
+          "file": "apps/habit/src/app/modules/user/user-edit-modal/user-edit-modal.component.html",
+          "hash": "3048776205190306563"
+        },
+        {
+          "file": "apps/habit/src/app/modules/user/user-edit-modal/user-edit-modal.component.scss",
+          "hash": "16724176951351249879"
+        },
+        {
+          "file": "apps/habit/src/app/modules/user/user-edit-modal/user-edit-modal.component.ts",
+          "hash": "8624359464270004934",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/forms",
+            "npm:@angular/material",
+            "npm:rxjs",
+            "npm:@ngx-translate/core",
+            "npm:ng-zorro-antd"
+          ]
+        },
+        {
+          "file": "apps/habit/src/app/modules/user/user-router.module.ts",
+          "hash": "13417847744521880587",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/router"
+          ]
+        },
+        {
+          "file": "apps/habit/src/app/modules/user/user.module.ts",
+          "hash": "3502729057453396809",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "npm:@angular/material",
+            "npm:@ngx-translate/core",
+            "npm:ng-zorro-antd"
+          ]
+        },
+        {
+          "file": "apps/habit/src/app/services/intro-three-scene.service.ts",
+          "hash": "3235605958638233410",
+          "deps": [
+            "npm:@angular/core",
+            "npm:three"
+          ]
+        },
+        {
+          "file": "apps/habit/src/app/services/three-support.service.ts",
+          "hash": "8504012477745702191",
+          "deps": [
+            "npm:@angular/core",
+            "npm:three",
+            "npm:dat.gui",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "apps/habit/src/app/shared/styles/ant.scss",
+          "hash": "1997270334156129668"
+        },
+        {
+          "file": "apps/habit/src/app/utils/animations/show.animation.ts",
+          "hash": "14993451675873184746",
+          "deps": [
+            "npm:@angular/animations"
+          ]
+        },
+        {
+          "file": "apps/habit/src/app/utils/another-code/promo.ts",
+          "hash": "3635616020890764828"
+        },
+        {
+          "file": "apps/habit/src/app/utils/character-control/characterControls.ts",
+          "hash": "2251872117600408369",
+          "deps": [
+            "npm:three"
+          ]
+        },
+        {
+          "file": "apps/habit/src/app/utils/character-control/control.model.ts",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/habit/src/app/utils/shaders/intro-text-fragment.glsl.ts",
+          "hash": "3648199631581042023"
+        },
+        {
+          "file": "apps/habit/src/app/utils/shaders/intro-text-vertex.glsl.ts",
+          "hash": "14660263353734443913"
+        },
+        {
+          "file": "apps/habit/src/app/utils/ui/avatar/avatar.component.html",
+          "hash": "9044856470724508412"
+        },
+        {
+          "file": "apps/habit/src/app/utils/ui/avatar/avatar.component.scss",
+          "hash": "16165039921500388014"
+        },
+        {
+          "file": "apps/habit/src/app/utils/ui/avatar/avatar.component.ts",
+          "hash": "3852489131134176897",
+          "deps": [
+            "npm:@angular/core",
+            "npm:ng-zorro-antd"
+          ]
+        },
+        {
+          "file": "apps/habit/src/app/utils/ui/button/button.component.html",
+          "hash": "820586184022566002"
+        },
+        {
+          "file": "apps/habit/src/app/utils/ui/button/button.component.scss",
+          "hash": "2357660147172186496"
+        },
+        {
+          "file": "apps/habit/src/app/utils/ui/button/button.component.ts",
+          "hash": "10465519934495340681",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/material",
+            "npm:@angular/common"
+          ]
+        },
+        {
+          "file": "apps/habit/src/app/utils/ui/directives/pick-item-by-status.directive.ts",
+          "hash": "253535161901044256",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "apps/habit/src/app/utils/ui/input/components/input-code.component.html",
+          "hash": "5402244214235124880"
+        },
+        {
+          "file": "apps/habit/src/app/utils/ui/input/components/input-code.component.scss",
+          "hash": "17351195230677200739"
+        },
+        {
+          "file": "apps/habit/src/app/utils/ui/input/components/input-code.component.ts",
+          "hash": "16065237282372139015",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/forms",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "apps/habit/src/app/utils/ui/input/input.component.html",
+          "hash": "7995292680285543537"
+        },
+        {
+          "file": "apps/habit/src/app/utils/ui/input/input.component.scss",
+          "hash": "3442940128891386890"
+        },
+        {
+          "file": "apps/habit/src/app/utils/ui/input/input.component.ts",
+          "hash": "17337207130808635609",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/forms"
+          ]
+        },
+        {
+          "file": "apps/habit/src/app/utils/ui/input/input.module.ts",
+          "hash": "6193500042002248792",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "npm:@angular/forms",
+            "npm:@ngx-translate/core"
+          ]
+        },
+        {
+          "file": "apps/habit/src/app/utils/ui/input/models/input.interface.ts",
+          "hash": "6397540535903903010"
+        },
+        {
+          "file": "apps/habit/src/app/utils/ui/keyboard/keyboard.component.html",
+          "hash": "3114055835749117860"
+        },
+        {
+          "file": "apps/habit/src/app/utils/ui/keyboard/keyboard.component.scss",
+          "hash": "14420952625662714010"
+        },
+        {
+          "file": "apps/habit/src/app/utils/ui/keyboard/keyboard.component.ts",
+          "hash": "11340699327762574119",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common"
+          ]
+        },
+        {
+          "file": "apps/habit/src/app/utils/ui/keyboard/keyboard.service.ts",
+          "hash": "6232157426879597524",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "apps/habit/src/app/utils/ui/keyboard/types/key.enum.ts",
+          "hash": "1477223696385935173"
+        },
+        {
+          "file": "apps/habit/src/app/utils/ui/modal-base/modal-base.component.html",
+          "hash": "3214254692990779340"
+        },
+        {
+          "file": "apps/habit/src/app/utils/ui/modal-base/modal-base.component.scss",
+          "hash": "7179874284312851077"
+        },
+        {
+          "file": "apps/habit/src/app/utils/ui/modal-base/modal-base.component.ts",
+          "hash": "11658349713895516347",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common"
+          ]
+        },
+        {
+          "file": "apps/habit/src/app/utils/validators/email-exist.validator.ts",
+          "hash": "9494632597874519769",
+          "deps": [
+            "npm:@angular/forms",
+            "npm:@angular/core",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "apps/habit/src/app/utils/validators/email-not-exist.validator.ts",
+          "hash": "4131892086116830019",
+          "deps": [
+            "npm:@angular/forms",
+            "npm:@angular/core",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "apps/habit/src/assets/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/habit/src/assets/fonts/Montserrat-Bold.ttf",
+          "hash": "17323325024112426535"
+        },
+        {
+          "file": "apps/habit/src/assets/fonts/Montserrat-Light.ttf",
+          "hash": "6445499703453808120"
+        },
+        {
+          "file": "apps/habit/src/assets/fonts/Montserrat-Medium.ttf",
+          "hash": "16487949518222715094"
+        },
+        {
+          "file": "apps/habit/src/assets/fonts/Montserrat-Regular.ttf",
+          "hash": "13446203465775010039"
+        },
+        {
+          "file": "apps/habit/src/assets/fonts/Montserrat-SemiBold.ttf",
+          "hash": "9675147696396086952"
+        },
+        {
+          "file": "apps/habit/src/assets/fonts/Roboto_Regular.json",
+          "hash": "5081171380476502955"
+        },
+        {
+          "file": "apps/habit/src/assets/fonts/helvetiker_regular.typeface.json",
+          "hash": "12266113719007525545"
+        },
+        {
+          "file": "apps/habit/src/assets/icons/custom-icons/icons.css",
+          "hash": "10180810633954442788"
+        },
+        {
+          "file": "apps/habit/src/assets/icons/custom-icons/icons.eot",
+          "hash": "7616042140079218067"
+        },
+        {
+          "file": "apps/habit/src/assets/icons/custom-icons/icons.html",
+          "hash": "10237092760203794161"
+        },
+        {
+          "file": "apps/habit/src/assets/icons/custom-icons/icons.json",
+          "hash": "911949790473151678"
+        },
+        {
+          "file": "apps/habit/src/assets/icons/custom-icons/icons.scss",
+          "hash": "13684267911478365519"
+        },
+        {
+          "file": "apps/habit/src/assets/icons/custom-icons/icons.svg",
+          "hash": "15035545010961127209"
+        },
+        {
+          "file": "apps/habit/src/assets/icons/custom-icons/icons.ts",
+          "hash": "16030584775556259980"
+        },
+        {
+          "file": "apps/habit/src/assets/icons/custom-icons/icons.ttf",
+          "hash": "7992583962644196888"
+        },
+        {
+          "file": "apps/habit/src/assets/icons/custom-icons/icons.woff",
+          "hash": "9365874372025379030"
+        },
+        {
+          "file": "apps/habit/src/assets/icons/custom-icons/icons.woff2",
+          "hash": "14366255177371646447"
+        },
+        {
+          "file": "apps/habit/src/assets/icons/hbs/icons-css.hbs",
+          "hash": "638354382487071156"
+        },
+        {
+          "file": "apps/habit/src/assets/icons/hbs/icons-html.hbs",
+          "hash": "6331366817811275598"
+        },
+        {
+          "file": "apps/habit/src/assets/icons/hbs/icons-scss.hbs",
+          "hash": "15568106917854015985"
+        },
+        {
+          "file": "apps/habit/src/assets/icons/source/instagram.svg",
+          "hash": "17034774980507673689"
+        },
+        {
+          "file": "apps/habit/src/assets/locale/en.json",
+          "hash": "3946069987328532694"
+        },
+        {
+          "file": "apps/habit/src/assets/locale/kz.json",
+          "hash": "15872696417301444979"
+        },
+        {
+          "file": "apps/habit/src/assets/locale/ru.json",
+          "hash": "10051292443672521900"
+        },
+        {
+          "file": "apps/habit/src/assets/models/Happy Walk.fbx",
+          "hash": "8706105352852472924"
+        },
+        {
+          "file": "apps/habit/src/assets/models/mountain.fbx",
+          "hash": "6495957765092396775"
+        },
+        {
+          "file": "apps/habit/src/assets/textures/blade_alpha.jpeg",
+          "hash": "5052684186569888503"
+        },
+        {
+          "file": "apps/habit/src/assets/textures/blade_diffuse.jpeg",
+          "hash": "13387552002991288134"
+        },
+        {
+          "file": "apps/habit/src/assets/textures/perlinFbm.jpeg",
+          "hash": "6244568044666061410"
+        },
+        {
+          "file": "apps/habit/src/assets/textures/road.jpeg",
+          "hash": "17341544513233644424"
+        },
+        {
+          "file": "apps/habit/src/favicon.ico",
+          "hash": "3464744996580215640"
+        },
+        {
+          "file": "apps/habit/src/index.html",
+          "hash": "18209648900516837775"
+        },
+        {
+          "file": "apps/habit/src/main.ts",
+          "hash": "3259059517603285449",
+          "deps": [
+            "npm:@angular/platform-browser-dynamic"
+          ]
+        },
+        {
+          "file": "apps/habit/src/styles.scss",
+          "hash": "16461912799206167034"
+        },
+        {
+          "file": "apps/habit/tailwind.config.js",
+          "hash": "4616538962241029475",
+          "deps": [
+            "npm:@nx/angular",
+            "npm:path"
+          ]
+        },
+        {
+          "file": "apps/habit/tsconfig.app.json",
+          "hash": "2381145790002888757"
+        },
+        {
+          "file": "apps/habit/tsconfig.server.json",
+          "hash": "17568466587849713376"
+        },
+        {
+          "file": "apps/habit/tsconfig.spec.json",
+          "hash": "17700927949365452100"
+        }
+      ]
+    }
+  }
+}
