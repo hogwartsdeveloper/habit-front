@@ -1,5 +1,5 @@
 <app-modal-base [title]="'habit.create' | translate" [actives]="actives">
-  <ng-container [formGroup]="form">
+  <ng-container *ngIf="!loading(); else load" [formGroup]="form">
     <app-input [config]="inputConfigs[0]" [form]="form"></app-input>
     <app-input
       class="mt-5"
@@ -28,7 +28,11 @@
   <app-button type="danger" (click)="onClose()">{{
     'base.cancel' | translate
   }}</app-button>
-  <app-button [disabled]="form.invalid" (click)="onSubmit()">{{
+  <app-button [disabled]="form.invalid || loading()" (click)="onSubmit()">{{
     (type === 'create' ? 'base.create' : 'base.edit') | translate
   }}</app-button>
+</ng-template>
+
+<ng-template #load>
+  <lib-load [isLoading]="loading()"></lib-load>
 </ng-template>

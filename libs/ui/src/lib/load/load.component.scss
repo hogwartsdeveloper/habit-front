@@ -1,7 +1,13 @@
-:host {
+:host::ng-deep {
   display: contents;
+
+  nz-spin {
+    height: 100%;
+
+    .ant-spin {
+      max-height: none;
+    }
+  }
 }
 
-nz-spin {
-  height: 100%;
-}
+

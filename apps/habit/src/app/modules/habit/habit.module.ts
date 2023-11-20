@@ -9,6 +9,7 @@ import { PickItemByStatusDirective } from '../../utils/ui/directives/pick-item-b
 import { ButtonComponent } from '../../utils/ui/button/button.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { HabitViewModule } from './habit-view/habit-view.module';
+import { LoadComponent } from 'ui';
 
 @NgModule({
   declarations: [HabitComponent, HabitModalComponent],
@@ -21,6 +22,7 @@ import { HabitViewModule } from './habit-view/habit-view.module';
     ButtonComponent,
     TranslateModule,
     HabitViewModule,
+    LoadComponent,
   ],
 })
 export class HabitModule {}

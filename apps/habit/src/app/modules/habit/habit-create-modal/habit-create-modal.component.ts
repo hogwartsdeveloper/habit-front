@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   FormControl,
@@ -18,9 +18,10 @@ import { ModalBaseComponent } from '../../../utils/ui/modal-base/modal-base.comp
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 import { NzMessageService } from 'ng-zorro-antd/message';
-import { take } from 'rxjs';
+import { take, tap } from 'rxjs';
 import { UserService } from '../../user/services/user.service';
 import { InputModule } from '../../../utils/ui/input/input.module';
+import { LoadComponent } from 'ui';
 
 @Component({
   selector: 'app-habit-modal',
@@ -34,6 +35,7 @@ import { InputModule } from '../../../utils/ui/input/input.module';
     ModalBaseComponent,
     TranslateModule,
     NzDatePickerModule,
+    LoadComponent,
   ],
   templateUrl: './habit-create-modal.component.html',
   styleUrls: ['./habit-create-modal.component.scss'],
@@ -42,6 +44,7 @@ export class HabitCreateModalComponent implements OnInit {
   type: 'create' | 'edit';
   form: FormGroup;
   inputConfigs: IInput[] = habitInputConfigs;
+  loading = signal(true);
 
   constructor(
     private readonly dialogRef: MatDialogRef<HabitCreateModalComponent>,
@@ -55,6 +58,7 @@ export class HabitCreateModalComponent implements OnInit {
   }
   ngOnInit() {
     this.createForm();
+    this.loading.set(false);
   }
 
   createForm() {
@@ -76,6 +80,8 @@ export class HabitCreateModalComponent implements OnInit {
   }
 
   onSubmit() {
+    this.loading.set(true);
+
     switch (this.type) {
       case 'create':
         this.habitServices
@@ -83,7 +89,10 @@ export class HabitCreateModalComponent implements OnInit {
             ...this.form.getRawValue(),
             userId: this.userService.user$.value?.id!,
           })
-          .pipe(take(1))
+          .pipe(
+            tap(() => this.loading.set(false)),
+            take(1)
+          )
           .subscribe((res) => {
             this.message.success(
               this.translateService.instant('habit.message.successCreate')
@@ -96,7 +105,10 @@ export class HabitCreateModalComponent implements OnInit {
       case 'edit':
         this.habitServices
           .update(this.data._id, this.form.getRawValue())
-          .pipe(take(1))
+          .pipe(
+            tap(() => this.loading.set(false)),
+            take(1)
+          )
           .subscribe((res) => {
             this.message.success(
               this.translateService.instant('habit.message.successEdit')
