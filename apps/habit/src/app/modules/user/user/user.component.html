@@ -1,42 +1,48 @@
 <div class="page-box flex max-w-6xl mx-auto text-white p-6 gap-6">
-  <div class="left">
-    <div class="avatar">
-      <app-avatar
-        [text]="user.firstName[0] + ' ' + user.lastName[0]"
-        [src]="user.img"
-        [size]="207"
-      ></app-avatar>
-      <app-button
-        [view]="'border'"
-        [customStyle]="'white'"
-        nz-dropdown
-        nzTrigger="click"
-        [nzDropdownMenu]="menu"
-      >
-        <span nz-icon nzType="edit" nzTheme="outline"></span>
-        Edit
-      </app-button>
-      <nz-dropdown-menu #menu="nzDropdownMenu">
-        <ul nz-menu>
-          <li nz-menu-item (click)="photoInput.click()">Upload a photo</li>
-          <li nz-menu-item (click)="removeImg()">Remove photo</li>
-        </ul>
-      </nz-dropdown-menu>
-      <input
-        #photoInput
-        type="file"
-        accept="image/*"
-        (change)="onSelectedAvatar(photoInput.files)"
-      />
+  <ng-container *ngIf="!loading(); else load">
+    <div class="left">
+      <div class="avatar">
+        <app-avatar
+          [text]="user.firstName[0] + ' ' + user.lastName[0]"
+          [src]="user.img"
+          [size]="207"
+        ></app-avatar>
+        <app-button
+          [view]="'border'"
+          [customStyle]="'white'"
+          nz-dropdown
+          nzTrigger="click"
+          [nzDropdownMenu]="menu"
+        >
+          <span nz-icon nzType="edit" nzTheme="outline"></span>
+          Edit
+        </app-button>
+        <nz-dropdown-menu #menu="nzDropdownMenu">
+          <ul nz-menu>
+            <li nz-menu-item (click)="photoInput.click()">Upload a photo</li>
+            <li nz-menu-item (click)="removeImg()">Remove photo</li>
+          </ul>
+        </nz-dropdown-menu>
+        <input
+          #photoInput
+          type="file"
+          accept="image/*"
+          (change)="onSelectedAvatar(photoInput.files)"
+        />
+      </div>
+
+      <h1 class="font-extrabold">{{ user.firstName + ' ' + user.lastName }}</h1>
+
+      <app-button (click)="openEditModal()">{{
+        'user.edit' | translate
+      }}</app-button>
     </div>
-
-    <h1 class="font-extrabold">{{ user.firstName + ' ' + user.lastName }}</h1>
-
-    <app-button (click)="openEditModal()">{{
-      'user.edit' | translate
-    }}</app-button>
-  </div>
-  <div class="right">
-    <app-habit-view [allHabits]="habits" [viewType]="'show'"></app-habit-view>
-  </div>
+    <div class="right">
+      <app-habit-view [allHabits]="habits" [viewType]="'show'"></app-habit-view>
+    </div>
+  </ng-container>
 </div>
+
+<ng-template #load>
+  <lib-load [isLoading]="loading()"></lib-load>
+</ng-template>

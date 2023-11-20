@@ -4,14 +4,15 @@ import {
   ElementRef,
   Inject,
   OnDestroy,
+  signal,
   ViewChild,
 } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { take, tap } from 'rxjs';
+import { NzMessageService } from 'ng-zorro-antd/message';
 import Cropper from 'cropperjs';
 import { User } from '../model/user';
 import { UserService } from '../services/user.service';
-import { take } from 'rxjs';
-import { NzMessageService } from 'ng-zorro-antd/message';
 
 @Component({
   selector: 'app-user-edit-avatar',
@@ -22,6 +23,7 @@ export class UserEditAvatarModalComponent implements AfterViewInit, OnDestroy {
   @ViewChild('image') img: ElementRef<HTMLImageElement>;
   cropper: Cropper;
   imgURL: string;
+  loading = signal(false);
 
   constructor(
     private readonly dialogRef: MatDialogRef<UserEditAvatarModalComponent>,
@@ -42,13 +44,17 @@ export class UserEditAvatarModalComponent implements AfterViewInit, OnDestroy {
   }
 
   onSave() {
+    this.loading.set(true);
     const croppedImgURL = this.cropper
       .getCroppedCanvas()
       .toDataURL('image/png');
 
     this.userService
       .uploadImg(this.data.user.id, croppedImgURL)
-      .pipe(take(1))
+      .pipe(
+        tap(() => this.loading.set(false)),
+        take(1)
+      )
       .subscribe(() => {
         this.messageService.success('Image uploaded!');
         this.onClose();

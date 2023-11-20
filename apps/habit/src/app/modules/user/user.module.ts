@@ -13,6 +13,7 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { UserEditAvatarModalComponent } from './user-edit-avatar-modal/user-edit-avatar-modal.component';
 import { InputModule } from '../../utils/ui/input/input.module';
+import { LoadComponent } from 'ui';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { InputModule } from '../../utils/ui/input/input.module';
     AvatarComponent,
     NzIconModule,
     NzDropDownModule,
+    LoadComponent,
   ],
 })
 export class UserModule {}

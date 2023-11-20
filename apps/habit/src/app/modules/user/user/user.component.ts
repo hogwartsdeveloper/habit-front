@@ -1,6 +1,6 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, signal } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Subject, take, takeUntil } from 'rxjs';
+import { Subject, switchMap, take, takeUntil, tap } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 import { NzMessageService } from 'ng-zorro-antd/message';
 
@@ -20,6 +20,8 @@ export class UserComponent implements OnInit, OnDestroy {
   user: User;
   habits: IHabits = { active: [], history: [] };
   destroy$ = new Subject();
+  loading = signal(true);
+
   constructor(
     private readonly dialog: MatDialog,
     private readonly message: NzMessageService,
@@ -29,19 +31,23 @@ export class UserComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    this.userService.user$.pipe(takeUntil(this.destroy$)).subscribe((user) => {
-      this.user = user!;
-      this.habitService
-        .get(this.user.id)
-        .pipe(take(1))
-        .subscribe((habits) => (this.habits = habits));
-    });
+    this.userService.user$
+      .pipe(
+        switchMap((user) => {
+          this.user = user!;
+
+          return this.habitService.get(user?.id!);
+        }),
+        tap(() => this.loading.set(false)),
+        takeUntil(this.destroy$)
+      )
+      .subscribe((habits) => (this.habits = habits));
   }
 
   openEditModal() {
     this.dialog.open(UserEditModalComponent, {
       width: '400px',
-      height: '600px',
+      height: '300px',
       panelClass: 'noBackground',
       autoFocus: false,
       data: this.user,

@@ -1,14 +1,7 @@
-import {
-  Component,
-  ElementRef,
-  Inject,
-  OnDestroy,
-  OnInit,
-  ViewChild,
-} from '@angular/core';
+import { Component, Inject, OnDestroy, OnInit, signal } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { Subject, take, takeUntil } from 'rxjs';
+import { Subject, take, takeUntil, tap } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { userInputConfigs } from './models/user-edit-data.config';
@@ -21,12 +14,11 @@ import { UpdateUser } from '../model/user.interface';
   styleUrls: ['./user-edit-modal.component.scss'],
 })
 export class UserEditModalComponent implements OnInit, OnDestroy {
-  @ViewChild('photoInput', { static: true })
-  photo: ElementRef<HTMLInputElement>;
   userInputConfigs = userInputConfigs;
   form: FormGroup;
   isEdit = false;
   destroy$ = new Subject();
+  loading = signal(false);
 
   constructor(
     private readonly dialogRef: MatDialogRef<UserEditModalComponent>,
@@ -38,7 +30,6 @@ export class UserEditModalComponent implements OnInit, OnDestroy {
     this.form = new FormGroup({
       firstName: new FormControl(data?.firstName || '', Validators.required),
       lastName: new FormControl(data?.lastName || '', Validators.required),
-      img: new FormControl(''),
     });
   }
 
@@ -50,22 +41,18 @@ export class UserEditModalComponent implements OnInit, OnDestroy {
     });
   }
 
-  onPhotoChange() {
-    const reader = new FileReader();
-    reader.onload = (event) => {
-      this.form.get('img')?.patchValue(event.target!.result);
-    };
-    reader.readAsDataURL(this.photo.nativeElement.files![0]);
-  }
-
   onClose() {
     this.dialogRef.close();
   }
 
   onSave() {
+    this.loading.set(true);
     this.userService
       .update(this.data.id, this.form.getRawValue())
-      .pipe(take(1))
+      .pipe(
+        tap(() => this.loading.set(false)),
+        take(1)
+      )
       .subscribe(() => {
         this.messageService.success(
           this.translateService.instant('base.successEdit')

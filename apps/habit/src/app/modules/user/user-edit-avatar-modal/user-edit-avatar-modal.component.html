@@ -1,5 +1,5 @@
 <app-modal-base [title]="'Crop your new profile picture'" [actives]="actives">
-  <div class="flex-1 mb-2.5">
+  <div *ngIf="!loading(); else load" class="flex-1 mb-2.5">
     <img #image [src]="imgURL" />
   </div>
 </app-modal-base>
@@ -8,5 +8,9 @@
   <app-button type="danger" (click)="onClose()">{{
     'base.cancel' | translate
   }}</app-button>
-  <app-button (click)="onSave()">Set new profile picture</app-button>
+  <app-button [disabled]="loading()" (click)="onSave()">Set new profile picture</app-button>
+</ng-template>
+
+<ng-template #load>
+  <lib-load [isLoading]="loading()"></lib-load>
 </ng-template>
