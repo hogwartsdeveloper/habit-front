@@ -17,11 +17,11 @@ import { habitInputConfigs } from './form.config';
 import { ModalBaseComponent } from '../../../utils/ui/modal-base/modal-base.component';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
-import { NzMessageService } from 'ng-zorro-antd/message';
 import { take, tap } from 'rxjs';
+import { LoadComponent, MessageService } from 'ui';
+
 import { UserService } from '../../user/services/user.service';
 import { InputModule } from '../../../utils/ui/input/input.module';
-import { LoadComponent } from 'ui';
 
 @Component({
   selector: 'app-habit-modal',
@@ -48,7 +48,7 @@ export class HabitCreateModalComponent implements OnInit {
 
   constructor(
     private readonly dialogRef: MatDialogRef<HabitCreateModalComponent>,
-    private readonly message: NzMessageService,
+    private readonly messageService: MessageService,
     private readonly translateService: TranslateService,
     private readonly habitServices: HabitService,
     private readonly userService: UserService,
@@ -94,7 +94,7 @@ export class HabitCreateModalComponent implements OnInit {
             take(1)
           )
           .subscribe((res) => {
-            this.message.success(
+            this.messageService.success(
               this.translateService.instant('habit.message.successCreate')
             );
 
@@ -110,7 +110,7 @@ export class HabitCreateModalComponent implements OnInit {
             take(1)
           )
           .subscribe((res) => {
-            this.message.success(
+            this.messageService.success(
               this.translateService.instant('habit.message.successEdit')
             );
 

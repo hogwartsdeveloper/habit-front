@@ -9,8 +9,8 @@ import {
 } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { take, tap } from 'rxjs';
-import { NzMessageService } from 'ng-zorro-antd/message';
 import Cropper from 'cropperjs';
+import { MessageService } from 'ui';
 import { User } from '../model/user';
 import { UserService } from '../services/user.service';
 
@@ -30,7 +30,7 @@ export class UserEditAvatarModalComponent implements AfterViewInit, OnDestroy {
     @Inject(MAT_DIALOG_DATA)
     public readonly data: { user: User; uploadableImg: string },
     private readonly userService: UserService,
-    private readonly messageService: NzMessageService
+    private readonly messageService: MessageService
   ) {
     this.imgURL = this.data.uploadableImg;
   }

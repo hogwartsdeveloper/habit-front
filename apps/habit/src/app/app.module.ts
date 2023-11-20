@@ -2,23 +2,23 @@ import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
-import { ToolbarComponent } from './modules/toolbar/toolbar.component';
-import { ThreeSupportService } from './services/three-support.service';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MAT_DATE_LOCALE, MatNativeDateModule } from '@angular/material/core';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { HabitService } from './modules/habit/services/habit.service';
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import {
   HTTP_INTERCEPTORS,
   HttpClient,
   HttpClientModule,
 } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { NzMessageService } from 'ng-zorro-antd/message';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { MessageService } from 'ui';
+
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+import { ToolbarComponent } from './modules/toolbar/toolbar.component';
+import { ThreeSupportService } from './services/three-support.service';
+import { MAT_DATE_LOCALE, MatNativeDateModule } from '@angular/material/core';
+import { HabitService } from './modules/habit/services/habit.service';
 import { AuthModule } from './modules/auth/auth.module';
 import { AuthInterceptor } from './modules/auth/interceptor/auth.interceptor';
 import { AuthService } from './modules/auth/services/auth.service';
@@ -56,9 +56,9 @@ registerLocaleData(en);
     UserService,
     AuthGuard,
     HabitService,
-    NzMessageService,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: ErrorHandler, useClass: CatchErrorHandler },
+    MessageService,
   ],
   bootstrap: [AppComponent],
 })

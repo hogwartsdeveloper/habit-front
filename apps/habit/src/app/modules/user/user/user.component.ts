@@ -1,8 +1,8 @@
 import { Component, OnDestroy, OnInit, signal } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Subject, switchMap, take, takeUntil, tap } from 'rxjs';
+import { Subject, switchMap, takeUntil, tap } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
-import { NzMessageService } from 'ng-zorro-antd/message';
+import { MessageService } from 'ui';
 
 import { HabitService } from '../../habit/services/habit.service';
 import { UserEditModalComponent } from '../user-edit-modal/user-edit-modal.component';
@@ -24,7 +24,7 @@ export class UserComponent implements OnInit, OnDestroy {
 
   constructor(
     private readonly dialog: MatDialog,
-    private readonly message: NzMessageService,
+    private readonly messageService: MessageService,
     private readonly translateService: TranslateService,
     public readonly habitService: HabitService,
     private readonly userService: UserService
@@ -78,7 +78,7 @@ export class UserComponent implements OnInit, OnDestroy {
 
   removeImg() {
     this.userService.deleteImg(this.user.id).subscribe(() => {
-      this.message.success('Изображения успешно удалено');
+      this.messageService.success('Изображения успешно удалено');
     });
   }
 

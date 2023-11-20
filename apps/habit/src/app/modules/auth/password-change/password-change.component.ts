@@ -1,12 +1,12 @@
 import { Component, DestroyRef, inject, OnInit, signal } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { ActivatedRoute, Router } from '@angular/router';
 import { debounceTime, distinctUntilChanged, take, tap } from 'rxjs';
+import { MessageService } from 'ui';
 
 import { IInput } from '../../../utils/ui/input/models/input.interface';
 import { AuthApiService } from '../services/auth-api.service';
-import { ActivatedRoute, Router } from '@angular/router';
-import { NzMessageService } from 'ng-zorro-antd/message';
 import { AuthService } from '../services/auth.service';
 
 @Component({
@@ -47,7 +47,7 @@ export class PasswordChangeComponent implements OnInit {
     private readonly router: Router,
     private readonly authService: AuthService,
     private readonly authApiService: AuthApiService,
-    private readonly messageService: NzMessageService
+    private readonly messageService: MessageService
   ) {}
 
   ngOnInit() {

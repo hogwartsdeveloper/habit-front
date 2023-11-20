@@ -3,7 +3,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Subject, take, takeUntil, tap } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
-import { NzMessageService } from 'ng-zorro-antd/message';
+import { MessageService } from 'ui';
+
 import { userInputConfigs } from './models/user-edit-data.config';
 import { UserService } from '../services/user.service';
 import { UpdateUser } from '../model/user.interface';
@@ -23,7 +24,7 @@ export class UserEditModalComponent implements OnInit, OnDestroy {
   constructor(
     private readonly dialogRef: MatDialogRef<UserEditModalComponent>,
     private readonly userService: UserService,
-    private readonly messageService: NzMessageService,
+    private readonly messageService: MessageService,
     private readonly translateService: TranslateService,
     @Inject(MAT_DIALOG_DATA) public readonly data: UpdateUser & { id: string }
   ) {

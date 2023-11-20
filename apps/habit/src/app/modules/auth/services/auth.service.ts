@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { catchError, of, switchMap, take } from 'rxjs';
-import { NzMessageService } from 'ng-zorro-antd/message';
+import { MessageService } from 'ui';
 
 import { IAuth } from '../models/author.model';
 import { User } from '../../user/model/user';
@@ -16,7 +16,7 @@ export class AuthService {
 
   constructor(
     private readonly http: HttpClient,
-    private readonly messageService: NzMessageService,
+    private readonly messageService: MessageService,
     private readonly router: Router,
     private readonly userService: UserService,
     private readonly authApiService: AuthApiService

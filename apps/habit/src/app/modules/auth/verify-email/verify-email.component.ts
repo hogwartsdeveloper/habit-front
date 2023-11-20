@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ActivatedRoute } from '@angular/router';
 import { switchMap, take, tap } from 'rxjs';
-import { NzMessageService } from 'ng-zorro-antd/message';
+import { MessageService } from 'ui';
 
 import { IInput } from '../../../utils/ui/input/models/input.interface';
 import { AuthApiService } from '../services/auth-api.service';
@@ -42,7 +42,7 @@ export class VerifyEmailComponent implements OnInit {
     private readonly route: ActivatedRoute,
     private readonly authApiService: AuthApiService,
     private readonly authService: AuthService,
-    private readonly messageService: NzMessageService
+    private readonly messageService: MessageService
   ) {}
 
   ngOnInit() {

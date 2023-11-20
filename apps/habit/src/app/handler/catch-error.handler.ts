@@ -1,9 +1,9 @@
 import { ErrorHandler, Injectable } from '@angular/core';
-import { NzMessageService } from 'ng-zorro-antd/message';
+import { MessageService } from 'ui';
 
 @Injectable()
 export class CatchErrorHandler implements ErrorHandler {
-  constructor(private readonly messageService: NzMessageService) {}
+  constructor(private readonly messageService: MessageService) {}
 
   handleError(error: any) {
     this.messageService.error(error?.error?.message);
