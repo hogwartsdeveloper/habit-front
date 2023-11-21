@@ -1,0 +1,19 @@
+<form class="flex flex-col" [formGroup]="form" [ngSwitch]="config.type">
+    <div class="flex gap-0.5">
+        <span>{{ config.title | translate }}</span>
+        <span *ngIf="config.required" class="text-red-500">*</span>
+    </div>
+
+    <lib-input-code
+            *ngSwitchCase="'code'"
+            [form]="form"
+            [config]="config"
+    ></lib-input-code>
+    <input
+            *ngSwitchDefault
+            class="rounded-md text-sm"
+            [type]="config.type"
+            [placeholder]="config.placeholder ? (config.placeholder! | translate) : ''"
+            [formControlName]="config.fName"
+    />
+</form>

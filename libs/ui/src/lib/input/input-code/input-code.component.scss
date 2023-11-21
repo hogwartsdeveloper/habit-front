@@ -1,0 +1,23 @@
+div {
+  display: flex;
+  justify-content: center;
+}
+
+input {
+  margin: 0 0.2rem;
+  padding: 0.5rem;
+  color: var(--cl-text);
+  height: 35px;
+  width: 35px;
+  text-align: center;
+  font-size: 14px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+input:focus {
+  outline: none;
+}
