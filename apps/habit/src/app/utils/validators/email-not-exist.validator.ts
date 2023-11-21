@@ -25,7 +25,7 @@ export function emailNotExistValidator(): AsyncValidatorFn {
       distinctUntilChanged(),
       switchMap((value) => userService.checkEmailNotExist(value)),
       map(() => null),
-      catchError((err) => of(err.error.message)),
+      catchError((err) => of({ custom: err.error.message })),
       take(1)
     );
   };

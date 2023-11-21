@@ -16,4 +16,14 @@
             [placeholder]="config.placeholder ? (config.placeholder! | translate) : ''"
             [formControlName]="config.fName"
     />
+    <ng-container *ngIf="form.get(config.fName)?.touched">
+        <span
+                class="error-message"
+                *ngIf="form.get(config.fName)?.hasError('required')"
+        >{{ config.title }} обязателен</span>
+        <span
+                class="error-message"
+                *ngIf="form.get(config.fName)?.hasError('custom')"
+        >{{ form.get(config.fName)?.errors?.['custom'] ?? '-' }}</span>
+    </ng-container>
 </form>
