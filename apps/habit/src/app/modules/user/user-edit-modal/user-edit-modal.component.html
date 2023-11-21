@@ -1,11 +1,11 @@
 <app-modal-base [title]="'user.edit' | translate" [actives]="actives">
   <ng-container *ngIf="!loading(); else load">
-    <app-input
+    <lib-input
             *ngFor="let config of userInputConfigs; let ind = index"
             [config]="config"
             [form]="form"
             [ngClass]="{ 'my-5': ind > 0 }"
-    ></app-input>
+    ></lib-input>
   </ng-container>
 </app-modal-base>
 

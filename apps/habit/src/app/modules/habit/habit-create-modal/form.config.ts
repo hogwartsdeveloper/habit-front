@@ -1,4 +1,4 @@
-import { IInput } from '../../../utils/ui/input/models/input.interface';
+import { IInput } from 'ui';
 
 export const habitInputConfigs: IInput[] = [
   {

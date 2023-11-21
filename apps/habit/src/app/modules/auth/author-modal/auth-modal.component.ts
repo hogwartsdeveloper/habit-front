@@ -10,11 +10,11 @@ import { switchMap, take, tap } from 'rxjs';
 
 import { AuthorType } from '../models/author.model';
 import { ThreeSupportService } from '../../../services/three-support.service';
-import { IInput } from '../../../utils/ui/input/models/input.interface';
 import { authInputConfigs } from './form.config';
 import { AuthApiService } from '../services/auth-api.service';
 import { AuthService } from '../services/auth.service';
 import { emailNotExistValidator } from '../../../utils/validators/email-not-exist.validator';
+import { IInput } from 'ui';
 
 @Component({
   selector: 'app-author-modal',

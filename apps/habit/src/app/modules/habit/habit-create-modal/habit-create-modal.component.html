@@ -1,11 +1,11 @@
 <app-modal-base [title]="'habit.create' | translate" [actives]="actives">
   <ng-container *ngIf="!loading(); else load" [formGroup]="form">
-    <app-input [config]="inputConfigs[0]" [form]="form"></app-input>
-    <app-input
+    <lib-input [config]="inputConfigs[0]" [form]="form"></lib-input>
+    <lib-input
       class="mt-5"
       [config]="inputConfigs[1]"
       [form]="form"
-    ></app-input>
+    ></lib-input>
 
     <div class="flex items-center my-4">
       <span>{{ 'base.hide' | translate }}</span>

@@ -3,9 +3,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, Router } from '@angular/router';
 import { debounceTime, distinctUntilChanged, take, tap } from 'rxjs';
-import { MessageService } from 'ui';
+import { IInput, MessageService } from 'ui';
 
-import { IInput } from '../../../utils/ui/input/models/input.interface';
 import { AuthApiService } from '../services/auth-api.service';
 import { AuthService } from '../services/auth.service';
 

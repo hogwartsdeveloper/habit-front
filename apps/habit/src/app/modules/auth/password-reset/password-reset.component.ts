@@ -2,7 +2,7 @@ import { Component, signal } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { take, tap } from 'rxjs';
 
-import { IInput } from '../../../utils/ui/input/models/input.interface';
+import { IInput } from 'ui';
 import { AuthApiService } from '../services/auth-api.service';
 import { emailExistValidator } from '../../../utils/validators/email-exist.validator';
 
