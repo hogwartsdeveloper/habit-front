@@ -1,7 +1,7 @@
 <div class="page-box">
   <ng-container *ngIf="!loading(); else load">
     <p>You're almost done!</p>
-    <p class="mb-3.5">We sent a launch code to {{ email() }}</p>
+    <p class="mb-3">We sent a launch code to {{ email() }}</p>
 
     <lib-input [form]="form()" [config]="config()"></lib-input>
 

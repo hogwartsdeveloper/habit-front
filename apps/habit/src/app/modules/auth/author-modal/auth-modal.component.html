@@ -5,12 +5,12 @@
   <ng-container [formGroup]="form">
     <ng-container *ngIf="type === 'signUp'">
       <lib-input [config]="configs[0]" [form]="form"></lib-input>
-      <lib-input class="my-5" [config]="configs[1]" [form]="form"></lib-input>
+      <lib-input class="my-3" [config]="configs[1]" [form]="form"></lib-input>
     </ng-container>
 
     <lib-input [config]="configs[2]" [form]="form"></lib-input>
 
-    <div class="my-5 relative">
+    <div class="my-3 relative">
       <ng-container *ngIf="type === 'signIn'">
         <span
           class="absolute right-0 top-1 cursor-pointer font-semibold text-xs"

@@ -21,9 +21,10 @@
                 class="error-message"
                 *ngIf="form.get(config.fName)?.hasError('required')"
         >{{ config.title }} обязателен</span>
-        <span
-                class="error-message"
-                *ngIf="form.get(config.fName)?.hasError('custom')"
-        >{{ form.get(config.fName)?.errors?.['custom'] ?? '-' }}</span>
     </ng-container>
+
+    <span
+            class="error-message"
+            *ngIf="form.get(config.fName)?.hasError('custom')"
+    >{{ form.get(config.fName)?.errors?.['custom'] ?? '-' }}</span>
 </form>
