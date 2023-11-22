@@ -1,4 +1,4 @@
-<app-modal-base [title]="'habit.create' | translate" [actives]="actives">
+<lib-modal-base [title]="'habit.create' | translate" [actives]="actives">
   <ng-container *ngIf="!loading(); else load" [formGroup]="form">
     <lib-input [config]="inputConfigs[0]" [form]="form"></lib-input>
     <lib-input
@@ -22,7 +22,7 @@
       <nz-date-picker formControlName="endDate"></nz-date-picker>
     </div>
   </ng-container>
-</app-modal-base>
+</lib-modal-base>
 
 <ng-template #actives>
   <lib-button type="danger" (click)="onClose()">{{

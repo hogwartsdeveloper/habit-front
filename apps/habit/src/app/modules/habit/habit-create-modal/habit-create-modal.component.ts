@@ -12,7 +12,6 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { HabitService } from '../services/habit.service';
 import { IHabit } from '../models/habit.interface';
 import { habitInputConfigs } from './form.config';
-import { ModalBaseComponent } from '../../../utils/ui/modal-base/modal-base.component';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 import { take, tap } from 'rxjs';
@@ -22,6 +21,7 @@ import {
   InputModule,
   LoadComponent,
   MessageService,
+  ModalBaseComponent,
 } from 'ui';
 
 import { UserService } from '../../user/services/user.service';

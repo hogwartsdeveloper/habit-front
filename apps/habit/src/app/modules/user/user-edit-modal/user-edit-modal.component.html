@@ -1,4 +1,4 @@
-<app-modal-base [title]="'user.edit' | translate" [actives]="actives">
+<lib-modal-base [title]="'user.edit' | translate" [actives]="actives">
   <ng-container *ngIf="!loading(); else load">
     <lib-input
             *ngFor="let config of userInputConfigs; let ind = index"
@@ -7,15 +7,15 @@
             [ngClass]="{ 'my-3': ind > 0 }"
     ></lib-input>
   </ng-container>
-</app-modal-base>
+</lib-modal-base>
 
 <ng-template #actives>
-  <app-button type="danger" (click)="onClose()">{{
+  <lib-button type="danger" (click)="onClose()">{{
     'base.cancel' | translate
-  }}</app-button>
-  <app-button [disabled]="form.invalid || !isEdit || loading()" (click)="onSave()">{{
+  }}</lib-button>
+  <lib-button [disabled]="form.invalid || !isEdit || loading()" (click)="onSave()">{{
     'base.save' | translate
-  }}</app-button>
+  }}</lib-button>
 </ng-template>
 
 <ng-template #load>

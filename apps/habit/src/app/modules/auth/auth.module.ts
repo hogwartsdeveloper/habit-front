@@ -6,11 +6,11 @@ import {
   ButtonComponent,
   InputModule,
   LoadComponent,
+  ModalBaseComponent,
   ResultComponent,
 } from 'ui';
 
 import { AuthModalComponent } from './author-modal/auth-modal.component';
-import { ModalBaseComponent } from '../../utils/ui/modal-base/modal-base.component';
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { AuthRouterModule } from './auth-router.module';
 import { AuthApiService } from './services/auth-api.service';

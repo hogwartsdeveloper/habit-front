@@ -1,0 +1,8 @@
+<div class="container">
+    <h1 class="title">{{ title }}</h1>
+    <ng-content></ng-content>
+
+    <div *ngIf="actives" class="actives">
+        <ng-container *ngTemplateOutlet="actives"></ng-container>
+    </div>
+</div>

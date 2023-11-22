@@ -1,12 +1,12 @@
 import { Component, Input, TemplateRef } from '@angular/core';
-import { NgIf, NgTemplateOutlet } from '@angular/common';
+import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-modal-base',
+  selector: 'lib-modal-base',
   standalone: true,
+  imports: [CommonModule],
   templateUrl: './modal-base.component.html',
   styleUrls: ['./modal-base.component.scss'],
-  imports: [NgTemplateOutlet, NgIf],
 })
 export class ModalBaseComponent {
   @Input({ required: true }) title: string = '';

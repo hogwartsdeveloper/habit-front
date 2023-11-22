@@ -1,4 +1,4 @@
-<app-modal-base [title]="data.name" [actives]="actives">
+<lib-modal-base [title]="data.name" [actives]="actives">
   <ng-container *ngIf="!loading(); else load">
     <div class="box">
       <div class="item" *ngFor="let weekDay of weekDays">{{ weekDay }}</div>
@@ -23,7 +23,7 @@
       </div>
     </div>
   </ng-container>
-</app-modal-base>
+</lib-modal-base>
 
 <ng-template #actives>
   <div class="flex justify-end gap-1.5 ml-auto mt-3">

@@ -1,4 +1,4 @@
-<app-modal-base
+<lib-modal-base
         *ngIf="!loading(); else load"
         [title]="(type === 'signIn' ? 'auth.signIn' : 'auth.signUp') | translate"
 >
@@ -44,7 +44,7 @@
       </ng-container>
     </div>
   </ng-container>
-</app-modal-base>
+</lib-modal-base>
 
 <ng-template #load>
   <lib-load [isLoading]="loading()"></lib-load>

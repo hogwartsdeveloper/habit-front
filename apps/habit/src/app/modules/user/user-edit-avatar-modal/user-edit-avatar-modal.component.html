@@ -1,14 +1,14 @@
-<app-modal-base [title]="'Crop your new profile picture'" [actives]="actives">
+<lib-modal-base [title]="'Crop your new profile picture'" [actives]="actives">
   <div *ngIf="!loading(); else load" class="flex-1 mb-2.5">
     <img #image [src]="imgURL" />
   </div>
-</app-modal-base>
+</lib-modal-base>
 
 <ng-template #actives>
-  <app-button type="danger" (click)="onClose()">{{
+  <lib-button type="danger" (click)="onClose()">{{
     'base.cancel' | translate
-  }}</app-button>
-  <app-button [disabled]="loading()" (click)="onSave()">Set new profile picture</app-button>
+  }}</lib-button>
+  <lib-button [disabled]="loading()" (click)="onSave()">Set new profile picture</lib-button>
 </ng-template>
 
 <ng-template #load>
