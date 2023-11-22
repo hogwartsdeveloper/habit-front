@@ -11,7 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { MessageService } from 'ui';
+import { KeyboardComponent, MessageService } from 'ui';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -23,7 +23,6 @@ import { AuthModule } from './modules/auth/auth.module';
 import { AuthInterceptor } from './modules/auth/interceptor/auth.interceptor';
 import { AuthService } from './modules/auth/services/auth.service';
 import { AuthGuard } from './guard/auth.guard';
-import { KeyboardComponent } from './utils/ui/keyboard/keyboard.component';
 import { CatchErrorHandler } from './handler/catch-error.handler';
 import { UserService } from './modules/user/services/user.service';
 

@@ -7,6 +7,7 @@ import { InputModule } from './input/input.module';
 import { AvatarComponent } from './avatar/avatar.component';
 import { ButtonComponent } from './button/button.component';
 import { ModalBaseComponent } from './modal-base/modal-base.component';
+import { KeyboardComponent } from './keyboard/keyboard.component';
 
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import { ModalBaseComponent } from './modal-base/modal-base.component';
     AvatarComponent,
     ButtonComponent,
     ModalBaseComponent,
+    KeyboardComponent,
   ],
   exports: [
     LoadComponent,
@@ -25,6 +27,7 @@ import { ModalBaseComponent } from './modal-base/modal-base.component';
     AvatarComponent,
     ButtonComponent,
     ModalBaseComponent,
+    KeyboardComponent,
   ],
 })
 export class UiModule {}

@@ -1,0 +1,13 @@
+<div class="inner">
+    <div *ngFor="let element of keyElements" class="key">
+        <div
+            #key
+            class="content"
+            [attr.data-id]="element.type"
+            (mousedown)="onAction('keydown', element.type)"
+            (mouseup)="onAction('keyup', element.type)"
+        >
+            {{ element.content }}
+        </div>
+    </div>
+</div>

@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-import { KeyEnum } from '../ui/keyboard/types/key.enum';
+import { KeyEnum } from 'ui';
 
 export class CharacterControls {
   walkDirection = new THREE.Vector3();

@@ -10,8 +10,7 @@ import {
 import { FormGroup } from '@angular/forms';
 import { Subscription } from 'rxjs';
 
-import { IInput } from 'ui';
-import { KeyEnum } from '../../../../../../apps/habit/src/app/utils/ui/keyboard/types/key.enum';
+import { IInput, KeyEnum } from 'ui';
 
 @Component({
   selector: 'lib-input-code',

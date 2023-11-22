@@ -5,18 +5,17 @@ import {
   QueryList,
   ViewChildren,
 } from '@angular/core';
-import { NgForOf } from '@angular/common';
-
-import { KeyEnum } from './types/key.enum';
+import { CommonModule } from '@angular/common';
 import { KeyboardService } from './keyboard.service';
+import { KeyEnum } from './types/key.enum';
 
 @Component({
-  selector: 'app-keyboard',
+  selector: 'lib-keyboard',
+  standalone: true,
+  imports: [CommonModule],
+  providers: [KeyboardService],
   templateUrl: './keyboard.component.html',
   styleUrls: ['./keyboard.component.scss'],
-  standalone: true,
-  providers: [KeyboardService],
-  imports: [NgForOf],
 })
 export class KeyboardComponent {
   @ViewChildren('key') keys: QueryList<ElementRef<HTMLElement>>;
