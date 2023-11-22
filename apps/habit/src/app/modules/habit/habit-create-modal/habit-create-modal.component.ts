@@ -11,13 +11,18 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { HabitService } from '../services/habit.service';
 import { IHabit } from '../models/habit.interface';
-import { ButtonComponent } from '../../../utils/ui/button/button.component';
 import { habitInputConfigs } from './form.config';
 import { ModalBaseComponent } from '../../../utils/ui/modal-base/modal-base.component';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 import { take, tap } from 'rxjs';
-import { IInput, InputModule, LoadComponent, MessageService } from 'ui';
+import {
+  ButtonComponent,
+  IInput,
+  InputModule,
+  LoadComponent,
+  MessageService,
+} from 'ui';
 
 import { UserService } from '../../user/services/user.service';
 

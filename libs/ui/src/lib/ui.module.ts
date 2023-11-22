@@ -5,6 +5,7 @@ import { LoadComponent } from './load/load.component';
 import { ResultComponent } from './result/result.component';
 import { InputModule } from './input/input.module';
 import { AvatarComponent } from './avatar/avatar.component';
+import { ButtonComponent } from './button/button.component';
 
 @NgModule({
   imports: [
@@ -13,7 +14,14 @@ import { AvatarComponent } from './avatar/avatar.component';
     ResultComponent,
     InputModule,
     AvatarComponent,
+    ButtonComponent,
   ],
-  exports: [LoadComponent, ResultComponent, InputModule, AvatarComponent],
+  exports: [
+    LoadComponent,
+    ResultComponent,
+    InputModule,
+    AvatarComponent,
+    ButtonComponent,
+  ],
 })
 export class UiModule {}

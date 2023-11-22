@@ -9,7 +9,6 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { AuthModalComponent } from '../auth/author-modal/auth-modal.component';
 import { AuthorType } from '../auth/models/author.model';
 import { ThreeSupportService } from '../../services/three-support.service';
-import { ButtonComponent } from '../../utils/ui/button/button.component';
 import { DropdownMenuComponent } from './dropdown-menu/dropdown-menu.component';
 import { User } from '../user/model/user';
 import { UserService } from '../user/services/user.service';
@@ -24,7 +23,6 @@ import { UserService } from '../user/services/user.service';
     MatButtonModule,
     NgIf,
     AsyncPipe,
-    ButtonComponent,
     TranslateModule,
     DropdownMenuComponent,
   ],

@@ -6,14 +6,14 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { NgClass } from '@angular/common';
+import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-button',
-  standalone: true,
+  selector: 'lib-button',
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss'],
-  imports: [MatButtonModule, NgClass],
+  standalone: true,
+  imports: [MatButtonModule, CommonModule],
 })
 export class ButtonComponent implements OnChanges {
   @Input() type: 'success' | 'danger' | 'insta' = 'success';

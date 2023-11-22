@@ -27,15 +27,15 @@
 
 <ng-template #actives>
   <div class="flex justify-end gap-1.5 ml-auto mt-3">
-    <app-button type="danger" (click)="close()">{{
+    <lib-button type="danger" (click)="close()">{{
       'base.cancel' | translate
-    }}</app-button>
-    <app-button
+    }}</lib-button>
+    <lib-button
       [disabled]="
         !selectedDay || selectedDay.status === HabitCalendarStatus.Clean || loading()
       "
       (click)="save()"
-      >{{ 'base.save' | translate }}</app-button
+      >{{ 'base.save' | translate }}</lib-button
     >
   </div>
 </ng-template>

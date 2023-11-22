@@ -6,6 +6,7 @@
 
 button {
   width: 100%;
+  font-weight: 600;
 
   &.border {
     background-color: transparent;
@@ -19,7 +20,7 @@ button {
 
   &:after,
   &:before {
-    content: '';
+    content: "";
     position: absolute;
     height: 100%;
     width: 100%;
@@ -48,7 +49,7 @@ button[disabled] {
   opacity: 0.5;
 }
 
-.success {
+.success{
   &.basic {
     background-color: var(--cl-success) !important;
     color: white !important;
@@ -76,13 +77,5 @@ button[disabled] {
 }
 
 .insta {
-  background: linear-gradient(
-    45deg,
-    #405de6,
-    #5851db,
-    #833ab4,
-    #c13584,
-    #e1306c,
-    #fd1d1d
-  );
+  background:linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
 }

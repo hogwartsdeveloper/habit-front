@@ -7,7 +7,7 @@
           [src]="user.img"
           [size]="207"
         ></lib-avatar>
-        <app-button
+        <lib-button
           [view]="'border'"
           [customStyle]="'white'"
           nz-dropdown
@@ -16,7 +16,7 @@
         >
           <span nz-icon nzType="edit" nzTheme="outline"></span>
           Edit
-        </app-button>
+        </lib-button>
         <nz-dropdown-menu #menu="nzDropdownMenu">
           <ul nz-menu>
             <li nz-menu-item (click)="photoInput.click()">Upload a photo</li>
@@ -33,9 +33,9 @@
 
       <h1 class="font-extrabold">{{ user.firstName + ' ' + user.lastName }}</h1>
 
-      <app-button (click)="openEditModal()">{{
+      <lib-button (click)="openEditModal()">{{
         'user.edit' | translate
-      }}</app-button>
+      }}</lib-button>
     </div>
     <div class="right">
       <app-habit-view [allHabits]="habits" [viewType]="'show'"></app-habit-view>

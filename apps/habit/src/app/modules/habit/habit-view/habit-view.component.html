@@ -1,14 +1,14 @@
 <nz-tabset>
   <nz-tab [nzTitle]="'base.active' | translate">
     <div class="tab-header">
-      <app-button
+      <lib-button
         *ngIf="viewType === 'interactive'"
         style="width: 110px"
         [animation]="!habits.length ? 'pulse' : ''"
         (click)="addHabit()"
       >
         {{ 'habit.add' | translate }}
-      </app-button>
+      </lib-button>
     </div>
     <app-habit-view-content
       [habits]="allHabits.active"

@@ -25,12 +25,12 @@
 </app-modal-base>
 
 <ng-template #actives>
-  <app-button type="danger" (click)="onClose()">{{
+  <lib-button type="danger" (click)="onClose()">{{
     'base.cancel' | translate
-  }}</app-button>
-  <app-button [disabled]="form.invalid || loading()" (click)="onSubmit()">{{
+  }}</lib-button>
+  <lib-button [disabled]="form.invalid || loading()" (click)="onSubmit()">{{
     (type === 'create' ? 'base.create' : 'base.edit') | translate
-  }}</app-button>
+  }}</lib-button>
 </ng-template>
 
 <ng-template #load>

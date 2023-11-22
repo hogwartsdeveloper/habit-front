@@ -18,8 +18,8 @@
         ></lib-avatar>
         <div>{{ user.firstName + ' ' + user.lastName }}</div>
       </div>
-      <app-button routerLink="/user" class="mb-2" [view]="'border'"
-        >View Profile</app-button
+      <lib-button routerLink="/user" class="mb-2" [view]="'border'"
+        >View Profile</lib-button
       >
       <hr />
       <nz-select
@@ -35,12 +35,12 @@
         ></nz-option>
       </nz-select>
       <hr />
-      <app-button
+      <lib-button
         class="mt-2"
         type="danger"
         [view]="'border'"
         (click)="logout()"
-        >Logout</app-button
+        >Logout</lib-button
       >
     </div>
   </div>

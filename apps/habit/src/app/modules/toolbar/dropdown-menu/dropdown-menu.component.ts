@@ -8,11 +8,10 @@ import { NzSelectModule } from 'ng-zorro-antd/select';
 import { en_US, kk_KZ, NzI18nService, ru_RU } from 'ng-zorro-antd/i18n';
 
 import { AuthService } from '../../auth/services/auth.service';
-import { ButtonComponent } from '../../../utils/ui/button/button.component';
 import { show } from '../../../utils/animations/show.animation';
 import { User } from '../../user/model/user';
 import { UserService } from '../../user/services/user.service';
-import { AvatarComponent } from 'ui';
+import { AvatarComponent, ButtonComponent } from 'ui';
 
 @Component({
   selector: 'app-dropdown-menu',
