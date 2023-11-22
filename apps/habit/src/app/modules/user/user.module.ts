@@ -8,11 +8,10 @@ import { UserEditModalComponent } from './user-edit-modal/user-edit-modal.compon
 import { ModalBaseComponent } from '../../utils/ui/modal-base/modal-base.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { HabitViewModule } from '../habit/habit-view/habit-view.module';
-import { AvatarComponent } from '../../utils/ui/avatar/avatar.component';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { UserEditAvatarModalComponent } from './user-edit-avatar-modal/user-edit-avatar-modal.component';
-import { InputModule, LoadComponent } from 'ui';
+import { AvatarComponent, InputModule, LoadComponent } from 'ui';
 
 @NgModule({
   declarations: [

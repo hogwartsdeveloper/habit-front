@@ -2,11 +2,11 @@
   <ng-container *ngIf="!loading(); else load">
     <div class="left">
       <div class="avatar">
-        <app-avatar
+        <lib-avatar
           [text]="user.firstName[0] + ' ' + user.lastName[0]"
           [src]="user.img"
           [size]="207"
-        ></app-avatar>
+        ></lib-avatar>
         <app-button
           [view]="'border'"
           [customStyle]="'white'"

@@ -12,7 +12,7 @@ import { ButtonComponent } from '../../../utils/ui/button/button.component';
 import { show } from '../../../utils/animations/show.animation';
 import { User } from '../../user/model/user';
 import { UserService } from '../../user/services/user.service';
-import { AvatarComponent } from '../../../utils/ui/avatar/avatar.component';
+import { AvatarComponent } from 'ui';
 
 @Component({
   selector: 'app-dropdown-menu',
