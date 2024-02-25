@@ -1,12 +1,13 @@
 export class User {
   constructor(
-    public readonly id: string,
     public readonly email: string,
     public firstName: string,
     public lastName: string,
-    public img: string,
+    public isEmailConfirmed: boolean,
     private readonly _token: string,
-    public readonly tokenExpired: number
+    public readonly tokenExpired: number,
+    public birthDay?: string,
+    public imageUrl?: string,
   ) {}
 
   get token() {

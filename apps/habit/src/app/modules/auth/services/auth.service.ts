@@ -81,27 +81,26 @@ export class AuthService {
   }
 
   login(token: string) {
-    const payload = this.parseJWT(token);
-    console.log(payload);
-    const user = new User(
-      payload._id,
-      payload.email,
-      payload.firstName,
-      payload.lastName,
-      payload.img,
-      token,
-      payload.exp
-    );
+    const parseToken = this.parseJWT(token);
+    console.log(parseToken);
 
-    if (!user.token) {
-      this.logout();
-      return;
-    }
+    localStorage.setItem('api-token', token);
 
-    this.userService.user$.next(user);
-    localStorage.setItem('user', JSON.stringify(user));
+    this.userService
+      .getUser()
+      .pipe(take(1))
+      .subscribe(user => this.userService.user$.next(
+        new User(
+          user.email,
+          user.firstName,
+          user.lastName,
+          user.isEmailConfirmed,
+          token,
+          parseToken.exp,
+          user.birthDay,
+          user.imageUrl)));
+
     this.router.navigate(['/change']);
-    this.autoUpdateToken(payload.exp - Date.now() - 60000);
   }
 
   logout() {

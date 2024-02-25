@@ -20,12 +20,12 @@ export class HabitComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.habitService
-      .get(this.userService.user$.value?.id!)
-      .pipe(
-        tap(() => this.loading.set(false)),
-        take(1)
-      )
-      .subscribe((habits) => (this.habits = habits));
+    // this.habitService
+    //   .get(this.userService.user$.value?.id!)
+    //   .pipe(
+    //     tap(() => this.loading.set(false)),
+    //     take(1)
+    //   )
+    //   .subscribe((habits) => (this.habits = habits));
   }
 }

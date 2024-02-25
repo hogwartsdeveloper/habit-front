@@ -1,7 +1,7 @@
 <lib-avatar
   routerLink="/user"
   [text]="user.firstName[0] + ' ' + user.lastName[0]"
-  [src]="user.img"
+  [src]="user?.imageUrl ?? ''"
   (click)="showMenu = false"
 ></lib-avatar>
 
@@ -13,7 +13,7 @@
         <lib-avatar
           routerLink="/user"
           [text]="user.firstName[0] + ' ' + user.lastName[0]"
-          [src]="user.img"
+          [src]="user?.imageUrl ?? ''"
           (click)="showMenu = false"
         ></lib-avatar>
         <div>{{ user.firstName + ' ' + user.lastName }}</div>

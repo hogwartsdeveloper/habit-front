@@ -49,16 +49,16 @@ export class UserEditAvatarModalComponent implements AfterViewInit, OnDestroy {
       .getCroppedCanvas()
       .toDataURL('image/png');
 
-    this.userService
-      .uploadImg(this.data.user.id, croppedImgURL)
-      .pipe(
-        tap(() => this.loading.set(false)),
-        take(1)
-      )
-      .subscribe(() => {
-        this.messageService.success('Image uploaded!');
-        this.onClose();
-      });
+    // this.userService
+    //   .uploadImg(this.data.user.id, croppedImgURL)
+    //   .pipe(
+    //     tap(() => this.loading.set(false)),
+    //     take(1)
+    //   )
+    //   .subscribe(() => {
+    //     this.messageService.success('Image uploaded!');
+    //     this.onClose();
+    //   });
   }
 
   onClose() {

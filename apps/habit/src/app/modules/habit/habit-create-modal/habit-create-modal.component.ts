@@ -87,22 +87,22 @@ export class HabitCreateModalComponent implements OnInit {
 
     switch (this.type) {
       case 'create':
-        this.habitServices
-          .add({
-            ...this.form.getRawValue(),
-            userId: this.userService.user$.value?.id!,
-          })
-          .pipe(
-            tap(() => this.loading.set(false)),
-            take(1)
-          )
-          .subscribe((res) => {
-            this.messageService.success(
-              this.translateService.instant('habit.message.successCreate')
-            );
-
-            this.onClose(res);
-          });
+        // this.habitServices
+          // .add({
+          //   ...this.form.getRawValue(),
+          //   userId: this.userService.user$.value?.id!,
+          // })
+          // .pipe(
+          //   tap(() => this.loading.set(false)),
+          //   take(1)
+          // )
+          // .subscribe((res) => {
+          //   this.messageService.success(
+          //     this.translateService.instant('habit.message.successCreate')
+          //   );
+          //
+          //   this.onClose(res);
+          // });
         break;
 
       case 'edit':

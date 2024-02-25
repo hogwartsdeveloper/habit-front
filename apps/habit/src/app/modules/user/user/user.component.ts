@@ -31,17 +31,17 @@ export class UserComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    this.userService.user$
-      .pipe(
-        switchMap((user) => {
-          this.user = user!;
-
-          return this.habitService.get(user?.id!);
-        }),
-        tap(() => this.loading.set(false)),
-        takeUntil(this.destroy$)
-      )
-      .subscribe((habits) => (this.habits = habits));
+    // this.userService.user$
+    //   .pipe(
+    //     switchMap((user) => {
+    //       this.user = user!;
+    //
+    //       return this.habitService.get(user?.id!);
+    //     }),
+    //     tap(() => this.loading.set(false)),
+    //     takeUntil(this.destroy$)
+    //   )
+    //   .subscribe((habits) => (this.habits = habits));
   }
 
   openEditModal() {
@@ -77,9 +77,9 @@ export class UserComponent implements OnInit, OnDestroy {
   }
 
   removeImg() {
-    this.userService.deleteImg(this.user.id).subscribe(() => {
-      this.messageService.success('Изображения успешно удалено');
-    });
+    // this.userService.deleteImg(this.user.id).subscribe(() => {
+    //   this.messageService.success('Изображения успешно удалено');
+    // });
   }
 
   ngOnDestroy() {
