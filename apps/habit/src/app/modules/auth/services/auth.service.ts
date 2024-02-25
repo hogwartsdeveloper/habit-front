@@ -1,21 +1,19 @@
-import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
-import { catchError, of, switchMap, take } from 'rxjs';
-import { MessageService } from 'ui';
+import {Injectable} from '@angular/core';
+import {Router} from '@angular/router';
+import {catchError, of, switchMap, take} from 'rxjs';
+import {MessageService} from 'ui';
 
-import { IAuth } from '../models/author.model';
-import { User } from '../../user/model/user';
-import { CreateUser } from '../../user/model/user.interface';
-import { UserService } from '../../user/services/user.service';
-import { AuthApiService } from './auth-api.service';
+import {IAuth} from '../models/author.model';
+import {User} from '../../user/model/user';
+import {CreateUser} from '../../user/model/user.interface';
+import {UserService} from '../../user/services/user.service';
+import {AuthApiService} from './auth-api.service';
 
 @Injectable()
 export class AuthService {
   updateTokenInterval: ReturnType<typeof setInterval>;
 
   constructor(
-    private readonly http: HttpClient,
     private readonly messageService: MessageService,
     private readonly router: Router,
     private readonly userService: UserService,
@@ -53,7 +51,7 @@ export class AuthService {
 
   catchToken(res: IAuth | null) {
     if (res) {
-      this.login(res.token);
+      this.login(res.accessToken);
       return of(true);
     }
 
@@ -84,6 +82,7 @@ export class AuthService {
 
   login(token: string) {
     const payload = this.parseJWT(token);
+    console.log(payload);
     const user = new User(
       payload._id,
       payload.email,

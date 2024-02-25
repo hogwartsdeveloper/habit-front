@@ -47,11 +47,7 @@ export class AuthModalComponent implements OnInit {
         break;
       case 'signUp':
         this.form = new FormGroup({
-          email: new FormControl(
-            '',
-            [Validators.required, Validators.email],
-            [emailNotExistValidator()]
-          ),
+          email: new FormControl('', [Validators.required, Validators.email]),
           password: new FormControl('', [Validators.required]),
           firstName: new FormControl('', [Validators.required]),
           lastName: new FormControl('', [Validators.required]),
@@ -84,8 +80,8 @@ export class AuthModalComponent implements OnInit {
         this.authApiService
           .registration(user)
           .pipe(
-            tap((res) => {
-              this.authService.checkRegistration(user, res.result);
+            switchMap(res => this.authService.catchToken(res)),
+            tap(() => {
               this.loading.set(false);
             }),
             take(1)

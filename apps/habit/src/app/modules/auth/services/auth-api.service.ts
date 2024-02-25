@@ -13,11 +13,11 @@ export class AuthApiService {
   constructor(private readonly http: HttpClient) {}
 
   authorization(user: AuthUser) {
-    return this.http.post<IAuth>('/api/auth/login', user);
+    return this.http.post<IAuth>('/api/Auth/SignIn', user);
   }
 
   registration(user: CreateUser) {
-    return this.http.post<{ result: string }>('/api/auth/registration', user);
+    return this.http.post<IAuth>('/api/Auth/SignUp', user);
   }
 
   updateToken() {
