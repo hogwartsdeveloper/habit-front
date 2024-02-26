@@ -8,6 +8,7 @@ import {User} from '../../user/model/user';
 import {CreateUser} from '../../user/model/user.interface';
 import {UserService} from '../../user/services/user.service';
 import {AuthApiService} from './auth-api.service';
+import {API_TOKEN} from "../constants/auth.constant";
 
 @Injectable()
 export class AuthService {
@@ -21,11 +22,9 @@ export class AuthService {
   ) {}
 
   autoLogin() {
-    const userStore = localStorage.getItem('user');
-    if (!userStore) return;
-
-    const userParse = JSON.parse(userStore);
-    this.login(userParse?._token);
+    const token = localStorage.getItem(API_TOKEN);
+    if (!token) return;
+    this.login(token);
   }
 
   autoUpdateToken(exp: number) {
@@ -84,7 +83,7 @@ export class AuthService {
     const parseToken = this.parseJWT(token);
     console.log(parseToken);
 
-    localStorage.setItem('api-token', token);
+    localStorage.setItem(API_TOKEN, token);
 
     this.userService
       .getUser()
