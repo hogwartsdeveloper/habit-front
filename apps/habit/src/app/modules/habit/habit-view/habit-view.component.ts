@@ -15,7 +15,7 @@ import { IHabits } from '../models/habits.interface';
 })
 export class HabitViewComponent {
   @Input() viewType: 'interactive' | 'show' = 'interactive';
-  @Input({ required: true }) allHabits: IHabits = { active: [], history: [] };
+  @Input({ required: true }) allHabits: IHabits;
   habits: IHabit[] = [];
   type: HabitViewEnum = HabitViewEnum.Active;
 

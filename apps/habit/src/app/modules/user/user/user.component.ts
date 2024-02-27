@@ -18,7 +18,7 @@ import { UserEditAvatarModalComponent } from '../user-edit-avatar-modal/user-edi
 })
 export class UserComponent implements OnInit, OnDestroy {
   user: User;
-  habits: IHabits = { active: [], history: [] };
+  habits: IHabits;
   destroy$ = new Subject();
   loading = signal(true);
 

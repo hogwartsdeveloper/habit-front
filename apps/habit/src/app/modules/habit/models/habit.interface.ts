@@ -12,16 +12,16 @@ export interface IHabitCalendar {
 }
 
 export interface IHabit {
-  _id: string;
-  name: string;
-  description: string;
-  isHide: boolean;
+  id: string;
+  title: string;
+  description?: string;
   isOverdue: boolean;
   startDate: string;
   endDate: string;
-  countCompleted: number;
-  lastActiveDate: string | null;
+  record: IHabitRecord[];
+}
 
-  days: IHabitCalendar[];
-  userId: string;
+export interface IHabitRecord {
+  date: string;
+  isComplete: boolean;
 }

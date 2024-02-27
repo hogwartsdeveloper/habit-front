@@ -10,7 +10,7 @@ import {IHabits} from '../models/habits.interface';
   styleUrls: ['./habit.component.scss'],
 })
 export class HabitComponent implements OnInit {
-  habits: IHabits = { active: [], history: [] };
+  habits: IHabits;
   loading = signal(true);
 
   constructor(
@@ -19,11 +19,13 @@ export class HabitComponent implements OnInit {
 
   ngOnInit() {
     this.habitService
-      .get()
+      .getGroup()
       .pipe(
         tap(() => this.loading.set(false)),
         take(1)
       )
-      .subscribe((habits) => (this.habits = habits));
+      .subscribe((habits) => {
+        this.habits = habits;
+      });
   }
 }
