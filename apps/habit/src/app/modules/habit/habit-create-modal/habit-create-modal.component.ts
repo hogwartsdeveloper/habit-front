@@ -66,9 +66,8 @@ export class HabitCreateModalComponent implements OnInit {
 
   createForm() {
     this.form = new FormGroup({
-      name: new FormControl(this.data?.name || '', Validators.required),
+      title: new FormControl(this.data?.title || '', Validators.required),
       description: new FormControl(this.data?.description || ''),
-      isHide: new FormControl(this.data?.isHide || false),
       startDate: new FormControl(
         this.data?.startDate || dayjs().format('YYYY-MM-DD')
       ),
@@ -87,27 +86,24 @@ export class HabitCreateModalComponent implements OnInit {
 
     switch (this.type) {
       case 'create':
-        // this.habitServices
-          // .add({
-          //   ...this.form.getRawValue(),
-          //   userId: this.userService.user$.value?.id!,
-          // })
-          // .pipe(
-          //   tap(() => this.loading.set(false)),
-          //   take(1)
-          // )
-          // .subscribe((res) => {
-          //   this.messageService.success(
-          //     this.translateService.instant('habit.message.successCreate')
-          //   );
-          //
-          //   this.onClose(res);
-          // });
+        this.habitServices
+          .add(this.form.getRawValue())
+          .pipe(
+            tap(() => this.loading.set(false)),
+            take(1)
+          )
+          .subscribe((res) => {
+            this.messageService.success(
+              this.translateService.instant('habit.message.successCreate')
+            );
+
+            this.onClose(res);
+          });
         break;
 
       case 'edit':
         this.habitServices
-          .update(this.data._id, this.form.getRawValue())
+          .update(this.data.id, this.form.getRawValue())
           .pipe(
             tap(() => this.loading.set(false)),
             take(1)

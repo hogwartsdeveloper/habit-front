@@ -6,7 +6,7 @@ export const habitInputConfigs: IInput[] = [
     required: true,
     type: 'text',
     placeholder: 'habit.name',
-    fName: 'name',
+    fName: 'title',
   },
   {
     title: 'base.description',

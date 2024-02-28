@@ -25,3 +25,10 @@ export interface IHabitRecord {
   date: string;
   isComplete: boolean;
 }
+
+export interface IHabitCreate {
+  title: string;
+  description?: string;
+  startDate: string;
+  endDate: string;
+}

@@ -41,7 +41,7 @@ export class HabitViewContentComponent {
         }
 
         const findIndex = this.habits.findIndex(
-          (item) => item._id === habit._id
+          (item) => item.id === habit.id
         );
         this.habits[findIndex] = habit;
       });
@@ -67,7 +67,7 @@ export class HabitViewContentComponent {
         }
 
         const findIndex = this.habits.findIndex(
-          (item) => item._id === habit._id
+          (item) => item.id === habit.id
         );
         this.habits[findIndex] = habit;
       });
@@ -78,7 +78,7 @@ export class HabitViewContentComponent {
       .delete(id)
       .pipe(take(1))
       .subscribe((habit) => {
-        this.habits = this.habits.filter((item) => item._id !== habit._id);
+        this.habits = this.habits.filter((item) => item.id !== habit.id);
         this.messageService.success(
           this.translateService.instant('habit.message.successRemove')
         );

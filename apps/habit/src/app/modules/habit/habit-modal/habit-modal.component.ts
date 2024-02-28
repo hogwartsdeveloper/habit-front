@@ -33,14 +33,14 @@ export class HabitModalComponent {
 
   onDone(day: IHabitCalendar) {
     this.selectedDay = day;
-    if (this.data.lastActiveDate === this.today) {
-      this.messageService.warning(
-        this.translateService.instant('habit.message.warningAddRecord')
-      );
-      this.selectedDay = null;
-
-      return;
-    }
+    // if (this.data.lastActiveDate === this.today) {
+    //   this.messageService.warning(
+    //     this.translateService.instant('habit.message.warningAddRecord')
+    //   );
+    //   this.selectedDay = null;
+    //
+    //   return;
+    // }
 
     if (day.date === this.today) {
       switch (day.status) {
@@ -64,7 +64,7 @@ export class HabitModalComponent {
   save() {
     this.loading.set(true);
     this.habitService
-      .addRecord(this.data._id, {
+      .addRecord(this.data.id, {
         date: this.selectedDay?.date!,
         status: this.selectedDay?.status!,
       })
