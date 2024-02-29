@@ -1,15 +1,10 @@
 import {Component, Inject, OnInit, signal} from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { take, tap } from 'rxjs';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import * as dayjs from 'dayjs';
-import { TranslateService } from '@ngx-translate/core';
-import { MessageService } from 'ui';
-import {
-  HabitCalendarStatus,
-  IHabit,
-  IHabitCalendar, IHabitRecord,
-} from '../models/habit.interface';
-import { HabitService } from '../services/habit.service';
+import {TranslateService} from '@ngx-translate/core';
+import {MessageService} from 'ui';
+import {IHabit, IHabitRecord,} from '../models/habit.interface';
+import {HabitService} from '../services/habit.service';
 
 @Component({
   templateUrl: './habit-modal.component.html',
@@ -17,11 +12,10 @@ import { HabitService } from '../services/habit.service';
 })
 export class HabitModalComponent implements OnInit {
   weekDays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
-  today = dayjs().format('YYYY-MM-DD');
+  today = dayjs().format("YYYY-MM-DDT00:00:00");
   days: IHabitRecord[];
-  selectedDay: IHabitCalendar | null;
+  selectedDay: IHabitRecord | null;
   loading = signal(false);
-  readonly HabitCalendarStatus = HabitCalendarStatus;
 
   constructor(
     private dialogRef: MatDialogRef<HabitModalComponent>,
@@ -56,33 +50,25 @@ export class HabitModalComponent implements OnInit {
         continue;
       }
 
-      this.days.push({ date: day });
+      this.days.push({ date: day, isComplete: null });
     }
 
     this.days.push(...Array(7 - (endWeekDay - 1)));
   }
 
-  onDone(day: IHabitCalendar) {
+  onDone(day: IHabitRecord) {
     this.selectedDay = day;
-    // if (this.data.lastActiveDate === this.today) {
-    //   this.messageService.warning(
-    //     this.translateService.instant('habit.message.warningAddRecord')
-    //   );
-    //   this.selectedDay = null;
-    //
-    //   return;
-    // }
 
     if (day.date === this.today) {
-      switch (day.status) {
-        case HabitCalendarStatus.Clean:
-          day.status = HabitCalendarStatus.Success;
+      switch (day.isComplete) {
+        case null:
+          day.isComplete = true;
           break;
-        case HabitCalendarStatus.Success:
-          day.status = HabitCalendarStatus.Danger;
+        case true:
+          day.isComplete = false;
           break;
-        case HabitCalendarStatus.Danger:
-          day.status = HabitCalendarStatus.Clean;
+        case false:
+          day.isComplete = null;
           break;
       }
     }
@@ -93,21 +79,21 @@ export class HabitModalComponent implements OnInit {
   }
 
   save() {
-    this.loading.set(true);
-    this.habitService
-      .addRecord(this.habit.id, {
-        date: this.selectedDay?.date!,
-        status: this.selectedDay?.status!,
-      })
-      .pipe(
-        tap(() => this.loading.set(false)),
-        take(1)
-      )
-      .subscribe((habit) => {
-        this.messageService.success(
-          this.translateService.instant('habit.message.successAddRecord')
-        );
-        this.close(habit);
-      });
+    // this.loading.set(true);
+    // this.habitService
+    //   .addRecord(this.habit.id, {
+    //     date: this.selectedDay?.date!,
+    //     status: this.selectedDay?.status!,
+    //   })
+    //   .pipe(
+    //     tap(() => this.loading.set(false)),
+    //     take(1)
+    //   )
+    //   .subscribe((habit) => {
+    //     this.messageService.success(
+    //       this.translateService.instant('habit.message.successAddRecord')
+    //     );
+    //     this.close(habit);
+    //   });
   }
 }

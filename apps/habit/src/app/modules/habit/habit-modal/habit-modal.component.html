@@ -12,11 +12,12 @@
           pickable:
             day?.date === today
         }"
-              nz-tooltip
-              [nzTooltipTitle]="day?.date"
-              nzTooltipPlacement="rightTop"
-      >
-        {{ day?.date | date: 'dd'}}
+        [pickItemByStatus]="day?.isComplete ?? null"
+        nz-tooltip
+        [nzTooltipTitle]="day?.date ?? ''"
+        nzTooltipPlacement="rightTop"
+        (click)="onDone(day)">
+        {{ day?.date ?? '' | date: 'dd'}}
       </div>
     </div>
 
@@ -49,7 +50,7 @@
     }}</lib-button>
     <lib-button
       [disabled]="
-        !selectedDay || selectedDay.status === HabitCalendarStatus.Clean || loading()
+        !selectedDay || selectedDay.isComplete == null || loading()
       "
       (click)="save()"
       >{{ 'base.save' | translate }}</lib-button

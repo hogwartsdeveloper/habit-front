@@ -1,16 +1,3 @@
-export enum HabitCalendarStatus {
-  Success,
-  Danger,
-  Clean,
-}
-
-export interface IHabitCalendar {
-  numDay: number;
-  date: string;
-  active: boolean;
-  status: HabitCalendarStatus;
-}
-
 export interface IHabit {
   id: string;
   title: string;
@@ -23,7 +10,7 @@ export interface IHabit {
 
 export interface IHabitRecord {
   date: string;
-  isComplete?: boolean;
+  isComplete: boolean | null;
 }
 
 export interface IHabitCreate {

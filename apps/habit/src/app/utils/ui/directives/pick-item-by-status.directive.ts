@@ -1,16 +1,8 @@
-import {
-  Directive,
-  ElementRef,
-  Input,
-  OnChanges,
-  OnInit,
-  SimpleChanges,
-} from '@angular/core';
-import { HabitCalendarStatus } from '../../../modules/habit/models/habit.interface';
+import {Directive, ElementRef, Input, OnChanges, OnInit, SimpleChanges,} from '@angular/core';
 
 @Directive({ selector: '[pickItemByStatus]', standalone: true })
 export class PickItemByStatusDirective implements OnInit, OnChanges {
-  @Input() pickItemByStatus: HabitCalendarStatus;
+  @Input() pickItemByStatus: boolean | null;
   constructor(private el: ElementRef<HTMLElement>) {}
 
   ngOnChanges(changes: SimpleChanges) {
@@ -24,15 +16,19 @@ export class PickItemByStatusDirective implements OnInit, OnChanges {
   }
 
   changeColor() {
+    const element = this.el.nativeElement;
     switch (this.pickItemByStatus) {
-      case HabitCalendarStatus.Clean:
-        this.el.nativeElement.style.background = 'transparent';
+      case null:
+        element.style.background =
+          element.classList.contains('pickable')
+            ? 'rgba(255, 255, 255, 0.1)'
+            : 'none';
         break;
-      case HabitCalendarStatus.Success:
-        this.el.nativeElement.style.background = 'var(--cl-success)';
+      case true:
+        element.style.background = 'var(--cl-success)';
         break;
-      case HabitCalendarStatus.Danger:
-        this.el.nativeElement.style.background = 'var(--cl-danger)';
+      case false:
+        element.style.background = 'var(--cl-danger)';
         break;
     }
   }

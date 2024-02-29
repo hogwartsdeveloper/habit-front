@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import * as dayjs from 'dayjs';
 
-import {HabitCalendarStatus, IHabit, IHabitCreate} from '../models/habit.interface';
+import {IHabit, IHabitCreate} from '../models/habit.interface';
 import { IHabits } from '../models/habits.interface';
 
 @Injectable()
@@ -15,10 +15,6 @@ export class HabitService {
 
   add(habit: IHabitCreate) {
     return this.http.post<IHabit>('/api/Habit', habit);
-  }
-
-  addRecord(id: string, body: { date: string; status: HabitCalendarStatus }) {
-    return this.http.patch<IHabit>('/api/habits/' + id, body);
   }
 
   update(id: string, habit: IHabitCreate) {
