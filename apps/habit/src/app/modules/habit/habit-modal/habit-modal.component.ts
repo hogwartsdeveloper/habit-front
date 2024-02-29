@@ -18,7 +18,7 @@ import { HabitService } from '../services/habit.service';
 export class HabitModalComponent implements OnInit {
   weekDays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
   today = dayjs().format('YYYY-MM-DD');
-  days: any[];
+  days: IHabitRecord[];
   selectedDay: IHabitCalendar | null;
   loading = signal(false);
   readonly HabitCalendarStatus = HabitCalendarStatus;
@@ -42,9 +42,10 @@ export class HabitModalComponent implements OnInit {
     const endDate = dayjs(this.habit.endDate);
 
     const days = dayjs(endDate).diff(startDate, "day");
-    const weekDay = startDate.day();
+    const startWeekDay = startDate.day();
+    const endWeekDay = endDate.day();
 
-    this.days.unshift(...Array(weekDay - 1));
+    this.days.unshift(...Array(startWeekDay - 1));
 
     for (let i = 0; i < days; i++) {
       const day = startDate.add(i, 'day').format("YYYY-MM-DDT00:00:00");
@@ -57,6 +58,8 @@ export class HabitModalComponent implements OnInit {
 
       this.days.push({ date: day });
     }
+
+    this.days.push(...Array(7 - (endWeekDay - 1)));
   }
 
   onDone(day: IHabitCalendar) {
