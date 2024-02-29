@@ -23,7 +23,7 @@ export interface IHabit {
 
 export interface IHabitRecord {
   date: string;
-  isComplete: boolean;
+  isComplete?: boolean;
 }
 
 export interface IHabitCreate {

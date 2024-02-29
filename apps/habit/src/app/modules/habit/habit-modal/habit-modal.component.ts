@@ -1,4 +1,4 @@
-import { Component, Inject, signal } from '@angular/core';
+import {Component, Inject, OnInit, signal} from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { take, tap } from 'rxjs';
 import * as dayjs from 'dayjs';
@@ -7,7 +7,7 @@ import { MessageService } from 'ui';
 import {
   HabitCalendarStatus,
   IHabit,
-  IHabitCalendar,
+  IHabitCalendar, IHabitRecord,
 } from '../models/habit.interface';
 import { HabitService } from '../services/habit.service';
 
@@ -15,9 +15,10 @@ import { HabitService } from '../services/habit.service';
   templateUrl: './habit-modal.component.html',
   styleUrls: ['./habit-modal.component.scss'],
 })
-export class HabitModalComponent {
-  weekDays = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
+export class HabitModalComponent implements OnInit {
+  weekDays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
   today = dayjs().format('YYYY-MM-DD');
+  days: any[];
   selectedDay: IHabitCalendar | null;
   loading = signal(false);
   readonly HabitCalendarStatus = HabitCalendarStatus;
@@ -28,8 +29,35 @@ export class HabitModalComponent {
     private translateService: TranslateService,
     private habitService: HabitService,
     @Inject(MAT_DIALOG_DATA)
-    public data: IHabit
+    public habit: IHabit
   ) {}
+
+  ngOnInit() {
+    this.getDays();
+  }
+
+  getDays() {
+    this.days = [];
+    const startDate = dayjs(this.habit.startDate);
+    const endDate = dayjs(this.habit.endDate);
+
+    const days = dayjs(endDate).diff(startDate, "day");
+    const weekDay = startDate.day();
+
+    this.days.unshift(...Array(weekDay - 1));
+
+    for (let i = 0; i < days; i++) {
+      const day = startDate.add(i, 'day').format("YYYY-MM-DDT00:00:00");
+      const fDay = this.habit.record?.find(item => item.date === day);
+
+      if (fDay) {
+        this.days.push(fDay);
+        continue;
+      }
+
+      this.days.push({ date: day });
+    }
+  }
 
   onDone(day: IHabitCalendar) {
     this.selectedDay = day;
@@ -64,7 +92,7 @@ export class HabitModalComponent {
   save() {
     this.loading.set(true);
     this.habitService
-      .addRecord(this.data.id, {
+      .addRecord(this.habit.id, {
         date: this.selectedDay?.date!,
         status: this.selectedDay?.status!,
       })
