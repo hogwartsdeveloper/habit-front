@@ -3,6 +3,8 @@ import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import * as dayjs from 'dayjs';
 import {TranslateService} from '@ngx-translate/core';
 import {MessageService} from 'ui';
+import {take, tap} from "rxjs";
+
 import {IHabit, IHabitRecord,} from '../models/habit.interface';
 import {HabitService} from '../services/habit.service';
 
@@ -43,7 +45,7 @@ export class HabitModalComponent implements OnInit {
 
     for (let i = 0; i < days; i++) {
       const day = startDate.add(i, 'day').format("YYYY-MM-DDT00:00:00");
-      const fDay = this.habit.record?.find(item => item.date === day);
+      const fDay = this.habit.records?.find(item => item.date === day);
 
       if (fDay) {
         this.days.push(fDay);
@@ -57,9 +59,9 @@ export class HabitModalComponent implements OnInit {
   }
 
   onDone(day: IHabitRecord) {
-    this.selectedDay = day;
-
     if (day.date === this.today) {
+      this.selectedDay = day;
+
       switch (day.isComplete) {
         case null:
           day.isComplete = true;
@@ -74,26 +76,25 @@ export class HabitModalComponent implements OnInit {
     }
   }
 
-  close(payload?: IHabit) {
-    this.dialogRef.close(payload);
+  save() {
+    this.loading.set(true);
+    if (!this.selectedDay) return;
+
+    this.habitService
+      .addRecord(this.habit.id, this.selectedDay)
+      .pipe(
+        tap(() => this.loading.set(false)),
+        take(1)
+      )
+      .subscribe(() => {
+        this.messageService.success(
+          this.translateService.instant('habit.message.successAddRecord')
+        );
+        this.close();
+      });
   }
 
-  save() {
-    // this.loading.set(true);
-    // this.habitService
-    //   .addRecord(this.habit.id, {
-    //     date: this.selectedDay?.date!,
-    //     status: this.selectedDay?.status!,
-    //   })
-    //   .pipe(
-    //     tap(() => this.loading.set(false)),
-    //     take(1)
-    //   )
-    //   .subscribe((habit) => {
-    //     this.messageService.success(
-    //       this.translateService.instant('habit.message.successAddRecord')
-    //     );
-    //     this.close(habit);
-    //   });
+  close() {
+    this.dialogRef.close();
   }
 }

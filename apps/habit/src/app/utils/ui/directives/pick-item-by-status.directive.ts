@@ -20,7 +20,7 @@ export class PickItemByStatusDirective implements OnInit, OnChanges {
     switch (this.pickItemByStatus) {
       case null:
         element.style.background =
-          element.classList.contains('pickable')
+          element.classList.contains('active')
             ? 'rgba(255, 255, 255, 0.1)'
             : 'none';
         break;

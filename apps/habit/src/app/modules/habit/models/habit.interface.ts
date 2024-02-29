@@ -5,7 +5,7 @@ export interface IHabit {
   isOverdue: boolean;
   startDate: string;
   endDate: string;
-  record: IHabitRecord[];
+  records: IHabitRecord[];
 }
 
 export interface IHabitRecord {
