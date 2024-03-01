@@ -26,7 +26,7 @@ export class HabitService {
   }
 
   delete(id: string) {
-    return this.http.delete<IHabit>('/api/habits/' + id);
+    return this.http.delete<IHabit>('/api/Habit/' + id);
   }
 
   getGroup() {
