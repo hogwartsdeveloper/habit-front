@@ -1,10 +1,10 @@
 <div class="page-box flex max-w-6xl mx-auto text-white p-6 gap-6">
   <ng-container *ngIf="!loading(); else load">
-    <div class="left">
+    <div *ngIf="user$ | async; let user" class="left">
       <div class="avatar">
         <lib-avatar
           [text]="user.firstName[0] + ' ' + user.lastName[0]"
-          [src]="user?.imageUrl ?? ''"
+          [src]="user.imageUrl ?? ''"
           [size]="207"
         ></lib-avatar>
         <lib-button
@@ -27,13 +27,13 @@
           #photoInput
           type="file"
           accept="image/*"
-          (change)="onSelectedAvatar(photoInput.files)"
+          (change)="onSelectedAvatar(user, photoInput.files)"
         />
       </div>
 
       <h1 class="font-extrabold">{{ user.firstName + ' ' + user.lastName }}</h1>
 
-      <lib-button (click)="openEditModal()">{{
+      <lib-button (click)="openEditModal(user)">{{
         'user.edit' | translate
       }}</lib-button>
     </div>

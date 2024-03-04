@@ -14,9 +14,9 @@ export class UserService {
     return this.http.get<IGetUser>("/api/User");
   }
 
-  update(userId: string, data: UpdateUser) {
+  update(data: UpdateUser) {
     return this.http
-      .put<User>('/api/users/' + userId, data)
+      .put<User>('/api/User', data)
       .pipe(map((res) => this.updateUserData(res)));
   }
 

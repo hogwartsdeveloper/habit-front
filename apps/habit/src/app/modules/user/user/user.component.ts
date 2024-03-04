@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit, signal } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Subject, switchMap, takeUntil, tap } from 'rxjs';
+import {BehaviorSubject, Subject, switchMap, take, takeUntil, tap} from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 import { MessageService } from 'ui';
 
@@ -17,7 +17,7 @@ import { UserEditAvatarModalComponent } from '../user-edit-avatar-modal/user-edi
   styleUrls: ['./user.component.scss'],
 })
 export class UserComponent implements OnInit, OnDestroy {
-  user: User;
+  user$: BehaviorSubject<User | null>;
   habits: IHabits;
   destroy$ = new Subject();
   loading = signal(true);
@@ -31,30 +31,25 @@ export class UserComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    // this.userService.user$
-    //   .pipe(
-    //     switchMap((user) => {
-    //       this.user = user!;
-    //
-    //       return this.habitService.get(user?.id!);
-    //     }),
-    //     tap(() => this.loading.set(false)),
-    //     takeUntil(this.destroy$)
-    //   )
-    //   .subscribe((habits) => (this.habits = habits));
+    this.user$ = this.userService.user$
+    this.habitService.getGroup()
+      .pipe(
+        tap(() => this.loading.set(false)),
+        take(1))
+      .subscribe(habitGroup => this.habits = habitGroup);
   }
 
-  openEditModal() {
+  openEditModal(user: User) {
     this.dialog.open(UserEditModalComponent, {
       width: '400px',
       height: '300px',
       panelClass: 'noBackground',
       autoFocus: false,
-      data: this.user,
+      data: user,
     });
   }
 
-  onSelectedAvatar(files: FileList | null) {
+  onSelectedAvatar(user: User, files: FileList | null) {
     if (!files) {
       return;
     }
@@ -67,7 +62,7 @@ export class UserComponent implements OnInit, OnDestroy {
         autoFocus: false,
         disableClose: true,
         data: {
-          user: this.user,
+          user: user,
           uploadableImg: event.target!.result,
         },
       });

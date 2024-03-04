@@ -49,7 +49,7 @@ export class UserEditModalComponent implements OnInit, OnDestroy {
   onSave() {
     this.loading.set(true);
     this.userService
-      .update(this.data.id, this.form.getRawValue())
+      .update(this.form.getRawValue())
       .pipe(
         tap(() => this.loading.set(false)),
         take(1)
