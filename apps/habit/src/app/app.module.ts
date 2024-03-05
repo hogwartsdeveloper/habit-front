@@ -25,6 +25,7 @@ import { AuthService } from './modules/auth/services/auth.service';
 import { AuthGuard } from './guard/auth.guard';
 import { CatchErrorHandler } from './handler/catch-error.handler';
 import { UserService } from './modules/user/services/user.service';
+import {FileService} from "./services/file.service";
 
 registerLocaleData(en);
 
@@ -58,6 +59,7 @@ registerLocaleData(en);
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: ErrorHandler, useClass: CatchErrorHandler },
     MessageService,
+    FileService
   ],
   bootstrap: [AppComponent],
 })

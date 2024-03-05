@@ -13,6 +13,7 @@ import Cropper from 'cropperjs';
 import { MessageService } from 'ui';
 import { User } from '../model/user';
 import { UserService } from '../services/user.service';
+import { FileService } from '../../../services/file.service';
 
 @Component({
   selector: 'app-user-edit-avatar',
@@ -30,7 +31,8 @@ export class UserEditAvatarModalComponent implements AfterViewInit, OnDestroy {
     @Inject(MAT_DIALOG_DATA)
     public readonly data: { user: User; uploadableImg: string },
     private readonly userService: UserService,
-    private readonly messageService: MessageService
+    private readonly messageService: MessageService,
+    private readonly fileService: FileService
   ) {
     this.imgURL = this.data.uploadableImg;
   }
@@ -43,22 +45,29 @@ export class UserEditAvatarModalComponent implements AfterViewInit, OnDestroy {
     });
   }
 
-  onSave() {
+  async onSave() {
     this.loading.set(true);
+
     const croppedImgURL = this.cropper
       .getCroppedCanvas()
       .toDataURL('image/png');
 
-    // this.userService
-    //   .uploadImg(this.data.user.id, croppedImgURL)
-    //   .pipe(
-    //     tap(() => this.loading.set(false)),
-    //     take(1)
-    //   )
-    //   .subscribe(() => {
-    //     this.messageService.success('Image uploaded!');
-    //     this.onClose();
-    //   });
+    const file = await this.fileService.convertBase64toFile(
+      croppedImgURL,
+      (this.userService.user$.value?.email ?? '') + '.png',
+      'image/png'
+    );
+
+    this.userService
+      .uploadImg(file)
+      .pipe(
+        tap(() => this.loading.set(false)),
+        take(1)
+      )
+      .subscribe(() => {
+        this.messageService.success('Image uploaded!');
+        this.onClose();
+      });
   }
 
   onClose() {

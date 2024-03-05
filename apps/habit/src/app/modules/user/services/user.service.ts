@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, map } from 'rxjs';
 import { User } from '../model/user';
-import {IGetUser, UpdateUser} from "../model/user.interface";
+import { IGetUser, UpdateUser } from '../model/user.interface';
 
 @Injectable()
 export class UserService {
@@ -11,7 +11,7 @@ export class UserService {
   constructor(private readonly http: HttpClient) {}
 
   getUser() {
-    return this.http.get<IGetUser>("/api/User");
+    return this.http.get<IGetUser>('/api/User');
   }
 
   update(data: UpdateUser) {
@@ -20,10 +20,11 @@ export class UserService {
       .pipe(map((res) => this.updateUserData(res)));
   }
 
-  uploadImg(userId: string, imgBase64: string) {
-    return this.http
-      .post<User>('/api/users/uploadImg/' + userId, { image: imgBase64 })
-      .pipe(map((res) => this.updateUserData(res)));
+  uploadImg(file: File) {
+    const formData = new FormData();
+    formData.append('file', file);
+
+    return this.http.post('/api/User/image', formData);
   }
 
   deleteImg(userId) {
