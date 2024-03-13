@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit, signal } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import {BehaviorSubject, Subject, switchMap, take, takeUntil, tap} from 'rxjs';
+import { BehaviorSubject, map, Subject, take, tap } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 import { MessageService } from 'ui';
 
@@ -10,6 +10,7 @@ import { IHabits } from '../../habit/models/habits.interface';
 import { User } from '../model/user';
 import { UserService } from '../services/user.service';
 import { UserEditAvatarModalComponent } from '../user-edit-avatar-modal/user-edit-avatar-modal.component';
+import { FileService } from '../../../services/file.service';
 
 @Component({
   selector: 'app-user',
@@ -27,16 +28,20 @@ export class UserComponent implements OnInit, OnDestroy {
     private readonly messageService: MessageService,
     private readonly translateService: TranslateService,
     public readonly habitService: HabitService,
-    private readonly userService: UserService
+    private readonly userService: UserService,
+    private readonly fileService: FileService
   ) {}
 
   ngOnInit() {
-    this.user$ = this.userService.user$
-    this.habitService.getGroup()
+    this.user$ = this.userService.user$;
+    this.getUserImage(this.user$?.value?.imageUrl);
+    this.habitService
+      .getGroup()
       .pipe(
         tap(() => this.loading.set(false)),
-        take(1))
-      .subscribe(habitGroup => this.habits = habitGroup);
+        take(1)
+      )
+      .subscribe((habitGroup) => (this.habits = habitGroup));
   }
 
   openEditModal(user: User) {
@@ -71,10 +76,29 @@ export class UserComponent implements OnInit, OnDestroy {
     reader.readAsDataURL(files[0]);
   }
 
-  removeImg() {
-    // this.userService.deleteImg(this.user.id).subscribe(() => {
-    //   this.messageService.success('Изображения успешно удалено');
-    // });
+  removeImg(imgName: string) {
+    this.userService
+      .deleteImg(imgName)
+      .pipe(take(1))
+      .subscribe(() => {
+        this.messageService.success('Изображения успешно удалено');
+      });
+  }
+
+  getUserImage(imgUrl?: string) {
+    if (!imgUrl) return;
+
+    // this.fileService.getFile(imgUrl)
+    //   .pipe(
+    //     map(file => {
+    //       // return this.fileService.convertFileToBase64(file);
+    //       return ""
+    //     }),
+    //     take(1)
+    //   ).subscribe(async url => {
+    //     const test = await url;
+    //     console.log(test);
+    // })
   }
 
   ngOnDestroy() {

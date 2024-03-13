@@ -27,10 +27,12 @@ export class UserService {
     return this.http.post('/api/User/image', formData);
   }
 
-  deleteImg(userId) {
-    return this.http
-      .delete<User>('/api/users/uploadImg/' + userId)
-      .pipe(map((res) => this.updateUserData(res)));
+  deleteImg(imgName: string) {
+    return this.http.delete('/api/User/Image', {
+      params: {
+        fileName: imgName,
+      },
+    });
   }
 
   checkEmailExist(email: string) {
