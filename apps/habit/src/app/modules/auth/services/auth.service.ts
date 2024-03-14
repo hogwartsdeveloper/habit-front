@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Router} from '@angular/router';
-import {catchError, of, switchMap, take} from 'rxjs';
+import {catchError, combineLatest, forkJoin, Observable, of, switchMap, take} from 'rxjs';
 import {MessageService} from 'ui';
 
 import {IAuth} from '../models/author.model';
@@ -9,6 +9,7 @@ import {CreateUser} from '../../user/model/user.interface';
 import {UserService} from '../../user/services/user.service';
 import {AuthApiService} from './auth-api.service';
 import {API_TOKEN} from "../constants/auth.constant";
+import {FileService} from "../../../services/file.service";
 
 @Injectable()
 export class AuthService {
@@ -18,7 +19,8 @@ export class AuthService {
     private readonly messageService: MessageService,
     private readonly router: Router,
     private readonly userService: UserService,
-    private readonly authApiService: AuthApiService
+    private readonly authApiService: AuthApiService,
+    private readonly fileService: FileService
   ) {}
 
   autoLogin() {
@@ -31,7 +33,7 @@ export class AuthService {
     this.clearIntervals();
     this.updateTokenInterval = setInterval(() => {
       this.authApiService
-        .updateToken()
+        .refreshToken()
         .pipe(
           switchMap((res) => this.catchToken(res)),
           catchError(() => {
@@ -87,17 +89,28 @@ export class AuthService {
 
     this.userService
       .getUser()
-      .pipe(take(1))
-      .subscribe(user => this.userService.user$.next(
-        new User(
-          user.email,
-          user.firstName,
-          user.lastName,
-          user.isEmailConfirmed,
-          token,
-          parseToken.exp,
-          user.birthDay,
-          user.imageUrl)));
+      .pipe(
+        switchMap(user => {
+          const newUser = new User(
+            user.email,
+            user.firstName,
+            user.lastName,
+            user.isEmailConfirmed,
+            token,
+            parseToken.exp,
+            user.birthDay,
+            user.imageUrl);
+
+          return of(newUser);
+        }),
+        take(1)
+      )
+      .subscribe((user) => {
+        this.userService.user$.next(user);
+
+        const exp = (user.tokenExpired * 1000) - Date.now();
+        this.autoUpdateToken(exp - 10000);
+      });
 
     this.router.navigate(['/change']);
   }

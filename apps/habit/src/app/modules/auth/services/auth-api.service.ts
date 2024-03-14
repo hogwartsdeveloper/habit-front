@@ -20,8 +20,8 @@ export class AuthApiService {
     return this.http.post<IAuth>('/api/Auth/SignUp', user);
   }
 
-  updateToken() {
-    return this.http.get<IAuth>('/api/auth/updateToken');
+  refreshToken() {
+    return this.http.get<IAuth>('/api/Auth/Refresh')
   }
 
   verifyEmail(verifyData: VerifyEmail) {
