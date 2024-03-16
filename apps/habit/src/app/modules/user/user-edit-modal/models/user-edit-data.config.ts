@@ -2,14 +2,14 @@ import { IInput } from 'ui';
 
 export const userInputConfigs: IInput[] = [
   {
-    title: 'user.fName',
+    title: 'Имя',
     required: true,
     type: 'text',
     placeholder: 'Zhannur',
     fName: 'firstName',
   },
   {
-    title: 'user.lName',
+    title: 'Фамилия',
     required: true,
     type: 'text',
     placeholder: 'Akhmetkhanov',

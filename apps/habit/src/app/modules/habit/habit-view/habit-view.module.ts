@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { HabitViewComponent } from './habit-view.component';
 import { NzTabsModule } from 'ng-zorro-antd/tabs';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
-import { TranslateModule } from '@ngx-translate/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { CommonModule } from '@angular/common';
@@ -17,7 +16,6 @@ import { ButtonComponent } from 'ui';
     ButtonComponent,
     NzTabsModule,
     NzDatePickerModule,
-    TranslateModule,
     MatIconModule,
     MatMenuModule,
     FormsModule,

@@ -1,6 +1,6 @@
 <lib-modal-base
         *ngIf="!loading(); else load"
-        [title]="(type === 'signIn' ? 'auth.signIn' : 'auth.signUp') | translate"
+        [title]="type === 'signIn' ? 'Войти' : 'Зарегистрироваться'"
 >
   <ng-container [formGroup]="form">
     <ng-container *ngIf="type === 'signUp'">
@@ -22,24 +22,24 @@
     </div>
 
     <lib-button [disabled]="form.invalid" (click)="sign(type)">{{
-      (type === 'signIn' ? 'auth.signIn' : 'auth.signUp') | translate
+        type === 'signIn' ? 'Войти' : 'Зарегистрироваться'
     }}</lib-button>
 
     <div class="text-xs text-center" [ngSwitch]="type">
       <ng-container *ngSwitchCase="'signIn'">
-        {{ 'auth.noHaveAcc' | translate }}?
+        У вас еще нет учетной записи?
         <span
           class="cursor-pointer font-semibold"
           (click)="openLogin('signUp')"
-          >{{ 'auth.registerFree' | translate }}</span
+          >Бесплатная регистрация</span
         >
       </ng-container>
       <ng-container *ngSwitchCase="'signUp'">
-        {{ 'auth.haveAcc' | translate }}?
+        У вас есть аккаунт?
         <span
           class="cursor-pointer font-semibold"
           (click)="openLogin('signIn')"
-          >{{ 'auth.signIn' | translate }}</span
+          >Войти</span
         >
       </ng-container>
     </div>

@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
-import { TranslateModule } from '@ngx-translate/core';
 import { ButtonComponent, LoadComponent, ModalBaseComponent } from 'ui';
 
 import { HabitRoutingModule } from './habit-routing.module';
@@ -19,7 +18,6 @@ import { HabitViewModule } from './habit-view/habit-view.module';
     NzToolTipModule,
     PickItemByStatusDirective,
     ButtonComponent,
-    TranslateModule,
     HabitViewModule,
     LoadComponent,
   ],

@@ -1,7 +1,6 @@
 import {Component, Inject, OnInit, signal} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import * as dayjs from 'dayjs';
-import {TranslateService} from '@ngx-translate/core';
 import {MessageService} from 'ui';
 import {take, tap} from "rxjs";
 
@@ -22,7 +21,6 @@ export class HabitModalComponent implements OnInit {
   constructor(
     private dialogRef: MatDialogRef<HabitModalComponent>,
     private messageService: MessageService,
-    private translateService: TranslateService,
     private habitService: HabitService,
     @Inject(MAT_DIALOG_DATA)
     public habit: IHabit
@@ -87,9 +85,7 @@ export class HabitModalComponent implements OnInit {
         take(1)
       )
       .subscribe(() => {
-        this.messageService.success(
-          this.translateService.instant('habit.message.successAddRecord')
-        );
+        this.messageService.success("Запись о выполнение привычки успешно добавлена");
         this.close();
       });
   }

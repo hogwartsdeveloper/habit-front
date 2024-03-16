@@ -1,30 +1,15 @@
-import { Component, Inject, OnInit, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import {
-  FormControl,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
+import {Component, Inject, OnInit, signal} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {FormControl, FormGroup, ReactiveFormsModule, Validators,} from '@angular/forms';
 import * as dayjs from 'dayjs';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { HabitService } from '../services/habit.service';
-import { IHabit } from '../models/habit.interface';
-import { habitInputConfigs } from './form.config';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
-import { take, tap } from 'rxjs';
-import {
-  ButtonComponent,
-  IInput,
-  InputModule,
-  LoadComponent,
-  MessageService,
-  ModalBaseComponent,
-} from 'ui';
-
-import { UserService } from '../../user/services/user.service';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
+import {HabitService} from '../services/habit.service';
+import {IHabit} from '../models/habit.interface';
+import {habitInputConfigs} from './form.config';
+import {NzDatePickerModule} from 'ng-zorro-antd/date-picker';
+import {take, tap} from 'rxjs';
+import {ButtonComponent, IInput, InputModule, LoadComponent, MessageService, ModalBaseComponent,} from 'ui';
 
 @Component({
   selector: 'app-habit-modal',
@@ -36,7 +21,6 @@ import { UserService } from '../../user/services/user.service';
     ButtonComponent,
     InputModule,
     ModalBaseComponent,
-    TranslateModule,
     NzDatePickerModule,
     LoadComponent,
   ],
@@ -52,9 +36,7 @@ export class HabitCreateModalComponent implements OnInit {
   constructor(
     private readonly dialogRef: MatDialogRef<HabitCreateModalComponent>,
     private readonly messageService: MessageService,
-    private readonly translateService: TranslateService,
     private readonly habitServices: HabitService,
-    private readonly userService: UserService,
     @Inject(MAT_DIALOG_DATA) private data: IHabit
   ) {
     this.type = this.data ? 'edit' : 'create';
@@ -93,10 +75,7 @@ export class HabitCreateModalComponent implements OnInit {
             take(1)
           )
           .subscribe((res) => {
-            this.messageService.success(
-              this.translateService.instant('habit.message.successCreate')
-            );
-
+            this.messageService.success("Привычка успешно создано");
             this.onClose(res);
           });
         break;
@@ -109,9 +88,7 @@ export class HabitCreateModalComponent implements OnInit {
             take(1)
           )
           .subscribe((res) => {
-            this.messageService.success(
-              this.translateService.instant('habit.message.successEdit')
-            );
+            this.messageService.success("Привычка успешно изменено");
 
             this.onClose(res);
           });

@@ -1,13 +1,12 @@
-import { Component, Inject, OnDestroy, OnInit, signal } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { Subject, take, takeUntil, tap } from 'rxjs';
-import { TranslateService } from '@ngx-translate/core';
-import { MessageService } from 'ui';
+import {Component, Inject, OnDestroy, OnInit, signal} from '@angular/core';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
+import {Subject, take, takeUntil, tap} from 'rxjs';
+import {MessageService} from 'ui';
 
-import { userInputConfigs } from './models/user-edit-data.config';
-import { UserService } from '../services/user.service';
-import { UpdateUser } from '../model/user.interface';
+import {userInputConfigs} from './models/user-edit-data.config';
+import {UserService} from '../services/user.service';
+import {UpdateUser} from '../model/user.interface';
 
 @Component({
   selector: 'app-user-edit',
@@ -25,7 +24,6 @@ export class UserEditModalComponent implements OnInit, OnDestroy {
     private readonly dialogRef: MatDialogRef<UserEditModalComponent>,
     private readonly userService: UserService,
     private readonly messageService: MessageService,
-    private readonly translateService: TranslateService,
     @Inject(MAT_DIALOG_DATA) public readonly data: UpdateUser & { id: string }
   ) {
     this.form = new FormGroup({
@@ -55,9 +53,7 @@ export class UserEditModalComponent implements OnInit, OnDestroy {
         take(1)
       )
       .subscribe(() => {
-        this.messageService.success(
-          this.translateService.instant('base.successEdit')
-        );
+        this.messageService.success("Данные успешно изменены");
         this.onClose();
       });
   }

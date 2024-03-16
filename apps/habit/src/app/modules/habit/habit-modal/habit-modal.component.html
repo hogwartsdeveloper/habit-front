@@ -24,15 +24,13 @@
 
 <ng-template #actives>
   <div class="flex justify-end gap-1.5 ml-auto mt-3">
-    <lib-button type="danger" (click)="close()">{{
-      'base.cancel' | translate
-    }}</lib-button>
+    <lib-button type="danger" (click)="close()">Редактировать</lib-button>
     <lib-button
       [disabled]="
         !selectedDay || selectedDay.isComplete == null || loading()
       "
       (click)="save()"
-      >{{ 'base.save' | translate }}</lib-button
+      >Сохранить</lib-button
     >
   </div>
 </ng-template>

@@ -1,13 +1,12 @@
-import { Component, Input } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { take } from 'rxjs';
-import { MessageService } from 'ui';
-import { TranslateService } from '@ngx-translate/core';
+import {Component, Input} from '@angular/core';
+import {MatDialog} from '@angular/material/dialog';
+import {take} from 'rxjs';
+import {MessageService} from 'ui';
 
-import { IHabit } from '../../models/habit.interface';
-import { HabitModalComponent } from '../../habit-modal/habit-modal.component';
-import { HabitCreateModalComponent } from '../../habit-create-modal/habit-create-modal.component';
-import { HabitService } from '../../services/habit.service';
+import {IHabit} from '../../models/habit.interface';
+import {HabitModalComponent} from '../../habit-modal/habit-modal.component';
+import {HabitCreateModalComponent} from '../../habit-create-modal/habit-create-modal.component';
+import {HabitService} from '../../services/habit.service';
 
 @Component({
   selector: 'app-habit-view-content',
@@ -21,7 +20,6 @@ export class HabitViewContentComponent {
   constructor(
     private dialog: MatDialog,
     private messageService: MessageService,
-    private translateService: TranslateService,
     private habitService: HabitService
   ) {}
 
@@ -79,9 +77,7 @@ export class HabitViewContentComponent {
       .pipe(take(1))
       .subscribe((habit) => {
         this.habits = this.habits.filter((item) => item.id !== habit.id);
-        this.messageService.success(
-          this.translateService.instant('habit.message.successRemove')
-        );
+        this.messageService.success("Привычка успешно удалено");
       });
   }
 }

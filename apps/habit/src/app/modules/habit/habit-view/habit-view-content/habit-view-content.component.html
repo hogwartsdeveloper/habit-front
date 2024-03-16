@@ -26,12 +26,12 @@
       <mat-menu #menu="matMenu">
         <button mat-menu-item (click)="onEdit(habit)">
           <mat-icon>edit</mat-icon>
-          <span>{{ 'base.edit' | translate }}</span>
+          <span>Редактировать</span>
         </button>
 
         <button mat-menu-item (click)="onDelete(habit.id)">
           <mat-icon>delete_outline</mat-icon>
-          <span>{{ 'base.rm' | translate }}</span>
+          <span>Удалить</span>
         </button>
       </mat-menu>
     </ng-container>
@@ -42,8 +42,6 @@
   *ngIf="!habits.length"
   class="flex-1 flex flex-col justify-center items-center text-white no-habit"
 >
-  <span>{{ 'habit.no' | translate }}</span>
-  <span *ngIf="viewType === 'interactive'">{{
-    'habit.addFirst' | translate
-  }}</span>
+  <span>Нет привычек</span>
+  <span *ngIf="viewType === 'interactive'">Добавьте свою первую привычку</span>
 </div>

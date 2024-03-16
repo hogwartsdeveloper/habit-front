@@ -1,7 +1,6 @@
 import {Component, OnDestroy, OnInit, signal} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {BehaviorSubject, Subject, take, tap} from 'rxjs';
-import {TranslateService} from '@ngx-translate/core';
 import {MessageService} from 'ui';
 
 import {HabitService} from '../../habit/services/habit.service';
@@ -27,7 +26,6 @@ export class UserComponent implements OnInit, OnDestroy {
   constructor(
     private readonly dialog: MatDialog,
     private readonly messageService: MessageService,
-    private readonly translateService: TranslateService,
     public readonly habitService: HabitService,
     private readonly userService: UserService,
     private readonly fileService: FileService

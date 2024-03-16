@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { TranslateModule } from '@ngx-translate/core';
 import {
   ButtonComponent,
   InputModule,
@@ -26,7 +25,6 @@ import { PasswordChangeComponent } from './password-change/password-change.compo
   ],
   imports: [
     CommonModule,
-    TranslateModule,
     ButtonComponent,
     ModalBaseComponent,
     ReactiveFormsModule,

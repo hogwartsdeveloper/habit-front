@@ -5,9 +5,7 @@
 </lib-modal-base>
 
 <ng-template #actives>
-  <lib-button type="danger" (click)="onClose()">{{
-    'base.cancel' | translate
-  }}</lib-button>
+  <lib-button type="danger" (click)="onClose()">Отмена</lib-button>
   <lib-button [disabled]="loading()" (click)="onSave()">Set new profile picture</lib-button>
 </ng-template>
 

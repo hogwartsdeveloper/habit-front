@@ -2,28 +2,28 @@ import { IInput } from 'ui';
 
 export const authInputConfigs: IInput[] = [
   {
-    title: 'user.fName',
+    title: 'Имя',
     required: true,
     placeholder: 'Zhannur',
     type: 'text',
     fName: 'firstName',
   },
   {
-    title: 'user.lName',
+    title: 'Фамилия',
     required: true,
     placeholder: 'Akhmetkhanov',
     type: 'text',
     fName: 'lastName',
   },
   {
-    title: 'user.email',
+    title: 'Почта',
     required: true,
     placeholder: 'username@gmail.com',
     type: 'email',
     fName: 'email',
   },
   {
-    title: 'user.password',
+    title: 'Пароль',
     required: true,
     placeholder: 'Password',
     type: 'password',

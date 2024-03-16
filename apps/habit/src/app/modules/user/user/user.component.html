@@ -19,8 +19,8 @@
         </lib-button>
         <nz-dropdown-menu #menu="nzDropdownMenu">
           <ul nz-menu>
-            <li nz-menu-item (click)="photoInput.click()">Upload a photo</li>
-            <li nz-menu-item (click)="removeImg(user?.imageUrl!)">Remove photo</li>
+            <li nz-menu-item (click)="photoInput.click()">Загрузить фото</li>
+            <li nz-menu-item (click)="removeImg(user?.imageUrl!)">Удалить фото</li>
           </ul>
         </nz-dropdown-menu>
         <input
@@ -33,9 +33,7 @@
 
       <h1 class="font-extrabold">{{ user.firstName + ' ' + user.lastName }}</h1>
 
-      <lib-button (click)="openEditModal(user)">{{
-        'user.edit' | translate
-      }}</lib-button>
+      <lib-button (click)="openEditModal(user)">Редактировать профиль</lib-button>
     </div>
     <div class="right">
       <app-habit-view [allHabits]="habits" [viewType]="'show'"></app-habit-view>

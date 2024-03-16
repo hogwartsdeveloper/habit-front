@@ -7,19 +7,13 @@
 
   <div class="space-x-4 flex">
     <ng-container *ngIf="user$ | async; else active">
-      <span class="flex items-center cursor-pointer" routerLink="/change">{{
-        'habit.habits' | translate
-      }}</span>
+      <span class="flex items-center cursor-pointer" routerLink="/change">Привычки</span>
       <app-dropdown-menu></app-dropdown-menu>
     </ng-container>
   </div>
 </nav>
 
 <ng-template #active>
-  <span (click)="openLogin()" class="cursor-pointer">{{
-    'auth.signIn' | translate
-  }}</span>
-  <span (click)="openLogin('signUp')" class="cursor-pointer">{{
-    'auth.signUp' | translate
-  }}</span>
+  <span (click)="openLogin()" class="cursor-pointer">Войти</span>
+  <span (click)="openLogin('signUp')" class="cursor-pointer">Зарегистрироваться</span>
 </ng-template>

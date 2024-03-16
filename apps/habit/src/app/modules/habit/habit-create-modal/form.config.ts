@@ -2,17 +2,17 @@ import { IInput } from 'ui';
 
 export const habitInputConfigs: IInput[] = [
   {
-    title: 'base.name',
+    title: 'Название',
     required: true,
     type: 'text',
-    placeholder: 'habit.name',
+    placeholder: 'Название',
     fName: 'title',
   },
   {
-    title: 'base.description',
+    title: 'Описание',
     required: false,
     type: 'text',
-    placeholder: 'habit.description',
+    placeholder: 'Описание',
     fName: 'description',
   },
 ];

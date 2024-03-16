@@ -19,28 +19,15 @@
         <div>{{ user.firstName + ' ' + user.lastName }}</div>
       </div>
       <lib-button routerLink="/user" class="mb-2" [view]="'border'"
-        >View Profile</lib-button
+        >Профиль</lib-button
       >
-      <hr />
-      <nz-select
-        class="my-2"
-        [(ngModel)]="selectedLang"
-        (ngModelChange)="selectLang($event)"
-        (nzOpenChange)="openedSelect = $event"
-      >
-        <nz-option
-          *ngFor="let lang of langs"
-          [nzValue]="lang.id"
-          [nzLabel]="lang.name"
-        ></nz-option>
-      </nz-select>
       <hr />
       <lib-button
         class="mt-2"
         type="danger"
         [view]="'border'"
         (click)="logout()"
-        >Logout</lib-button
+        >Выход</lib-button
       >
     </div>
   </div>

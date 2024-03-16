@@ -1,4 +1,4 @@
-<lib-modal-base [title]="'user.edit' | translate" [actives]="actives">
+<lib-modal-base [title]="'Редактировать профиль'" [actives]="actives">
   <ng-container *ngIf="!loading(); else load">
     <lib-input
             *ngFor="let config of userInputConfigs; let ind = index"
@@ -10,12 +10,8 @@
 </lib-modal-base>
 
 <ng-template #actives>
-  <lib-button type="danger" (click)="onClose()">{{
-    'base.cancel' | translate
-  }}</lib-button>
-  <lib-button [disabled]="form.invalid || !isEdit || loading()" (click)="onSave()">{{
-    'base.save' | translate
-  }}</lib-button>
+  <lib-button type="danger" (click)="onClose()">Отмена</lib-button>
+  <lib-button [disabled]="form.invalid || !isEdit || loading()" (click)="onSave()">Сохранить</lib-button>
 </ng-template>
 
 <ng-template #load>

@@ -1,17 +1,16 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
-import { AsyncPipe, NgIf } from '@angular/common';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { MatButtonModule } from '@angular/material/button';
-import { BehaviorSubject, Subject } from 'rxjs';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import {Component, OnDestroy} from '@angular/core';
+import {Router, RouterLink} from '@angular/router';
+import {AsyncPipe, NgIf} from '@angular/common';
+import {MatDialog, MatDialogModule} from '@angular/material/dialog';
+import {MatButtonModule} from '@angular/material/button';
+import {BehaviorSubject, Subject} from 'rxjs';
 
-import { AuthModalComponent } from '../auth/author-modal/auth-modal.component';
-import { AuthorType } from '../auth/models/author.model';
-import { ThreeSupportService } from '../../services/three-support.service';
-import { DropdownMenuComponent } from './dropdown-menu/dropdown-menu.component';
-import { User } from '../user/model/user';
-import { UserService } from '../user/services/user.service';
+import {AuthModalComponent} from '../auth/author-modal/auth-modal.component';
+import {AuthorType} from '../auth/models/author.model';
+import {ThreeSupportService} from '../../services/three-support.service';
+import {DropdownMenuComponent} from './dropdown-menu/dropdown-menu.component';
+import {User} from '../user/model/user';
+import {UserService} from '../user/services/user.service';
 
 @Component({
   selector: 'app-toolbar',
@@ -23,12 +22,11 @@ import { UserService } from '../user/services/user.service';
     MatButtonModule,
     NgIf,
     AsyncPipe,
-    TranslateModule,
     DropdownMenuComponent,
   ],
   standalone: true,
 })
-export class ToolbarComponent implements OnInit, OnDestroy {
+export class ToolbarComponent implements OnDestroy {
   user$: BehaviorSubject<User | null>;
   destroy$ = new Subject();
 
@@ -37,13 +35,8 @@ export class ToolbarComponent implements OnInit, OnDestroy {
     private readonly userService: UserService,
     private readonly router: Router,
     private readonly threeSupportService: ThreeSupportService,
-    private readonly translateService: TranslateService
   ) {
     this.user$ = this.userService.user$;
-  }
-
-  ngOnInit() {
-    this.translateService.use('en');
   }
 
   openLogin(type: AuthorType = 'signIn') {

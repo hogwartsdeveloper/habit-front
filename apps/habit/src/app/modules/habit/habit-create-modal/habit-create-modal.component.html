@@ -1,4 +1,4 @@
-<lib-modal-base [title]="'habit.create' | translate" [actives]="actives">
+<lib-modal-base [title]="'Создать привычку'" [actives]="actives">
   <ng-container *ngIf="!loading(); else load" [formGroup]="form">
     <lib-input [config]="inputConfigs[0]" [form]="form"></lib-input>
     <lib-input
@@ -7,29 +7,22 @@
       [form]="form"
     ></lib-input>
 
-<!--    <div class="flex items-center my-3">-->
-<!--      <span>{{ 'base.hide' | translate }}</span>-->
-<!--      <mat-checkbox formControlName="isHide"></mat-checkbox>-->
-<!--    </div>-->
-
     <div class="flex flex-col">
-      <span>{{ 'date.start' | translate }}</span>
+      <span>Дата начала</span>
       <nz-date-picker formControlName="startDate"></nz-date-picker>
     </div>
 
     <div class="flex flex-col my-3">
-      <span>{{ 'date.end' | translate }}</span>
+      <span>Дата окончания</span>
       <nz-date-picker formControlName="endDate"></nz-date-picker>
     </div>
   </ng-container>
 </lib-modal-base>
 
 <ng-template #actives>
-  <lib-button type="danger" (click)="onClose()">{{
-    'base.cancel' | translate
-  }}</lib-button>
+  <lib-button type="danger" (click)="onClose()">Отмена</lib-button>
   <lib-button [disabled]="form.invalid || loading()" (click)="onSubmit()">{{
-    (type === 'create' ? 'base.create' : 'base.edit') | translate
+    type === 'create' ? 'Создать' : 'Редактировать'
   }}</lib-button>
 </ng-template>
 

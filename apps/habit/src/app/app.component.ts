@@ -14,7 +14,6 @@ import { NavigationEnd, Router } from '@angular/router';
 import Stats from 'three/examples/jsm/libs/stats.module';
 import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader';
 
-import { TranslateService } from '@ngx-translate/core';
 import { CharacterControls } from './utils/character-control/characterControls';
 import { ThreeSupportService } from './services/three-support.service';
 import {
@@ -81,14 +80,12 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   constructor(
-    private translateService: TranslateService,
     private threeSupportService: ThreeSupportService,
     private readonly authService: AuthService,
     private readonly router: Router
   ) {}
 
   ngOnInit() {
-    this.translateService.use('en');
     this.init();
     this.createLight();
     this.createSky(this.canvas.nativeElement);
