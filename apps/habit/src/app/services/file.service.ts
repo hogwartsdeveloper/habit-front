@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 
 @Injectable()
@@ -28,6 +28,8 @@ export class FileService {
   }
 
   getFile(url: string) {
-    return this.httpClient.get<File>('/api/File?filePath=' + url)
+    return this.httpClient.get('/api/File?filePath=' + url, {
+      responseType: "blob",
+    });
   }
 }

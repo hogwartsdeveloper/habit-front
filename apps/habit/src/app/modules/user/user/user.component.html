@@ -4,7 +4,7 @@
       <div class="avatar">
         <lib-avatar
           [text]="user.firstName[0] + ' ' + user.lastName[0]"
-          [src]="user.imageUrl ?? ''"
+          [src]="userImgBase64"
           [size]="207"
         ></lib-avatar>
         <lib-button
