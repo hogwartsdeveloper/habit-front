@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Router} from '@angular/router';
-import {catchError, combineLatest, forkJoin, Observable, of, switchMap, take} from 'rxjs';
+import {catchError, of, switchMap, take} from 'rxjs';
 import {MessageService} from 'ui';
 
 import {IAuth} from '../models/author.model';
@@ -9,7 +9,6 @@ import {CreateUser} from '../../user/model/user.interface';
 import {UserService} from '../../user/services/user.service';
 import {AuthApiService} from './auth-api.service';
 import {API_TOKEN} from "../constants/auth.constant";
-import {FileService} from "../../../services/file.service";
 
 @Injectable()
 export class AuthService {
@@ -19,8 +18,7 @@ export class AuthService {
     private readonly messageService: MessageService,
     private readonly router: Router,
     private readonly userService: UserService,
-    private readonly authApiService: AuthApiService,
-    private readonly fileService: FileService
+    private readonly authApiService: AuthApiService
   ) {}
 
   autoLogin() {
@@ -117,7 +115,7 @@ export class AuthService {
 
   logout() {
     this.userService.user$.next(null);
-    localStorage.removeItem('user');
+    localStorage.removeItem(API_TOKEN);
     this.router.navigate(['/']);
     this.clearIntervals();
   }
