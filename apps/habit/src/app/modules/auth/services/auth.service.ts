@@ -9,6 +9,7 @@ import { CreateUser } from '../../user/model/user.interface';
 import { UserService } from '../../user/services/user.service';
 import { AuthApiService } from './auth-api.service';
 import { API_TOKEN } from '../constants/auth.constant';
+import { LAST_URL } from '../../../constants/app.constant';
 
 @Injectable()
 export class AuthService {
@@ -108,9 +109,8 @@ export class AuthService {
 
         const exp = user.tokenExpired * 1000 - Date.now();
         this.autoUpdateToken(exp - 10000);
+        this.lastRoute();
       });
-
-    this.router.navigate(['/change']);
   }
 
   logout() {
@@ -138,5 +138,14 @@ export class AuthService {
 
   clearIntervals() {
     clearInterval(this.updateTokenInterval);
+  }
+
+  lastRoute() {
+    const url = localStorage.getItem(LAST_URL);
+    if (url) {
+      this.router.navigate([url]);
+      return;
+    }
+    this.router.navigate(['/change']);
   }
 }

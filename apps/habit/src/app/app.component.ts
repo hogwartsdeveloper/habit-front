@@ -26,6 +26,7 @@ import {
 } from './utils/another-code/promo';
 import { IntroThreeSceneService } from './services/intro-three-scene.service';
 import { AuthService } from './modules/auth/services/auth.service';
+import { LAST_URL } from './constants/app.constant';
 
 @Component({
   selector: 'app-root',
@@ -103,6 +104,7 @@ export class AppComponent implements OnInit, OnDestroy {
           this.stopAnimation = false;
           return;
         }
+        localStorage.setItem(LAST_URL, event.url);
         this.stopAnimation = true;
       });
 
