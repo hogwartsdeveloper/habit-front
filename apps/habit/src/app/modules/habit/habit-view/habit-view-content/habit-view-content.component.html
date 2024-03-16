@@ -13,7 +13,7 @@
   </div>
 
   <div class="flex items-center gap-2.5">
-    <div>{{ countTotalDay(habit) }}</div>
+    <div>{{ countTotalDay(habit) + ' / ' + habit.countComplete }}</div>
 
     <ng-container *ngIf="viewType === 'interactive'">
       <button

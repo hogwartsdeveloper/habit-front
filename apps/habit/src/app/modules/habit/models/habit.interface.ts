@@ -6,6 +6,7 @@ export interface IHabit {
   startDate: string;
   endDate: string;
   records: IHabitRecord[];
+  countComplete: number;
 }
 
 export interface IHabitRecord {
