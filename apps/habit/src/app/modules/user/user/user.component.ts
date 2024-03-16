@@ -1,15 +1,15 @@
-import {Component, OnDestroy, OnInit, signal} from '@angular/core';
-import {MatDialog} from '@angular/material/dialog';
-import {BehaviorSubject, Subject, take, tap} from 'rxjs';
-import {MessageService} from 'ui';
+import { Component, OnDestroy, OnInit, signal } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { BehaviorSubject, Subject, take, tap } from 'rxjs';
+import { MessageService } from 'ui';
 
-import {HabitService} from '../../habit/services/habit.service';
-import {UserEditModalComponent} from '../user-edit-modal/user-edit-modal.component';
-import {IHabits} from '../../habit/models/habits.interface';
-import {User} from '../model/user';
-import {UserService} from '../services/user.service';
-import {UserEditAvatarModalComponent} from '../user-edit-avatar-modal/user-edit-avatar-modal.component';
-import {FileService} from '../../../services/file.service';
+import { HabitService } from '../../habit/services/habit.service';
+import { UserEditModalComponent } from '../user-edit-modal/user-edit-modal.component';
+import { IHabits } from '../../habit/models/habits.interface';
+import { User } from '../model/user';
+import { UserService } from '../services/user.service';
+import { UserEditAvatarModalComponent } from '../user-edit-avatar-modal/user-edit-avatar-modal.component';
+import { FileService } from '../../../services/file.service';
 
 @Component({
   selector: 'app-user',
@@ -20,7 +20,7 @@ export class UserComponent implements OnInit, OnDestroy {
   user$: BehaviorSubject<User | null>;
   habits: IHabits;
   destroy$ = new Subject();
-  userImgBase64: string = "";
+  userImgBase64: string = '';
   loading = signal(true);
 
   constructor(
@@ -87,10 +87,10 @@ export class UserComponent implements OnInit, OnDestroy {
   getUserImage(imgUrl?: string) {
     if (!imgUrl) return;
 
-    this.fileService.getFile(imgUrl)
+    this.fileService
+      .getFile(imgUrl)
       .pipe(take(1))
-      .subscribe(async blob => {
-        const file = new File([blob], imgUrl);
+      .subscribe(async (file) => {
         this.userImgBase64 = await this.fileService.convertFileToBase64(file);
       });
   }

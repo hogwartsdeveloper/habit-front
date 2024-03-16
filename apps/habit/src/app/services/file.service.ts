@@ -1,10 +1,10 @@
-import {Injectable} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs';
 
 @Injectable()
 export class FileService {
-  constructor(private readonly httpClient: HttpClient) {
-  }
+  constructor(private readonly httpClient: HttpClient) {}
   async convertBase64toFile(
     base64: string,
     fileName: string,
@@ -21,15 +21,21 @@ export class FileService {
       const reader = new FileReader();
       reader.onload = (event) => {
         resolve(event.target!.result as string);
-      }
+      };
 
       reader.readAsDataURL(file);
-    })
+    });
   }
 
   getFile(url: string) {
-    return this.httpClient.get('/api/File?filePath=' + url, {
-      responseType: "blob",
-    });
+    return this.httpClient
+      .get('/api/File?filePath=' + url, {
+        responseType: 'blob',
+      })
+      .pipe(
+        map((blob) => {
+          return new File([blob], url);
+        })
+      );
   }
 }

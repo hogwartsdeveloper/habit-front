@@ -1,14 +1,14 @@
-import {Injectable} from '@angular/core';
-import {Router} from '@angular/router';
-import {catchError, of, switchMap, take} from 'rxjs';
-import {MessageService} from 'ui';
+import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { catchError, of, switchMap, take } from 'rxjs';
+import { MessageService } from 'ui';
 
-import {IAuth} from '../models/author.model';
-import {User} from '../../user/model/user';
-import {CreateUser} from '../../user/model/user.interface';
-import {UserService} from '../../user/services/user.service';
-import {AuthApiService} from './auth-api.service';
-import {API_TOKEN} from "../constants/auth.constant";
+import { IAuth } from '../models/author.model';
+import { User } from '../../user/model/user';
+import { CreateUser } from '../../user/model/user.interface';
+import { UserService } from '../../user/services/user.service';
+import { AuthApiService } from './auth-api.service';
+import { API_TOKEN } from '../constants/auth.constant';
 
 @Injectable()
 export class AuthService {
@@ -81,14 +81,13 @@ export class AuthService {
 
   login(token: string) {
     const parseToken = this.parseJWT(token);
-    console.log(parseToken);
 
     localStorage.setItem(API_TOKEN, token);
 
     this.userService
       .getUser()
       .pipe(
-        switchMap(user => {
+        switchMap((user) => {
           const newUser = new User(
             user.email,
             user.firstName,
@@ -97,7 +96,8 @@ export class AuthService {
             token,
             parseToken.exp,
             user.birthDay,
-            user.imageUrl);
+            user.imageUrl
+          );
 
           return of(newUser);
         }),
@@ -106,7 +106,7 @@ export class AuthService {
       .subscribe((user) => {
         this.userService.user$.next(user);
 
-        const exp = (user.tokenExpired * 1000) - Date.now();
+        const exp = user.tokenExpired * 1000 - Date.now();
         this.autoUpdateToken(exp - 10000);
       });
 
