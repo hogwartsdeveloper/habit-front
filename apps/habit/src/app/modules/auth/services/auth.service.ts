@@ -34,7 +34,12 @@ export class AuthService {
       this.authApiService
         .refreshToken()
         .pipe(
-          switchMap((res) => this.catchToken(res)),
+          switchMap(res => {
+            if (res.result) {
+              return this.catchToken(res.result)
+            }
+            return of(null);
+          }),
           catchError(() => {
             this.logout();
             return of(null);
@@ -88,23 +93,31 @@ export class AuthService {
     this.userService
       .getUser()
       .pipe(
-        switchMap((user) => {
-          const newUser = new User(
-            user.email,
-            user.firstName,
-            user.lastName,
-            user.isEmailConfirmed,
-            token,
-            parseToken.exp,
-            user.birthDay,
-            user.imageUrl
-          );
+        switchMap((res) => {
+          if (res.result) {
+            const user = res.result;
 
-          return of(newUser);
+            const newUser = new User(
+              user.email,
+              user.firstName,
+              user.lastName,
+              user.isEmailConfirmed,
+              token,
+              parseToken.exp,
+              user.birthDay,
+              user.imageUrl
+            );
+
+            return of(newUser);
+          }
+
+          return of(null);
         }),
         take(1)
       )
       .subscribe((user) => {
+        if (!user) return;
+
         this.userService.user$.next(user);
 
         const exp = user.tokenExpired * 1000 - Date.now();

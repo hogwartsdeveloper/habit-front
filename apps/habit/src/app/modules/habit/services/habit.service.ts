@@ -4,6 +4,7 @@ import * as dayjs from 'dayjs';
 
 import {IHabit, IHabitCreate, IHabitRecord} from '../models/habit.interface';
 import { IHabits } from '../models/habits.interface';
+import {IApiResult} from "../../../shared/models/api-result";
 
 @Injectable()
 export class HabitService {
@@ -14,22 +15,22 @@ export class HabitService {
   }
 
   add(habit: IHabitCreate) {
-    return this.http.post<IHabit>('/api/Habit', habit);
+    return this.http.post<IApiResult<IHabit>>('/api/Habit', habit);
   }
 
   addRecord(id: string, record: IHabitRecord) {
-    return this.http.patch("/api/Habit/AddRecord/" + id, [record]);
+    return this.http.patch<IApiResult<null>>("/api/Habit/AddRecord/" + id, [record]);
   }
 
   update(id: string, habit: IHabitCreate) {
-    return this.http.put<IHabit>('/api/Habit/' + id, habit);
+    return this.http.put<IApiResult<IHabit>>('/api/Habit/' + id, habit);
   }
 
   delete(id: string) {
-    return this.http.delete<IHabit>('/api/Habit/' + id);
+    return this.http.delete<IApiResult<IHabit>>('/api/Habit/' + id);
   }
 
   getGroup() {
-    return this.http.get<IHabits>('/api/Habit/Group');
+    return this.http.get<IApiResult<IHabits>>('/api/Habit/Group');
   }
 }

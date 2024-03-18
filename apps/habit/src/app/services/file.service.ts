@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs';
+import {IApiResult} from "../shared/models/api-result";
 
 @Injectable()
 export class FileService {
@@ -29,12 +30,14 @@ export class FileService {
 
   getFile(url: string) {
     return this.httpClient
-      .get('/api/File?filePath=' + url, {
-        responseType: 'blob',
-      })
+      .get<IApiResult<Blob>>('/api/File?filePath=' + url)
       .pipe(
-        map((blob) => {
-          return new File([blob], url);
+        map((res) => {
+          if (res.result) {
+            return new File([res.result], url);
+          }
+          
+          return null;
         })
       );
   }

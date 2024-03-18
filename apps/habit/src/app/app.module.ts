@@ -1,6 +1,6 @@
 import {registerLocaleData} from '@angular/common';
 import en from '@angular/common/locales/en';
-import {ErrorHandler, NgModule} from '@angular/core';
+import {ErrorHandler, LOCALE_ID, NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {HTTP_INTERCEPTORS, HttpClientModule,} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -20,6 +20,7 @@ import {AuthGuard} from './guard/auth.guard';
 import {CatchErrorHandler} from './handler/catch-error.handler';
 import {UserService} from './modules/user/services/user.service';
 import {FileService} from "./services/file.service";
+import {en_GB, provideNzI18n, ru_RU} from "ng-zorro-antd/i18n";
 
 registerLocaleData(en);
 
@@ -39,6 +40,7 @@ registerLocaleData(en);
   providers: [
     ThreeSupportService,
     { provide: MAT_DATE_LOCALE, useValue: 'en-GB' },
+    { provide: LOCALE_ID, useValue: 'en-GB'},
     AuthService,
     UserService,
     AuthGuard,
@@ -46,7 +48,8 @@ registerLocaleData(en);
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: ErrorHandler, useClass: CatchErrorHandler },
     MessageService,
-    FileService
+    FileService,
+    provideNzI18n(en_GB)
   ],
   bootstrap: [AppComponent],
 })

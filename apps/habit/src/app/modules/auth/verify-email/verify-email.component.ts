@@ -2,7 +2,7 @@ import { Component, DestroyRef, inject, OnInit, signal } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ActivatedRoute } from '@angular/router';
-import { switchMap, take, tap } from 'rxjs';
+import {of, switchMap, take, tap} from 'rxjs';
 import { IInput, MessageService } from 'ui';
 
 import { AuthApiService } from '../services/auth-api.service';
@@ -73,7 +73,12 @@ export class VerifyEmailComponent implements OnInit {
     this.authApiService
       .verifyEmail(verifyData)
       .pipe(
-        switchMap((res) => this.authService.catchToken(res)),
+        switchMap(res => {
+          if (res.result) {
+            return this.authService.catchToken(res.result)
+          }
+          return of(null);
+        }),
         tap(() => this.loading.set(false)),
         take(1)
       )

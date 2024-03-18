@@ -40,7 +40,11 @@ export class UserComponent implements OnInit, OnDestroy {
         tap(() => this.loading.set(false)),
         take(1)
       )
-      .subscribe((habitGroup) => (this.habits = habitGroup));
+      .subscribe((res) => {
+        if (!res.result) return;
+
+        this.habits = res.result;
+      });
   }
 
   openEditModal(user: User) {
@@ -91,6 +95,7 @@ export class UserComponent implements OnInit, OnDestroy {
       .getFile(imgUrl)
       .pipe(take(1))
       .subscribe(async (file) => {
+        if (!file) return;
         this.userImgBase64 = await this.fileService.convertFileToBase64(file);
       });
   }

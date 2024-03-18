@@ -24,8 +24,10 @@ export class HabitComponent implements OnInit {
         tap(() => this.loading.set(false)),
         take(1)
       )
-      .subscribe((habits) => {
-        this.habits = habits;
+      .subscribe((res) => {
+        if (!res.result) return;
+
+        this.habits = res.result;
       });
   }
 }

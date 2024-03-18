@@ -76,7 +76,7 @@ export class HabitCreateModalComponent implements OnInit {
           )
           .subscribe((res) => {
             this.messageService.success("Привычка успешно создано");
-            this.onClose(res);
+            this.onClose(res.result);
           });
         break;
 
@@ -90,7 +90,7 @@ export class HabitCreateModalComponent implements OnInit {
           .subscribe((res) => {
             this.messageService.success("Привычка успешно изменено");
 
-            this.onClose(res);
+            this.onClose(res.result);
           });
         break;
     }

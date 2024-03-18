@@ -1,20 +1,15 @@
-import { Component, Inject, OnInit, signal } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import {
-  MAT_DIALOG_DATA,
-  MatDialog,
-  MatDialogRef,
-} from '@angular/material/dialog';
-import { Router } from '@angular/router';
-import { switchMap, take, tap } from 'rxjs';
+import {Component, Inject, OnInit, signal} from '@angular/core';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {MAT_DIALOG_DATA, MatDialog, MatDialogRef,} from '@angular/material/dialog';
+import {Router} from '@angular/router';
+import {of, switchMap, take, tap} from 'rxjs';
 
-import { AuthorType } from '../models/author.model';
-import { ThreeSupportService } from '../../../services/three-support.service';
-import { authInputConfigs } from './form.config';
-import { AuthApiService } from '../services/auth-api.service';
-import { AuthService } from '../services/auth.service';
-import { emailNotExistValidator } from '../../../utils/validators/email-not-exist.validator';
-import { IInput } from 'ui';
+import {AuthorType} from '../models/author.model';
+import {ThreeSupportService} from '../../../services/three-support.service';
+import {authInputConfigs} from './form.config';
+import {AuthApiService} from '../services/auth-api.service';
+import {AuthService} from '../services/auth.service';
+import {IInput} from 'ui';
 
 @Component({
   selector: 'app-author-modal',
@@ -80,7 +75,12 @@ export class AuthModalComponent implements OnInit {
         this.authApiService
           .registration(user)
           .pipe(
-            switchMap(res => this.authService.catchToken(res)),
+            switchMap(res => {
+              if (res.result) {
+                return this.authService.catchToken(res.result)
+              }
+              return of(null);
+            }),
             tap(() => {
               this.loading.set(false);
             }),
@@ -96,7 +96,12 @@ export class AuthModalComponent implements OnInit {
         this.authApiService
           .authorization(user)
           .pipe(
-            switchMap((res) => this.authService.catchToken(res)),
+            switchMap(res => {
+              if (res.result) {
+                return this.authService.catchToken(res.result)
+              }
+              return of(null);
+            }),
             tap(() => {
               this.loading.set(false);
             }),
