@@ -17,6 +17,7 @@
           <span nz-icon nzType="edit" nzTheme="outline"></span>
           Редактировать
         </lib-button>
+
         <nz-dropdown-menu #menu="nzDropdownMenu">
           <ul nz-menu>
             <li nz-menu-item (click)="photoInput.click()">Загрузить фото</li>
@@ -32,6 +33,15 @@
       </div>
 
       <h1 class="font-extrabold">{{ user.firstName + ' ' + user.lastName }}</h1>
+
+      <lib-button
+              *ngIf="!user.isEmailConfirmed"
+              routerLink="/auth/verifyEmail"
+              [type]="'insta'"
+              [view]="'border'"
+              [customStyle]="'white'">
+        <span [ngStyle]="{ color: 'white' }">Подвердить почту</span>
+      </lib-button>
 
       <lib-button (click)="openEditModal(user)">Редактировать профиль</lib-button>
     </div>
