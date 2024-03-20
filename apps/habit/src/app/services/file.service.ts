@@ -30,14 +30,12 @@ export class FileService {
 
   getFile(url: string) {
     return this.httpClient
-      .get<IApiResult<Blob>>('/api/File?filePath=' + url)
+      .get('/api/File?filePath=' + url, {
+        responseType: 'blob',
+      })
       .pipe(
         map((res) => {
-          if (res.result) {
-            return new File([res.result], url);
-          }
-          
-          return null;
+          return new File([res], url);
         })
       );
   }
