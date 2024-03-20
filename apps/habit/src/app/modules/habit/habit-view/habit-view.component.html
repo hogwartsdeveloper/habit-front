@@ -4,7 +4,7 @@
       <lib-button
         *ngIf="viewType === 'interactive'"
         style="width: 170px"
-        [animation]="!habits.length ? 'pulse' : ''"
+        [animation]="!allHabits.active.length ? 'pulse' : ''"
         (click)="addHabit()"
       >Добавить привычку
       </lib-button>

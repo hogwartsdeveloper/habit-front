@@ -5,9 +5,12 @@ import * as dayjs from 'dayjs';
 import {IHabit, IHabitCreate, IHabitRecord} from '../models/habit.interface';
 import { IHabits } from '../models/habits.interface';
 import {IApiResult} from "../../../shared/models/api-result";
+import {Subject} from "rxjs";
 
 @Injectable()
 export class HabitService {
+  change$ = new Subject();
+  
   constructor(private readonly http: HttpClient) {}
 
   countTotalDay(habit: IHabit) {

@@ -78,6 +78,7 @@ export class HabitViewContentComponent {
       .subscribe((res) => {
         const habit = res.result;
         this.habits = this.habits.filter((item) => item.id !== habit?.id);
+        this.habitService.change$.next(null);
         this.messageService.success("Привычка успешно удалено");
       });
   }

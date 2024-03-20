@@ -1,12 +1,12 @@
-import { Component, Input } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import {Component, Input} from '@angular/core';
+import {MatDialog} from '@angular/material/dialog';
 import * as dayjs from 'dayjs';
 
-import { HabitViewEnum } from '../habit/models/habit-view.enum';
-import { IHabit } from '../models/habit.interface';
-import { ICalendar } from '../habit/models/calendar.interface';
-import { HabitCreateModalComponent } from '../habit-create-modal/habit-create-modal.component';
-import { IHabits } from '../models/habits.interface';
+import {HabitViewEnum} from '../habit/models/habit-view.enum';
+import {ICalendar} from '../habit/models/calendar.interface';
+import {HabitCreateModalComponent} from '../habit-create-modal/habit-create-modal.component';
+import {IHabits} from '../models/habits.interface';
+import {HabitService} from "../services/habit.service";
 
 @Component({
   selector: 'app-habit-view',
@@ -16,7 +16,6 @@ import { IHabits } from '../models/habits.interface';
 export class HabitViewComponent {
   @Input() viewType: 'interactive' | 'show' = 'interactive';
   @Input({ required: true }) allHabits: IHabits;
-  habits: IHabit[] = [];
   type: HabitViewEnum = HabitViewEnum.Active;
 
   calendar: ICalendar = {
@@ -24,7 +23,7 @@ export class HabitViewComponent {
     endDate: dayjs().format('YYYY-MM-DD'),
   };
 
-  constructor(private dialog: MatDialog) {}
+  constructor(private dialog: MatDialog, private readonly habitService: HabitService) {}
 
   addHabit() {
     this.dialog
@@ -39,7 +38,7 @@ export class HabitViewComponent {
         if (!res) {
           return;
         }
-        this.allHabits.active.push(res);
+        this.habitService.change$.next(null);
       });
   }
 
