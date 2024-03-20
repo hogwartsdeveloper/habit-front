@@ -88,6 +88,8 @@ export class AuthModalComponent implements OnInit {
           )
           .subscribe((res) => {
             if (res) {
+              sessionStorage.setItem('verifyEmail', user.email);
+              this.authService.checkRegistration("Подтвердите почту, код может находится в спам.");
               this.dialogRef.close();
             }
           });

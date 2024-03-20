@@ -1,15 +1,14 @@
-import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
-import { catchError, of, switchMap, take } from 'rxjs';
-import { MessageService } from 'ui';
+import {Injectable} from '@angular/core';
+import {Router} from '@angular/router';
+import {catchError, of, switchMap, take} from 'rxjs';
+import {MessageService} from 'ui';
 
-import { IAuth } from '../models/author.model';
-import { User } from '../../user/model/user';
-import { CreateUser } from '../../user/model/user.interface';
-import { UserService } from '../../user/services/user.service';
-import { AuthApiService } from './auth-api.service';
-import { API_TOKEN } from '../constants/auth.constant';
-import { LAST_URL } from '../../../constants/app.constant';
+import {IAuth} from '../models/author.model';
+import {User} from '../../user/model/user';
+import {UserService} from '../../user/services/user.service';
+import {AuthApiService} from './auth-api.service';
+import {API_TOKEN} from '../constants/auth.constant';
+import {LAST_URL} from '../../../constants/app.constant';
 
 @Injectable()
 export class AuthService {
@@ -63,11 +62,9 @@ export class AuthService {
     return of(null);
   }
 
-  checkRegistration(user: CreateUser, msg: string) {
-    sessionStorage.setItem('verifyEmail', JSON.stringify(user));
+  checkRegistration(msg: string) {
     this.router
       .navigate(['/auth/verifyEmail'], {
-        queryParams: { email: user.email },
         replaceUrl: true,
       })
       .then(() => {
@@ -79,7 +76,6 @@ export class AuthService {
     const verify = sessionStorage.getItem('verifyEmail');
     if (verify) {
       this.checkRegistration(
-        JSON.parse(verify),
         'Завершите подтверждение email'
       );
     }

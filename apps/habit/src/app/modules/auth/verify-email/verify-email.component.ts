@@ -1,13 +1,13 @@
-import { Component, DestroyRef, inject, OnInit, signal } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { ActivatedRoute } from '@angular/router';
-import {of, switchMap, take, tap} from 'rxjs';
-import { IInput, MessageService } from 'ui';
+import {Component, DestroyRef, inject, OnInit, signal} from '@angular/core';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
+import {Router} from '@angular/router';
+import {take, tap} from 'rxjs';
+import {IInput, MessageService} from 'ui';
 
-import { AuthApiService } from '../services/auth-api.service';
-import { AuthService } from '../services/auth.service';
-import { VerifyEmail } from '../../user/model/user.interface';
+import {AuthApiService} from '../services/auth-api.service';
+import {VerifyEmail} from '../../user/model/user.interface';
+import {UserService} from "../../user/services/user.service";
 
 @Component({
   selector: 'app-verify-email',
@@ -38,26 +38,26 @@ export class VerifyEmailComponent implements OnInit {
   destroyRef = inject(DestroyRef);
 
   constructor(
-    private readonly route: ActivatedRoute,
+    private readonly router: Router,
     private readonly authApiService: AuthApiService,
-    private readonly authService: AuthService,
+    private readonly userService: UserService,
     private readonly messageService: MessageService
   ) {}
 
   ngOnInit() {
-    this.route.queryParamMap
+    this.userService.user$
       .pipe(takeUntilDestroyed(this.destroyRef))
-      .subscribe((map) => {
-        if (map.has('email')) {
-          this.email.set(map.get('email')!);
+      .subscribe(user => {
+        if (user) {
+          this.email.set(user?.email);
         }
-      });
+      })
 
     this.formCode?.valueChanges
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe((value) => {
         if (value.length === 4) {
-          this.verifyEmail({ ...JSON.parse(this.userData!), code: +value });
+          this.verifyEmail({ email: this.email(), code: value });
         }
       });
 
@@ -73,19 +73,14 @@ export class VerifyEmailComponent implements OnInit {
     this.authApiService
       .verifyEmail(verifyData)
       .pipe(
-        switchMap(res => {
-          if (res.result) {
-            return this.authService.catchToken(res.result)
-          }
-          return of(null);
-        }),
         tap(() => this.loading.set(false)),
         take(1)
       )
       .subscribe((res) => {
-        if (res) {
-          this.messageService.success('Вы зарегистрировались');
+        if (res.isSuccess) {
+          this.messageService.success('Вы подтвердили почту!');
           sessionStorage.removeItem('verifyEmail');
+          this.router.navigate(['/change']);
         }
       });
   }

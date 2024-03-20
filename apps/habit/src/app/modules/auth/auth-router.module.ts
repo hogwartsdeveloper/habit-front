@@ -11,7 +11,7 @@ const routes: Routes = [
   {
     path: 'verifyEmail',
     component: VerifyEmailComponent,
-    // canActivate: [verifyEmailGuard],
+    canActivate: [verifyEmailGuard],
   },
   { path: 'password_reset', component: PasswordResetComponent },
   {

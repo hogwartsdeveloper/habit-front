@@ -26,7 +26,7 @@ export class AuthApiService {
   }
 
   verifyEmail(verifyData: VerifyEmail) {
-    return this.http.post<IApiResult<IAuth>>('/api/auth/verify/email', verifyData);
+    return this.http.post<IApiResult<IAuth>>('/api/Auth/ConfirmEmail', verifyData);
   }
 
   verifyEmailTryAgain(user: CreateUser) {
