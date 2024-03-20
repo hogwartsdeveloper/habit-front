@@ -87,10 +87,12 @@ export class VerifyEmailComponent implements OnInit {
 
   tryAgain() {
     this.authApiService
-      .verifyEmailTryAgain({ ...JSON.parse(this.userData!) })
+      .verifyEmailTryAgain(this.email())
       .pipe(take(1))
       .subscribe((res) => {
-        this.messageService.success(res.result);
+        if (res.isSuccess) {
+          this.messageService.success("Вам в почту повторно отправлено код!")
+        }
       });
   }
 }

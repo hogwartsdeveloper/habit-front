@@ -29,11 +29,10 @@ export class AuthApiService {
     return this.http.post<IApiResult<IAuth>>('/api/Auth/ConfirmEmail', verifyData);
   }
 
-  verifyEmailTryAgain(user: CreateUser) {
-    return this.http.post<{ result: string }>(
-      '/api/auth/verify/tryAgain',
-      user
-    );
+  verifyEmailTryAgain(email: string) {
+    return this.http.post<IApiResult<null>>('/api/Auth/RequestForVerifyEmail', {
+      email,
+    });
   }
 
   passwordRecovery(email: string) {
