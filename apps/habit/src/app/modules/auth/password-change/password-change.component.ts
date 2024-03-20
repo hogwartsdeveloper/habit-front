@@ -16,13 +16,19 @@ import { AuthService } from '../services/auth.service';
 export class PasswordChangeComponent implements OnInit {
   configs = signal<IInput[]>([
     {
-      title: 'Password',
+      title: 'Введите код',
+      required: true,
+      type: 'code',
+      fName: 'code'
+    },
+    {
+      title: 'Пароль',
       required: true,
       type: 'password',
       fName: 'password',
     },
     {
-      title: 'Confirm password',
+      title: 'Подтверждения пароля',
       required: true,
       type: 'password',
       fName: 'confirmPassword',
@@ -33,28 +39,27 @@ export class PasswordChangeComponent implements OnInit {
     new FormGroup({
       password: new FormControl(null, [Validators.required]),
       confirmPassword: new FormControl(null, [Validators.required]),
+      code: new FormControl(null, [
+        Validators.required,
+        Validators.maxLength(4),
+      ]),
     })
   );
-  email = signal<string>('jannuraidynuly@gmail.com');
+  email = signal<string>("");
   isPasswordCoincide = signal<boolean>(false);
   loading = signal<boolean>(true);
-  token: string;
   destroyRef = inject(DestroyRef);
 
   constructor(
     private readonly route: ActivatedRoute,
     private readonly router: Router,
-    private readonly authService: AuthService,
     private readonly authApiService: AuthApiService,
     private readonly messageService: MessageService
   ) {}
 
   ngOnInit() {
-    this.token = this.route.snapshot.paramMap.get('token')!;
-    const payload = this.authService.parseJWT(this.token);
-    if (payload?.email) {
-      this.email.set(payload?.email);
-    }
+    const email = this.route.snapshot.paramMap.get('email')!;
+    this.email.set(email);
 
     this.form()
       .valueChanges.pipe(
@@ -71,8 +76,13 @@ export class PasswordChangeComponent implements OnInit {
 
   save() {
     this.loading.set(true);
+    const code = this.form().get('code')?.value;
+    console.log(code)
+    const password = this.form().get('password')?.value;
+    const confirmPassword = this.form().get('confirmPassword')?.value
+
     this.authApiService
-      .passwordChange(this.token, this.form().get('password')?.value)
+      .passwordChange(this.email(), code, password, confirmPassword)
       .pipe(
         tap(() => this.loading.set(false)),
         take(1)
@@ -80,6 +90,7 @@ export class PasswordChangeComponent implements OnInit {
       .subscribe(() => {
         this.messageService.success('Password changed!');
         this.router.navigate(['/']);
+        sessionStorage.removeItem('lastUrl');
       });
   }
 }

@@ -37,7 +37,7 @@ export class AuthApiService {
   }
 
   passwordRecovery(email: string) {
-    return this.http.post<{ result: string }>('/api/auth/password/recovery', {
+    return this.http.post<IApiResult<null>>('/api/Auth/RequestForRecoveryPassword', {
       email,
     });
   }
@@ -46,10 +46,10 @@ export class AuthApiService {
     return this.http.get('/api/auth/password/check/' + token);
   }
 
-  passwordChange(token: string, password: string) {
-    return this.http.post<{ result: string }>(
-      '/api/auth/password/change/' + token,
-      { password }
+  passwordChange(email: string, code: string, password: string, confirmPassword: string) {
+    return this.http.post<IApiResult<null>>(
+      '/api/Auth/RecoveryPassword',
+      { email, code, password, confirmPassword }
     );
   }
 }

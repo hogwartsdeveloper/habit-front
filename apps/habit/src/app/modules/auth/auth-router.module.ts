@@ -13,11 +13,11 @@ const routes: Routes = [
     component: VerifyEmailComponent,
     canActivate: [verifyEmailGuard],
   },
-  { path: 'password_reset', component: PasswordResetComponent },
+  { path: 'password_reset',
+    component: PasswordResetComponent },
   {
-    path: 'password_change/:token',
+    path: 'password_change/:email',
     component: PasswordChangeComponent,
-    canActivate: [passwordChangeGuard],
   },
 ];
 

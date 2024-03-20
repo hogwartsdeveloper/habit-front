@@ -16,7 +16,7 @@ import {UserService} from "../../user/services/user.service";
 })
 export class VerifyEmailComponent implements OnInit {
   config = signal<IInput>({
-    title: 'Enter code',
+    title: 'Введите код',
     required: true,
     type: 'code',
     fName: 'code',
