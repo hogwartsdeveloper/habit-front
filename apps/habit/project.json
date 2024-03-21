@@ -16,7 +16,9 @@
         "outputPath": "dist/apps/habit/browser",
         "index": "apps/habit/src/index.html",
         "main": "apps/habit/src/main.ts",
-        "polyfills": ["zone.js"],
+        "polyfills": [
+          "zone.js"
+        ],
         "tsConfig": "apps/habit/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
@@ -50,7 +52,13 @@
               "maximumError": "4kb"
             }
           ],
-          "outputHashing": "all"
+          "outputHashing": "all",
+          "fileReplacements": [
+            {
+              "replace": "apps/habit/src/environments/environment.ts",
+              "with": "apps/habit/src/environments/environment.production.ts"
+            }
+          ]
         },
         "development": {
           "buildOptimizer": false,
@@ -84,10 +92,16 @@
     "test": {
       "executor": "@angular-devkit/build-angular:karma",
       "options": {
-        "polyfills": ["zone.js", "zone.js/testing"],
+        "polyfills": [
+          "zone.js",
+          "zone.js/testing"
+        ],
         "tsConfig": "apps/habit/tsconfig.spec.json",
         "inlineStyleLanguage": "scss",
-        "assets": ["apps/habit/src/favicon.ico", "apps/habit/src/assets"],
+        "assets": [
+          "apps/habit/src/favicon.ico",
+          "apps/habit/src/assets"
+        ],
         "styles": [
           "./node_modules/ng-zorro-antd/ng-zorro-antd.min.css",
           "apps/habit/src/app/shared/styles/ant.scss",
@@ -114,7 +128,13 @@
           "optimization": false,
           "sourceMap": true,
           "extractLicenses": false,
-          "vendorChunk": true
+          "vendorChunk": true,
+          "fileReplacements": [
+            {
+              "replace": "apps/habit/src/environments/environment.ts",
+              "with": "apps/habit/src/environments/environment.development.ts"
+            }
+          ]
         }
       },
       "defaultConfiguration": "production"

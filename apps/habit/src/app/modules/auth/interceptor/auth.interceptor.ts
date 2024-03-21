@@ -1,18 +1,15 @@
-import {
-  HttpHandler,
-  HttpHeaders,
-  HttpInterceptor,
-  HttpRequest,
-} from '@angular/common/http';
-import { Injectable } from '@angular/core';
-
-import { UserService } from '../../user/services/user.service';
+import {HttpHandler, HttpHeaders, HttpInterceptor, HttpRequest,} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {environment} from "../../../../environments/environment";
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
-  constructor(private readonly userService: UserService) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
+    req = req.clone({
+      url: environment.apiUrl + req.url
+    });
+
     const token = localStorage.getItem("api-token");
     if (token) {
       const modifiedReq = req.clone({
