@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
-import { IInput } from 'ui';
+import { IInput } from './types/input.interface';
 
 @Component({
   selector: 'lib-input',
