@@ -27,6 +27,7 @@ import {
 import { IntroThreeSceneService } from './services/intro-three-scene.service';
 import { AuthService } from './modules/auth/services/auth.service';
 import { LAST_URL } from './constants/app.constant';
+import {environment} from "../environments/environment";
 
 @Component({
   selector: 'app-root',
@@ -474,7 +475,9 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   addStats() {
-    document.body.appendChild(this.stats.dom);
+    if (!environment.production) {
+      document.body.appendChild(this.stats.dom);
+    }
   }
 
   updateCameraPosition() {
