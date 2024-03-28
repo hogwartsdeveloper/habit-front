@@ -37,7 +37,11 @@
       <lib-button (click)="openEditModal(user)">Редактировать профиль</lib-button>
     </div>
     <div class="right">
-      <app-habit-view [allHabits]="habits" [viewType]="'show'"></app-habit-view>
+      <app-habit-view
+        [activeHabits]="habits.active"
+        [overdueHabits]="habits.overdue"
+        [viewType]="'show'"
+      ></app-habit-view>
     </div>
   </ng-container>
 </div>

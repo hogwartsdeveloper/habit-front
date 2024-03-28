@@ -1,4 +1,7 @@
 <app-toolbar class="relative w-full"></app-toolbar>
-<lib-keyboard *ngIf="!stopAnimation"></lib-keyboard>
+<lib-keyboard
+  *ngIf="!stopAnimation"
+  class="md:block hidden"
+></lib-keyboard>
 <canvas #main></canvas>
 <router-outlet></router-outlet>

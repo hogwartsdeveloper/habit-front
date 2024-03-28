@@ -5,17 +5,18 @@ import * as dayjs from 'dayjs';
 import {HabitViewEnum} from '../habit/models/habit-view.enum';
 import {ICalendar} from '../habit/models/calendar.interface';
 import {HabitCreateModalComponent} from '../habit-create-modal/habit-create-modal.component';
-import {IHabits} from '../models/habits.interface';
 import {HabitService} from "../services/habit.service";
+import {IHabit} from "../models/habit.interface";
 
 @Component({
   selector: 'app-habit-view',
   templateUrl: './habit-view.component.html',
-  styleUrls: ['./habit-view.component.scss'],
+  styleUrls: ['./habit-view.component.scss']
 })
 export class HabitViewComponent {
   @Input() viewType: 'interactive' | 'show' = 'interactive';
-  @Input({ required: true }) allHabits: IHabits;
+  @Input({ required: true }) activeHabits: IHabit[];
+  @Input({ required: true }) overdueHabits: IHabit[];
   type: HabitViewEnum = HabitViewEnum.Active;
 
   calendar: ICalendar = {
@@ -23,7 +24,10 @@ export class HabitViewComponent {
     endDate: dayjs().format('YYYY-MM-DD'),
   };
 
-  constructor(private dialog: MatDialog, private readonly habitService: HabitService) {}
+  constructor(
+    private dialog: MatDialog,
+    private readonly habitService: HabitService,
+  ) {}
 
   addHabit() {
     this.dialog

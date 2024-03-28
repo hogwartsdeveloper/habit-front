@@ -11,7 +11,7 @@ import {HabitService} from '../../services/habit.service';
 @Component({
   selector: 'app-habit-view-content',
   templateUrl: './habit-view-content.component.html',
-  styleUrls: ['./habit-view-content.component.scss'],
+  styleUrls: ['./habit-view-content.component.scss']
 })
 export class HabitViewContentComponent {
   @Input({ required: true }) habits: IHabit[] = [];
@@ -20,7 +20,7 @@ export class HabitViewContentComponent {
   constructor(
     private dialog: MatDialog,
     private messageService: MessageService,
-    private habitService: HabitService
+    private habitService: HabitService,
   ) {}
 
   openHabitModal(habit: IHabit) {
@@ -59,15 +59,8 @@ export class HabitViewContentComponent {
         data: habit,
       })
       .afterClosed()
-      .subscribe((habit: IHabit) => {
-        if (!habit) {
-          return;
-        }
-
-        const findIndex = this.habits.findIndex(
-          (item) => item.id === habit.id
-        );
-        this.habits[findIndex] = habit;
+      .subscribe(() => {
+        this.habitService.change$.next(null);
       });
   }
 
@@ -75,9 +68,7 @@ export class HabitViewContentComponent {
     this.habitService
       .delete(id)
       .pipe(take(1))
-      .subscribe((res) => {
-        const habit = res.result;
-        this.habits = this.habits.filter((item) => item.id !== habit?.id);
+      .subscribe(() => {
         this.habitService.change$.next(null);
         this.messageService.success("Привычка успешно удалено");
       });

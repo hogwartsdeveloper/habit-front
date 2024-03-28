@@ -1,5 +1,9 @@
 <div class="page-box flex flex-col max-w-6xl mx-auto px-4">
-  <app-habit-view *ngIf="!loading(); else load" [allHabits]="habits"></app-habit-view>
+  <app-habit-view
+    *ngIf="!loading(); else load"
+    [activeHabits]="activeHabits"
+    [overdueHabits]="overdueHabits"
+  ></app-habit-view>
 </div>
 
 <ng-template #load>

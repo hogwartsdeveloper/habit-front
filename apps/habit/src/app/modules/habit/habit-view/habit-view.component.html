@@ -4,13 +4,13 @@
       <lib-button
         *ngIf="viewType === 'interactive'"
         style="width: 170px"
-        [animation]="!allHabits.active.length ? 'pulse' : ''"
+        [animation]="!activeHabits.length ? 'pulse' : ''"
         (click)="addHabit()"
       >Добавить привычку
       </lib-button>
     </div>
     <app-habit-view-content
-      [habits]="allHabits.active"
+      [habits]="activeHabits"
       [viewType]="viewType"
     ></app-habit-view-content>
   </nz-tab>
@@ -23,7 +23,7 @@
     </div>
 
     <app-habit-view-content
-      [habits]="allHabits.overdue"
+      [habits]="overdueHabits"
       [viewType]="'show'"
     ></app-habit-view-content>
   </nz-tab>

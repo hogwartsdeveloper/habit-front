@@ -8,18 +8,20 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HabitViewContentComponent } from './habit-view-content/habit-view-content.component';
 import { ButtonComponent } from 'ui';
+import {MatButtonModule} from "@angular/material/button";
 
 @NgModule({
   declarations: [HabitViewComponent, HabitViewContentComponent],
-  imports: [
-    CommonModule,
-    ButtonComponent,
-    NzTabsModule,
-    NzDatePickerModule,
-    MatIconModule,
-    MatMenuModule,
-    FormsModule,
-  ],
+    imports: [
+        CommonModule,
+        ButtonComponent,
+        NzTabsModule,
+        NzDatePickerModule,
+        MatIconModule,
+        MatMenuModule,
+        FormsModule,
+        MatButtonModule,
+    ],
   exports: [HabitViewComponent],
 })
 export class HabitViewModule {}
