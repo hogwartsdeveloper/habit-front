@@ -52,9 +52,10 @@ export class UserEditAvatarModalComponent implements AfterViewInit, OnDestroy {
       .getCroppedCanvas()
       .toDataURL('image/png');
 
+    const fileName = (this.userService.user$.value?.email ?? '') + '.png';
     const file = await this.fileService.convertBase64toFile(
       croppedImgURL,
-      (this.userService.user$.value?.email ?? '') + '.png',
+      fileName,
       'image/png'
     );
 
@@ -65,7 +66,12 @@ export class UserEditAvatarModalComponent implements AfterViewInit, OnDestroy {
         take(1)
       )
       .subscribe(() => {
-        this.messageService.success('Image uploaded!');
+        const user = this.userService.user$.value;
+        if (user) {
+          user.imageUrl = 'user/' + fileName;
+          this.userService.user$.next(user);
+        }
+        this.messageService.success('Изображение загружено!');
         this.onClose();
       });
   }

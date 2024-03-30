@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit, signal } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { BehaviorSubject, Subject, take, tap } from 'rxjs';
+import {BehaviorSubject, Subject, take, takeUntil, tap} from 'rxjs';
 import { MessageService } from 'ui';
 
 import { HabitService } from '../../habit/services/habit.service';
@@ -33,7 +33,12 @@ export class UserComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.user$ = this.userService.user$;
-    this.getUserImage(this.user$?.value?.imageUrl);
+    this.user$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(user => {
+        this.getUserImage(user?.imageUrl);
+      });
+    
     this.habitService
       .getGroup()
       .pipe(
