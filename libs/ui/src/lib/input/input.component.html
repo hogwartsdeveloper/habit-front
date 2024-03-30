@@ -9,13 +9,18 @@
             [form]="form"
             [config]="config"
     ></lib-input-code>
+
     <input
             *ngSwitchDefault
             class="rounded-md text-sm"
+            autocomplete="{{config.type == 'password' ? 'current-password' : 'on'}}"
+            [id]="config.fName"
             [type]="config.type"
+            [name]="config.type"
             [placeholder]="config.placeholder ?? ''"
             [formControlName]="config.fName"
     />
+
     <ng-container *ngIf="form.get(config.fName)?.touched">
         <span
                 class="error-message"

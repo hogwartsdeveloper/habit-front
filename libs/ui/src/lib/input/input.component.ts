@@ -11,10 +11,4 @@ import { IInput } from './types/input.interface';
 export class InputComponent {
   @Input({ required: true }) config: IInput;
   @Input({ required: true }) form: FormGroup;
-
-  ngOnInit() {
-    this.form.valueChanges.subscribe((value) => {
-      console.log(this.form);
-    });
-  }
 }
