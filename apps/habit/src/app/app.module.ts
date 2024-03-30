@@ -21,22 +21,24 @@ import {CatchErrorHandler} from './handler/catch-error.handler';
 import {UserService} from './modules/user/services/user.service';
 import {FileService} from "./services/file.service";
 import {en_GB, provideNzI18n, ru_RU} from "ng-zorro-antd/i18n";
+import {FooterComponent} from "./modules/footer/footer.component";
 
 registerLocaleData(en);
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ToolbarComponent,
-    BrowserAnimationsModule,
-    MatNativeDateModule,
-    MatDatepickerModule,
-    HttpClientModule,
-    AuthModule,
-    KeyboardComponent,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        ToolbarComponent,
+        BrowserAnimationsModule,
+        MatNativeDateModule,
+        MatDatepickerModule,
+        HttpClientModule,
+        AuthModule,
+        KeyboardComponent,
+        FooterComponent,
+    ],
   providers: [
     ThreeSupportService,
     { provide: MAT_DATE_LOCALE, useValue: 'en-GB' },
