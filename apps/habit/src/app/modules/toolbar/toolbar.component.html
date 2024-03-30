@@ -1,19 +1,55 @@
-<nav
-  class="mx-auto max-w-6xl h-16 flex justify-between items-center text-white px-4 xl:px-0"
->
-  <h1 class="text-4xl font-bold cursor-pointer" (click)="goToMainPage()">
-    Habit
-  </h1>
+<nav class="text-white absolute w-full">
+  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+    <h1 class="text-4xl font-bold cursor-pointer rtl:space-x-reverse" (click)="goToMainPage()">
+      Habit
+    </h1>
+    <button
+      data-collapse-toggle="navbar-solid-bg"
+      type="button"
+      class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden focus:outline-none focus:ring-2 focus:ring-gray-200"
+      aria-controls="navbar-solid-bg"
+      aria-expanded="false"
+      (click)="menuList.classList.contains('hidden') ? menuList.classList.remove('hidden') : menuList.classList.add('hidden')"
+    >
+      <span class="sr-only">Open main menu</span>
+      <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+        <path stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+      </svg>
+    </button>
 
-  <div class="space-x-4 flex">
-    <ng-container *ngIf="user$ | async; else active">
-      <span class="flex items-center cursor-pointer" routerLink="/change">Привычки</span>
-      <app-dropdown-menu></app-dropdown-menu>
-    </ng-container>
+    <div #menuList class="hidden w-full md:block md:w-auto" id="navbar-solid-bg">
+      <ul class="
+        flex flex-col mt-4 rounded-lg text-center menu-bg md:!bg-transparent md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0"
+          (click)="menuList.classList.contains('hidden') ? menuList.classList.remove('hidden') : menuList.classList.add('hidden')"
+      >
+        <ng-container *ngIf="user$ | async; else active">
+          <li class="block py-2 px-3 hover:text-sky-300 md:hover:text-white md:p-0 rounded md:border-0 cursor-pointer" routerLink="/change">
+            Привычки
+          </li>
+
+          <li class="hidden py-2 px-3 md:block md:p-0 rounded md:border-0">
+            <app-dropdown-menu></app-dropdown-menu>
+          </li>
+
+          <li class="block py-2 px-3 hover:text-sky-300 md:hover:text-white md:hidden md:p-0 rounded md:border-0 cursor-pointer" routerLink="/user">
+            Профиль
+          </li>
+
+          <li class="block py-2 px-3 hover:text-sky-300 md:hover:text-white md:hidden md:p-0 rounded md:border-0 cursor-pointer" (click)="logout()">
+            Выход
+          </li>
+        </ng-container>
+      </ul>
+    </div>
   </div>
 </nav>
 
+
 <ng-template #active>
-  <span (click)="openLogin()" class="cursor-pointer">Войти</span>
-  <span (click)="openLogin('signUp')" class="cursor-pointer">Зарегистрироваться</span>
+  <li class="block py-2 px-3 hover:text-sky-300 md:hover:text-white md:p-0 rounded md:border-0 cursor-pointer" (click)="openLogin()">
+    Войти
+  </li>
+  <li class="block py-2 px-3 hover:text-sky-300 md:hover:text-white md:p-0 rounded md:border-0 cursor-pointer" (click)="openLogin('signUp')">
+    Зарегистрироваться
+  </li>
 </ng-template>

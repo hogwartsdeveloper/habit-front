@@ -11,6 +11,7 @@ import {ThreeSupportService} from '../../services/three-support.service';
 import {DropdownMenuComponent} from './dropdown-menu/dropdown-menu.component';
 import {User} from '../user/model/user';
 import {UserService} from '../user/services/user.service';
+import {AuthService} from "../auth/services/auth.service";
 
 @Component({
   selector: 'app-toolbar',
@@ -35,6 +36,7 @@ export class ToolbarComponent implements OnDestroy {
     private readonly userService: UserService,
     private readonly router: Router,
     private readonly threeSupportService: ThreeSupportService,
+    private readonly authService: AuthService,
   ) {
     this.user$ = this.userService.user$;
   }
@@ -55,6 +57,10 @@ export class ToolbarComponent implements OnDestroy {
 
   goToMainPage() {
     this.router.navigate(['/']);
+  }
+
+  logout() {
+    this.authService.logout();
   }
 
   ngOnDestroy() {
