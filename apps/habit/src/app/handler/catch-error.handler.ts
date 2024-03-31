@@ -17,5 +17,6 @@ export class CatchErrorHandler implements ErrorHandler {
     }
 
     this.messageService.error(errorResponse.message);
+    console.error(errorResponse.message);
   }
 }

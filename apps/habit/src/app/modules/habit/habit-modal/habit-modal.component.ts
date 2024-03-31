@@ -36,10 +36,12 @@ export class HabitModalComponent implements OnInit {
     const endDate = dayjs(this.habit.endDate);
 
     const days = dayjs(endDate).diff(startDate, "day");
-    const startWeekDay = startDate.day();
+    const startWeekDay = startDate.day() - 1 < 0
+      ? 6
+      : startDate.day() - 1;
     const endWeekDay = endDate.day();
 
-    this.days.unshift(...Array(startWeekDay - 1));
+    this.days.unshift(...Array(startWeekDay));
 
     for (let i = 0; i < days; i++) {
       const day = startDate.add(i, 'day').format("YYYY-MM-DDT00:00:00");
