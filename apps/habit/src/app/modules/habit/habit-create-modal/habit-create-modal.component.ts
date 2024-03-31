@@ -65,11 +65,13 @@ export class HabitCreateModalComponent implements OnInit {
 
   onSubmit() {
     this.loading.set(true);
-
+    const startDate = dayjs(this.form.get('startDate')?.value).format("YYYY-MM-DD")
+    const endDate = dayjs(this.form.get('endDate')?.value).format("YYYY-MM-DD")
+    const habit = {...this.form.getRawValue(), startDate, endDate};
     switch (this.type) {
       case 'create':
         this.habitServices
-          .add(this.form.getRawValue())
+          .add(habit)
           .pipe(
             tap(() => this.loading.set(false)),
             take(1)
@@ -82,7 +84,7 @@ export class HabitCreateModalComponent implements OnInit {
 
       case 'edit':
         this.habitServices
-          .update(this.data.id, this.form.getRawValue())
+          .update(this.data.id, habit)
           .pipe(
             tap(() => this.loading.set(false)),
             take(1)
