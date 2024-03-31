@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { HabitViewContentComponent } from './habit-view-content/habit-view-content.component';
 import { ButtonComponent } from 'ui';
 import {MatButtonModule} from "@angular/material/button";
+import {NzIconModule} from "ng-zorro-antd/icon";
 
 @NgModule({
   declarations: [HabitViewComponent, HabitViewContentComponent],
@@ -21,6 +22,7 @@ import {MatButtonModule} from "@angular/material/button";
         MatMenuModule,
         FormsModule,
         MatButtonModule,
+        NzIconModule,
     ],
   exports: [HabitViewComponent],
 })
